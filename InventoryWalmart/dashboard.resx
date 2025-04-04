@@ -118,16 +118,6 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="btnPromociones.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABkAAAAZCAYAAADE6YVjAAAABGdBTUEAALGPC/xhBQAAAPRJREFUSEvN
-        lQEOwyAIRXu03mxH69FYMGLwIVqbLtlLGheFTyngjuPfEJFTRD7cfw0Vl56TNlvYG9fngrhHz8xuL8OF
-        cAp1ptB5g4taQ55mYVAvMCiusRWYuo0kQJc+D13RA96vQSOl7rfZgOBozxPrQwvFnRWHGlBZBVDiHNGi
-        0vW+zUX9PQuQfq6suH4obwVQqF+YBDEYQFe7GQLUL9AIMECrka2wV+I1QwsHAygm7psj4PXNaJi2uwS7
-        PfOpKzNRn9hdykBshg/g6xnng9xogCnUS6HjBussDHrehTpLan1sCDOe/zOOQFPk3fMGr7zxL/gClbPo
-        N/H9+7cAAAAASUVORK5CYII=
-</value>
-  </data>
   <data name="btnMaximizar.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAYAAAD0eNT6AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
@@ -769,6 +759,16 @@
         z9rJ/7Z49HLxZ/1i8s/+TvvvKv7O9t+dnN5+LROvqdV+jRrYy75+IiIiIiIiIiIiIiIiIiIiIiIiIiIi
         IiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIi
         IiIiIiIiIiIiIiIiIiIiopn0/wCji3YbOVYSLgAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <data name="btnPromociones.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABkAAAAZCAYAAADE6YVjAAAABGdBTUEAALGPC/xhBQAAAPRJREFUSEvN
+        lQEOwyAIRXu03mxH69FYMGLwIVqbLtlLGheFTyngjuPfEJFTRD7cfw0Vl56TNlvYG9fngrhHz8xuL8OF
+        cAp1ptB5g4taQ55mYVAvMCiusRWYuo0kQJc+D13RA96vQSOl7rfZgOBozxPrQwvFnRWHGlBZBVDiHNGi
+        0vW+zUX9PQuQfq6suH4obwVQqF+YBDEYQFe7GQLUL9AIMECrka2wV+I1QwsHAygm7psj4PXNaJi2uwS7
+        PfOpKzNRn9hdykBshg/g6xnng9xogCnUS6HjBussDHrehTpLan1sCDOe/zOOQFPk3fMGr7zxL/gClbPo
+        N/H9+7cAAAAASUVORK5CYII=
 </value>
   </data>
 </root>

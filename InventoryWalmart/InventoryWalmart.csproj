@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="dashboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="dashboard.Designer.cs">
+      <DependentUpon>dashboard.cs</DependentUpon>
+    </Compile>
     <Compile Include="login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -54,6 +60,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="dashboard.resx">
+      <DependentUpon>dashboard.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="login.resx">
       <DependentUpon>login.cs</DependentUpon>
     </EmbeddedResource>
@@ -94,6 +103,39 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\cerrar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logoInicio.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logoPromocion.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tanteo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logoPromociones.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CanjesIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\UsuariosIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\EmpleadosIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ReportesIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\RenvolsosIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DashboardIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ProductosIcon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

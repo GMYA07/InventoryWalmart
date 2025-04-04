@@ -86,5 +86,12 @@ namespace InventoryWalmart
         {
             this.WindowState = FormWindowState.Minimized;
         }
+
+        private void btnLogin_Click(object sender, EventArgs e)
+        {
+            dashboard formDash = new dashboard();
+            this.Hide();
+            formDash.Show();
+        }
     }
 }

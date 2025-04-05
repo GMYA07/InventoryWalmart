@@ -28,17 +28,37 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(viewDiscount));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.barAcciones = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.inputBuscar = new System.Windows.Forms.TextBox();
+            this.tableBenefitsRewards = new System.Windows.Forms.DataGridView();
+            this.columnID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnCantidadDescuento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnDescriptionDiscount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnTypeDiscount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnStatu = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnAccion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label2 = new System.Windows.Forms.Label();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnPrecioProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnPrecioDescuentoApli = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnIdDescuento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.btnModificar = new System.Windows.Forms.Button();
             this.btnAplicarBene = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
@@ -56,38 +76,18 @@
             this.btnMaximizar = new System.Windows.Forms.PictureBox();
             this.btnCerrar = new System.Windows.Forms.PictureBox();
             this.btnRestaurar = new System.Windows.Forms.PictureBox();
-            this.tableBenefitsRewards = new System.Windows.Forms.DataGridView();
-            this.columnID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnCantidadDescuento = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnDescriptionDiscount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnTypeDiscount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnStatu = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnAccion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label2 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnPrecioProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnPrecioDescuentoApli = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnIdDescuento = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.button3 = new System.Windows.Forms.Button();
-            this.panel4 = new System.Windows.Forms.Panel();
             this.barAcciones.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tableBenefitsRewards)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.logo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnOcultar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMaximizar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnRestaurar)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tableBenefitsRewards)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.panel4.SuspendLayout();
             this.SuspendLayout();
             // 
             // barAcciones
@@ -159,6 +159,240 @@
             this.inputBuscar.Size = new System.Drawing.Size(370, 32);
             this.inputBuscar.TabIndex = 6;
             // 
+            // tableBenefitsRewards
+            // 
+            this.tableBenefitsRewards.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.tableBenefitsRewards.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.tableBenefitsRewards.BackgroundColor = System.Drawing.Color.White;
+            this.tableBenefitsRewards.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tableBenefitsRewards.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(113)))), ((int)(((byte)(207)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.tableBenefitsRewards.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            this.tableBenefitsRewards.ColumnHeadersHeight = 70;
+            this.tableBenefitsRewards.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.tableBenefitsRewards.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.columnID,
+            this.ColumnCantidadDescuento,
+            this.ColumnDescriptionDiscount,
+            this.ColumnTypeDiscount,
+            this.ColumnStatu,
+            this.ColumnAccion});
+            this.tableBenefitsRewards.EnableHeadersVisualStyles = false;
+            this.tableBenefitsRewards.Location = new System.Drawing.Point(459, 267);
+            this.tableBenefitsRewards.Name = "tableBenefitsRewards";
+            this.tableBenefitsRewards.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(113)))), ((int)(((byte)(207)))));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.tableBenefitsRewards.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            this.tableBenefitsRewards.RowHeadersVisible = false;
+            this.tableBenefitsRewards.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.tableBenefitsRewards.Size = new System.Drawing.Size(631, 108);
+            this.tableBenefitsRewards.TabIndex = 12;
+            // 
+            // columnID
+            // 
+            this.columnID.HeaderText = "ID";
+            this.columnID.Name = "columnID";
+            this.columnID.Width = 46;
+            // 
+            // ColumnCantidadDescuento
+            // 
+            this.ColumnCantidadDescuento.HeaderText = "Cantidad Descuento";
+            this.ColumnCantidadDescuento.Name = "ColumnCantidadDescuento";
+            this.ColumnCantidadDescuento.Width = 142;
+            // 
+            // ColumnDescriptionDiscount
+            // 
+            this.ColumnDescriptionDiscount.HeaderText = "Descripcion Descuento";
+            this.ColumnDescriptionDiscount.Name = "ColumnDescriptionDiscount";
+            this.ColumnDescriptionDiscount.Width = 158;
+            // 
+            // ColumnTypeDiscount
+            // 
+            this.ColumnTypeDiscount.HeaderText = "Tipo Descuento";
+            this.ColumnTypeDiscount.Name = "ColumnTypeDiscount";
+            this.ColumnTypeDiscount.Width = 118;
+            // 
+            // ColumnStatu
+            // 
+            this.ColumnStatu.HeaderText = "Estado";
+            this.ColumnStatu.Name = "ColumnStatu";
+            this.ColumnStatu.Width = 73;
+            // 
+            // ColumnAccion
+            // 
+            this.ColumnAccion.HeaderText = "Accion";
+            this.ColumnAccion.Name = "ColumnAccion";
+            this.ColumnAccion.Width = 73;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(294, 453);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(264, 30);
+            this.label2.TabIndex = 13;
+            this.label2.Text = "Productos con Descuento";
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
+            this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dataGridView1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(113)))), ((int)(((byte)(207)))));
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            this.dataGridView1.ColumnHeadersHeight = 70;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn1,
+            this.ColumnProducto,
+            this.ColumnPrecioProducto,
+            this.ColumnPrecioDescuentoApli,
+            this.ColumnIdDescuento,
+            this.dataGridViewTextBoxColumn6});
+            this.dataGridView1.EnableHeadersVisualStyles = false;
+            this.dataGridView1.Location = new System.Drawing.Point(299, 518);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(113)))), ((int)(((byte)(207)))));
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            this.dataGridView1.RowHeadersVisible = false;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView1.Size = new System.Drawing.Size(658, 132);
+            this.dataGridView1.TabIndex = 14;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.HeaderText = "ID";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.Width = 46;
+            // 
+            // ColumnProducto
+            // 
+            this.ColumnProducto.HeaderText = "Producto";
+            this.ColumnProducto.Name = "ColumnProducto";
+            this.ColumnProducto.Width = 88;
+            // 
+            // ColumnPrecioProducto
+            // 
+            this.ColumnPrecioProducto.HeaderText = "Precio Producto";
+            this.ColumnPrecioProducto.Name = "ColumnPrecioProducto";
+            this.ColumnPrecioProducto.Width = 119;
+            // 
+            // ColumnPrecioDescuentoApli
+            // 
+            this.ColumnPrecioDescuentoApli.HeaderText = "Precio\n Producto (Descuento Aplicado)";
+            this.ColumnPrecioDescuentoApli.Name = "ColumnPrecioDescuentoApli";
+            this.ColumnPrecioDescuentoApli.Width = 208;
+            // 
+            // ColumnIdDescuento
+            // 
+            this.ColumnIdDescuento.HeaderText = "Id Descuento";
+            this.ColumnIdDescuento.Name = "ColumnIdDescuento";
+            this.ColumnIdDescuento.Width = 104;
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            this.dataGridViewTextBoxColumn6.HeaderText = "Accion";
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.dataGridViewTextBoxColumn6.Width = 73;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(3, 13);
+            this.textBox1.Multiline = true;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(198, 32);
+            this.textBox1.TabIndex = 8;
+            // 
+            // panel4
+            // 
+            this.panel4.Controls.Add(this.textBox1);
+            this.panel4.Controls.Add(this.button3);
+            this.panel4.Location = new System.Drawing.Point(979, 497);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(243, 55);
+            this.panel4.TabIndex = 15;
+            // 
+            // button3
+            // 
+            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(114)))), ((int)(((byte)(223)))));
+            this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button3.FlatAppearance.BorderSize = 0;
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.Image = ((System.Drawing.Image)(resources.GetObject("button3.Image")));
+            this.button3.Location = new System.Drawing.Point(198, 13);
+            this.button3.Name = "button3";
+            this.button3.Padding = new System.Windows.Forms.Padding(50);
+            this.button3.Size = new System.Drawing.Size(35, 32);
+            this.button3.TabIndex = 9;
+            this.button3.UseVisualStyleBackColor = false;
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(114)))), ((int)(((byte)(223)))));
+            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.ForeColor = System.Drawing.Color.White;
+            this.button2.Image = global::InventoryWalmart.Properties.Resources.iconoModificar;
+            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button2.Location = new System.Drawing.Point(979, 571);
+            this.button2.Name = "button2";
+            this.button2.Padding = new System.Windows.Forms.Padding(0, 0, 10, 0);
+            this.button2.Size = new System.Drawing.Size(122, 40);
+            this.button2.TabIndex = 14;
+            this.button2.Text = "Modificar";
+            this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(13)))), ((int)(((byte)(13)))));
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.Image = global::InventoryWalmart.Properties.Resources.iconoEliminar;
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.Location = new System.Drawing.Point(1107, 571);
+            this.button1.Name = "button1";
+            this.button1.Padding = new System.Windows.Forms.Padding(5, 0, 10, 0);
+            this.button1.Size = new System.Drawing.Size(122, 40);
+            this.button1.TabIndex = 14;
+            this.button1.Text = "Eliminar";
+            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button1.UseVisualStyleBackColor = false;
+            // 
             // btnModificar
             // 
             this.btnModificar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(114)))), ((int)(((byte)(223)))));
@@ -177,6 +411,7 @@
             this.btnModificar.Text = "Modificar";
             this.btnModificar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnModificar.UseVisualStyleBackColor = false;
+            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
             // btnAplicarBene
             // 
@@ -233,6 +468,7 @@
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnAgregar.UseVisualStyleBackColor = false;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // btnBuscar
             // 
@@ -453,239 +689,6 @@
             this.btnRestaurar.TabStop = false;
             this.btnRestaurar.Click += new System.EventHandler(this.btnRestaurar_Click);
             // 
-            // tableBenefitsRewards
-            // 
-            this.tableBenefitsRewards.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.tableBenefitsRewards.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.tableBenefitsRewards.BackgroundColor = System.Drawing.Color.White;
-            this.tableBenefitsRewards.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tableBenefitsRewards.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(113)))), ((int)(((byte)(207)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.tableBenefitsRewards.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.tableBenefitsRewards.ColumnHeadersHeight = 70;
-            this.tableBenefitsRewards.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.tableBenefitsRewards.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.columnID,
-            this.ColumnCantidadDescuento,
-            this.ColumnDescriptionDiscount,
-            this.ColumnTypeDiscount,
-            this.ColumnStatu,
-            this.ColumnAccion});
-            this.tableBenefitsRewards.EnableHeadersVisualStyles = false;
-            this.tableBenefitsRewards.Location = new System.Drawing.Point(459, 267);
-            this.tableBenefitsRewards.Name = "tableBenefitsRewards";
-            this.tableBenefitsRewards.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(113)))), ((int)(((byte)(207)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.tableBenefitsRewards.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.tableBenefitsRewards.RowHeadersVisible = false;
-            this.tableBenefitsRewards.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.tableBenefitsRewards.Size = new System.Drawing.Size(631, 108);
-            this.tableBenefitsRewards.TabIndex = 12;
-            // 
-            // columnID
-            // 
-            this.columnID.HeaderText = "ID";
-            this.columnID.Name = "columnID";
-            this.columnID.Width = 46;
-            // 
-            // ColumnCantidadDescuento
-            // 
-            this.ColumnCantidadDescuento.HeaderText = "Cantidad Descuento";
-            this.ColumnCantidadDescuento.Name = "ColumnCantidadDescuento";
-            this.ColumnCantidadDescuento.Width = 142;
-            // 
-            // ColumnDescriptionDiscount
-            // 
-            this.ColumnDescriptionDiscount.HeaderText = "Descripcion Descuento";
-            this.ColumnDescriptionDiscount.Name = "ColumnDescriptionDiscount";
-            this.ColumnDescriptionDiscount.Width = 158;
-            // 
-            // ColumnTypeDiscount
-            // 
-            this.ColumnTypeDiscount.HeaderText = "Tipo Descuento";
-            this.ColumnTypeDiscount.Name = "ColumnTypeDiscount";
-            this.ColumnTypeDiscount.Width = 118;
-            // 
-            // ColumnStatu
-            // 
-            this.ColumnStatu.HeaderText = "Estado";
-            this.ColumnStatu.Name = "ColumnStatu";
-            this.ColumnStatu.Width = 73;
-            // 
-            // ColumnAccion
-            // 
-            this.ColumnAccion.HeaderText = "Accion";
-            this.ColumnAccion.Name = "ColumnAccion";
-            this.ColumnAccion.Width = 73;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(294, 453);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(264, 30);
-            this.label2.TabIndex = 13;
-            this.label2.Text = "Productos con Descuento";
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
-            this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dataGridView1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(113)))), ((int)(((byte)(207)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.dataGridView1.ColumnHeadersHeight = 70;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
-            this.ColumnProducto,
-            this.ColumnPrecioProducto,
-            this.ColumnPrecioDescuentoApli,
-            this.ColumnIdDescuento,
-            this.dataGridViewTextBoxColumn6});
-            this.dataGridView1.EnableHeadersVisualStyles = false;
-            this.dataGridView1.Location = new System.Drawing.Point(299, 518);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(113)))), ((int)(((byte)(207)))));
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
-            this.dataGridView1.RowHeadersVisible = false;
-            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(658, 132);
-            this.dataGridView1.TabIndex = 14;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.HeaderText = "ID";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.Width = 46;
-            // 
-            // ColumnProducto
-            // 
-            this.ColumnProducto.HeaderText = "Producto";
-            this.ColumnProducto.Name = "ColumnProducto";
-            this.ColumnProducto.Width = 88;
-            // 
-            // ColumnPrecioProducto
-            // 
-            this.ColumnPrecioProducto.HeaderText = "Precio Producto";
-            this.ColumnPrecioProducto.Name = "ColumnPrecioProducto";
-            this.ColumnPrecioProducto.Width = 119;
-            // 
-            // ColumnPrecioDescuentoApli
-            // 
-            this.ColumnPrecioDescuentoApli.HeaderText = "Precio\n Producto (Descuento Aplicado)";
-            this.ColumnPrecioDescuentoApli.Name = "ColumnPrecioDescuentoApli";
-            this.ColumnPrecioDescuentoApli.Width = 208;
-            // 
-            // ColumnIdDescuento
-            // 
-            this.ColumnIdDescuento.HeaderText = "Id Descuento";
-            this.ColumnIdDescuento.Name = "ColumnIdDescuento";
-            this.ColumnIdDescuento.Width = 104;
-            // 
-            // dataGridViewTextBoxColumn6
-            // 
-            this.dataGridViewTextBoxColumn6.HeaderText = "Accion";
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            this.dataGridViewTextBoxColumn6.Width = 73;
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(13)))), ((int)(((byte)(13)))));
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Image = global::InventoryWalmart.Properties.Resources.iconoEliminar;
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(1107, 571);
-            this.button1.Name = "button1";
-            this.button1.Padding = new System.Windows.Forms.Padding(5, 0, 10, 0);
-            this.button1.Size = new System.Drawing.Size(122, 40);
-            this.button1.TabIndex = 14;
-            this.button1.Text = "Eliminar";
-            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button1.UseVisualStyleBackColor = false;
-            // 
-            // button2
-            // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(114)))), ((int)(((byte)(223)))));
-            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Image = global::InventoryWalmart.Properties.Resources.iconoModificar;
-            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.Location = new System.Drawing.Point(979, 571);
-            this.button2.Name = "button2";
-            this.button2.Padding = new System.Windows.Forms.Padding(0, 0, 10, 0);
-            this.button2.Size = new System.Drawing.Size(122, 40);
-            this.button2.TabIndex = 14;
-            this.button2.Text = "Modificar";
-            this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button2.UseVisualStyleBackColor = false;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(3, 13);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(198, 32);
-            this.textBox1.TabIndex = 8;
-            // 
-            // button3
-            // 
-            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(114)))), ((int)(((byte)(223)))));
-            this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button3.FlatAppearance.BorderSize = 0;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Image = ((System.Drawing.Image)(resources.GetObject("button3.Image")));
-            this.button3.Location = new System.Drawing.Point(198, 13);
-            this.button3.Name = "button3";
-            this.button3.Padding = new System.Windows.Forms.Padding(50);
-            this.button3.Size = new System.Drawing.Size(35, 32);
-            this.button3.TabIndex = 9;
-            this.button3.UseVisualStyleBackColor = false;
-            // 
-            // panel4
-            // 
-            this.panel4.Controls.Add(this.textBox1);
-            this.panel4.Controls.Add(this.button3);
-            this.panel4.Location = new System.Drawing.Point(979, 497);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(243, 55);
-            this.panel4.TabIndex = 15;
-            // 
             // viewDiscount
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -712,15 +715,15 @@
             this.panel3.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tableBenefitsRewards)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.logo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnOcultar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMaximizar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnRestaurar)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tableBenefitsRewards)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            this.panel4.ResumeLayout(false);
-            this.panel4.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 

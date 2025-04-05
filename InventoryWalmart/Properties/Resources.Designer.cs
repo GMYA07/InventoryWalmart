@@ -63,6 +63,16 @@ namespace InventoryWalmart.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap caja {
+            get {
+                object obj = ResourceManager.GetObject("caja", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap CanjesIcon {
             get {
                 object obj = ResourceManager.GetObject("CanjesIcon", resourceCulture);
@@ -96,6 +106,16 @@ namespace InventoryWalmart.Properties {
         internal static System.Drawing.Bitmap EmpleadosIcon {
             get {
                 object obj = ResourceManager.GetObject("EmpleadosIcon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap etiquetaIcon {
+            get {
+                object obj = ResourceManager.GetObject("etiquetaIcon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -176,6 +196,16 @@ namespace InventoryWalmart.Properties {
         internal static System.Drawing.Bitmap ReportesIcon {
             get {
                 object obj = ResourceManager.GetObject("ReportesIcon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap user {
+            get {
+                object obj = ResourceManager.GetObject("user", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

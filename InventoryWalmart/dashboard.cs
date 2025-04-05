@@ -75,5 +75,24 @@ namespace InventoryWalmart
 
         }
 
+        private void dashboard_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel7_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panelBeneficiosReco_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panelDescuentos_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

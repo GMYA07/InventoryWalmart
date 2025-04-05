@@ -67,6 +67,12 @@
     <Compile Include="viewBenefitsRewards.Designer.cs">
       <DependentUpon>viewBenefitsRewards.cs</DependentUpon>
     </Compile>
+    <Compile Include="ViewCustomers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ViewCustomers.Designer.cs">
+      <DependentUpon>ViewCustomers.cs</DependentUpon>
+    </Compile>
     <Compile Include="viewDiscount.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -86,6 +92,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="viewBenefitsRewards.resx">
       <DependentUpon>viewBenefitsRewards.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ViewCustomers.resx">
+      <DependentUpon>ViewCustomers.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="viewDiscount.resx">
       <DependentUpon>viewDiscount.cs</DependentUpon>

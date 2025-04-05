@@ -513,6 +513,7 @@
             this.panelDescuentos.Name = "panelDescuentos";
             this.panelDescuentos.Size = new System.Drawing.Size(160, 120);
             this.panelDescuentos.TabIndex = 12;
+            this.panelDescuentos.Click += new System.EventHandler(this.panelDescuentos_Click);
             this.panelDescuentos.Paint += new System.Windows.Forms.PaintEventHandler(this.panelDescuentos_Paint);
             // 
             // label5

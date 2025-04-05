@@ -143,6 +143,16 @@ namespace InventoryWalmart.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap iconoBtnProducto {
+            get {
+                object obj = ResourceManager.GetObject("iconoBtnProducto", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap iconoBuscar {
             get {
                 object obj = ResourceManager.GetObject("iconoBuscar", resourceCulture);

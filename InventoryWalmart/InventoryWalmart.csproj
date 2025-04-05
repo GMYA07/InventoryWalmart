@@ -61,6 +61,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="viewBenefitsRewards.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="viewBenefitsRewards.Designer.cs">
+      <DependentUpon>viewBenefitsRewards.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="dashboard.resx">
       <DependentUpon>dashboard.cs</DependentUpon>
     </EmbeddedResource>
@@ -71,6 +77,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="viewBenefitsRewards.resx">
+      <DependentUpon>viewBenefitsRewards.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -149,6 +158,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\caja.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\iconoBuscar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\iconoAgregarUserBenefits.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\iconoAgregar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\iconoEliminar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\iconoModificar.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

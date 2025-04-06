@@ -28,9 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
+
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(viewBenefitsRewards));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+
             this.barAcciones = new System.Windows.Forms.Panel();
             this.btnOcultar = new System.Windows.Forms.PictureBox();
             this.btnMaximizar = new System.Windows.Forms.PictureBox();
@@ -164,6 +166,233 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(333, 813);
             this.panel1.TabIndex = 4;
+            // 
+
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(499, 99);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(476, 50);
+            this.label1.TabIndex = 5;
+            this.label1.Text = "Beneficios y Recompensas";
+            // 
+            // inputBuscar
+            // 
+            this.inputBuscar.Location = new System.Drawing.Point(3, 8);
+            this.inputBuscar.Multiline = true;
+            this.inputBuscar.Name = "inputBuscar";
+            this.inputBuscar.Size = new System.Drawing.Size(370, 32);
+            this.inputBuscar.TabIndex = 6;
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.inputBuscar);
+            this.panel2.Controls.Add(this.btnBuscar);
+            this.panel2.Location = new System.Drawing.Point(279, 196);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(416, 53);
+            this.panel2.TabIndex = 8;
+            // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.btnModificar);
+            this.panel3.Controls.Add(this.btnAplicarBene);
+            this.panel3.Controls.Add(this.btnEliminar);
+            this.panel3.Controls.Add(this.btnAgregar);
+            this.panel3.Location = new System.Drawing.Point(712, 196);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(556, 53);
+            this.panel3.TabIndex = 9;
+            // 
+            // tableBenefitsRewards
+            // 
+            this.tableBenefitsRewards.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.tableBenefitsRewards.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.tableBenefitsRewards.BackgroundColor = System.Drawing.Color.White;
+            this.tableBenefitsRewards.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tableBenefitsRewards.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(113)))), ((int)(((byte)(207)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.tableBenefitsRewards.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.tableBenefitsRewards.ColumnHeadersHeight = 70;
+            this.tableBenefitsRewards.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.tableBenefitsRewards.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.columnID,
+            this.columnBenefits,
+            this.ColumnDescripBene,
+            this.ColumnPorcentajeDesc,
+            this.ColumnDateStartD,
+            this.ColumnDateEndD,
+            this.ColumnPointsReq,
+            this.ColumnStatu,
+            this.ColumnAccion});
+            this.tableBenefitsRewards.EnableHeadersVisualStyles = false;
+            this.tableBenefitsRewards.Location = new System.Drawing.Point(353, 282);
+            this.tableBenefitsRewards.Name = "tableBenefitsRewards";
+            this.tableBenefitsRewards.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(113)))), ((int)(((byte)(207)))));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.tableBenefitsRewards.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            this.tableBenefitsRewards.RowHeadersVisible = false;
+            this.tableBenefitsRewards.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.tableBenefitsRewards.Size = new System.Drawing.Size(856, 408);
+            this.tableBenefitsRewards.TabIndex = 10;
+            this.tableBenefitsRewards.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.tableBenefitsRewards_CellContentClick);
+            // 
+            // columnID
+            // 
+            this.columnID.HeaderText = "ID";
+            this.columnID.Name = "columnID";
+            this.columnID.Width = 46;
+            // 
+            // columnBenefits
+            // 
+            this.columnBenefits.HeaderText = "Beneficio";
+            this.columnBenefits.Name = "columnBenefits";
+            this.columnBenefits.Width = 89;
+            // 
+            // ColumnDescripBene
+            // 
+            this.ColumnDescripBene.HeaderText = "Descripcion Beneficio";
+            this.ColumnDescripBene.Name = "ColumnDescripBene";
+            this.ColumnDescripBene.Width = 150;
+            // 
+            // ColumnPorcentajeDesc
+            // 
+            this.ColumnPorcentajeDesc.HeaderText = "Porcentaje \nDescuento";
+            this.ColumnPorcentajeDesc.Name = "ColumnPorcentajeDesc";
+            this.ColumnPorcentajeDesc.Width = 101;
+            // 
+            // ColumnDateStartD
+            // 
+            this.ColumnDateStartD.HeaderText = "Fecha Inicio \nDescuento";
+            this.ColumnDateStartD.Name = "ColumnDateStartD";
+            // 
+            // ColumnDateEndD
+            // 
+            this.ColumnDateEndD.HeaderText = "Fecha Final \nDescuento";
+            this.ColumnDateEndD.Name = "ColumnDateEndD";
+            this.ColumnDateEndD.Width = 105;
+            // 
+            // ColumnPointsReq
+            // 
+            this.ColumnPointsReq.HeaderText = "Puntos\nRequeridos";
+            this.ColumnPointsReq.Name = "ColumnPointsReq";
+            this.ColumnPointsReq.Width = 101;
+            // 
+            // ColumnStatu
+            // 
+            this.ColumnStatu.HeaderText = "Estado";
+            this.ColumnStatu.Name = "ColumnStatu";
+            this.ColumnStatu.Width = 73;
+            // 
+            // ColumnAccion
+            // 
+            this.ColumnAccion.HeaderText = "Accion";
+            this.ColumnAccion.Name = "ColumnAccion";
+            this.ColumnAccion.Width = 73;
+            // 
+            // btnModificar
+            // 
+            this.btnModificar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(114)))), ((int)(((byte)(223)))));
+            this.btnModificar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnModificar.FlatAppearance.BorderSize = 0;
+            this.btnModificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnModificar.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnModificar.ForeColor = System.Drawing.Color.White;
+            this.btnModificar.Image = global::InventoryWalmart.Properties.Resources.iconoModificar;
+            this.btnModificar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnModificar.Location = new System.Drawing.Point(412, 4);
+            this.btnModificar.Name = "btnModificar";
+            this.btnModificar.Padding = new System.Windows.Forms.Padding(0, 0, 10, 0);
+            this.btnModificar.Size = new System.Drawing.Size(122, 40);
+            this.btnModificar.TabIndex = 13;
+            this.btnModificar.Text = "Modificar";
+            this.btnModificar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnModificar.UseVisualStyleBackColor = false;
+            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
+            // 
+            // btnAplicarBene
+            // 
+            this.btnAplicarBene.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(194)))), ((int)(((byte)(33)))));
+            this.btnAplicarBene.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAplicarBene.FlatAppearance.BorderSize = 0;
+            this.btnAplicarBene.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAplicarBene.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAplicarBene.Image = ((System.Drawing.Image)(resources.GetObject("btnAplicarBene.Image")));
+            this.btnAplicarBene.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAplicarBene.Location = new System.Drawing.Point(13, 4);
+            this.btnAplicarBene.Name = "btnAplicarBene";
+            this.btnAplicarBene.Size = new System.Drawing.Size(122, 40);
+            this.btnAplicarBene.TabIndex = 10;
+            this.btnAplicarBene.Text = "Aplicar Beneficio\r\nUsuario";
+            this.btnAplicarBene.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnAplicarBene.UseVisualStyleBackColor = false;
+            // 
+            // btnEliminar
+            // 
+            this.btnEliminar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(13)))), ((int)(((byte)(13)))));
+            this.btnEliminar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnEliminar.FlatAppearance.BorderSize = 0;
+            this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEliminar.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEliminar.ForeColor = System.Drawing.Color.White;
+            this.btnEliminar.Image = global::InventoryWalmart.Properties.Resources.iconoEliminar;
+            this.btnEliminar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEliminar.Location = new System.Drawing.Point(284, 4);
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Padding = new System.Windows.Forms.Padding(5, 0, 10, 0);
+            this.btnEliminar.Size = new System.Drawing.Size(122, 40);
+            this.btnEliminar.TabIndex = 12;
+            this.btnEliminar.Text = "Eliminar";
+            this.btnEliminar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnEliminar.UseVisualStyleBackColor = false;
+            // 
+            // btnAgregar
+            // 
+            this.btnAgregar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(170)))), ((int)(((byte)(28)))));
+            this.btnAgregar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAgregar.FlatAppearance.BorderSize = 0;
+            this.btnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAgregar.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAgregar.ForeColor = System.Drawing.Color.White;
+            this.btnAgregar.Image = global::InventoryWalmart.Properties.Resources.iconoAgregar;
+            this.btnAgregar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAgregar.Location = new System.Drawing.Point(156, 3);
+            this.btnAgregar.Name = "btnAgregar";
+            this.btnAgregar.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
+            this.btnAgregar.Size = new System.Drawing.Size(122, 40);
+            this.btnAgregar.TabIndex = 11;
+            this.btnAgregar.Text = "Agregar";
+            this.btnAgregar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnAgregar.UseVisualStyleBackColor = false;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
+            // 
+            // btnBuscar
+            // 
+            this.btnBuscar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(114)))), ((int)(((byte)(223)))));
+            this.btnBuscar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnBuscar.FlatAppearance.BorderSize = 0;
+            this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBuscar.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscar.Image")));
+            this.btnBuscar.Location = new System.Drawing.Point(370, 8);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Padding = new System.Windows.Forms.Padding(50);
+            this.btnBuscar.Size = new System.Drawing.Size(35, 32);
+            this.btnBuscar.TabIndex = 7;
+            this.btnBuscar.UseVisualStyleBackColor = false;
             // 
             // btnClientes
             // 

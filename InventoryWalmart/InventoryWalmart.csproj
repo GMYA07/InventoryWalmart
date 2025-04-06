@@ -53,6 +53,36 @@
     <Compile Include="dashboard.Designer.cs">
       <DependentUpon>dashboard.cs</DependentUpon>
     </Compile>
+    <Compile Include="formAccionBeneficioReco.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formAccionBeneficioReco.Designer.cs">
+      <DependentUpon>formAccionBeneficioReco.cs</DependentUpon>
+    </Compile>
+    <Compile Include="formAccionDescuentos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formAccionDescuentos.Designer.cs">
+      <DependentUpon>formAccionDescuentos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="formAccionModificarDescuentoProduct.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formAccionModificarDescuentoProduct.Designer.cs">
+      <DependentUpon>formAccionModificarDescuentoProduct.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormCustomers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCustomers.Designer.cs">
+      <DependentUpon>FormCustomers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSupplier.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSupplier.Designer.cs">
+      <DependentUpon>FormSupplier.cs</DependentUpon>
+    </Compile>
     <Compile Include="login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -67,20 +97,43 @@
     <Compile Include="viewBenefitsRewards.Designer.cs">
       <DependentUpon>viewBenefitsRewards.cs</DependentUpon>
     </Compile>
+    <Compile Include="ViewCustomers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ViewCustomers.Designer.cs">
+      <DependentUpon>ViewCustomers.cs</DependentUpon>
+    </Compile>
     <Compile Include="viewDiscount.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="viewDiscount.Designer.cs">
       <DependentUpon>viewDiscount.cs</DependentUpon>
     </Compile>
-    <Compile Include="viewReportes.cs">
+
+    <Compile Include="ViewSuppliers.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="viewReportes.Designer.cs">
-      <DependentUpon>viewReportes.cs</DependentUpon>
+    <Compile Include="ViewSuppliers.Designer.cs">
+      <DependentUpon>ViewSuppliers.cs</DependentUpon>
+
     </Compile>
     <EmbeddedResource Include="dashboard.resx">
       <DependentUpon>dashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formAccionBeneficioReco.resx">
+      <DependentUpon>formAccionBeneficioReco.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formAccionDescuentos.resx">
+      <DependentUpon>formAccionDescuentos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formAccionModificarDescuentoProduct.resx">
+      <DependentUpon>formAccionModificarDescuentoProduct.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormCustomers.resx">
+      <DependentUpon>FormCustomers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSupplier.resx">
+      <DependentUpon>FormSupplier.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="login.resx">
       <DependentUpon>login.cs</DependentUpon>
@@ -93,11 +146,16 @@
     <EmbeddedResource Include="viewBenefitsRewards.resx">
       <DependentUpon>viewBenefitsRewards.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ViewCustomers.resx">
+      <DependentUpon>ViewCustomers.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="viewDiscount.resx">
       <DependentUpon>viewDiscount.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="viewReportes.resx">
-      <DependentUpon>viewReportes.cs</DependentUpon>
+
+    <EmbeddedResource Include="ViewSuppliers.resx">
+      <DependentUpon>ViewSuppliers.cs</DependentUpon>
+
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -197,6 +255,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\iconoBtnProducto.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\iconoRegresar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\IconoRegresar1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

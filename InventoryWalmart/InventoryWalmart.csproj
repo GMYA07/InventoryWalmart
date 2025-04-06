@@ -77,6 +77,12 @@
     <Compile Include="FormCustomers.Designer.cs">
       <DependentUpon>FormCustomers.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormMembership.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormMembership.Designer.cs">
+      <DependentUpon>FormMembership.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormSupplier.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -109,6 +115,12 @@
     <Compile Include="viewDiscount.Designer.cs">
       <DependentUpon>viewDiscount.cs</DependentUpon>
     </Compile>
+    <Compile Include="ViewMembership.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ViewMembership.Designer.cs">
+      <DependentUpon>ViewMembership.cs</DependentUpon>
+    </Compile>
     <Compile Include="ViewPoints.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -136,6 +148,9 @@
     <EmbeddedResource Include="FormCustomers.resx">
       <DependentUpon>FormCustomers.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormMembership.resx">
+      <DependentUpon>FormMembership.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormSupplier.resx">
       <DependentUpon>FormSupplier.cs</DependentUpon>
     </EmbeddedResource>
@@ -155,6 +170,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="viewDiscount.resx">
       <DependentUpon>viewDiscount.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ViewMembership.resx">
+      <DependentUpon>ViewMembership.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ViewPoints.resx">
       <DependentUpon>ViewPoints.cs</DependentUpon>

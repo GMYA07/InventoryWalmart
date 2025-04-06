@@ -13,6 +13,9 @@ namespace InventoryWalmart
 {
     public partial class ViewSuppliers : Form
     {
+
+        public static string opcion = "";
+
         public ViewSuppliers()
         {
             InitializeComponent();
@@ -70,7 +73,7 @@ namespace InventoryWalmart
 
         private void btnProductos_Click(object sender, EventArgs e)
         {
-            //ChangeView<dashboard>();
+            ChangeView<ViewSuppliers>();
         }
 
         private void btnDevoluciones_Click(object sender, EventArgs e)
@@ -98,6 +101,18 @@ namespace InventoryWalmart
             T vista = new T();
             this.Hide();
             vista.Show();
+        }
+
+        private void btnAgregar_Click(object sender, EventArgs e)
+        {
+            opcion = "agregar";
+            ChangeView<FormSupplier>();
+        }
+
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+            opcion = "editar";
+            ChangeView<FormSupplier>();
         }
     }
 }

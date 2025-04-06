@@ -96,6 +96,11 @@ namespace InventoryWalmart
             ChangeView<ViewCustomers>();
         }
 
+        private void BtnPuntos_Click(object sender, EventArgs e)
+        {
+            ChangeView<ViewPoints>();
+        }
+
         private void ChangeView<T>() where T : Form, new()
         {
             T vista = new T();
@@ -114,5 +119,7 @@ namespace InventoryWalmart
             opcion = "editar";
             ChangeView<FormSupplier>();
         }
+
+        
     }
 }

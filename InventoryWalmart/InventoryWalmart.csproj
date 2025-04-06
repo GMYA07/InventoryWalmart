@@ -77,6 +77,24 @@
     <Compile Include="FormCustomers.Designer.cs">
       <DependentUpon>FormCustomers.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormMembership.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormMembership.Designer.cs">
+      <DependentUpon>FormMembership.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormReturns.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormReturns.Designer.cs">
+      <DependentUpon>FormReturns.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewReturns.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ViewReturns.Designer.cs">
+      <DependentUpon>ViewReturns.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormSupplier.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -110,6 +128,19 @@
       <DependentUpon>viewDiscount.cs</DependentUpon>
     </Compile>
 
+    <Compile Include="ViewMembership.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ViewMembership.Designer.cs">
+      <DependentUpon>ViewMembership.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewPoints.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ViewPoints.Designer.cs">
+      <DependentUpon>ViewPoints.cs</DependentUpon>
+    </Compile>
+
     <Compile Include="ViewSuppliers.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -132,6 +163,12 @@
     <EmbeddedResource Include="FormCustomers.resx">
       <DependentUpon>FormCustomers.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormMembership.resx">
+      <DependentUpon>FormMembership.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormReturns.resx">
+      <DependentUpon>FormReturns.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormSupplier.resx">
       <DependentUpon>FormSupplier.cs</DependentUpon>
     </EmbeddedResource>
@@ -151,6 +188,16 @@
     </EmbeddedResource>
     <EmbeddedResource Include="viewDiscount.resx">
       <DependentUpon>viewDiscount.cs</DependentUpon>
+    </EmbeddedResource>
+
+    <EmbeddedResource Include="ViewMembership.resx">
+      <DependentUpon>ViewMembership.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ViewPoints.resx">
+      <DependentUpon>ViewPoints.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ViewReturns.resx">
+      <DependentUpon>ViewReturns.cs</DependentUpon>
     </EmbeddedResource>
 
     <EmbeddedResource Include="ViewSuppliers.resx">
@@ -261,6 +308,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\IconoRegresar1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PointsIcon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

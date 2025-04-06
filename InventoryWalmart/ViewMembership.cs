@@ -11,12 +11,12 @@ using System.Windows.Forms;
 
 namespace InventoryWalmart
 {
-    public partial class ViewCustomers : Form
+    public partial class ViewMembership : Form
     {
 
         public static string opcion = "";
 
-        public ViewCustomers()
+        public ViewMembership()
         {
             InitializeComponent();
         }
@@ -101,28 +101,21 @@ namespace InventoryWalmart
 
         private void ChangeView<T>() where T : Form, new()
         {
-            T vista=new T();
+            T vista = new T();
             this.Hide();
             vista.Show();
-        }
-
-        private void btnAplicarBene_Click(object sender, EventArgs e)
-        {
-            ChangeView<ViewMembership>();
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             opcion = "agregar";
-            ChangeView<FormCustomers>();
+            ChangeView<FormMembership>();
         }
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
             opcion = "editar";
-            ChangeView<FormCustomers>();
+            ChangeView<FormMembership>();
         }
-
-       
     }
 }

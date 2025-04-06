@@ -1,6 +1,6 @@
 ﻿namespace InventoryWalmart
 {
-    partial class ViewPoints
+    partial class ViewReturns
     {
         /// <summary>
         /// Required designer variable.
@@ -28,14 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ViewPoints));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ViewReturns));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.barAcciones = new System.Windows.Forms.Panel();
-            this.btnOcultar = new System.Windows.Forms.PictureBox();
-            this.btnMaximizar = new System.Windows.Forms.PictureBox();
-            this.btnCerrar = new System.Windows.Forms.PictureBox();
-            this.btnRestaurar = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.BtnPuntos = new System.Windows.Forms.Button();
             this.btnClientes = new System.Windows.Forms.Button();
@@ -46,92 +41,37 @@
             this.btnPromociones = new System.Windows.Forms.Button();
             this.btnInicio = new System.Windows.Forms.Button();
             this.logo = new System.Windows.Forms.PictureBox();
+            this.barAcciones = new System.Windows.Forms.Panel();
+            this.btnOcultar = new System.Windows.Forms.PictureBox();
+            this.btnMaximizar = new System.Windows.Forms.PictureBox();
+            this.btnCerrar = new System.Windows.Forms.PictureBox();
+            this.btnRestaurar = new System.Windows.Forms.PictureBox();
             this.Table_Customers = new System.Windows.Forms.DataGridView();
-            this.ColumnMembresia = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnDUI = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnPuntos = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnGstados = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.btnModificar = new System.Windows.Forms.Button();
+            this.btnAgregar = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.inputBuscar = new System.Windows.Forms.TextBox();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.Lbl_Title = new System.Windows.Forms.Label();
+            this.ColumnId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnIdVenta = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnFechaDevolucion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnDescripción = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnEstado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.logo)).BeginInit();
             this.barAcciones.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnOcultar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMaximizar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnRestaurar)).BeginInit();
-            this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.logo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Table_Customers)).BeginInit();
+            this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // barAcciones
-            // 
-            this.barAcciones.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(114)))), ((int)(((byte)(223)))));
-            this.barAcciones.Controls.Add(this.btnOcultar);
-            this.barAcciones.Controls.Add(this.btnMaximizar);
-            this.barAcciones.Controls.Add(this.btnCerrar);
-            this.barAcciones.Controls.Add(this.btnRestaurar);
-            this.barAcciones.Dock = System.Windows.Forms.DockStyle.Top;
-            this.barAcciones.Location = new System.Drawing.Point(0, 0);
-            this.barAcciones.Name = "barAcciones";
-            this.barAcciones.Size = new System.Drawing.Size(1280, 59);
-            this.barAcciones.TabIndex = 6;
-            this.barAcciones.MouseDown += new System.Windows.Forms.MouseEventHandler(this.barAcciones_MouseDown);
-            // 
-            // btnOcultar
-            // 
-            this.btnOcultar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnOcultar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnOcultar.Image = global::InventoryWalmart.Properties.Resources.ocultar;
-            this.btnOcultar.Location = new System.Drawing.Point(1138, 12);
-            this.btnOcultar.Name = "btnOcultar";
-            this.btnOcultar.Size = new System.Drawing.Size(30, 30);
-            this.btnOcultar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.btnOcultar.TabIndex = 4;
-            this.btnOcultar.TabStop = false;
-            this.btnOcultar.Click += new System.EventHandler(this.btnOcultar_Click);
-            // 
-            // btnMaximizar
-            // 
-            this.btnMaximizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnMaximizar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnMaximizar.Image = ((System.Drawing.Image)(resources.GetObject("btnMaximizar.Image")));
-            this.btnMaximizar.Location = new System.Drawing.Point(1191, 12);
-            this.btnMaximizar.Name = "btnMaximizar";
-            this.btnMaximizar.Size = new System.Drawing.Size(30, 30);
-            this.btnMaximizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.btnMaximizar.TabIndex = 3;
-            this.btnMaximizar.TabStop = false;
-            this.btnMaximizar.Click += new System.EventHandler(this.btnMaximizar_Click);
-            // 
-            // btnCerrar
-            // 
-            this.btnCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCerrar.Image = ((System.Drawing.Image)(resources.GetObject("btnCerrar.Image")));
-            this.btnCerrar.Location = new System.Drawing.Point(1236, 12);
-            this.btnCerrar.Name = "btnCerrar";
-            this.btnCerrar.Size = new System.Drawing.Size(32, 32);
-            this.btnCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.btnCerrar.TabIndex = 2;
-            this.btnCerrar.TabStop = false;
-            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
-            // 
-            // btnRestaurar
-            // 
-            this.btnRestaurar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnRestaurar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnRestaurar.Image = ((System.Drawing.Image)(resources.GetObject("btnRestaurar.Image")));
-            this.btnRestaurar.Location = new System.Drawing.Point(1191, 12);
-            this.btnRestaurar.Name = "btnRestaurar";
-            this.btnRestaurar.Size = new System.Drawing.Size(30, 30);
-            this.btnRestaurar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.btnRestaurar.TabIndex = 3;
-            this.btnRestaurar.TabStop = false;
-            this.btnRestaurar.Click += new System.EventHandler(this.btnRestaurar_Click);
             // 
             // panel1
             // 
@@ -149,7 +89,7 @@
             this.panel1.Location = new System.Drawing.Point(0, 59);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(250, 661);
-            this.panel1.TabIndex = 7;
+            this.panel1.TabIndex = 21;
             // 
             // BtnPuntos
             // 
@@ -296,7 +236,7 @@
             this.btnPromociones.Text = "Promociones";
             this.btnPromociones.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnPromociones.UseVisualStyleBackColor = false;
-            this.btnPromociones.Click += new System.EventHandler(this.btnProductos_Click);
+            this.btnPromociones.Click += new System.EventHandler(this.btnPromociones_Click);
             // 
             // btnInicio
             // 
@@ -331,6 +271,72 @@
             this.logo.TabIndex = 0;
             this.logo.TabStop = false;
             // 
+            // barAcciones
+            // 
+            this.barAcciones.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(114)))), ((int)(((byte)(223)))));
+            this.barAcciones.Controls.Add(this.btnOcultar);
+            this.barAcciones.Controls.Add(this.btnMaximizar);
+            this.barAcciones.Controls.Add(this.btnCerrar);
+            this.barAcciones.Controls.Add(this.btnRestaurar);
+            this.barAcciones.Dock = System.Windows.Forms.DockStyle.Top;
+            this.barAcciones.Location = new System.Drawing.Point(0, 0);
+            this.barAcciones.Name = "barAcciones";
+            this.barAcciones.Size = new System.Drawing.Size(1280, 59);
+            this.barAcciones.TabIndex = 20;
+            this.barAcciones.MouseDown += new System.Windows.Forms.MouseEventHandler(this.barAcciones_MouseDown);
+            // 
+            // btnOcultar
+            // 
+            this.btnOcultar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnOcultar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnOcultar.Image = global::InventoryWalmart.Properties.Resources.ocultar;
+            this.btnOcultar.Location = new System.Drawing.Point(1138, 12);
+            this.btnOcultar.Name = "btnOcultar";
+            this.btnOcultar.Size = new System.Drawing.Size(30, 30);
+            this.btnOcultar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.btnOcultar.TabIndex = 4;
+            this.btnOcultar.TabStop = false;
+            this.btnOcultar.Click += new System.EventHandler(this.btnOcultar_Click);
+            // 
+            // btnMaximizar
+            // 
+            this.btnMaximizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnMaximizar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnMaximizar.Image = ((System.Drawing.Image)(resources.GetObject("btnMaximizar.Image")));
+            this.btnMaximizar.Location = new System.Drawing.Point(1191, 12);
+            this.btnMaximizar.Name = "btnMaximizar";
+            this.btnMaximizar.Size = new System.Drawing.Size(30, 30);
+            this.btnMaximizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.btnMaximizar.TabIndex = 3;
+            this.btnMaximizar.TabStop = false;
+            this.btnMaximizar.Click += new System.EventHandler(this.btnMaximizar_Click);
+            // 
+            // btnCerrar
+            // 
+            this.btnCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCerrar.Image = ((System.Drawing.Image)(resources.GetObject("btnCerrar.Image")));
+            this.btnCerrar.Location = new System.Drawing.Point(1236, 12);
+            this.btnCerrar.Name = "btnCerrar";
+            this.btnCerrar.Size = new System.Drawing.Size(32, 32);
+            this.btnCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.btnCerrar.TabIndex = 2;
+            this.btnCerrar.TabStop = false;
+            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
+            // 
+            // btnRestaurar
+            // 
+            this.btnRestaurar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnRestaurar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnRestaurar.Image = ((System.Drawing.Image)(resources.GetObject("btnRestaurar.Image")));
+            this.btnRestaurar.Location = new System.Drawing.Point(1191, 12);
+            this.btnRestaurar.Name = "btnRestaurar";
+            this.btnRestaurar.Size = new System.Drawing.Size(30, 30);
+            this.btnRestaurar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.btnRestaurar.TabIndex = 3;
+            this.btnRestaurar.TabStop = false;
+            this.btnRestaurar.Click += new System.EventHandler(this.btnRestaurar_Click);
+            // 
             // Table_Customers
             // 
             this.Table_Customers.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
@@ -346,16 +352,18 @@
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.Table_Customers.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.Table_Customers.ColumnHeadersHeight = 25;
+            this.Table_Customers.ColumnHeadersHeight = 30;
             this.Table_Customers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.Table_Customers.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.ColumnMembresia,
+            this.ColumnId,
             this.ColumnCliente,
-            this.ColumnDUI,
-            this.ColumnPuntos,
-            this.ColumnGstados});
+            this.ColumnIdVenta,
+            this.ColumnProducto,
+            this.ColumnFechaDevolucion,
+            this.ColumnDescripción,
+            this.ColumnEstado});
             this.Table_Customers.EnableHeadersVisualStyles = false;
-            this.Table_Customers.Location = new System.Drawing.Point(503, 237);
+            this.Table_Customers.Location = new System.Drawing.Point(428, 254);
             this.Table_Customers.Name = "Table_Customers";
             this.Table_Customers.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
@@ -368,46 +376,66 @@
             this.Table_Customers.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.Table_Customers.RowHeadersVisible = false;
             this.Table_Customers.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.Table_Customers.Size = new System.Drawing.Size(446, 408);
-            this.Table_Customers.TabIndex = 20;
+            this.Table_Customers.Size = new System.Drawing.Size(633, 408);
+            this.Table_Customers.TabIndex = 31;
             // 
-            // ColumnMembresia
+            // panel3
             // 
-            this.ColumnMembresia.HeaderText = "Membresia";
-            this.ColumnMembresia.Name = "ColumnMembresia";
+            this.panel3.Controls.Add(this.btnModificar);
+            this.panel3.Controls.Add(this.btnAgregar);
+            this.panel3.Location = new System.Drawing.Point(976, 149);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(281, 53);
+            this.panel3.TabIndex = 30;
             // 
-            // ColumnCliente
+            // btnModificar
             // 
-            this.ColumnCliente.HeaderText = "Cliente";
-            this.ColumnCliente.Name = "ColumnCliente";
-            this.ColumnCliente.Width = 75;
+            this.btnModificar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(114)))), ((int)(((byte)(223)))));
+            this.btnModificar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnModificar.FlatAppearance.BorderSize = 0;
+            this.btnModificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnModificar.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnModificar.ForeColor = System.Drawing.Color.White;
+            this.btnModificar.Image = global::InventoryWalmart.Properties.Resources.iconoModificar;
+            this.btnModificar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnModificar.Location = new System.Drawing.Point(144, 8);
+            this.btnModificar.Name = "btnModificar";
+            this.btnModificar.Padding = new System.Windows.Forms.Padding(0, 0, 10, 0);
+            this.btnModificar.Size = new System.Drawing.Size(122, 40);
+            this.btnModificar.TabIndex = 13;
+            this.btnModificar.Text = "Modificar";
+            this.btnModificar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnModificar.UseVisualStyleBackColor = false;
+            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
-            // ColumnDUI
+            // btnAgregar
             // 
-            this.ColumnDUI.HeaderText = "DUI";
-            this.ColumnDUI.Name = "ColumnDUI";
-            this.ColumnDUI.Width = 55;
-            // 
-            // ColumnPuntos
-            // 
-            this.ColumnPuntos.HeaderText = "Puntos";
-            this.ColumnPuntos.Name = "ColumnPuntos";
-            this.ColumnPuntos.Width = 75;
-            // 
-            // ColumnGstados
-            // 
-            this.ColumnGstados.HeaderText = "Puntos Gastados";
-            this.ColumnGstados.Name = "ColumnGstados";
-            this.ColumnGstados.Width = 135;
+            this.btnAgregar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(170)))), ((int)(((byte)(28)))));
+            this.btnAgregar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAgregar.FlatAppearance.BorderSize = 0;
+            this.btnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAgregar.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAgregar.ForeColor = System.Drawing.Color.White;
+            this.btnAgregar.Image = global::InventoryWalmart.Properties.Resources.iconoAgregar;
+            this.btnAgregar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAgregar.Location = new System.Drawing.Point(7, 9);
+            this.btnAgregar.Name = "btnAgregar";
+            this.btnAgregar.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
+            this.btnAgregar.Size = new System.Drawing.Size(122, 40);
+            this.btnAgregar.TabIndex = 11;
+            this.btnAgregar.Text = "Agregar";
+            this.btnAgregar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnAgregar.UseVisualStyleBackColor = false;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // panel2
             // 
             this.panel2.Controls.Add(this.inputBuscar);
             this.panel2.Controls.Add(this.btnBuscar);
-            this.panel2.Location = new System.Drawing.Point(265, 136);
+            this.panel2.Location = new System.Drawing.Point(295, 149);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(416, 53);
-            this.panel2.TabIndex = 19;
+            this.panel2.TabIndex = 29;
             // 
             // inputBuscar
             // 
@@ -435,34 +463,83 @@
             // 
             this.Lbl_Title.AutoSize = true;
             this.Lbl_Title.Font = new System.Drawing.Font("Segoe UI Semibold", 27.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Lbl_Title.Location = new System.Drawing.Point(269, 74);
+            this.Lbl_Title.Location = new System.Drawing.Point(288, 91);
             this.Lbl_Title.Name = "Lbl_Title";
-            this.Lbl_Title.Size = new System.Drawing.Size(135, 50);
-            this.Lbl_Title.TabIndex = 18;
-            this.Lbl_Title.Text = "Puntos";
+            this.Lbl_Title.Size = new System.Drawing.Size(244, 50);
+            this.Lbl_Title.TabIndex = 28;
+            this.Lbl_Title.Text = "Devoluciones";
             // 
-            // ViewPoints
+            // ColumnId
+            // 
+            this.ColumnId.HeaderText = "ID";
+            this.ColumnId.Name = "ColumnId";
+            this.ColumnId.Width = 46;
+            // 
+            // ColumnCliente
+            // 
+            this.ColumnCliente.HeaderText = "Cliente";
+            this.ColumnCliente.Name = "ColumnCliente";
+            this.ColumnCliente.ReadOnly = true;
+            this.ColumnCliente.Width = 75;
+            // 
+            // ColumnIdVenta
+            // 
+            this.ColumnIdVenta.HeaderText = "ID Venta";
+            this.ColumnIdVenta.Name = "ColumnIdVenta";
+            this.ColumnIdVenta.Width = 85;
+            // 
+            // ColumnProducto
+            // 
+            this.ColumnProducto.HeaderText = "Producto";
+            this.ColumnProducto.Name = "ColumnProducto";
+            this.ColumnProducto.ReadOnly = true;
+            this.ColumnProducto.Width = 88;
+            // 
+            // ColumnFechaDevolucion
+            // 
+            this.ColumnFechaDevolucion.HeaderText = "Fecha de devolucion";
+            this.ColumnFechaDevolucion.Name = "ColumnFechaDevolucion";
+            this.ColumnFechaDevolucion.ReadOnly = true;
+            this.ColumnFechaDevolucion.Width = 158;
+            // 
+            // ColumnDescripción
+            // 
+            this.ColumnDescripción.HeaderText = "Descripción";
+            this.ColumnDescripción.Name = "ColumnDescripción";
+            this.ColumnDescripción.ReadOnly = true;
+            this.ColumnDescripción.Width = 104;
+            // 
+            // ColumnEstado
+            // 
+            this.ColumnEstado.HeaderText = "Estado";
+            this.ColumnEstado.Name = "ColumnEstado";
+            this.ColumnEstado.ReadOnly = true;
+            this.ColumnEstado.Width = 73;
+            // 
+            // ViewReturns
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1280, 720);
             this.Controls.Add(this.Table_Customers);
+            this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.Lbl_Title);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.barAcciones);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "ViewPoints";
-            this.Text = "ViewPuntos";
+            this.Name = "ViewReturns";
+            this.Text = "FormReturns";
+            this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.logo)).EndInit();
             this.barAcciones.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.btnOcultar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMaximizar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnRestaurar)).EndInit();
-            this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.logo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Table_Customers)).EndInit();
+            this.panel3.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.ResumeLayout(false);
@@ -472,11 +549,6 @@
 
         #endregion
 
-        private System.Windows.Forms.Panel barAcciones;
-        private System.Windows.Forms.PictureBox btnOcultar;
-        private System.Windows.Forms.PictureBox btnMaximizar;
-        private System.Windows.Forms.PictureBox btnCerrar;
-        private System.Windows.Forms.PictureBox btnRestaurar;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button BtnPuntos;
         private System.Windows.Forms.Button btnClientes;
@@ -487,15 +559,25 @@
         private System.Windows.Forms.Button btnPromociones;
         private System.Windows.Forms.Button btnInicio;
         private System.Windows.Forms.PictureBox logo;
+        private System.Windows.Forms.Panel barAcciones;
+        private System.Windows.Forms.PictureBox btnOcultar;
+        private System.Windows.Forms.PictureBox btnMaximizar;
+        private System.Windows.Forms.PictureBox btnCerrar;
+        private System.Windows.Forms.PictureBox btnRestaurar;
         private System.Windows.Forms.DataGridView Table_Customers;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Button btnModificar;
+        private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.TextBox inputBuscar;
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.Label Lbl_Title;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnMembresia;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnId;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnCliente;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnDUI;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnPuntos;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnGstados;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnIdVenta;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnProducto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnFechaDevolucion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnDescripción;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnEstado;
     }
 }

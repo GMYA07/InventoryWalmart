@@ -78,7 +78,7 @@ namespace InventoryWalmart
 
         private void btnDevoluciones_Click(object sender, EventArgs e)
         {
-            //ChangeView<viewBenefitsRewards>();
+            ChangeView<ViewReturns>();
         }
 
         private void btnReportes_Click(object sender, EventArgs e)

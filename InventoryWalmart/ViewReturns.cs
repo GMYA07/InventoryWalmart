@@ -11,9 +11,11 @@ using System.Windows.Forms;
 
 namespace InventoryWalmart
 {
-    public partial class ViewPoints : Form
+    public partial class ViewReturns : Form
     {
-        public ViewPoints()
+        public static string opcion = "";
+
+        public ViewReturns()
         {
             InitializeComponent();
         }
@@ -73,7 +75,7 @@ namespace InventoryWalmart
 
         private void btnDevoluciones_Click(object sender, EventArgs e)
         {
-            ChangeView<ViewReturns>();
+            //ChangeView<viewBenefitsRewards>();
         }
 
         private void btnReportes_Click(object sender, EventArgs e)
@@ -91,6 +93,11 @@ namespace InventoryWalmart
             ChangeView<ViewCustomers>();
         }
 
+        private void BtnPuntos_Click(object sender, EventArgs e)
+        {
+            ChangeView<ViewPoints>();
+        }
+
         private void ChangeView<T>() where T : Form, new()
         {
             T vista = new T();
@@ -98,9 +105,16 @@ namespace InventoryWalmart
             vista.Show();
         }
 
-        private void BtnPuntos_Click(object sender, EventArgs e)
+        private void btnAgregar_Click(object sender, EventArgs e)
         {
-            ChangeView<ViewPoints>();
+            opcion = "agregar";
+            ChangeView<FormMembership>();
+        }
+
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+            opcion = "editar";
+            ChangeView<FormMembership>();
         }
     }
 }

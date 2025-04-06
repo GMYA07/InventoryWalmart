@@ -1,6 +1,6 @@
 ﻿namespace InventoryWalmart
 {
-    partial class FormCustomers
+    partial class FormSupplier
     {
         /// <summary>
         /// Required designer variable.
@@ -28,29 +28,27 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormCustomers));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormSupplier));
             this.barAcciones = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
             this.btnOcultar = new System.Windows.Forms.PictureBox();
             this.btnMaximizar = new System.Windows.Forms.PictureBox();
             this.btnCerrar = new System.Windows.Forms.PictureBox();
             this.btnRestaurar = new System.Windows.Forms.PictureBox();
+            this.BtnRegresar = new System.Windows.Forms.Button();
             this.LblTitulo = new System.Windows.Forms.Label();
-            this.LblNombre = new System.Windows.Forms.Label();
-            this.TxtNombre = new System.Windows.Forms.TextBox();
-            this.TxtApellido = new System.Windows.Forms.TextBox();
-            this.LblApellido = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.TxtTelefono = new System.Windows.Forms.TextBox();
-            this.LblTelefono = new System.Windows.Forms.Label();
-            this.TxtDUI = new System.Windows.Forms.TextBox();
-            this.LblDUI = new System.Windows.Forms.Label();
-            this.TxtEmail = new System.Windows.Forms.TextBox();
-            this.LblEmail = new System.Windows.Forms.Label();
-            this.LblNacimiento = new System.Windows.Forms.Label();
-            this.DtpNacimiento = new System.Windows.Forms.DateTimePicker();
+            this.CboDepartamento = new System.Windows.Forms.ComboBox();
+            this.LblDepartamento = new System.Windows.Forms.Label();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.btnModificar = new System.Windows.Forms.Button();
+            this.TxtEmail = new System.Windows.Forms.TextBox();
+            this.LblEmail = new System.Windows.Forms.Label();
+            this.TxtTelefono = new System.Windows.Forms.TextBox();
+            this.LblTelefono = new System.Windows.Forms.Label();
+            this.Txtcompañia = new System.Windows.Forms.TextBox();
+            this.TxtNombre = new System.Windows.Forms.TextBox();
+            this.LblNombreC = new System.Windows.Forms.Label();
+            this.LblNombre = new System.Windows.Forms.Label();
             this.barAcciones.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnOcultar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMaximizar)).BeginInit();
@@ -66,25 +64,13 @@
             this.barAcciones.Controls.Add(this.btnMaximizar);
             this.barAcciones.Controls.Add(this.btnCerrar);
             this.barAcciones.Controls.Add(this.btnRestaurar);
-            this.barAcciones.Controls.Add(this.button1);
+            this.barAcciones.Controls.Add(this.BtnRegresar);
             this.barAcciones.Dock = System.Windows.Forms.DockStyle.Top;
             this.barAcciones.Location = new System.Drawing.Point(0, 0);
             this.barAcciones.Name = "barAcciones";
             this.barAcciones.Size = new System.Drawing.Size(450, 59);
-            this.barAcciones.TabIndex = 2;
+            this.barAcciones.TabIndex = 3;
             this.barAcciones.MouseDown += new System.Windows.Forms.MouseEventHandler(this.barAcciones_MouseDown);
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(194)))), ((int)(((byte)(33)))));
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.Image = global::InventoryWalmart.Properties.Resources.IconoRegresar1;
-            this.button1.Location = new System.Drawing.Point(12, 12);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(35, 35);
-            this.button1.TabIndex = 5;
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // btnOcultar
             // 
@@ -138,139 +124,65 @@
             this.btnRestaurar.TabStop = false;
             this.btnRestaurar.Click += new System.EventHandler(this.btnRestaurar_Click);
             // 
+            // BtnRegresar
+            // 
+            this.BtnRegresar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(194)))), ((int)(((byte)(33)))));
+            this.BtnRegresar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnRegresar.Image = global::InventoryWalmart.Properties.Resources.IconoRegresar1;
+            this.BtnRegresar.Location = new System.Drawing.Point(12, 12);
+            this.BtnRegresar.Name = "BtnRegresar";
+            this.BtnRegresar.Size = new System.Drawing.Size(35, 35);
+            this.BtnRegresar.TabIndex = 5;
+            this.BtnRegresar.UseVisualStyleBackColor = false;
+            this.BtnRegresar.Click += new System.EventHandler(this.BtnRegresar_Click);
+            // 
             // LblTitulo
             // 
             this.LblTitulo.AutoSize = true;
             this.LblTitulo.Font = new System.Drawing.Font("Segoe UI Semibold", 18.75F, System.Drawing.FontStyle.Bold);
-            this.LblTitulo.Location = new System.Drawing.Point(130, 73);
+            this.LblTitulo.Location = new System.Drawing.Point(120, 62);
             this.LblTitulo.Name = "LblTitulo";
-            this.LblTitulo.Size = new System.Drawing.Size(193, 35);
-            this.LblTitulo.TabIndex = 6;
-            this.LblTitulo.Text = "Agregar Cliente";
-            // 
-            // LblNombre
-            // 
-            this.LblNombre.AutoSize = true;
-            this.LblNombre.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
-            this.LblNombre.Location = new System.Drawing.Point(34, 23);
-            this.LblNombre.Name = "LblNombre";
-            this.LblNombre.Size = new System.Drawing.Size(60, 19);
-            this.LblNombre.TabIndex = 7;
-            this.LblNombre.Text = "Nombre";
-            // 
-            // TxtNombre
-            // 
-            this.TxtNombre.Location = new System.Drawing.Point(38, 45);
-            this.TxtNombre.Name = "TxtNombre";
-            this.TxtNombre.Size = new System.Drawing.Size(100, 20);
-            this.TxtNombre.TabIndex = 8;
-            // 
-            // TxtApellido
-            // 
-            this.TxtApellido.Location = new System.Drawing.Point(209, 45);
-            this.TxtApellido.Name = "TxtApellido";
-            this.TxtApellido.Size = new System.Drawing.Size(100, 20);
-            this.TxtApellido.TabIndex = 10;
-            // 
-            // LblApellido
-            // 
-            this.LblApellido.AutoSize = true;
-            this.LblApellido.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
-            this.LblApellido.Location = new System.Drawing.Point(205, 23);
-            this.LblApellido.Name = "LblApellido";
-            this.LblApellido.Size = new System.Drawing.Size(61, 19);
-            this.LblApellido.TabIndex = 9;
-            this.LblApellido.Text = "Apellido";
+            this.LblTitulo.Size = new System.Drawing.Size(208, 35);
+            this.LblTitulo.TabIndex = 12;
+            this.LblTitulo.Text = "Agregar Supplier";
             // 
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.CboDepartamento);
+            this.panel1.Controls.Add(this.LblDepartamento);
             this.panel1.Controls.Add(this.btnAgregar);
             this.panel1.Controls.Add(this.btnModificar);
-            this.panel1.Controls.Add(this.DtpNacimiento);
-            this.panel1.Controls.Add(this.LblNacimiento);
             this.panel1.Controls.Add(this.TxtEmail);
             this.panel1.Controls.Add(this.LblEmail);
-            this.panel1.Controls.Add(this.TxtDUI);
-            this.panel1.Controls.Add(this.LblDUI);
             this.panel1.Controls.Add(this.TxtTelefono);
             this.panel1.Controls.Add(this.LblTelefono);
-            this.panel1.Controls.Add(this.TxtApellido);
+            this.panel1.Controls.Add(this.Txtcompañia);
             this.panel1.Controls.Add(this.TxtNombre);
-            this.panel1.Controls.Add(this.LblApellido);
+            this.panel1.Controls.Add(this.LblNombreC);
             this.panel1.Controls.Add(this.LblNombre);
-            this.panel1.Location = new System.Drawing.Point(49, 129);
+            this.panel1.Location = new System.Drawing.Point(39, 118);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(367, 453);
-            this.panel1.TabIndex = 11;
+            this.panel1.Size = new System.Drawing.Size(367, 348);
+            this.panel1.TabIndex = 13;
             // 
-            // TxtTelefono
+            // CboDepartamento
             // 
-            this.TxtTelefono.Location = new System.Drawing.Point(38, 183);
-            this.TxtTelefono.Name = "TxtTelefono";
-            this.TxtTelefono.Size = new System.Drawing.Size(100, 20);
-            this.TxtTelefono.TabIndex = 12;
+            this.CboDepartamento.FormattingEnabled = true;
+            this.CboDepartamento.Location = new System.Drawing.Point(209, 181);
+            this.CboDepartamento.Name = "CboDepartamento";
+            this.CboDepartamento.Size = new System.Drawing.Size(121, 21);
+            this.CboDepartamento.TabIndex = 23;
             // 
-            // LblTelefono
+            // LblDepartamento
             // 
-            this.LblTelefono.AutoSize = true;
-            this.LblTelefono.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
-            this.LblTelefono.Location = new System.Drawing.Point(34, 161);
-            this.LblTelefono.Name = "LblTelefono";
-            this.LblTelefono.Size = new System.Drawing.Size(63, 19);
-            this.LblTelefono.TabIndex = 11;
-            this.LblTelefono.Text = "Telefono";
-            // 
-            // TxtDUI
-            // 
-            this.TxtDUI.Location = new System.Drawing.Point(209, 183);
-            this.TxtDUI.Name = "TxtDUI";
-            this.TxtDUI.Size = new System.Drawing.Size(100, 20);
-            this.TxtDUI.TabIndex = 14;
-            // 
-            // LblDUI
-            // 
-            this.LblDUI.AutoSize = true;
-            this.LblDUI.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
-            this.LblDUI.Location = new System.Drawing.Point(205, 161);
-            this.LblDUI.Name = "LblDUI";
-            this.LblDUI.Size = new System.Drawing.Size(33, 19);
-            this.LblDUI.TabIndex = 13;
-            this.LblDUI.Text = "DUI";
-            // 
-            // TxtEmail
-            // 
-            this.TxtEmail.Location = new System.Drawing.Point(38, 115);
-            this.TxtEmail.Name = "TxtEmail";
-            this.TxtEmail.Size = new System.Drawing.Size(271, 20);
-            this.TxtEmail.TabIndex = 16;
-            // 
-            // LblEmail
-            // 
-            this.LblEmail.AutoSize = true;
-            this.LblEmail.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
-            this.LblEmail.Location = new System.Drawing.Point(34, 93);
-            this.LblEmail.Name = "LblEmail";
-            this.LblEmail.Size = new System.Drawing.Size(43, 19);
-            this.LblEmail.TabIndex = 15;
-            this.LblEmail.Text = "Email";
-            // 
-            // LblNacimiento
-            // 
-            this.LblNacimiento.AutoSize = true;
-            this.LblNacimiento.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
-            this.LblNacimiento.Location = new System.Drawing.Point(34, 240);
-            this.LblNacimiento.Name = "LblNacimiento";
-            this.LblNacimiento.Size = new System.Drawing.Size(138, 19);
-            this.LblNacimiento.TabIndex = 17;
-            this.LblNacimiento.Text = "Fecha de nacimiento";
-            // 
-            // DtpNacimiento
-            // 
-            this.DtpNacimiento.Location = new System.Drawing.Point(38, 274);
-            this.DtpNacimiento.Name = "DtpNacimiento";
-            this.DtpNacimiento.Size = new System.Drawing.Size(200, 20);
-            this.DtpNacimiento.TabIndex = 18;
+            this.LblDepartamento.AutoSize = true;
+            this.LblDepartamento.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
+            this.LblDepartamento.Location = new System.Drawing.Point(203, 161);
+            this.LblDepartamento.Name = "LblDepartamento";
+            this.LblDepartamento.Size = new System.Drawing.Size(98, 19);
+            this.LblDepartamento.TabIndex = 22;
+            this.LblDepartamento.Text = "Departamento";
             // 
             // btnAgregar
             // 
@@ -282,7 +194,7 @@
             this.btnAgregar.ForeColor = System.Drawing.Color.White;
             this.btnAgregar.Image = global::InventoryWalmart.Properties.Resources.iconoAgregar;
             this.btnAgregar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAgregar.Location = new System.Drawing.Point(96, 361);
+            this.btnAgregar.Location = new System.Drawing.Point(97, 248);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Padding = new System.Windows.Forms.Padding(10, 0, 35, 0);
             this.btnAgregar.Size = new System.Drawing.Size(170, 45);
@@ -301,7 +213,7 @@
             this.btnModificar.ForeColor = System.Drawing.Color.White;
             this.btnModificar.Image = global::InventoryWalmart.Properties.Resources.iconoModificar;
             this.btnModificar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnModificar.Location = new System.Drawing.Point(96, 361);
+            this.btnModificar.Location = new System.Drawing.Point(97, 248);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Padding = new System.Windows.Forms.Padding(0, 0, 40, 0);
             this.btnModificar.Size = new System.Drawing.Size(170, 45);
@@ -310,18 +222,86 @@
             this.btnModificar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnModificar.UseVisualStyleBackColor = false;
             // 
-            // FormCustomers
+            // TxtEmail
+            // 
+            this.TxtEmail.Location = new System.Drawing.Point(38, 115);
+            this.TxtEmail.Name = "TxtEmail";
+            this.TxtEmail.Size = new System.Drawing.Size(271, 20);
+            this.TxtEmail.TabIndex = 16;
+            // 
+            // LblEmail
+            // 
+            this.LblEmail.AutoSize = true;
+            this.LblEmail.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
+            this.LblEmail.Location = new System.Drawing.Point(34, 93);
+            this.LblEmail.Name = "LblEmail";
+            this.LblEmail.Size = new System.Drawing.Size(43, 19);
+            this.LblEmail.TabIndex = 15;
+            this.LblEmail.Text = "Email";
+            // 
+            // TxtTelefono
+            // 
+            this.TxtTelefono.Location = new System.Drawing.Point(38, 183);
+            this.TxtTelefono.Name = "TxtTelefono";
+            this.TxtTelefono.Size = new System.Drawing.Size(100, 20);
+            this.TxtTelefono.TabIndex = 12;
+            // 
+            // LblTelefono
+            // 
+            this.LblTelefono.AutoSize = true;
+            this.LblTelefono.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
+            this.LblTelefono.Location = new System.Drawing.Point(34, 161);
+            this.LblTelefono.Name = "LblTelefono";
+            this.LblTelefono.Size = new System.Drawing.Size(63, 19);
+            this.LblTelefono.TabIndex = 11;
+            this.LblTelefono.Text = "Telefono";
+            // 
+            // Txtcompañia
+            // 
+            this.Txtcompañia.Location = new System.Drawing.Point(209, 45);
+            this.Txtcompañia.Name = "Txtcompañia";
+            this.Txtcompañia.Size = new System.Drawing.Size(133, 20);
+            this.Txtcompañia.TabIndex = 10;
+            // 
+            // TxtNombre
+            // 
+            this.TxtNombre.Location = new System.Drawing.Point(38, 45);
+            this.TxtNombre.Name = "TxtNombre";
+            this.TxtNombre.Size = new System.Drawing.Size(134, 20);
+            this.TxtNombre.TabIndex = 8;
+            // 
+            // LblNombreC
+            // 
+            this.LblNombreC.AutoSize = true;
+            this.LblNombreC.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
+            this.LblNombreC.Location = new System.Drawing.Point(205, 23);
+            this.LblNombreC.Name = "LblNombreC";
+            this.LblNombreC.Size = new System.Drawing.Size(123, 19);
+            this.LblNombreC.TabIndex = 9;
+            this.LblNombreC.Text = "NombreCompañia";
+            // 
+            // LblNombre
+            // 
+            this.LblNombre.AutoSize = true;
+            this.LblNombre.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
+            this.LblNombre.Location = new System.Drawing.Point(34, 23);
+            this.LblNombre.Name = "LblNombre";
+            this.LblNombre.Size = new System.Drawing.Size(119, 19);
+            this.LblNombre.TabIndex = 7;
+            this.LblNombre.Text = "Nombre Manager";
+            // 
+            // FormSupplier
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(450, 600);
+            this.ClientSize = new System.Drawing.Size(450, 498);
             this.Controls.Add(this.LblTitulo);
-            this.Controls.Add(this.barAcciones);
             this.Controls.Add(this.panel1);
+            this.Controls.Add(this.barAcciones);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "FormCustomers";
-            this.Text = "FormCustomers";
+            this.Name = "FormSupplier";
+            this.Text = "FormSupplier";
             this.barAcciones.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.btnOcultar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMaximizar)).EndInit();
@@ -341,22 +321,20 @@
         private System.Windows.Forms.PictureBox btnMaximizar;
         private System.Windows.Forms.PictureBox btnCerrar;
         private System.Windows.Forms.PictureBox btnRestaurar;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button BtnRegresar;
         private System.Windows.Forms.Label LblTitulo;
-        private System.Windows.Forms.Label LblNombre;
-        private System.Windows.Forms.TextBox TxtNombre;
-        private System.Windows.Forms.TextBox TxtApellido;
-        private System.Windows.Forms.Label LblApellido;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.DateTimePicker DtpNacimiento;
-        private System.Windows.Forms.Label LblNacimiento;
-        private System.Windows.Forms.TextBox TxtEmail;
-        private System.Windows.Forms.Label LblEmail;
-        private System.Windows.Forms.TextBox TxtDUI;
-        private System.Windows.Forms.Label LblDUI;
-        private System.Windows.Forms.TextBox TxtTelefono;
-        private System.Windows.Forms.Label LblTelefono;
         private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.Button btnModificar;
+        private System.Windows.Forms.TextBox TxtEmail;
+        private System.Windows.Forms.Label LblEmail;
+        private System.Windows.Forms.TextBox TxtTelefono;
+        private System.Windows.Forms.Label LblTelefono;
+        private System.Windows.Forms.TextBox Txtcompañia;
+        private System.Windows.Forms.TextBox TxtNombre;
+        private System.Windows.Forms.Label LblNombreC;
+        private System.Windows.Forms.Label LblNombre;
+        private System.Windows.Forms.Label LblDepartamento;
+        private System.Windows.Forms.ComboBox CboDepartamento;
     }
 }

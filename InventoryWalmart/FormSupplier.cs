@@ -11,15 +11,13 @@ using System.Windows.Forms;
 
 namespace InventoryWalmart
 {
-    public partial class FormCustomers : Form
+    public partial class FormSupplier : Form
     {
-        
-        string opcion1 = ViewCustomers.opcion;
-
-        public FormCustomers()
+        public FormSupplier()
         {
             InitializeComponent();
-            if (opcion1 == "agregar"){
+
+            if (ViewSuppliers.opcion == "agregar"){
 
             }
             else{
@@ -28,7 +26,6 @@ namespace InventoryWalmart
                 btnAgregar.BackColor = Color.Blue;
                 //this
             }
-
         }
 
         //Codigo q nos ayuda con la administrasion de la barra de arriba y mover la ventana.
@@ -76,9 +73,10 @@ namespace InventoryWalmart
             vista.Show();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+
+        private void BtnRegresar_Click(object sender, EventArgs e)
         {
-            ChangeView<ViewCustomers>();
+            ChangeView<ViewSuppliers>();
         }
     }
 }

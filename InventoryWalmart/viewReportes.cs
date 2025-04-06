@@ -14,14 +14,16 @@ namespace InventoryWalmart
     public partial class viewReportes : Form
     {
         public viewReportes()
-        {
+        {  
+
             InitializeComponent();
         }
 
         private void viewReportes_Load(object sender, EventArgs e)
         {
-
+          
         }
+
 
         //Codigo q nos ayuda con la administrasion de la barra de arriba y mover la ventana.
         //Drag Form
@@ -68,9 +70,11 @@ namespace InventoryWalmart
             dashboard.Show();
         }
 
-        private void barAcciones_Paint(object sender, PaintEventArgs e)
+        private void tabPage1_Click(object sender, EventArgs e)
         {
+            
 
         }
+
     }
 }

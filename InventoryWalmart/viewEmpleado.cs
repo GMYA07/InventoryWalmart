@@ -11,18 +11,14 @@ using System.Windows.Forms;
 
 namespace InventoryWalmart
 {
-    public partial class dashboard : Form
+    public partial class viewEmpleado : Form
     {
-        public dashboard()
+        public viewEmpleado()
         {
             InitializeComponent();
         }
 
-        private void barAcciones_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
+        //Codigo q nos ayuda con la administrasion de la barra de arriba y mover la ventana.
         //Drag Form
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
         private extern static void ReleaseCapture();
@@ -60,60 +56,16 @@ namespace InventoryWalmart
             SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
         private void btnInicio_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void btnDevoluciones_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dashboard_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel7_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void panelBeneficiosReco_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void panelDescuentos_Paint(object sender, PaintEventArgs e)
-        {
-            
-        }
-
-        private void panelBeneficiosReco_Click(object sender, EventArgs e)
-        {
-            viewBenefitsRewards viewBenefitsRewards = new viewBenefitsRewards();
+            dashboard dashboard = new dashboard();
             this.Hide();
-            viewBenefitsRewards.Show();
+            dashboard.Show();
         }
 
-        private void panelDescuentos_Click(object sender, EventArgs e)
+        private void btnAplicarBene_Click(object sender, EventArgs e)
         {
-            viewDiscount viewDiscount = new viewDiscount();
-            this.Hide();
-            viewDiscount.Show();
-        }
 
-        private void btnEmpleado_Click(object sender, EventArgs e)
-        {
-            viewEmpleado viewEmpleado = new viewEmpleado();
-            this.Hide();
-            viewEmpleado.Show();
         }
     }
 }

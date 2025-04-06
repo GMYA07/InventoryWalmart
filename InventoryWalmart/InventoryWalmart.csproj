@@ -79,6 +79,12 @@
     <Compile Include="viewDiscount.Designer.cs">
       <DependentUpon>viewDiscount.cs</DependentUpon>
     </Compile>
+    <Compile Include="viewEmpleado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="viewEmpleado.Designer.cs">
+      <DependentUpon>viewEmpleado.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="dashboard.resx">
       <DependentUpon>dashboard.cs</DependentUpon>
     </EmbeddedResource>
@@ -98,6 +104,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="viewDiscount.resx">
       <DependentUpon>viewDiscount.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="viewEmpleado.resx">
+      <DependentUpon>viewEmpleado.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

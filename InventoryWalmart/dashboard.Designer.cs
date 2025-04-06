@@ -97,8 +97,9 @@
             this.barAcciones.Controls.Add(this.btnRestaurar);
             this.barAcciones.Dock = System.Windows.Forms.DockStyle.Top;
             this.barAcciones.Location = new System.Drawing.Point(0, 0);
+            this.barAcciones.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.barAcciones.Name = "barAcciones";
-            this.barAcciones.Size = new System.Drawing.Size(1280, 59);
+            this.barAcciones.Size = new System.Drawing.Size(1707, 73);
             this.barAcciones.TabIndex = 2;
             this.barAcciones.Paint += new System.Windows.Forms.PaintEventHandler(this.barAcciones_Paint);
             this.barAcciones.MouseDown += new System.Windows.Forms.MouseEventHandler(this.barAcciones_MouseDown);
@@ -108,9 +109,10 @@
             this.btnOcultar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnOcultar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnOcultar.Image = global::InventoryWalmart.Properties.Resources.ocultar;
-            this.btnOcultar.Location = new System.Drawing.Point(1138, 12);
+            this.btnOcultar.Location = new System.Drawing.Point(1517, 15);
+            this.btnOcultar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnOcultar.Name = "btnOcultar";
-            this.btnOcultar.Size = new System.Drawing.Size(30, 30);
+            this.btnOcultar.Size = new System.Drawing.Size(40, 37);
             this.btnOcultar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.btnOcultar.TabIndex = 4;
             this.btnOcultar.TabStop = false;
@@ -121,9 +123,10 @@
             this.btnMaximizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnMaximizar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnMaximizar.Image = ((System.Drawing.Image)(resources.GetObject("btnMaximizar.Image")));
-            this.btnMaximizar.Location = new System.Drawing.Point(1191, 12);
+            this.btnMaximizar.Location = new System.Drawing.Point(1588, 15);
+            this.btnMaximizar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnMaximizar.Name = "btnMaximizar";
-            this.btnMaximizar.Size = new System.Drawing.Size(30, 30);
+            this.btnMaximizar.Size = new System.Drawing.Size(40, 37);
             this.btnMaximizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.btnMaximizar.TabIndex = 3;
             this.btnMaximizar.TabStop = false;
@@ -134,9 +137,10 @@
             this.btnCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCerrar.Image = ((System.Drawing.Image)(resources.GetObject("btnCerrar.Image")));
-            this.btnCerrar.Location = new System.Drawing.Point(1236, 12);
+            this.btnCerrar.Location = new System.Drawing.Point(1648, 15);
+            this.btnCerrar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnCerrar.Name = "btnCerrar";
-            this.btnCerrar.Size = new System.Drawing.Size(32, 32);
+            this.btnCerrar.Size = new System.Drawing.Size(43, 39);
             this.btnCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.btnCerrar.TabIndex = 2;
             this.btnCerrar.TabStop = false;
@@ -147,9 +151,10 @@
             this.btnRestaurar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnRestaurar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnRestaurar.Image = ((System.Drawing.Image)(resources.GetObject("btnRestaurar.Image")));
-            this.btnRestaurar.Location = new System.Drawing.Point(1191, 12);
+            this.btnRestaurar.Location = new System.Drawing.Point(1588, 15);
+            this.btnRestaurar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnRestaurar.Name = "btnRestaurar";
-            this.btnRestaurar.Size = new System.Drawing.Size(30, 30);
+            this.btnRestaurar.Size = new System.Drawing.Size(40, 37);
             this.btnRestaurar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.btnRestaurar.TabIndex = 3;
             this.btnRestaurar.TabStop = false;
@@ -167,9 +172,10 @@
             this.panel1.Controls.Add(this.btnInicio);
             this.panel1.Controls.Add(this.logo);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel1.Location = new System.Drawing.Point(0, 59);
+            this.panel1.Location = new System.Drawing.Point(0, 73);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(250, 661);
+            this.panel1.Size = new System.Drawing.Size(333, 813);
             this.panel1.TabIndex = 3;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
@@ -184,10 +190,11 @@
             this.btnClientes.ForeColor = System.Drawing.Color.White;
             this.btnClientes.Image = global::InventoryWalmart.Properties.Resources.UsuariosIcon;
             this.btnClientes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnClientes.Location = new System.Drawing.Point(0, 368);
+            this.btnClientes.Location = new System.Drawing.Point(0, 452);
+            this.btnClientes.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnClientes.Name = "btnClientes";
-            this.btnClientes.Padding = new System.Windows.Forms.Padding(0, 0, 100, 0);
-            this.btnClientes.Size = new System.Drawing.Size(250, 40);
+            this.btnClientes.Padding = new System.Windows.Forms.Padding(0, 0, 133, 0);
+            this.btnClientes.Size = new System.Drawing.Size(333, 49);
             this.btnClientes.TabIndex = 7;
             this.btnClientes.Text = "Clientes";
             this.btnClientes.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -204,10 +211,11 @@
             this.btnEmpleado.ForeColor = System.Drawing.Color.White;
             this.btnEmpleado.Image = global::InventoryWalmart.Properties.Resources.EmpleadosIcon;
             this.btnEmpleado.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEmpleado.Location = new System.Drawing.Point(0, 328);
+            this.btnEmpleado.Location = new System.Drawing.Point(0, 403);
+            this.btnEmpleado.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnEmpleado.Name = "btnEmpleado";
-            this.btnEmpleado.Padding = new System.Windows.Forms.Padding(0, 0, 80, 0);
-            this.btnEmpleado.Size = new System.Drawing.Size(250, 40);
+            this.btnEmpleado.Padding = new System.Windows.Forms.Padding(0, 0, 107, 0);
+            this.btnEmpleado.Size = new System.Drawing.Size(333, 49);
             this.btnEmpleado.TabIndex = 6;
             this.btnEmpleado.Text = "Empleado";
             this.btnEmpleado.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -224,14 +232,16 @@
             this.btnReportes.ForeColor = System.Drawing.Color.White;
             this.btnReportes.Image = global::InventoryWalmart.Properties.Resources.ReportesIcon;
             this.btnReportes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnReportes.Location = new System.Drawing.Point(0, 288);
+            this.btnReportes.Location = new System.Drawing.Point(0, 354);
+            this.btnReportes.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnReportes.Name = "btnReportes";
-            this.btnReportes.Padding = new System.Windows.Forms.Padding(0, 0, 90, 0);
-            this.btnReportes.Size = new System.Drawing.Size(250, 40);
+            this.btnReportes.Padding = new System.Windows.Forms.Padding(0, 0, 120, 0);
+            this.btnReportes.Size = new System.Drawing.Size(333, 49);
             this.btnReportes.TabIndex = 5;
             this.btnReportes.Text = "Reportes";
             this.btnReportes.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnReportes.UseVisualStyleBackColor = false;
+            this.btnReportes.Click += new System.EventHandler(this.btnReportes_Click);
             // 
             // btnDevoluciones
             // 
@@ -244,10 +254,11 @@
             this.btnDevoluciones.ForeColor = System.Drawing.Color.White;
             this.btnDevoluciones.Image = global::InventoryWalmart.Properties.Resources.RenvolsosIcon;
             this.btnDevoluciones.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDevoluciones.Location = new System.Drawing.Point(0, 248);
+            this.btnDevoluciones.Location = new System.Drawing.Point(0, 305);
+            this.btnDevoluciones.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnDevoluciones.Name = "btnDevoluciones";
-            this.btnDevoluciones.Padding = new System.Windows.Forms.Padding(0, 0, 50, 0);
-            this.btnDevoluciones.Size = new System.Drawing.Size(250, 40);
+            this.btnDevoluciones.Padding = new System.Windows.Forms.Padding(0, 0, 67, 0);
+            this.btnDevoluciones.Size = new System.Drawing.Size(333, 49);
             this.btnDevoluciones.TabIndex = 4;
             this.btnDevoluciones.Text = "Devoluciones";
             this.btnDevoluciones.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -265,10 +276,11 @@
             this.btnProductos.ForeColor = System.Drawing.Color.White;
             this.btnProductos.Image = global::InventoryWalmart.Properties.Resources.ProductosIcon;
             this.btnProductos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnProductos.Location = new System.Drawing.Point(0, 208);
+            this.btnProductos.Location = new System.Drawing.Point(0, 256);
+            this.btnProductos.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnProductos.Name = "btnProductos";
-            this.btnProductos.Padding = new System.Windows.Forms.Padding(0, 0, 75, 0);
-            this.btnProductos.Size = new System.Drawing.Size(250, 40);
+            this.btnProductos.Padding = new System.Windows.Forms.Padding(0, 0, 100, 0);
+            this.btnProductos.Size = new System.Drawing.Size(333, 49);
             this.btnProductos.TabIndex = 3;
             this.btnProductos.Text = "Productos";
             this.btnProductos.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -285,10 +297,11 @@
             this.btnPromociones.ForeColor = System.Drawing.Color.White;
             this.btnPromociones.Image = ((System.Drawing.Image)(resources.GetObject("btnPromociones.Image")));
             this.btnPromociones.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnPromociones.Location = new System.Drawing.Point(0, 168);
+            this.btnPromociones.Location = new System.Drawing.Point(0, 207);
+            this.btnPromociones.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnPromociones.Name = "btnPromociones";
-            this.btnPromociones.Padding = new System.Windows.Forms.Padding(0, 0, 50, 0);
-            this.btnPromociones.Size = new System.Drawing.Size(250, 40);
+            this.btnPromociones.Padding = new System.Windows.Forms.Padding(0, 0, 67, 0);
+            this.btnPromociones.Size = new System.Drawing.Size(333, 49);
             this.btnPromociones.TabIndex = 2;
             this.btnPromociones.Text = "Promociones";
             this.btnPromociones.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -305,10 +318,11 @@
             this.btnInicio.ForeColor = System.Drawing.Color.White;
             this.btnInicio.Image = global::InventoryWalmart.Properties.Resources.DashboardIcon;
             this.btnInicio.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnInicio.Location = new System.Drawing.Point(0, 128);
+            this.btnInicio.Location = new System.Drawing.Point(0, 158);
+            this.btnInicio.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnInicio.Name = "btnInicio";
-            this.btnInicio.Padding = new System.Windows.Forms.Padding(0, 0, 120, 0);
-            this.btnInicio.Size = new System.Drawing.Size(250, 40);
+            this.btnInicio.Padding = new System.Windows.Forms.Padding(0, 0, 160, 0);
+            this.btnInicio.Size = new System.Drawing.Size(333, 49);
             this.btnInicio.TabIndex = 1;
             this.btnInicio.Text = "Inicio";
             this.btnInicio.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -320,9 +334,10 @@
             this.logo.Dock = System.Windows.Forms.DockStyle.Top;
             this.logo.Image = global::InventoryWalmart.Properties.Resources.logo;
             this.logo.Location = new System.Drawing.Point(0, 0);
+            this.logo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.logo.Name = "logo";
-            this.logo.Padding = new System.Windows.Forms.Padding(10);
-            this.logo.Size = new System.Drawing.Size(250, 128);
+            this.logo.Padding = new System.Windows.Forms.Padding(13, 12, 13, 12);
+            this.logo.Size = new System.Drawing.Size(333, 158);
             this.logo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.logo.TabIndex = 0;
             this.logo.TabStop = false;
@@ -332,9 +347,10 @@
             this.inputFecha.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.inputFecha.Location = new System.Drawing.Point(628, 92);
+            this.inputFecha.Location = new System.Drawing.Point(837, 113);
+            this.inputFecha.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.inputFecha.Name = "inputFecha";
-            this.inputFecha.Size = new System.Drawing.Size(206, 20);
+            this.inputFecha.Size = new System.Drawing.Size(273, 22);
             this.inputFecha.TabIndex = 4;
             // 
             // chart1
@@ -348,13 +364,14 @@
             this.chart1.Cursor = System.Windows.Forms.Cursors.Hand;
             legend1.Name = "Legend1";
             this.chart1.Legends.Add(legend1);
-            this.chart1.Location = new System.Drawing.Point(297, 352);
+            this.chart1.Location = new System.Drawing.Point(396, 433);
+            this.chart1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.chart1.Name = "chart1";
             series1.ChartArea = "ChartArea1";
             series1.Legend = "Legend1";
             series1.Name = "Series1";
             this.chart1.Series.Add(series1);
-            this.chart1.Size = new System.Drawing.Size(478, 318);
+            this.chart1.Size = new System.Drawing.Size(637, 391);
             this.chart1.TabIndex = 6;
             this.chart1.Text = "chart1";
             // 
@@ -366,9 +383,10 @@
             this.tittleDashboard.AutoSize = true;
             this.tittleDashboard.Cursor = System.Windows.Forms.Cursors.Hand;
             this.tittleDashboard.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tittleDashboard.Location = new System.Drawing.Point(974, 290);
+            this.tittleDashboard.Location = new System.Drawing.Point(1299, 357);
+            this.tittleDashboard.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.tittleDashboard.Name = "tittleDashboard";
-            this.tittleDashboard.Size = new System.Drawing.Size(108, 45);
+            this.tittleDashboard.Size = new System.Drawing.Size(132, 54);
             this.tittleDashboard.TabIndex = 7;
             this.tittleDashboard.Text = "Titulo";
             // 
@@ -380,9 +398,10 @@
             this.panelTotalMoney.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(114)))), ((int)(((byte)(223)))));
             this.panelTotalMoney.Controls.Add(this.label1);
             this.panelTotalMoney.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.panelTotalMoney.Location = new System.Drawing.Point(815, 352);
+            this.panelTotalMoney.Location = new System.Drawing.Point(1087, 433);
+            this.panelTotalMoney.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panelTotalMoney.Name = "panelTotalMoney";
-            this.panelTotalMoney.Size = new System.Drawing.Size(189, 160);
+            this.panelTotalMoney.Size = new System.Drawing.Size(252, 197);
             this.panelTotalMoney.TabIndex = 8;
             // 
             // label1
@@ -390,9 +409,10 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(13, 13);
+            this.label1.Location = new System.Drawing.Point(17, 16);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(114, 25);
+            this.label1.Size = new System.Drawing.Size(144, 32);
             this.label1.TabIndex = 0;
             this.label1.Text = "Dinero Total";
             // 
@@ -403,16 +423,18 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel2.Controls.Add(this.panel3);
             this.panel2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.panel2.Location = new System.Drawing.Point(850, 518);
+            this.panel2.Location = new System.Drawing.Point(1133, 638);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(0, 0);
             this.panel2.TabIndex = 9;
             // 
             // panel3
             // 
-            this.panel3.Location = new System.Drawing.Point(8, 8);
+            this.panel3.Location = new System.Drawing.Point(11, 10);
+            this.panel3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(189, 160);
+            this.panel3.Size = new System.Drawing.Size(252, 197);
             this.panel3.TabIndex = 9;
             // 
             // panel4
@@ -423,9 +445,10 @@
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(194)))), ((int)(((byte)(33)))));
             this.panel4.Controls.Add(this.label2);
             this.panel4.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.panel4.Location = new System.Drawing.Point(1055, 352);
+            this.panel4.Location = new System.Drawing.Point(1407, 433);
+            this.panel4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(189, 160);
+            this.panel4.Size = new System.Drawing.Size(252, 197);
             this.panel4.TabIndex = 9;
             // 
             // label2
@@ -433,9 +456,10 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(14, 13);
+            this.label2.Location = new System.Drawing.Point(19, 16);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(140, 25);
+            this.label2.Size = new System.Drawing.Size(175, 32);
             this.label2.TabIndex = 1;
             this.label2.Text = "Dinero Ganado";
             // 
@@ -447,9 +471,10 @@
             this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(194)))), ((int)(((byte)(33)))));
             this.panel5.Controls.Add(this.label3);
             this.panel5.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.panel5.Location = new System.Drawing.Point(815, 529);
+            this.panel5.Location = new System.Drawing.Point(1087, 651);
+            this.panel5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(189, 160);
+            this.panel5.Size = new System.Drawing.Size(252, 197);
             this.panel5.TabIndex = 9;
             // 
             // label3
@@ -457,9 +482,10 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(13, 19);
+            this.label3.Location = new System.Drawing.Point(17, 23);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(134, 25);
+            this.label3.Size = new System.Drawing.Size(169, 32);
             this.label3.TabIndex = 2;
             this.label3.Text = "Ventas Del Dia";
             // 
@@ -471,9 +497,10 @@
             this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(114)))), ((int)(((byte)(223)))));
             this.panel6.Controls.Add(this.label4);
             this.panel6.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.panel6.Location = new System.Drawing.Point(1055, 529);
+            this.panel6.Location = new System.Drawing.Point(1407, 651);
+            this.panel6.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(189, 160);
+            this.panel6.Size = new System.Drawing.Size(252, 197);
             this.panel6.TabIndex = 10;
             // 
             // label4
@@ -481,9 +508,10 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(34, 19);
+            this.label4.Location = new System.Drawing.Point(45, 23);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(120, 50);
+            this.label4.Size = new System.Drawing.Size(148, 64);
             this.label4.TabIndex = 3;
             this.label4.Text = "Trabajadores\n Activos";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -495,9 +523,10 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(32)))), ((int)(((byte)(66)))));
             this.panel10.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.panel10.Location = new System.Drawing.Point(982, 158);
+            this.panel10.Location = new System.Drawing.Point(1309, 194);
+            this.panel10.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(160, 120);
+            this.panel10.Size = new System.Drawing.Size(213, 148);
             this.panel10.TabIndex = 12;
             // 
             // panelDescuentos
@@ -509,9 +538,10 @@
             this.panelDescuentos.Controls.Add(this.label5);
             this.panelDescuentos.Controls.Add(this.pictureBox3);
             this.panelDescuentos.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.panelDescuentos.Location = new System.Drawing.Point(589, 158);
+            this.panelDescuentos.Location = new System.Drawing.Point(785, 194);
+            this.panelDescuentos.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panelDescuentos.Name = "panelDescuentos";
-            this.panelDescuentos.Size = new System.Drawing.Size(160, 120);
+            this.panelDescuentos.Size = new System.Drawing.Size(213, 148);
             this.panelDescuentos.TabIndex = 12;
             this.panelDescuentos.Click += new System.EventHandler(this.panelDescuentos_Click);
             this.panelDescuentos.Paint += new System.Windows.Forms.PaintEventHandler(this.panelDescuentos_Paint);
@@ -521,18 +551,20 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(16, 5);
+            this.label5.Location = new System.Drawing.Point(21, 6);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(125, 30);
+            this.label5.Size = new System.Drawing.Size(164, 37);
             this.label5.TabIndex = 14;
             this.label5.Text = "Descuentos";
             // 
             // pictureBox3
             // 
             this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(107, 59);
+            this.pictureBox3.Location = new System.Drawing.Point(143, 73);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(50, 50);
+            this.pictureBox3.Size = new System.Drawing.Size(67, 62);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox3.TabIndex = 0;
             this.pictureBox3.TabStop = false;
@@ -544,9 +576,10 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(32)))), ((int)(((byte)(66)))));
             this.panel9.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.panel9.Location = new System.Drawing.Point(782, 158);
+            this.panel9.Location = new System.Drawing.Point(1043, 194);
+            this.panel9.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(160, 120);
+            this.panel9.Size = new System.Drawing.Size(213, 148);
             this.panel9.TabIndex = 12;
             // 
             // pictureBox1
@@ -556,9 +589,10 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox1.Image = global::InventoryWalmart.Properties.Resources.user;
-            this.pictureBox1.Location = new System.Drawing.Point(1191, 74);
+            this.pictureBox1.Location = new System.Drawing.Point(1588, 91);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(50, 50);
+            this.pictureBox1.Size = new System.Drawing.Size(67, 62);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 13;
             this.pictureBox1.TabStop = false;
@@ -572,9 +606,10 @@
             this.panelBeneficiosReco.Controls.Add(this.label6);
             this.panelBeneficiosReco.Controls.Add(this.pictureBox2);
             this.panelBeneficiosReco.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.panelBeneficiosReco.Location = new System.Drawing.Point(390, 158);
+            this.panelBeneficiosReco.Location = new System.Drawing.Point(520, 194);
+            this.panelBeneficiosReco.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panelBeneficiosReco.Name = "panelBeneficiosReco";
-            this.panelBeneficiosReco.Size = new System.Drawing.Size(160, 120);
+            this.panelBeneficiosReco.Size = new System.Drawing.Size(213, 148);
             this.panelBeneficiosReco.TabIndex = 14;
             this.panelBeneficiosReco.Click += new System.EventHandler(this.panelBeneficiosReco_Click);
             this.panelBeneficiosReco.Paint += new System.Windows.Forms.PaintEventHandler(this.panelBeneficiosReco_Paint);
@@ -584,28 +619,30 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(3, 5);
+            this.label6.Location = new System.Drawing.Point(4, 6);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(127, 42);
+            this.label6.Size = new System.Drawing.Size(157, 56);
             this.label6.TabIndex = 15;
             this.label6.Text = "Beneficios \r\ny Recompensas";
             // 
             // pictureBox2
             // 
             this.pictureBox2.Image = global::InventoryWalmart.Properties.Resources.caja;
-            this.pictureBox2.Location = new System.Drawing.Point(98, 59);
+            this.pictureBox2.Location = new System.Drawing.Point(131, 73);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(50, 50);
+            this.pictureBox2.Size = new System.Drawing.Size(67, 62);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox2.TabIndex = 0;
             this.pictureBox2.TabStop = false;
             // 
             // dashboard
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1280, 720);
+            this.ClientSize = new System.Drawing.Size(1707, 886);
             this.Controls.Add(this.panelBeneficiosReco);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.panel9);
@@ -622,6 +659,7 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.barAcciones);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "dashboard";
             this.Text = "dashboard";
             this.Load += new System.EventHandler(this.dashboard_Load);

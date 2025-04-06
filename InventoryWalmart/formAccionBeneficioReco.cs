@@ -11,18 +11,29 @@ using System.Windows.Forms;
 
 namespace InventoryWalmart
 {
-    public partial class viewBenefitsRewards : Form
+    public partial class formAccionBeneficioReco : Form
     {
-        public viewBenefitsRewards()
+        public formAccionBeneficioReco(int tipo)
         {
-            InitializeComponent();
+            if (tipo == 0) {
+                InitializeComponent();
+                tituloForm.Text = "Modificar \r\nBeneficio o Recompensa\r\n";
+                btnModificar.Show();
+                btnAgregar.Hide();
+            }
+            else
+            {
+                InitializeComponent();
+                btnAgregar.Show();
+                btnModificar.Hide();
+            }
+
         }
 
-        private void viewBenefitsRewards_Load(object sender, EventArgs e)
+        private void formAgregarBeneficio_Load(object sender, EventArgs e)
         {
 
         }
-
 
         //Codigo q nos ayuda con la administrasion de la barra de arriba y mover la ventana.
         //Drag Form
@@ -53,7 +64,7 @@ namespace InventoryWalmart
 
         private void btnCerrar_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            this.Close();
         }
 
         private void barAcciones_MouseDown(object sender, MouseEventArgs e)
@@ -62,29 +73,10 @@ namespace InventoryWalmart
             SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
 
-        private void btnInicio_Click(object sender, EventArgs e)
-        {
-            dashboard dashboard = new dashboard();
-            this.Hide();
-            dashboard.Show();
-        }
-
-        private void tableBenefitsRewards_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void label2_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void btnAgregar_Click(object sender, EventArgs e)
-        {
-            formAccionBeneficioReco formAccionBeneficioReco = new formAccionBeneficioReco(1);
-            formAccionBeneficioReco.Show();
-        }
-
-        private void btnModificar_Click(object sender, EventArgs e)
-        {
-            formAccionBeneficioReco formAccionBeneficioReco = new formAccionBeneficioReco(0);
-            formAccionBeneficioReco.Show();
-
-        }
     }
 }

@@ -71,6 +71,12 @@
     <Compile Include="formAccionModificarDescuentoProduct.Designer.cs">
       <DependentUpon>formAccionModificarDescuentoProduct.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormCustomers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCustomers.Designer.cs">
+      <DependentUpon>FormCustomers.cs</DependentUpon>
+    </Compile>
     <Compile Include="login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -114,6 +120,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="formAccionModificarDescuentoProduct.resx">
       <DependentUpon>formAccionModificarDescuentoProduct.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormCustomers.resx">
+      <DependentUpon>FormCustomers.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="login.resx">
       <DependentUpon>login.cs</DependentUpon>
@@ -236,6 +245,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\iconoRegresar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\IconoRegresar1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

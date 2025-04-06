@@ -11,13 +11,25 @@ using System.Windows.Forms;
 
 namespace InventoryWalmart
 {
-    public partial class ViewReturns : Form
+    public partial class FormReturns : Form
     {
-        public static string opcion = "";
-
-        public ViewReturns()
+        public FormReturns()
         {
+
+            string opcion1 = ViewReturns.opcion;
+
             InitializeComponent();
+            if (opcion1 == "agregar")
+            {
+
+            }
+            else
+            {
+                LblTitulo.Text = "Editar Devolucion";
+                btnAgregar.Text = "Editar";
+                btnAgregar.BackColor = Color.Blue;
+                //this
+            }
         }
 
         //Codigo q nos ayuda con la administrasion de la barra de arriba y mover la ventana.
@@ -58,46 +70,6 @@ namespace InventoryWalmart
             SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
 
-        private void btnInicio_Click(object sender, EventArgs e)
-        {
-            ChangeView<dashboard>();
-        }
-
-        private void btnPromociones_Click(object sender, EventArgs e)
-        {
-            ChangeView<viewBenefitsRewards>();
-        }
-
-        private void btnProductos_Click(object sender, EventArgs e)
-        {
-            //ChangeView<dashboard>();
-        }
-
-        private void btnDevoluciones_Click(object sender, EventArgs e)
-        {
-            ChangeView<FormReturns>();
-        }
-
-        private void btnReportes_Click(object sender, EventArgs e)
-        {
-            //ChangeView<dashboard>();
-        }
-
-        private void btnEmpleado_Click(object sender, EventArgs e)
-        {
-            ChangeView<ViewSuppliers>();
-        }
-
-        private void btnClientes_Click(object sender, EventArgs e)
-        {
-            ChangeView<ViewCustomers>();
-        }
-
-        private void BtnPuntos_Click(object sender, EventArgs e)
-        {
-            ChangeView<ViewPoints>();
-        }
-
         private void ChangeView<T>() where T : Form, new()
         {
             T vista = new T();
@@ -105,16 +77,9 @@ namespace InventoryWalmart
             vista.Show();
         }
 
-        private void btnAgregar_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
-            opcion = "agregar";
-            ChangeView<FormReturns>();
-        }
-
-        private void btnModificar_Click(object sender, EventArgs e)
-        {
-            opcion = "editar";
-            ChangeView<FormReturns>();
+            ChangeView<ViewReturns>();
         }
     }
 }

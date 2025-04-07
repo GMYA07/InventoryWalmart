@@ -89,6 +89,12 @@
     <Compile Include="FormReturns.Designer.cs">
       <DependentUpon>FormReturns.cs</DependentUpon>
     </Compile>
+    <Compile Include="viewInventary.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="viewInventary.Designer.cs">
+      <DependentUpon>viewInventary.cs</DependentUpon>
+    </Compile>
     <Compile Include="ViewReturns.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -127,7 +133,6 @@
     <Compile Include="viewDiscount.Designer.cs">
       <DependentUpon>viewDiscount.cs</DependentUpon>
     </Compile>
-
     <Compile Include="ViewMembership.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -140,13 +145,11 @@
     <Compile Include="ViewPoints.Designer.cs">
       <DependentUpon>ViewPoints.cs</DependentUpon>
     </Compile>
-
     <Compile Include="ViewSuppliers.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ViewSuppliers.Designer.cs">
       <DependentUpon>ViewSuppliers.cs</DependentUpon>
-      
     </Compile>
     <EmbeddedResource Include="dashboard.resx">
       <DependentUpon>dashboard.cs</DependentUpon>
@@ -189,7 +192,9 @@
     <EmbeddedResource Include="viewDiscount.resx">
       <DependentUpon>viewDiscount.cs</DependentUpon>
     </EmbeddedResource>
-
+    <EmbeddedResource Include="viewInventary.resx">
+      <DependentUpon>viewInventary.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ViewMembership.resx">
       <DependentUpon>ViewMembership.cs</DependentUpon>
     </EmbeddedResource>
@@ -199,10 +204,8 @@
     <EmbeddedResource Include="ViewReturns.resx">
       <DependentUpon>ViewReturns.cs</DependentUpon>
     </EmbeddedResource>
-
     <EmbeddedResource Include="ViewSuppliers.resx">
       <DependentUpon>ViewSuppliers.cs</DependentUpon>
-
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

@@ -35,6 +35,7 @@
             this.btnCerrar = new System.Windows.Forms.PictureBox();
             this.btnRestaurar = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.BtnPuntos = new System.Windows.Forms.Button();
             this.btnClientes = new System.Windows.Forms.Button();
             this.btnEmpleado = new System.Windows.Forms.Button();
             this.btnReportes = new System.Windows.Forms.Button();
@@ -64,6 +65,7 @@
             this.barAcciones.Name = "barAcciones";
             this.barAcciones.Size = new System.Drawing.Size(1264, 59);
             this.barAcciones.TabIndex = 5;
+            this.barAcciones.MouseDown += new System.Windows.Forms.MouseEventHandler(this.barAcciones_MouseDown);
             // 
             // btnOcultar
             // 
@@ -76,6 +78,7 @@
             this.btnOcultar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.btnOcultar.TabIndex = 4;
             this.btnOcultar.TabStop = false;
+            this.btnOcultar.Click += new System.EventHandler(this.btnOcultar_Click);
             // 
             // btnMaximizar
             // 
@@ -88,6 +91,7 @@
             this.btnMaximizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.btnMaximizar.TabIndex = 3;
             this.btnMaximizar.TabStop = false;
+            this.btnMaximizar.Click += new System.EventHandler(this.btnMaximizar_Click);
             // 
             // btnCerrar
             // 
@@ -100,6 +104,7 @@
             this.btnCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.btnCerrar.TabIndex = 2;
             this.btnCerrar.TabStop = false;
+            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
             // 
             // btnRestaurar
             // 
@@ -112,10 +117,12 @@
             this.btnRestaurar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.btnRestaurar.TabIndex = 3;
             this.btnRestaurar.TabStop = false;
+            this.btnRestaurar.Click += new System.EventHandler(this.btnRestaurar_Click);
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(114)))), ((int)(((byte)(223)))));
+            this.panel1.Controls.Add(this.BtnPuntos);
             this.panel1.Controls.Add(this.btnClientes);
             this.panel1.Controls.Add(this.btnEmpleado);
             this.panel1.Controls.Add(this.btnReportes);
@@ -128,7 +135,28 @@
             this.panel1.Location = new System.Drawing.Point(0, 59);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(250, 622);
-            this.panel1.TabIndex = 6;
+            this.panel1.TabIndex = 19;
+            // 
+            // BtnPuntos
+            // 
+            this.BtnPuntos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(114)))), ((int)(((byte)(223)))));
+            this.BtnPuntos.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnPuntos.Dock = System.Windows.Forms.DockStyle.Top;
+            this.BtnPuntos.FlatAppearance.BorderSize = 0;
+            this.BtnPuntos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnPuntos.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnPuntos.ForeColor = System.Drawing.Color.White;
+            this.BtnPuntos.Image = global::InventoryWalmart.Properties.Resources.PointsIcon;
+            this.BtnPuntos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnPuntos.Location = new System.Drawing.Point(0, 408);
+            this.BtnPuntos.Name = "BtnPuntos";
+            this.BtnPuntos.Padding = new System.Windows.Forms.Padding(0, 0, 100, 0);
+            this.BtnPuntos.Size = new System.Drawing.Size(250, 40);
+            this.BtnPuntos.TabIndex = 8;
+            this.BtnPuntos.Text = "Puntos";
+            this.BtnPuntos.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnPuntos.UseVisualStyleBackColor = false;
+            this.BtnPuntos.Click += new System.EventHandler(this.BtnPuntos_Click);
             // 
             // btnClientes
             // 
@@ -149,6 +177,7 @@
             this.btnClientes.Text = "Clientes";
             this.btnClientes.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnClientes.UseVisualStyleBackColor = false;
+            this.btnClientes.Click += new System.EventHandler(this.btnClientes_Click);
             // 
             // btnEmpleado
             // 
@@ -169,6 +198,7 @@
             this.btnEmpleado.Text = "Empleado";
             this.btnEmpleado.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnEmpleado.UseVisualStyleBackColor = false;
+            this.btnEmpleado.Click += new System.EventHandler(this.btnEmpleado_Click);
             // 
             // btnReportes
             // 
@@ -189,6 +219,7 @@
             this.btnReportes.Text = "Reportes";
             this.btnReportes.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnReportes.UseVisualStyleBackColor = false;
+            this.btnReportes.Click += new System.EventHandler(this.btnReportes_Click);
             // 
             // btnDevoluciones
             // 
@@ -209,6 +240,7 @@
             this.btnDevoluciones.Text = "Devoluciones";
             this.btnDevoluciones.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnDevoluciones.UseVisualStyleBackColor = false;
+            this.btnDevoluciones.Click += new System.EventHandler(this.btnDevoluciones_Click);
             // 
             // btnProductos
             // 
@@ -229,6 +261,7 @@
             this.btnProductos.Text = "Productos";
             this.btnProductos.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnProductos.UseVisualStyleBackColor = false;
+            this.btnProductos.Click += new System.EventHandler(this.btnProductos_Click);
             // 
             // btnPromociones
             // 
@@ -249,6 +282,7 @@
             this.btnPromociones.Text = "Promociones";
             this.btnPromociones.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnPromociones.UseVisualStyleBackColor = false;
+            this.btnPromociones.Click += new System.EventHandler(this.btnPromociones_Click);
             // 
             // btnInicio
             // 
@@ -269,6 +303,7 @@
             this.btnInicio.Text = "Inicio";
             this.btnInicio.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnInicio.UseVisualStyleBackColor = false;
+            this.btnInicio.Click += new System.EventHandler(this.btnInicio_Click);
             // 
             // logo
             // 
@@ -286,11 +321,15 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1264, 681);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.barAcciones);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "viewGestionVentas";
             this.Text = "viewGestionVentas";
+            this.Load += new System.EventHandler(this.viewGestionVentas_Load);
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.barAcciones_MouseDown);
             this.barAcciones.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.btnOcultar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMaximizar)).EndInit();
@@ -310,6 +349,7 @@
         private System.Windows.Forms.PictureBox btnCerrar;
         private System.Windows.Forms.PictureBox btnRestaurar;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button BtnPuntos;
         private System.Windows.Forms.Button btnClientes;
         private System.Windows.Forms.Button btnEmpleado;
         private System.Windows.Forms.Button btnReportes;

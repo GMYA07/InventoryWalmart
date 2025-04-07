@@ -89,11 +89,23 @@
     <Compile Include="FormReturns.Designer.cs">
       <DependentUpon>FormReturns.cs</DependentUpon>
     </Compile>
+    
+    
+
+    <Compile Include="ViewGenerarReportes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ViewGenerarReportes.Designer.cs">
+      <DependentUpon>ViewGenerarReportes.cs</DependentUpon>
+
     <Compile Include="viewGestionVentas.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="viewGestionVentas.Designer.cs">
       <DependentUpon>viewGestionVentas.cs</DependentUpon>
+
+      
+      
     </Compile>
     <Compile Include="viewInventary.cs">
       <SubType>Form</SubType>
@@ -204,8 +216,15 @@
     <EmbeddedResource Include="viewDiscount.resx">
       <DependentUpon>viewDiscount.cs</DependentUpon>
     </EmbeddedResource>
+      
+
+    <EmbeddedResource Include="ViewGenerarReportes.resx">
+      <DependentUpon>ViewGenerarReportes.cs</DependentUpon>
+
     <EmbeddedResource Include="viewGestionVentas.resx">
       <DependentUpon>viewGestionVentas.cs</DependentUpon>
+
+      
     </EmbeddedResource>
     <EmbeddedResource Include="viewInventary.resx">
       <DependentUpon>viewInventary.cs</DependentUpon>

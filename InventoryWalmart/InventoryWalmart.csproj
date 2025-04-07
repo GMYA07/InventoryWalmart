@@ -150,6 +150,14 @@
     </Compile>
     <Compile Include="ViewSuppliers.Designer.cs">
       <DependentUpon>ViewSuppliers.cs</DependentUpon>
+
+    </Compile>
+    <Compile Include="ViewUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ViewUser.Designer.cs">
+      <DependentUpon>ViewUser.cs</DependentUpon>
+
     </Compile>
     <EmbeddedResource Include="dashboard.resx">
       <DependentUpon>dashboard.cs</DependentUpon>
@@ -192,7 +200,7 @@
     <EmbeddedResource Include="viewDiscount.resx">
       <DependentUpon>viewDiscount.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="viewInventary.resx">
+      <EmbeddedResource Include="viewInventary.resx">
       <DependentUpon>viewInventary.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ViewMembership.resx">
@@ -206,6 +214,11 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ViewSuppliers.resx">
       <DependentUpon>ViewSuppliers.cs</DependentUpon>
+
+    </EmbeddedResource>
+    <EmbeddedResource Include="ViewUser.resx">
+      <DependentUpon>ViewUser.cs</DependentUpon>
+
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

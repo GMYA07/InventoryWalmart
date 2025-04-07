@@ -32,16 +32,21 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ViewSuppliers));
             this.Table_Customers = new System.Windows.Forms.DataGridView();
+            this.ColumnId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnManger = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnCompany = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnEmail = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnTelefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnDepartamento = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.inputBuscar = new System.Windows.Forms.TextBox();
-            this.Lbl_Title = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.barAcciones = new System.Windows.Forms.Panel();
             this.btnModificar = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnAgregar = new System.Windows.Forms.Button();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.inputBuscar = new System.Windows.Forms.TextBox();
             this.btnBuscar = new System.Windows.Forms.Button();
+            this.Lbl_Title = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.btnClientes = new System.Windows.Forms.Button();
             this.btnEmpleado = new System.Windows.Forms.Button();
             this.btnReportes = new System.Windows.Forms.Button();
@@ -50,22 +55,17 @@
             this.btnPromociones = new System.Windows.Forms.Button();
             this.btnInicio = new System.Windows.Forms.Button();
             this.logo = new System.Windows.Forms.PictureBox();
+            this.barAcciones = new System.Windows.Forms.Panel();
             this.btnOcultar = new System.Windows.Forms.PictureBox();
             this.btnMaximizar = new System.Windows.Forms.PictureBox();
             this.btnCerrar = new System.Windows.Forms.PictureBox();
             this.btnRestaurar = new System.Windows.Forms.PictureBox();
-            this.ColumnId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnManger = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnCompany = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnEmail = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnTelefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnDepartamento = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.Table_Customers)).BeginInit();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
-            this.barAcciones.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.logo)).BeginInit();
+            this.barAcciones.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnOcultar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMaximizar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).BeginInit();
@@ -113,6 +113,42 @@
             this.Table_Customers.Size = new System.Drawing.Size(494, 408);
             this.Table_Customers.TabIndex = 23;
             // 
+            // ColumnId
+            // 
+            this.ColumnId.HeaderText = "ID";
+            this.ColumnId.Name = "ColumnId";
+            this.ColumnId.Width = 46;
+            // 
+            // ColumnManger
+            // 
+            this.ColumnManger.HeaderText = "Manger";
+            this.ColumnManger.Name = "ColumnManger";
+            this.ColumnManger.Width = 79;
+            // 
+            // ColumnCompany
+            // 
+            this.ColumnCompany.HeaderText = "Compañia";
+            this.ColumnCompany.Name = "ColumnCompany";
+            this.ColumnCompany.Width = 94;
+            // 
+            // ColumnEmail
+            // 
+            this.ColumnEmail.HeaderText = "Email";
+            this.ColumnEmail.Name = "ColumnEmail";
+            this.ColumnEmail.Width = 66;
+            // 
+            // ColumnTelefono
+            // 
+            this.ColumnTelefono.HeaderText = "Telefono";
+            this.ColumnTelefono.Name = "ColumnTelefono";
+            this.ColumnTelefono.Width = 86;
+            // 
+            // ColumnDepartamento
+            // 
+            this.ColumnDepartamento.HeaderText = "Departamento";
+            this.ColumnDepartamento.Name = "ColumnDepartamento";
+            this.ColumnDepartamento.Width = 121;
+            // 
             // panel3
             // 
             this.panel3.Controls.Add(this.btnModificar);
@@ -122,63 +158,6 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(394, 53);
             this.panel3.TabIndex = 22;
-            // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.inputBuscar);
-            this.panel2.Controls.Add(this.btnBuscar);
-            this.panel2.Location = new System.Drawing.Point(288, 169);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(416, 53);
-            this.panel2.TabIndex = 21;
-            // 
-            // inputBuscar
-            // 
-            this.inputBuscar.Location = new System.Drawing.Point(3, 8);
-            this.inputBuscar.Multiline = true;
-            this.inputBuscar.Name = "inputBuscar";
-            this.inputBuscar.Size = new System.Drawing.Size(370, 32);
-            this.inputBuscar.TabIndex = 6;
-            // 
-            // Lbl_Title
-            // 
-            this.Lbl_Title.AutoSize = true;
-            this.Lbl_Title.Font = new System.Drawing.Font("Segoe UI Semibold", 27.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Lbl_Title.Location = new System.Drawing.Point(281, 111);
-            this.Lbl_Title.Name = "Lbl_Title";
-            this.Lbl_Title.Size = new System.Drawing.Size(226, 50);
-            this.Lbl_Title.TabIndex = 20;
-            this.Lbl_Title.Text = "Proveedores";
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(114)))), ((int)(((byte)(223)))));
-            this.panel1.Controls.Add(this.btnClientes);
-            this.panel1.Controls.Add(this.btnEmpleado);
-            this.panel1.Controls.Add(this.btnReportes);
-            this.panel1.Controls.Add(this.btnDevoluciones);
-            this.panel1.Controls.Add(this.btnProductos);
-            this.panel1.Controls.Add(this.btnPromociones);
-            this.panel1.Controls.Add(this.btnInicio);
-            this.panel1.Controls.Add(this.logo);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel1.Location = new System.Drawing.Point(0, 59);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(250, 622);
-            this.panel1.TabIndex = 19;
-            // 
-            // barAcciones
-            // 
-            this.barAcciones.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(114)))), ((int)(((byte)(223)))));
-            this.barAcciones.Controls.Add(this.btnOcultar);
-            this.barAcciones.Controls.Add(this.btnMaximizar);
-            this.barAcciones.Controls.Add(this.btnCerrar);
-            this.barAcciones.Controls.Add(this.btnRestaurar);
-            this.barAcciones.Dock = System.Windows.Forms.DockStyle.Top;
-            this.barAcciones.Location = new System.Drawing.Point(0, 0);
-            this.barAcciones.Name = "barAcciones";
-            this.barAcciones.Size = new System.Drawing.Size(1264, 59);
-            this.barAcciones.TabIndex = 18;
             // 
             // btnModificar
             // 
@@ -237,6 +216,23 @@
             this.btnAgregar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnAgregar.UseVisualStyleBackColor = false;
             // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.inputBuscar);
+            this.panel2.Controls.Add(this.btnBuscar);
+            this.panel2.Location = new System.Drawing.Point(288, 169);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(416, 53);
+            this.panel2.TabIndex = 21;
+            // 
+            // inputBuscar
+            // 
+            this.inputBuscar.Location = new System.Drawing.Point(3, 8);
+            this.inputBuscar.Multiline = true;
+            this.inputBuscar.Name = "inputBuscar";
+            this.inputBuscar.Size = new System.Drawing.Size(370, 32);
+            this.inputBuscar.TabIndex = 6;
+            // 
             // btnBuscar
             // 
             this.btnBuscar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(114)))), ((int)(((byte)(223)))));
@@ -250,6 +246,33 @@
             this.btnBuscar.Size = new System.Drawing.Size(35, 32);
             this.btnBuscar.TabIndex = 7;
             this.btnBuscar.UseVisualStyleBackColor = false;
+            // 
+            // Lbl_Title
+            // 
+            this.Lbl_Title.AutoSize = true;
+            this.Lbl_Title.Font = new System.Drawing.Font("Segoe UI Semibold", 27.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Lbl_Title.Location = new System.Drawing.Point(281, 111);
+            this.Lbl_Title.Name = "Lbl_Title";
+            this.Lbl_Title.Size = new System.Drawing.Size(226, 50);
+            this.Lbl_Title.TabIndex = 20;
+            this.Lbl_Title.Text = "Proveedores";
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(114)))), ((int)(((byte)(223)))));
+            this.panel1.Controls.Add(this.btnClientes);
+            this.panel1.Controls.Add(this.btnEmpleado);
+            this.panel1.Controls.Add(this.btnReportes);
+            this.panel1.Controls.Add(this.btnDevoluciones);
+            this.panel1.Controls.Add(this.btnProductos);
+            this.panel1.Controls.Add(this.btnPromociones);
+            this.panel1.Controls.Add(this.btnInicio);
+            this.panel1.Controls.Add(this.logo);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel1.Location = new System.Drawing.Point(0, 59);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(250, 622);
+            this.panel1.TabIndex = 19;
             // 
             // btnClientes
             // 
@@ -410,6 +433,19 @@
             this.logo.TabIndex = 0;
             this.logo.TabStop = false;
             // 
+            // barAcciones
+            // 
+            this.barAcciones.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(114)))), ((int)(((byte)(223)))));
+            this.barAcciones.Controls.Add(this.btnOcultar);
+            this.barAcciones.Controls.Add(this.btnMaximizar);
+            this.barAcciones.Controls.Add(this.btnCerrar);
+            this.barAcciones.Controls.Add(this.btnRestaurar);
+            this.barAcciones.Dock = System.Windows.Forms.DockStyle.Top;
+            this.barAcciones.Location = new System.Drawing.Point(0, 0);
+            this.barAcciones.Name = "barAcciones";
+            this.barAcciones.Size = new System.Drawing.Size(1264, 59);
+            this.barAcciones.TabIndex = 18;
+            // 
             // btnOcultar
             // 
             this.btnOcultar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -462,42 +498,6 @@
             this.btnRestaurar.TabStop = false;
             this.btnRestaurar.Click += new System.EventHandler(this.btnRestaurar_Click);
             // 
-            // ColumnId
-            // 
-            this.ColumnId.HeaderText = "ID";
-            this.ColumnId.Name = "ColumnId";
-            this.ColumnId.Width = 46;
-            // 
-            // ColumnManger
-            // 
-            this.ColumnManger.HeaderText = "Manger";
-            this.ColumnManger.Name = "ColumnManger";
-            this.ColumnManger.Width = 79;
-            // 
-            // ColumnCompany
-            // 
-            this.ColumnCompany.HeaderText = "Compañia";
-            this.ColumnCompany.Name = "ColumnCompany";
-            this.ColumnCompany.Width = 94;
-            // 
-            // ColumnEmail
-            // 
-            this.ColumnEmail.HeaderText = "Email";
-            this.ColumnEmail.Name = "ColumnEmail";
-            this.ColumnEmail.Width = 66;
-            // 
-            // ColumnTelefono
-            // 
-            this.ColumnTelefono.HeaderText = "Telefono";
-            this.ColumnTelefono.Name = "ColumnTelefono";
-            this.ColumnTelefono.Width = 86;
-            // 
-            // ColumnDepartamento
-            // 
-            this.ColumnDepartamento.HeaderText = "Departamento";
-            this.ColumnDepartamento.Name = "ColumnDepartamento";
-            this.ColumnDepartamento.Width = 121;
-            // 
             // ViewSuppliers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -513,13 +513,14 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ViewSuppliers";
             this.Text = "ViewSuppliers";
+            this.Load += new System.EventHandler(this.ViewSuppliers_Load);
             ((System.ComponentModel.ISupportInitialize)(this.Table_Customers)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel1.ResumeLayout(false);
-            this.barAcciones.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.logo)).EndInit();
+            this.barAcciones.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.btnOcultar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMaximizar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).EndInit();

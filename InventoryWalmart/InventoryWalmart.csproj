@@ -97,6 +97,12 @@
     <Compile Include="viewDiscount.Designer.cs">
       <DependentUpon>viewDiscount.cs</DependentUpon>
     </Compile>
+    <Compile Include="viewGestionVenta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="viewGestionVenta.Designer.cs">
+      <DependentUpon>viewGestionVenta.cs</DependentUpon>
+    </Compile>
     <Compile Include="ViewSuppliers.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -131,6 +137,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="viewDiscount.resx">
       <DependentUpon>viewDiscount.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="viewGestionVenta.resx">
+      <DependentUpon>viewGestionVenta.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ViewSuppliers.resx">
       <DependentUpon>ViewSuppliers.cs</DependentUpon>

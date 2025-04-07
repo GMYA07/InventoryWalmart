@@ -76,7 +76,7 @@ namespace InventoryWalmart
 
         private void btnDevoluciones_Click(object sender, EventArgs e)
         {
-            //ChangeView<viewBenefitsRewards>();
+            ChangeView<ViewReturns>();
         }
 
         private void btnReportes_Click(object sender, EventArgs e)
@@ -94,11 +94,21 @@ namespace InventoryWalmart
             ChangeView<ViewCustomers>();
         }
 
+        private void BtnPuntos_Click(object sender, EventArgs e)
+        {
+            ChangeView<ViewPoints>();
+        }
+
         private void ChangeView<T>() where T : Form, new()
         {
             T vista=new T();
             this.Hide();
             vista.Show();
+        }
+
+        private void btnAplicarBene_Click(object sender, EventArgs e)
+        {
+            ChangeView<ViewMembership>();
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
@@ -111,6 +121,21 @@ namespace InventoryWalmart
         {
             opcion = "editar";
             ChangeView<FormCustomers>();
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void Table_Customers_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void ViewCustomers_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -78,7 +78,7 @@ namespace InventoryWalmart
 
         private void btnDevoluciones_Click(object sender, EventArgs e)
         {
-            //ChangeView<viewBenefitsRewards>();
+            ChangeView<ViewReturns>();
         }
 
         private void btnReportes_Click(object sender, EventArgs e)
@@ -94,6 +94,11 @@ namespace InventoryWalmart
         private void btnClientes_Click(object sender, EventArgs e)
         {
             ChangeView<ViewCustomers>();
+        }
+
+        private void BtnPuntos_Click(object sender, EventArgs e)
+        {
+            ChangeView<ViewPoints>();
         }
 
         private void ChangeView<T>() where T : Form, new()
@@ -114,5 +119,7 @@ namespace InventoryWalmart
             opcion = "editar";
             ChangeView<FormSupplier>();
         }
+
+        
     }
 }

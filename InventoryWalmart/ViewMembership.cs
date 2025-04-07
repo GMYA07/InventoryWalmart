@@ -11,18 +11,17 @@ using System.Windows.Forms;
 
 namespace InventoryWalmart
 {
-    public partial class dashboard : Form
+    public partial class ViewMembership : Form
     {
-        public dashboard()
+
+        public static string opcion = "";
+
+        public ViewMembership()
         {
             InitializeComponent();
         }
 
-        private void barAcciones_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
+        //Codigo q nos ayuda con la administrasion de la barra de arriba y mover la ventana.
         //Drag Form
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
         private extern static void ReleaseCapture();
@@ -60,59 +59,63 @@ namespace InventoryWalmart
             SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
         private void btnInicio_Click(object sender, EventArgs e)
         {
+            ChangeView<dashboard>();
+        }
 
+        private void btnPromociones_Click(object sender, EventArgs e)
+        {
+            ChangeView<viewBenefitsRewards>();
+        }
+
+        private void btnProductos_Click(object sender, EventArgs e)
+        {
+            //ChangeView<dashboard>();
         }
 
         private void btnDevoluciones_Click(object sender, EventArgs e)
         {
-
+            ChangeView<ViewReturns>();
         }
 
-        private void dashboard_Load(object sender, EventArgs e)
+        private void btnReportes_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void panel7_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void panelBeneficiosReco_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void panelDescuentos_Paint(object sender, PaintEventArgs e)
-        {
-            
-        }
-
-        private void panelBeneficiosReco_Click(object sender, EventArgs e)
-        {
-            viewBenefitsRewards viewBenefitsRewards = new viewBenefitsRewards();
-            this.Hide();
-            viewBenefitsRewards.Show();
-        }
-
-        private void panelDescuentos_Click(object sender, EventArgs e)
-        {
-            viewDiscount viewDiscount = new viewDiscount();
-            this.Hide();
-            viewDiscount.Show();
+            //ChangeView<dashboard>();
         }
 
         private void btnEmpleado_Click(object sender, EventArgs e)
         {
-            
+            ChangeView<ViewSuppliers>();
+        }
 
+        private void btnClientes_Click(object sender, EventArgs e)
+        {
+            ChangeView<ViewCustomers>();
+        }
+
+        private void BtnPuntos_Click(object sender, EventArgs e)
+        {
+            ChangeView<ViewPoints>();
+        }
+
+        private void ChangeView<T>() where T : Form, new()
+        {
+            T vista = new T();
+            this.Hide();
+            vista.Show();
+        }
+
+        private void btnAgregar_Click(object sender, EventArgs e)
+        {
+            opcion = "agregar";
+            ChangeView<FormMembership>();
+        }
+
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+            opcion = "editar";
+            ChangeView<FormMembership>();
         }
     }
 }

@@ -77,6 +77,36 @@
     <Compile Include="FormCustomers.Designer.cs">
       <DependentUpon>FormCustomers.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormMembership.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormMembership.Designer.cs">
+      <DependentUpon>FormMembership.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormReturns.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormReturns.Designer.cs">
+      <DependentUpon>FormReturns.cs</DependentUpon>
+    </Compile>
+    <Compile Include="viewGestionVentas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="viewGestionVentas.Designer.cs">
+      <DependentUpon>viewGestionVentas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="viewInventary.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="viewInventary.Designer.cs">
+      <DependentUpon>viewInventary.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewReturns.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ViewReturns.Designer.cs">
+      <DependentUpon>ViewReturns.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormSupplier.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -109,11 +139,29 @@
     <Compile Include="viewDiscount.Designer.cs">
       <DependentUpon>viewDiscount.cs</DependentUpon>
     </Compile>
+    <Compile Include="ViewMembership.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ViewMembership.Designer.cs">
+      <DependentUpon>ViewMembership.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewPoints.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ViewPoints.Designer.cs">
+      <DependentUpon>ViewPoints.cs</DependentUpon>
+    </Compile>
     <Compile Include="ViewSuppliers.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ViewSuppliers.Designer.cs">
       <DependentUpon>ViewSuppliers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ViewUser.Designer.cs">
+      <DependentUpon>ViewUser.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="dashboard.resx">
       <DependentUpon>dashboard.cs</DependentUpon>
@@ -129,6 +177,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormCustomers.resx">
       <DependentUpon>FormCustomers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormMembership.resx">
+      <DependentUpon>FormMembership.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormReturns.resx">
+      <DependentUpon>FormReturns.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormSupplier.resx">
       <DependentUpon>FormSupplier.cs</DependentUpon>
@@ -150,8 +204,26 @@
     <EmbeddedResource Include="viewDiscount.resx">
       <DependentUpon>viewDiscount.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="viewGestionVentas.resx">
+      <DependentUpon>viewGestionVentas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="viewInventary.resx">
+      <DependentUpon>viewInventary.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ViewMembership.resx">
+      <DependentUpon>ViewMembership.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ViewPoints.resx">
+      <DependentUpon>ViewPoints.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ViewReturns.resx">
+      <DependentUpon>ViewReturns.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ViewSuppliers.resx">
       <DependentUpon>ViewSuppliers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ViewUser.resx">
+      <DependentUpon>ViewUser.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -257,6 +329,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\IconoRegresar1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PointsIcon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

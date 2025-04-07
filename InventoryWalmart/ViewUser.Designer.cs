@@ -1,6 +1,6 @@
 ﻿namespace InventoryWalmart
 {
-    partial class viewBenefitsRewards
+    partial class ViewUser
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(viewBenefitsRewards));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ViewUser));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.barAcciones = new System.Windows.Forms.Panel();
@@ -42,29 +42,28 @@
             this.btnReportes = new System.Windows.Forms.Button();
             this.btnDevoluciones = new System.Windows.Forms.Button();
             this.btnProductos = new System.Windows.Forms.Button();
-            this.btnBeneficios = new System.Windows.Forms.Button();
+            this.btnPromociones = new System.Windows.Forms.Button();
             this.btnInicio = new System.Windows.Forms.Button();
             this.logo = new System.Windows.Forms.PictureBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.inputBuscar = new System.Windows.Forms.TextBox();
+            this.Table_Customers = new System.Windows.Forms.DataGridView();
+            this.Colum_nombreEmpleado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Colum_telefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Colum_DUI = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Colum_depertameto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Colum_distrito = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Colum_rol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Colum_fechaContratacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Colum_fechaNacimineto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Colum_estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.btnModificar = new System.Windows.Forms.Button();
             this.btnAplicarBene = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnAgregar = new System.Windows.Forms.Button();
-            this.tableBenefitsRewards = new System.Windows.Forms.DataGridView();
-            this.columnID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.columnBenefits = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnDescripBene = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnPorcentajeDesc = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnDateStartD = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnDateEndD = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnPointsReq = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnStatu = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnAccion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.BtnPuntos = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.barAcciones.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnOcultar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMaximizar)).BeginInit();
@@ -72,9 +71,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnRestaurar)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.logo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Table_Customers)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.tableBenefitsRewards)).BeginInit();
             this.SuspendLayout();
             // 
             // barAcciones
@@ -87,7 +86,7 @@
             this.barAcciones.Dock = System.Windows.Forms.DockStyle.Top;
             this.barAcciones.Location = new System.Drawing.Point(0, 0);
             this.barAcciones.Name = "barAcciones";
-            this.barAcciones.Size = new System.Drawing.Size(1280, 59);
+            this.barAcciones.Size = new System.Drawing.Size(1264, 59);
             this.barAcciones.TabIndex = 3;
             this.barAcciones.MouseDown += new System.Windows.Forms.MouseEventHandler(this.barAcciones_MouseDown);
             // 
@@ -96,7 +95,7 @@
             this.btnOcultar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnOcultar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnOcultar.Image = global::InventoryWalmart.Properties.Resources.ocultar;
-            this.btnOcultar.Location = new System.Drawing.Point(1138, 12);
+            this.btnOcultar.Location = new System.Drawing.Point(1122, 12);
             this.btnOcultar.Name = "btnOcultar";
             this.btnOcultar.Size = new System.Drawing.Size(30, 30);
             this.btnOcultar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -109,7 +108,7 @@
             this.btnMaximizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnMaximizar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnMaximizar.Image = ((System.Drawing.Image)(resources.GetObject("btnMaximizar.Image")));
-            this.btnMaximizar.Location = new System.Drawing.Point(1191, 14);
+            this.btnMaximizar.Location = new System.Drawing.Point(1175, 12);
             this.btnMaximizar.Name = "btnMaximizar";
             this.btnMaximizar.Size = new System.Drawing.Size(30, 30);
             this.btnMaximizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -122,7 +121,7 @@
             this.btnCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCerrar.Image = ((System.Drawing.Image)(resources.GetObject("btnCerrar.Image")));
-            this.btnCerrar.Location = new System.Drawing.Point(1236, 12);
+            this.btnCerrar.Location = new System.Drawing.Point(1220, 12);
             this.btnCerrar.Name = "btnCerrar";
             this.btnCerrar.Size = new System.Drawing.Size(32, 32);
             this.btnCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -135,7 +134,7 @@
             this.btnRestaurar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnRestaurar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnRestaurar.Image = ((System.Drawing.Image)(resources.GetObject("btnRestaurar.Image")));
-            this.btnRestaurar.Location = new System.Drawing.Point(1191, 12);
+            this.btnRestaurar.Location = new System.Drawing.Point(1175, 12);
             this.btnRestaurar.Name = "btnRestaurar";
             this.btnRestaurar.Size = new System.Drawing.Size(30, 30);
             this.btnRestaurar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -146,19 +145,18 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(114)))), ((int)(((byte)(223)))));
-            this.panel1.Controls.Add(this.BtnPuntos);
             this.panel1.Controls.Add(this.btnClientes);
             this.panel1.Controls.Add(this.btnEmpleado);
             this.panel1.Controls.Add(this.btnReportes);
             this.panel1.Controls.Add(this.btnDevoluciones);
             this.panel1.Controls.Add(this.btnProductos);
-            this.panel1.Controls.Add(this.btnBeneficios);
+            this.panel1.Controls.Add(this.btnPromociones);
             this.panel1.Controls.Add(this.btnInicio);
             this.panel1.Controls.Add(this.logo);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 59);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(250, 661);
+            this.panel1.Size = new System.Drawing.Size(250, 622);
             this.panel1.TabIndex = 4;
             // 
             // btnClientes
@@ -180,7 +178,6 @@
             this.btnClientes.Text = "Clientes";
             this.btnClientes.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnClientes.UseVisualStyleBackColor = false;
-            this.btnClientes.Click += new System.EventHandler(this.btnClientes_Click);
             // 
             // btnEmpleado
             // 
@@ -201,7 +198,6 @@
             this.btnEmpleado.Text = "Empleado";
             this.btnEmpleado.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnEmpleado.UseVisualStyleBackColor = false;
-            this.btnEmpleado.Click += new System.EventHandler(this.btnEmpleado_Click);
             // 
             // btnReportes
             // 
@@ -222,7 +218,6 @@
             this.btnReportes.Text = "Reportes";
             this.btnReportes.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnReportes.UseVisualStyleBackColor = false;
-            this.btnReportes.Click += new System.EventHandler(this.btnReportes_Click);
             // 
             // btnDevoluciones
             // 
@@ -243,7 +238,6 @@
             this.btnDevoluciones.Text = "Devoluciones";
             this.btnDevoluciones.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnDevoluciones.UseVisualStyleBackColor = false;
-            this.btnDevoluciones.Click += new System.EventHandler(this.btnDevoluciones_Click);
             // 
             // btnProductos
             // 
@@ -264,28 +258,26 @@
             this.btnProductos.Text = "Productos";
             this.btnProductos.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnProductos.UseVisualStyleBackColor = false;
-            this.btnProductos.Click += new System.EventHandler(this.btnProductos_Click);
             // 
-            // btnBeneficios
+            // btnPromociones
             // 
-            this.btnBeneficios.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(114)))), ((int)(((byte)(223)))));
-            this.btnBeneficios.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnBeneficios.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnBeneficios.FlatAppearance.BorderSize = 0;
-            this.btnBeneficios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBeneficios.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBeneficios.ForeColor = System.Drawing.Color.White;
-            this.btnBeneficios.Image = ((System.Drawing.Image)(resources.GetObject("btnBeneficios.Image")));
-            this.btnBeneficios.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBeneficios.Location = new System.Drawing.Point(0, 168);
-            this.btnBeneficios.Name = "btnBeneficios";
-            this.btnBeneficios.Padding = new System.Windows.Forms.Padding(0, 0, 80, 0);
-            this.btnBeneficios.Size = new System.Drawing.Size(250, 40);
-            this.btnBeneficios.TabIndex = 2;
-            this.btnBeneficios.Text = "Beneficios";
-            this.btnBeneficios.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnBeneficios.UseVisualStyleBackColor = false;
-            this.btnBeneficios.Click += new System.EventHandler(this.btnPromociones_Click);
+            this.btnPromociones.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(114)))), ((int)(((byte)(223)))));
+            this.btnPromociones.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnPromociones.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnPromociones.FlatAppearance.BorderSize = 0;
+            this.btnPromociones.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPromociones.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPromociones.ForeColor = System.Drawing.Color.White;
+            this.btnPromociones.Image = ((System.Drawing.Image)(resources.GetObject("btnPromociones.Image")));
+            this.btnPromociones.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnPromociones.Location = new System.Drawing.Point(0, 168);
+            this.btnPromociones.Name = "btnPromociones";
+            this.btnPromociones.Padding = new System.Windows.Forms.Padding(0, 0, 50, 0);
+            this.btnPromociones.Size = new System.Drawing.Size(250, 40);
+            this.btnPromociones.TabIndex = 2;
+            this.btnPromociones.Text = "Promociones";
+            this.btnPromociones.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnPromociones.UseVisualStyleBackColor = false;
             // 
             // btnInicio
             // 
@@ -306,7 +298,6 @@
             this.btnInicio.Text = "Inicio";
             this.btnInicio.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnInicio.UseVisualStyleBackColor = false;
-            this.btnInicio.Click += new System.EventHandler(this.btnInicio_Click);
             // 
             // logo
             // 
@@ -320,32 +311,111 @@
             this.logo.TabIndex = 0;
             this.logo.TabStop = false;
             // 
-            // label1
+            // Table_Customers
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(499, 99);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(476, 50);
-            this.label1.TabIndex = 5;
-            this.label1.Text = "Beneficios y Recompensas";
+            this.Table_Customers.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.Table_Customers.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.Table_Customers.BackgroundColor = System.Drawing.Color.White;
+            this.Table_Customers.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.Table_Customers.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(113)))), ((int)(((byte)(207)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Table_Customers.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.Table_Customers.ColumnHeadersHeight = 70;
+            this.Table_Customers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.Table_Customers.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Colum_nombreEmpleado,
+            this.Colum_telefono,
+            this.Colum_DUI,
+            this.Colum_depertameto,
+            this.Colum_distrito,
+            this.Colum_rol,
+            this.Colum_fechaContratacion,
+            this.Colum_fechaNacimineto,
+            this.Colum_estado});
+            this.Table_Customers.EnableHeadersVisualStyles = false;
+            this.Table_Customers.Location = new System.Drawing.Point(285, 210);
+            this.Table_Customers.Name = "Table_Customers";
+            this.Table_Customers.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(113)))), ((int)(((byte)(207)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Table_Customers.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.Table_Customers.RowHeadersVisible = false;
+            this.Table_Customers.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.Table_Customers.Size = new System.Drawing.Size(946, 426);
+            this.Table_Customers.TabIndex = 18;
             // 
-            // inputBuscar
+            // Colum_nombreEmpleado
             // 
-            this.inputBuscar.Location = new System.Drawing.Point(3, 8);
-            this.inputBuscar.Multiline = true;
-            this.inputBuscar.Name = "inputBuscar";
-            this.inputBuscar.Size = new System.Drawing.Size(370, 32);
-            this.inputBuscar.TabIndex = 6;
+            this.Colum_nombreEmpleado.HeaderText = "Nombre";
+            this.Colum_nombreEmpleado.Name = "Colum_nombreEmpleado";
+            // 
+            // Colum_telefono
+            // 
+            this.Colum_telefono.HeaderText = "Telefono ";
+            this.Colum_telefono.Name = "Colum_telefono";
+            // 
+            // Colum_DUI
+            // 
+            this.Colum_DUI.HeaderText = "DUI";
+            this.Colum_DUI.Name = "Colum_DUI";
+            // 
+            // Colum_depertameto
+            // 
+            this.Colum_depertameto.HeaderText = "Departamento";
+            this.Colum_depertameto.Name = "Colum_depertameto";
+            // 
+            // Colum_distrito
+            // 
+            this.Colum_distrito.HeaderText = "DIstrito";
+            this.Colum_distrito.Name = "Colum_distrito";
+            // 
+            // Colum_rol
+            // 
+            this.Colum_rol.HeaderText = "Rol";
+            this.Colum_rol.Name = "Colum_rol";
+            // 
+            // Colum_fechaContratacion
+            // 
+            this.Colum_fechaContratacion.HeaderText = "Fecha Contratacion";
+            this.Colum_fechaContratacion.Name = "Colum_fechaContratacion";
+            // 
+            // Colum_fechaNacimineto
+            // 
+            this.Colum_fechaNacimineto.HeaderText = "Feche nacimiento";
+            this.Colum_fechaNacimineto.Name = "Colum_fechaNacimineto";
+            // 
+            // Colum_estado
+            // 
+            this.Colum_estado.HeaderText = "Estado";
+            this.Colum_estado.Name = "Colum_estado";
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.inputBuscar);
+            this.panel2.Controls.Add(this.textBox1);
             this.panel2.Controls.Add(this.btnBuscar);
-            this.panel2.Location = new System.Drawing.Point(279, 196);
+            this.panel2.Location = new System.Drawing.Point(295, 134);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(416, 53);
-            this.panel2.TabIndex = 8;
+            this.panel2.Size = new System.Drawing.Size(364, 53);
+            this.panel2.TabIndex = 20;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(3, 8);
+            this.textBox1.Multiline = true;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(319, 32);
+            this.textBox1.TabIndex = 6;
             // 
             // btnBuscar
             // 
@@ -354,7 +424,7 @@
             this.btnBuscar.FlatAppearance.BorderSize = 0;
             this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBuscar.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscar.Image")));
-            this.btnBuscar.Location = new System.Drawing.Point(370, 8);
+            this.btnBuscar.Location = new System.Drawing.Point(319, 8);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Padding = new System.Windows.Forms.Padding(50);
             this.btnBuscar.Size = new System.Drawing.Size(35, 32);
@@ -367,10 +437,10 @@
             this.panel3.Controls.Add(this.btnAplicarBene);
             this.panel3.Controls.Add(this.btnEliminar);
             this.panel3.Controls.Add(this.btnAgregar);
-            this.panel3.Location = new System.Drawing.Point(712, 196);
+            this.panel3.Location = new System.Drawing.Point(677, 134);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(556, 53);
-            this.panel3.TabIndex = 9;
+            this.panel3.Size = new System.Drawing.Size(545, 53);
+            this.panel3.TabIndex = 21;
             // 
             // btnModificar
             // 
@@ -390,7 +460,6 @@
             this.btnModificar.Text = "Modificar";
             this.btnModificar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnModificar.UseVisualStyleBackColor = false;
-            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
             // btnAplicarBene
             // 
@@ -398,14 +467,14 @@
             this.btnAplicarBene.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnAplicarBene.FlatAppearance.BorderSize = 0;
             this.btnAplicarBene.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAplicarBene.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAplicarBene.Image = ((System.Drawing.Image)(resources.GetObject("btnAplicarBene.Image")));
+            this.btnAplicarBene.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAplicarBene.Image = global::InventoryWalmart.Properties.Resources.iconoAgregarUserBenefits;
             this.btnAplicarBene.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnAplicarBene.Location = new System.Drawing.Point(13, 4);
             this.btnAplicarBene.Name = "btnAplicarBene";
             this.btnAplicarBene.Size = new System.Drawing.Size(122, 40);
             this.btnAplicarBene.TabIndex = 10;
-            this.btnAplicarBene.Text = "Aplicar Beneficio\r\nUsuario";
+            this.btnAplicarBene.Text = "Nuevo rol";
             this.btnAplicarBene.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnAplicarBene.UseVisualStyleBackColor = false;
             // 
@@ -446,153 +515,31 @@
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnAgregar.UseVisualStyleBackColor = false;
-            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
-            // tableBenefitsRewards
+            // label1
             // 
-            this.tableBenefitsRewards.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.tableBenefitsRewards.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.tableBenefitsRewards.BackgroundColor = System.Drawing.Color.White;
-            this.tableBenefitsRewards.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tableBenefitsRewards.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(113)))), ((int)(((byte)(207)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.tableBenefitsRewards.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.tableBenefitsRewards.ColumnHeadersHeight = 70;
-            this.tableBenefitsRewards.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.tableBenefitsRewards.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.columnID,
-            this.columnBenefits,
-            this.ColumnDescripBene,
-            this.ColumnPorcentajeDesc,
-            this.ColumnDateStartD,
-            this.ColumnDateEndD,
-            this.ColumnPointsReq,
-            this.ColumnStatu,
-            this.ColumnAccion});
-            this.tableBenefitsRewards.EnableHeadersVisualStyles = false;
-            this.tableBenefitsRewards.Location = new System.Drawing.Point(359, 279);
-            this.tableBenefitsRewards.Margin = new System.Windows.Forms.Padding(2);
-            this.tableBenefitsRewards.Name = "tableBenefitsRewards";
-            this.tableBenefitsRewards.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(113)))), ((int)(((byte)(207)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.tableBenefitsRewards.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.tableBenefitsRewards.RowHeadersVisible = false;
-            this.tableBenefitsRewards.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.tableBenefitsRewards.Size = new System.Drawing.Size(845, 332);
-            this.tableBenefitsRewards.TabIndex = 10;
-            this.tableBenefitsRewards.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.tableBenefitsRewards_CellContentClick);
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 24.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(288, 74);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(180, 38);
+            this.label1.TabIndex = 22;
+            this.label1.Text = "Empleados";
             // 
-            // columnID
-            // 
-            this.columnID.HeaderText = "ID";
-            this.columnID.MinimumWidth = 6;
-            this.columnID.Name = "columnID";
-            this.columnID.Width = 46;
-            // 
-            // columnBenefits
-            // 
-            this.columnBenefits.HeaderText = "Beneficio";
-            this.columnBenefits.MinimumWidth = 6;
-            this.columnBenefits.Name = "columnBenefits";
-            this.columnBenefits.Width = 89;
-            // 
-            // ColumnDescripBene
-            // 
-            this.ColumnDescripBene.HeaderText = "Descripcion Beneficio";
-            this.ColumnDescripBene.MinimumWidth = 6;
-            this.ColumnDescripBene.Name = "ColumnDescripBene";
-            this.ColumnDescripBene.Width = 150;
-            // 
-            // ColumnPorcentajeDesc
-            // 
-            this.ColumnPorcentajeDesc.HeaderText = "Porcentaje \nDescuento";
-            this.ColumnPorcentajeDesc.MinimumWidth = 6;
-            this.ColumnPorcentajeDesc.Name = "ColumnPorcentajeDesc";
-            this.ColumnPorcentajeDesc.Width = 101;
-            // 
-            // ColumnDateStartD
-            // 
-            this.ColumnDateStartD.HeaderText = "Fecha Inicio \nDescuento";
-            this.ColumnDateStartD.MinimumWidth = 6;
-            this.ColumnDateStartD.Name = "ColumnDateStartD";
-            // 
-            // ColumnDateEndD
-            // 
-            this.ColumnDateEndD.HeaderText = "Fecha Final \nDescuento";
-            this.ColumnDateEndD.MinimumWidth = 6;
-            this.ColumnDateEndD.Name = "ColumnDateEndD";
-            this.ColumnDateEndD.Width = 105;
-            // 
-            // ColumnPointsReq
-            // 
-            this.ColumnPointsReq.HeaderText = "Puntos\nRequeridos";
-            this.ColumnPointsReq.MinimumWidth = 6;
-            this.ColumnPointsReq.Name = "ColumnPointsReq";
-            this.ColumnPointsReq.Width = 101;
-            // 
-            // ColumnStatu
-            // 
-            this.ColumnStatu.HeaderText = "Estado";
-            this.ColumnStatu.MinimumWidth = 6;
-            this.ColumnStatu.Name = "ColumnStatu";
-            this.ColumnStatu.Width = 73;
-            // 
-            // ColumnAccion
-            // 
-            this.ColumnAccion.HeaderText = "Accion";
-            this.ColumnAccion.MinimumWidth = 6;
-            this.ColumnAccion.Name = "ColumnAccion";
-            this.ColumnAccion.Width = 73;
-            // 
-            // BtnPuntos
-            // 
-            this.BtnPuntos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(114)))), ((int)(((byte)(223)))));
-            this.BtnPuntos.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnPuntos.Dock = System.Windows.Forms.DockStyle.Top;
-            this.BtnPuntos.FlatAppearance.BorderSize = 0;
-            this.BtnPuntos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnPuntos.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnPuntos.ForeColor = System.Drawing.Color.White;
-            this.BtnPuntos.Image = global::InventoryWalmart.Properties.Resources.PointsIcon;
-            this.BtnPuntos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnPuntos.Location = new System.Drawing.Point(0, 408);
-            this.BtnPuntos.Name = "BtnPuntos";
-            this.BtnPuntos.Padding = new System.Windows.Forms.Padding(0, 0, 100, 0);
-            this.BtnPuntos.Size = new System.Drawing.Size(250, 40);
-            this.BtnPuntos.TabIndex = 9;
-            this.BtnPuntos.Text = "Puntos";
-            this.BtnPuntos.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.BtnPuntos.UseVisualStyleBackColor = false;
-            this.BtnPuntos.Click += new System.EventHandler(this.BtnPuntos_Click);
-            // 
-            // viewBenefitsRewards
+            // ViewUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1280, 720);
-            this.Controls.Add(this.tableBenefitsRewards);
+            this.ClientSize = new System.Drawing.Size(1264, 681);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.Table_Customers);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.barAcciones);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "viewBenefitsRewards";
-            this.Text = "viewBenefitsRewards";
-            this.Load += new System.EventHandler(this.viewBenefitsRewards_Load);
+            this.Name = "ViewUser";
+            this.Text = "ViewUser";
             this.barAcciones.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.btnOcultar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMaximizar)).EndInit();
@@ -600,10 +547,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnRestaurar)).EndInit();
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.logo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Table_Customers)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.tableBenefitsRewards)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -622,28 +569,27 @@
         private System.Windows.Forms.Button btnReportes;
         private System.Windows.Forms.Button btnDevoluciones;
         private System.Windows.Forms.Button btnProductos;
-        private System.Windows.Forms.Button btnBeneficios;
+        private System.Windows.Forms.Button btnPromociones;
         private System.Windows.Forms.Button btnInicio;
         private System.Windows.Forms.PictureBox logo;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox inputBuscar;
-        private System.Windows.Forms.Button btnBuscar;
+        private System.Windows.Forms.DataGridView Table_Customers;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Colum_nombreEmpleado;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Colum_telefono;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Colum_DUI;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Colum_depertameto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Colum_distrito;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Colum_rol;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Colum_fechaContratacion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Colum_fechaNacimineto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Colum_estado;
         private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Button btnAplicarBene;
-        private System.Windows.Forms.Button btnAgregar;
-        private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.Button btnModificar;
-        private System.Windows.Forms.DataGridView tableBenefitsRewards;
-        private System.Windows.Forms.DataGridViewTextBoxColumn columnID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn columnBenefits;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnDescripBene;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnPorcentajeDesc;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnDateStartD;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnDateEndD;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnPointsReq;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnStatu;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnAccion;
-        private System.Windows.Forms.Button BtnPuntos;
+        private System.Windows.Forms.Button btnAplicarBene;
+        private System.Windows.Forms.Button btnEliminar;
+        private System.Windows.Forms.Button btnAgregar;
+        private System.Windows.Forms.Label label1;
     }
 }

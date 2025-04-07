@@ -111,9 +111,7 @@ namespace InventoryWalmart
 
         private void btnEmpleado_Click(object sender, EventArgs e)
         {
-            viewEmpleado viewEmpleado = new viewEmpleado();
-            this.Hide();
-            viewEmpleado.Show();
+            
 
         }
     }

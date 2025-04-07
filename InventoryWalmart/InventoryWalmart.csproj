@@ -146,7 +146,7 @@
     </Compile>
     <Compile Include="ViewSuppliers.Designer.cs">
       <DependentUpon>ViewSuppliers.cs</DependentUpon>
-
+      
     </Compile>
     <EmbeddedResource Include="dashboard.resx">
       <DependentUpon>dashboard.cs</DependentUpon>

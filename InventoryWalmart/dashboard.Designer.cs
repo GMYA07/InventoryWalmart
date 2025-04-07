@@ -220,6 +220,7 @@
             this.btnEmpleado.Text = "Empleado";
             this.btnEmpleado.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnEmpleado.UseVisualStyleBackColor = false;
+            this.btnEmpleado.Click += new System.EventHandler(this.btnEmpleado_Click);
             // 
             // btnReportes
             // 

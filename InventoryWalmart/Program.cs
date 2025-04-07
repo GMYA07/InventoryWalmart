@@ -16,7 +16,7 @@ namespace InventoryWalmart
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new viewGestionVentas());
+            Application.Run(new login());
 
         }
     }

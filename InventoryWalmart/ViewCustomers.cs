@@ -132,5 +132,10 @@ namespace InventoryWalmart
         {
 
         }
+
+        private void ViewCustomers_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

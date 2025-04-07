@@ -47,14 +47,6 @@
             this.btnInicio = new System.Windows.Forms.Button();
             this.logo = new System.Windows.Forms.PictureBox();
             this.Table_Customers = new System.Windows.Forms.DataGridView();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.btnModificar = new System.Windows.Forms.Button();
-            this.btnAgregar = new System.Windows.Forms.Button();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.inputBuscar = new System.Windows.Forms.TextBox();
-            this.btnBuscar = new System.Windows.Forms.Button();
-            this.Lbl_Title = new System.Windows.Forms.Label();
-            this.btnAplicarBene = new System.Windows.Forms.Button();
             this.columnID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.categoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -62,6 +54,14 @@
             this.stock = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.btnModificar = new System.Windows.Forms.Button();
+            this.btnAplicarBene = new System.Windows.Forms.Button();
+            this.btnAgregar = new System.Windows.Forms.Button();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.inputBuscar = new System.Windows.Forms.TextBox();
+            this.btnBuscar = new System.Windows.Forms.Button();
+            this.Lbl_Title = new System.Windows.Forms.Label();
             this.barAcciones.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnOcultar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMaximizar)).BeginInit();
@@ -367,6 +367,48 @@
             this.Table_Customers.Size = new System.Drawing.Size(493, 408);
             this.Table_Customers.TabIndex = 22;
             // 
+            // columnID
+            // 
+            this.columnID.HeaderText = "ID";
+            this.columnID.Name = "columnID";
+            this.columnID.Width = 46;
+            // 
+            // ColumnNombre
+            // 
+            this.ColumnNombre.HeaderText = "Nombre";
+            this.ColumnNombre.Name = "ColumnNombre";
+            this.ColumnNombre.Width = 82;
+            // 
+            // categoria
+            // 
+            this.categoria.HeaderText = "Categoria";
+            this.categoria.Name = "categoria";
+            this.categoria.Width = 91;
+            // 
+            // precio
+            // 
+            this.precio.HeaderText = "Precio";
+            this.precio.Name = "precio";
+            this.precio.Width = 70;
+            // 
+            // stock
+            // 
+            this.stock.HeaderText = "Stock";
+            this.stock.Name = "stock";
+            this.stock.Width = 65;
+            // 
+            // fecha
+            // 
+            this.fecha.HeaderText = "Fecha";
+            this.fecha.Name = "fecha";
+            this.fecha.Width = 67;
+            // 
+            // estado
+            // 
+            this.estado.HeaderText = "Estado";
+            this.estado.Name = "estado";
+            this.estado.Width = 73;
+            // 
             // panel3
             // 
             this.panel3.Controls.Add(this.btnModificar);
@@ -395,6 +437,23 @@
             this.btnModificar.Text = "Actualizar Stock";
             this.btnModificar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnModificar.UseVisualStyleBackColor = false;
+            // 
+            // btnAplicarBene
+            // 
+            this.btnAplicarBene.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(194)))), ((int)(((byte)(33)))));
+            this.btnAplicarBene.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAplicarBene.FlatAppearance.BorderSize = 0;
+            this.btnAplicarBene.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAplicarBene.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold);
+            this.btnAplicarBene.Image = ((System.Drawing.Image)(resources.GetObject("btnAplicarBene.Image")));
+            this.btnAplicarBene.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAplicarBene.Location = new System.Drawing.Point(254, 4);
+            this.btnAplicarBene.Name = "btnAplicarBene";
+            this.btnAplicarBene.Size = new System.Drawing.Size(122, 40);
+            this.btnAplicarBene.TabIndex = 10;
+            this.btnAplicarBene.Text = "Editar";
+            this.btnAplicarBene.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnAplicarBene.UseVisualStyleBackColor = false;
             // 
             // btnAgregar
             // 
@@ -457,65 +516,6 @@
             this.Lbl_Title.Text = "Gestor de Inventario";
             this.Lbl_Title.Click += new System.EventHandler(this.Lbl_Title_Click);
             // 
-            // btnAplicarBene
-            // 
-            this.btnAplicarBene.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(194)))), ((int)(((byte)(33)))));
-            this.btnAplicarBene.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAplicarBene.FlatAppearance.BorderSize = 0;
-            this.btnAplicarBene.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAplicarBene.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold);
-            this.btnAplicarBene.Image = ((System.Drawing.Image)(resources.GetObject("btnAplicarBene.Image")));
-            this.btnAplicarBene.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAplicarBene.Location = new System.Drawing.Point(254, 4);
-            this.btnAplicarBene.Name = "btnAplicarBene";
-            this.btnAplicarBene.Size = new System.Drawing.Size(122, 40);
-            this.btnAplicarBene.TabIndex = 10;
-            this.btnAplicarBene.Text = "Editar";
-            this.btnAplicarBene.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnAplicarBene.UseVisualStyleBackColor = false;
-            // 
-            // columnID
-            // 
-            this.columnID.HeaderText = "ID";
-            this.columnID.Name = "columnID";
-            this.columnID.Width = 46;
-            // 
-            // ColumnNombre
-            // 
-            this.ColumnNombre.HeaderText = "Nombre";
-            this.ColumnNombre.Name = "ColumnNombre";
-            this.ColumnNombre.Width = 82;
-            // 
-            // categoria
-            // 
-            this.categoria.HeaderText = "Categoria";
-            this.categoria.Name = "categoria";
-            this.categoria.Width = 91;
-            // 
-            // precio
-            // 
-            this.precio.HeaderText = "Precio";
-            this.precio.Name = "precio";
-            this.precio.Width = 70;
-            // 
-            // stock
-            // 
-            this.stock.HeaderText = "Stock";
-            this.stock.Name = "stock";
-            this.stock.Width = 65;
-            // 
-            // fecha
-            // 
-            this.fecha.HeaderText = "Fecha";
-            this.fecha.Name = "fecha";
-            this.fecha.Width = 67;
-            // 
-            // estado
-            // 
-            this.estado.HeaderText = "Estado";
-            this.estado.Name = "estado";
-            this.estado.Width = 73;
-            // 
             // viewInventary
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -527,6 +527,7 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.Lbl_Title);
             this.Controls.Add(this.barAcciones);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "viewInventary";
             this.Text = "viewInventary";
             this.barAcciones.ResumeLayout(false);

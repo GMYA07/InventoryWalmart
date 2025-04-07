@@ -127,5 +127,15 @@ namespace InventoryWalmart
         {
 
         }
+
+        private void Table_Customers_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void ViewCustomers_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

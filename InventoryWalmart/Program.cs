@@ -19,6 +19,7 @@ namespace InventoryWalmart
 
             Application.Run(new ViewGenerarReportes());
 
+
         }
     }
 }

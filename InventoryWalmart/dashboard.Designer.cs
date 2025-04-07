@@ -242,6 +242,7 @@
             this.btnReportes.Text = "Reportes";
             this.btnReportes.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnReportes.UseVisualStyleBackColor = false;
+            this.btnReportes.Click += new System.EventHandler(this.btnReportes_Click);
             // 
             // btnDevoluciones
             // 
@@ -386,7 +387,7 @@
             this.tittleDashboard.Location = new System.Drawing.Point(1299, 357);
             this.tittleDashboard.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.tittleDashboard.Name = "tittleDashboard";
-            this.tittleDashboard.Size = new System.Drawing.Size(108, 45);
+            this.tittleDashboard.Size = new System.Drawing.Size(132, 54);
             this.tittleDashboard.TabIndex = 7;
             this.tittleDashboard.Text = "Titulo";
             // 
@@ -412,7 +413,7 @@
             this.label1.Location = new System.Drawing.Point(17, 16);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(114, 25);
+            this.label1.Size = new System.Drawing.Size(144, 32);
             this.label1.TabIndex = 0;
             this.label1.Text = "Dinero Total";
             // 
@@ -459,7 +460,7 @@
             this.label2.Location = new System.Drawing.Point(19, 16);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(140, 25);
+            this.label2.Size = new System.Drawing.Size(175, 32);
             this.label2.TabIndex = 1;
             this.label2.Text = "Dinero Ganado";
             // 
@@ -485,7 +486,7 @@
             this.label3.Location = new System.Drawing.Point(17, 23);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(134, 25);
+            this.label3.Size = new System.Drawing.Size(169, 32);
             this.label3.TabIndex = 2;
             this.label3.Text = "Ventas Del Dia";
             // 
@@ -511,7 +512,7 @@
             this.label4.Location = new System.Drawing.Point(45, 23);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(120, 50);
+            this.label4.Size = new System.Drawing.Size(148, 64);
             this.label4.TabIndex = 3;
             this.label4.Text = "Trabajadores\n Activos";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -554,7 +555,7 @@
             this.label5.Location = new System.Drawing.Point(21, 6);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(125, 30);
+            this.label5.Size = new System.Drawing.Size(164, 37);
             this.label5.TabIndex = 14;
             this.label5.Text = "Descuentos";
             // 
@@ -622,7 +623,7 @@
             this.label6.Location = new System.Drawing.Point(4, 6);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(127, 42);
+            this.label6.Size = new System.Drawing.Size(157, 56);
             this.label6.TabIndex = 15;
             this.label6.Text = "Beneficios \r\ny Recompensas";
             // 

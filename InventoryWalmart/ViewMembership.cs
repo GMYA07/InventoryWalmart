@@ -11,18 +11,15 @@ using System.Windows.Forms;
 
 namespace InventoryWalmart
 {
-    public partial class viewBenefitsRewards : Form
+    public partial class ViewMembership : Form
     {
-        public viewBenefitsRewards()
+
+        public static string opcion = "";
+
+        public ViewMembership()
         {
             InitializeComponent();
         }
-
-        private void viewBenefitsRewards_Load(object sender, EventArgs e)
-        {
-
-        }
-
 
         //Codigo q nos ayuda con la administrasion de la barra de arriba y mover la ventana.
         //Drag Form
@@ -64,27 +61,61 @@ namespace InventoryWalmart
 
         private void btnInicio_Click(object sender, EventArgs e)
         {
-            dashboard dashboard = new dashboard();
-            this.Hide();
-            dashboard.Show();
+            ChangeView<dashboard>();
         }
 
-        private void tableBenefitsRewards_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void btnPromociones_Click(object sender, EventArgs e)
         {
+            ChangeView<viewBenefitsRewards>();
+        }
 
+        private void btnProductos_Click(object sender, EventArgs e)
+        {
+            //ChangeView<dashboard>();
+        }
+
+        private void btnDevoluciones_Click(object sender, EventArgs e)
+        {
+            ChangeView<ViewReturns>();
+        }
+
+        private void btnReportes_Click(object sender, EventArgs e)
+        {
+            //ChangeView<dashboard>();
+        }
+
+        private void btnEmpleado_Click(object sender, EventArgs e)
+        {
+            ChangeView<ViewSuppliers>();
+        }
+
+        private void btnClientes_Click(object sender, EventArgs e)
+        {
+            ChangeView<ViewCustomers>();
+        }
+
+        private void BtnPuntos_Click(object sender, EventArgs e)
+        {
+            ChangeView<ViewPoints>();
+        }
+
+        private void ChangeView<T>() where T : Form, new()
+        {
+            T vista = new T();
+            this.Hide();
+            vista.Show();
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            formAccionBeneficioReco formAccionBeneficioReco = new formAccionBeneficioReco(1);
-            formAccionBeneficioReco.Show();
+            opcion = "agregar";
+            ChangeView<FormMembership>();
         }
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
-            formAccionBeneficioReco formAccionBeneficioReco = new formAccionBeneficioReco(0);
-            formAccionBeneficioReco.Show();
-
+            opcion = "editar";
+            ChangeView<FormMembership>();
         }
     }
 }

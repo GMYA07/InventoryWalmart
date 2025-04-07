@@ -11,18 +11,25 @@ using System.Windows.Forms;
 
 namespace InventoryWalmart
 {
-    public partial class viewBenefitsRewards : Form
+    public partial class FormMembership : Form
     {
-        public viewBenefitsRewards()
+        public FormMembership()
         {
+            string opcion1 = ViewMembership.opcion;
+
             InitializeComponent();
+            if (opcion1 == "agregar")
+            {
+
+            }
+            else
+            {
+                LblTitulo.Text = "Editar membresia";
+                btnAgregar.Text = "Editar";
+                btnAgregar.BackColor = Color.Blue;
+                //this
+            }
         }
-
-        private void viewBenefitsRewards_Load(object sender, EventArgs e)
-        {
-
-        }
-
 
         //Codigo q nos ayuda con la administrasion de la barra de arriba y mover la ventana.
         //Drag Form
@@ -62,28 +69,25 @@ namespace InventoryWalmart
             SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
 
-        private void btnInicio_Click(object sender, EventArgs e)
+        private void ChangeView<T>() where T : Form, new()
         {
-            dashboard dashboard = new dashboard();
+            T vista = new T();
             this.Hide();
-            dashboard.Show();
+            vista.Show();
         }
 
-        private void tableBenefitsRewards_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void button1_Click(object sender, EventArgs e)
+        {
+            ChangeView<ViewMembership>();
+        }
+
+        private void BtnGenerar_Click(object sender, EventArgs e)
         {
 
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            formAccionBeneficioReco formAccionBeneficioReco = new formAccionBeneficioReco(1);
-            formAccionBeneficioReco.Show();
-        }
-
-        private void btnModificar_Click(object sender, EventArgs e)
-        {
-            formAccionBeneficioReco formAccionBeneficioReco = new formAccionBeneficioReco(0);
-            formAccionBeneficioReco.Show();
 
         }
     }

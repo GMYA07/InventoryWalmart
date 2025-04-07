@@ -72,5 +72,23 @@ namespace InventoryWalmart
         {
 
         }
+
+        private void btnAgregar_Click(object sender, EventArgs e)
+        {
+            formAccionDescuentos formAccionDescuentos = new formAccionDescuentos(1);
+            formAccionDescuentos.Show();
+        }
+
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+            formAccionDescuentos formAccionDescuentos = new formAccionDescuentos(0);
+            formAccionDescuentos.Show();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            formAccionModificarDescuentoProduct formAccionModificarDescuentoProduct = new formAccionModificarDescuentoProduct();
+            formAccionModificarDescuentoProduct.Show();
+        }
     }
 }

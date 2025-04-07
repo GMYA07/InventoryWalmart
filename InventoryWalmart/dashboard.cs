@@ -114,6 +114,7 @@ namespace InventoryWalmart
             viewEmpleado viewEmpleado = new viewEmpleado();
             this.Hide();
             viewEmpleado.Show();
+
         }
     }
 }

@@ -11,16 +11,17 @@ using System.Windows.Forms;
 
 namespace InventoryWalmart
 {
-    public partial class viewBenefitsRewards : Form
+    public partial class viewReportes : Form
     {
-        public viewBenefitsRewards()
-        {
+        public viewReportes()
+        {  
+
             InitializeComponent();
         }
 
-        private void viewBenefitsRewards_Load(object sender, EventArgs e)
+        private void viewReportes_Load(object sender, EventArgs e)
         {
-
+          
         }
 
 
@@ -69,22 +70,11 @@ namespace InventoryWalmart
             dashboard.Show();
         }
 
-        private void tableBenefitsRewards_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void tabPage1_Click(object sender, EventArgs e)
         {
+            
 
         }
 
-        private void btnAgregar_Click(object sender, EventArgs e)
-        {
-            formAccionBeneficioReco formAccionBeneficioReco = new formAccionBeneficioReco(1);
-            formAccionBeneficioReco.Show();
-        }
-
-        private void btnModificar_Click(object sender, EventArgs e)
-        {
-            formAccionBeneficioReco formAccionBeneficioReco = new formAccionBeneficioReco(0);
-            formAccionBeneficioReco.Show();
-
-        }
     }
 }

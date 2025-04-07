@@ -432,8 +432,7 @@
             this.btnPromociones.Padding = new System.Windows.Forms.Padding(0, 0, 50, 0);
             this.btnPromociones.Size = new System.Drawing.Size(250, 40);
             this.btnPromociones.TabIndex = 2;
-            this.btnPromociones.Text = "Promociones";
-            this.btnPromociones.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnPromociones.Text = "       Beneficios";
             this.btnPromociones.UseVisualStyleBackColor = false;
             this.btnPromociones.Click += new System.EventHandler(this.btnPromociones_Click);
             // 

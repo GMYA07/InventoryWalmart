@@ -86,5 +86,18 @@ namespace InventoryWalmart
             formAccionBeneficioReco.Show();
 
         }
+
+        private void btnProductos_Click(object sender, EventArgs e)
+        {
+            ChangeView<viewInventary>();
+        }
+
+        private void ChangeView<T>() where T : Form, new()
+        {
+            T vista = new T();
+            this.Hide();
+            vista.Show();
+        }
+
     }
 }

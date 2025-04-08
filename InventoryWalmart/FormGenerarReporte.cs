@@ -109,5 +109,10 @@ namespace InventoryWalmart
             ChangeView<ViewPoints>();
 
         }
+
+        private void btnProductos_Click(object sender, EventArgs e)
+        {
+            ChangeView<viewInventary>();
+        }
     }
 }

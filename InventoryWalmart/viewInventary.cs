@@ -58,10 +58,71 @@ namespace InventoryWalmart
             this.Hide();
             vista.Show();
         }
+        //conexiones
 
+        private void barAcciones_MouseDown(object sender, MouseEventArgs e)
+        {
+            ReleaseCapture();
+            SendMessage(this.Handle, 0x112, 0xf012, 0);
+        }
+
+
+        private void btnAplicarBene_Click(object sender, EventArgs e)
+        {
+            ChangeView<ViewMembership>();
+        }
+
+  
         private void Lbl_Title_Click(object sender, EventArgs e)
         {
 
         }
+
+        private void btnDevoluciones_Click_1(object sender, EventArgs e)
+        {
+            ChangeView<ViewReturns>();
+        }
+
+        private void btnInicio_Click_1(object sender, EventArgs e)
+        {
+            ChangeView<dashboard>();
+        }
+
+        private void btnPromociones_Click_1(object sender, EventArgs e)
+        {
+            ChangeView<viewBenefitsRewards>();
+        }
+
+        private void btnProductos_Click_1(object sender, EventArgs e)
+        {
+            ChangeView<viewInventary>();
+        }
+
+        private void btnReportes_Click_1(object sender, EventArgs e)
+        {
+            ChangeView<dashboard>();
+        }
+
+        private void btnEmpleado_Click_1(object sender, EventArgs e)
+        {
+            ChangeView<ViewSuppliers>();
+        }
+
+        private void btnClientes_Click_1(object sender, EventArgs e)
+        {
+            ChangeView<ViewCustomers>();
+        }
+
+        private void BtnPuntos_Click_1(object sender, EventArgs e)
+        {
+            ChangeView<ViewPoints>();
+        }
+
+        private void btnAgregar_Click(object sender, EventArgs e)
+        {
+            ChangeView<FormAddProduct>();
+        }
+
+        //fin conexiones
     }
 }

@@ -71,7 +71,7 @@ namespace InventoryWalmart
 
         private void btnProductos_Click(object sender, EventArgs e)
         {
-            //ChangeView<dashboard>();
+            ChangeView<viewInventary>();
         }
 
         private void btnDevoluciones_Click(object sender, EventArgs e)
@@ -86,7 +86,7 @@ namespace InventoryWalmart
 
         private void btnEmpleado_Click(object sender, EventArgs e)
         {
-            ChangeView<ViewSuppliers>();
+            ChangeView<ViewUser>();
         }
 
         private void btnClientes_Click(object sender, EventArgs e)

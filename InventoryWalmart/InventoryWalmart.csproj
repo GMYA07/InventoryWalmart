@@ -53,6 +53,12 @@
     <Compile Include="dashboard.Designer.cs">
       <DependentUpon>dashboard.cs</DependentUpon>
     </Compile>
+    <Compile Include="fomsRol.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fomsRol.Designer.cs">
+      <DependentUpon>fomsRol.cs</DependentUpon>
+    </Compile>
     <Compile Include="formAccionBeneficioReco.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -83,6 +89,18 @@
     <Compile Include="FormCustomers.Designer.cs">
       <DependentUpon>FormCustomers.cs</DependentUpon>
     </Compile>
+    <Compile Include="formEmpleado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formEmpleado.Designer.cs">
+      <DependentUpon>formEmpleado.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormGenerarReporte.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormGenerarReporte.Designer.cs">
+      <DependentUpon>FormGenerarReporte.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormMembership.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -94,6 +112,12 @@
     </Compile>
     <Compile Include="FormReturns.Designer.cs">
       <DependentUpon>FormReturns.cs</DependentUpon>
+    </Compile>
+    <Compile Include="viewGestionVentas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="viewGestionVentas.Designer.cs">
+      <DependentUpon>viewGestionVentas.cs</DependentUpon>
     </Compile>
     <Compile Include="viewInventary.cs">
       <SubType>Form</SubType>
@@ -157,8 +181,17 @@
     <Compile Include="ViewSuppliers.Designer.cs">
       <DependentUpon>ViewSuppliers.cs</DependentUpon>
     </Compile>
+    <Compile Include="ViewUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ViewUser.Designer.cs">
+      <DependentUpon>ViewUser.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="dashboard.resx">
       <DependentUpon>dashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fomsRol.resx">
+      <DependentUpon>fomsRol.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="formAccionBeneficioReco.resx">
       <DependentUpon>formAccionBeneficioReco.cs</DependentUpon>
@@ -174,6 +207,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormCustomers.resx">
       <DependentUpon>FormCustomers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formEmpleado.resx">
+      <DependentUpon>formEmpleado.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormGenerarReporte.resx">
+      <DependentUpon>FormGenerarReporte.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormMembership.resx">
       <DependentUpon>FormMembership.cs</DependentUpon>
@@ -201,6 +240,9 @@
     <EmbeddedResource Include="viewDiscount.resx">
       <DependentUpon>viewDiscount.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="viewGestionVentas.resx">
+      <DependentUpon>viewGestionVentas.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="viewInventary.resx">
       <DependentUpon>viewInventary.cs</DependentUpon>
     </EmbeddedResource>
@@ -215,6 +257,10 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ViewSuppliers.resx">
       <DependentUpon>ViewSuppliers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ViewUser.resx">
+      <DependentUpon>ViewUser.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -323,6 +369,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\PointsIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Billetes.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -11,14 +11,16 @@ using System.Windows.Forms;
 
 namespace InventoryWalmart
 {
-    public partial class ViewCustomers : Form
+    public partial class viewGestionVentas : Form
     {
-
-        public static string opcion = "";
-
-        public ViewCustomers()
+        public viewGestionVentas()
         {
             InitializeComponent();
+        }
+
+        private void viewGestionVentas_Load(object sender, EventArgs e)
+        {
+
         }
 
         //Codigo q nos ayuda con la administrasion de la barra de arriba y mover la ventana.
@@ -71,7 +73,7 @@ namespace InventoryWalmart
 
         private void btnProductos_Click(object sender, EventArgs e)
         {
-            ChangeView<viewInventary>();
+            //ChangeView<dashboard>();
         }
 
         private void btnDevoluciones_Click(object sender, EventArgs e)
@@ -86,7 +88,7 @@ namespace InventoryWalmart
 
         private void btnEmpleado_Click(object sender, EventArgs e)
         {
-            ChangeView<ViewUser>();
+            ChangeView<ViewSuppliers>();
         }
 
         private void btnClientes_Click(object sender, EventArgs e)
@@ -101,43 +103,21 @@ namespace InventoryWalmart
 
         private void ChangeView<T>() where T : Form, new()
         {
-            T vista=new T();
+            T vista = new T();
             this.Hide();
             vista.Show();
         }
 
-        private void btnAplicarBene_Click(object sender, EventArgs e)
+
+        private void label26_Click(object sender, EventArgs e)
         {
-            ChangeView<ViewMembership>();
+
         }
 
-        private void btnAgregar_Click(object sender, EventArgs e)
+        private void tableBenefitsRewards_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            opcion = "agregar";
-            ChangeView<FormCustomers>();
+            
         }
-
-        private void btnModificar_Click(object sender, EventArgs e)
-        {
-            opcion = "editar";
-            ChangeView<FormCustomers>();
-        }
-
-        //private void panel1_Paint(object sender, PaintEventArgs e)
-        //{
-
-        //}
-
-        //private void Table_Customers_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        //{
-
-        //}
-
-
-        //private void ViewCustomers_Load(object sender, EventArgs e)
-        //{
-
-        //}
 
     }
 }

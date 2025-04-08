@@ -62,8 +62,10 @@
             this.inputBuscar = new System.Windows.Forms.TextBox();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.Lbl_Title = new System.Windows.Forms.Label();
+
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
+
             this.barAcciones.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnOcultar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMaximizar)).BeginInit();
@@ -398,51 +400,65 @@
             // columnID
             // 
             this.columnID.HeaderText = "ID";
+
             this.columnID.MinimumWidth = 6;
             this.columnID.Name = "columnID";
             this.columnID.Width = 56;
+
             // 
             // ColumnNombre
             // 
             this.ColumnNombre.HeaderText = "Nombre";
+
             this.ColumnNombre.MinimumWidth = 6;
             this.ColumnNombre.Name = "ColumnNombre";
             this.ColumnNombre.Width = 104;
+
             // 
             // categoria
             // 
             this.categoria.HeaderText = "Categoria";
+
             this.categoria.MinimumWidth = 6;
             this.categoria.Name = "categoria";
             this.categoria.Width = 116;
+
             // 
             // precio
             // 
             this.precio.HeaderText = "Precio";
+
             this.precio.MinimumWidth = 6;
             this.precio.Name = "precio";
             this.precio.Width = 87;
+
             // 
             // stock
             // 
             this.stock.HeaderText = "Stock";
+
             this.stock.MinimumWidth = 6;
             this.stock.Name = "stock";
             this.stock.Width = 83;
+
             // 
             // fecha
             // 
             this.fecha.HeaderText = "Fecha";
+
             this.fecha.MinimumWidth = 6;
             this.fecha.Name = "fecha";
             this.fecha.Width = 83;
+
             // 
             // estado
             // 
             this.estado.HeaderText = "Estado";
+
             this.estado.MinimumWidth = 6;
             this.estado.Name = "estado";
             this.estado.Width = 91;
+
             // 
             // panel3
             // 
@@ -484,10 +500,12 @@
             this.btnAplicarBene.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold);
             this.btnAplicarBene.Image = ((System.Drawing.Image)(resources.GetObject("btnAplicarBene.Image")));
             this.btnAplicarBene.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+
             this.btnAplicarBene.Location = new System.Drawing.Point(339, 5);
             this.btnAplicarBene.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnAplicarBene.Name = "btnAplicarBene";
             this.btnAplicarBene.Size = new System.Drawing.Size(163, 49);
+
             this.btnAplicarBene.TabIndex = 10;
             this.btnAplicarBene.Text = "Editar";
             this.btnAplicarBene.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -560,6 +578,7 @@
             this.Lbl_Title.Text = "Gestor de Inventario";
             this.Lbl_Title.Click += new System.EventHandler(this.Lbl_Title_Click);
             // 
+
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
@@ -579,6 +598,7 @@
             this.label1.TabIndex = 25;
             this.label1.Text = "Categoria";
             // 
+
             // viewInventary
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -592,7 +612,9 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.Lbl_Title);
             this.Controls.Add(this.barAcciones);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+
             this.Name = "viewInventary";
             this.Text = "viewInventary";
             this.barAcciones.ResumeLayout(false);

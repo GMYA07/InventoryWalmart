@@ -536,6 +536,7 @@
             this.Controls.Add(this.barAcciones);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ViewSuppliers";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ViewSuppliers";
             ((System.ComponentModel.ISupportInitialize)(this.Table_Customers)).EndInit();
             this.panel3.ResumeLayout(false);

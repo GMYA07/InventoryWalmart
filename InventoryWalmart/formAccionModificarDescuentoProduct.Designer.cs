@@ -172,6 +172,7 @@
             this.Controls.Add(this.barAcciones);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "formAccionModificarDescuentoProduct";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "formAccionModificarDescuentoProduct";
             this.Load += new System.EventHandler(this.formAccionModificarDescuentoProduct_Load);
             this.barAcciones.ResumeLayout(false);

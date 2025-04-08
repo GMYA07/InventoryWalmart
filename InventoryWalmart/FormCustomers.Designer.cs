@@ -49,8 +49,8 @@
             this.LblDUI = new System.Windows.Forms.Label();
             this.TxtTelefono = new System.Windows.Forms.TextBox();
             this.LblTelefono = new System.Windows.Forms.Label();
-            this.LblApellido = new System.Windows.Forms.Label();
             this.TxtApellido = new System.Windows.Forms.TextBox();
+            this.LblApellido = new System.Windows.Forms.Label();
             this.barAcciones.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnOcultar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMaximizar)).BeginInit();
@@ -293,6 +293,13 @@
             this.LblTelefono.TabIndex = 11;
             this.LblTelefono.Text = "Telefono";
             // 
+            // TxtApellido
+            // 
+            this.TxtApellido.Location = new System.Drawing.Point(209, 45);
+            this.TxtApellido.Name = "TxtApellido";
+            this.TxtApellido.Size = new System.Drawing.Size(100, 20);
+            this.TxtApellido.TabIndex = 10;
+            // 
             // LblApellido
             // 
             this.LblApellido.AutoSize = true;
@@ -302,13 +309,6 @@
             this.LblApellido.Size = new System.Drawing.Size(61, 19);
             this.LblApellido.TabIndex = 9;
             this.LblApellido.Text = "Apellido";
-            // 
-            // TxtApellido
-            // 
-            this.TxtApellido.Location = new System.Drawing.Point(209, 45);
-            this.TxtApellido.Name = "TxtApellido";
-            this.TxtApellido.Size = new System.Drawing.Size(100, 20);
-            this.TxtApellido.TabIndex = 10;
             // 
             // FormCustomers
             // 
@@ -321,6 +321,7 @@
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormCustomers";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormCustomers";
             this.barAcciones.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.btnOcultar)).EndInit();

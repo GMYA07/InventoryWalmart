@@ -771,7 +771,6 @@
         N/H9+7cAAAAASUVORK5CYII=
 </value>
   </data>
-
   <data name="label26.Text" xml:space="preserve">
     <value>Subtotal                                                               $300.00
 
@@ -797,5 +796,4 @@ Descuento                                                           $0.00</value
   <metadata name="ColumnAccion.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-
 </root>

@@ -628,6 +628,7 @@
             this.Controls.Add(this.barAcciones);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "dashboard";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "dashboard";
             this.Load += new System.EventHandler(this.dashboard_Load);
             this.barAcciones.ResumeLayout(false);

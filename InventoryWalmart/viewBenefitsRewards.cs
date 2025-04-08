@@ -82,19 +82,6 @@ namespace InventoryWalmart
         }
 
 
-        private void btnProductos_Click(object sender, EventArgs e)
-        {
-            ChangeView<viewInventary>();
-        }
-
-        private void ChangeView<T>() where T : Form, new()
-        {
-            T vista = new T();
-            this.Hide();
-            vista.Show();
-        }
-
-
         private void btnInicio_Click(object sender, EventArgs e)
         {
             dashboard dashboard = new dashboard();
@@ -109,7 +96,9 @@ namespace InventoryWalmart
 
         private void btnProductos_Click(object sender, EventArgs e)
         {
-
+            viewInventary viewInventary = new viewInventary();
+            this.Hide();
+            viewInventary.Show();
         }
 
         private void btnDevoluciones_Click(object sender, EventArgs e)

@@ -37,6 +37,10 @@
             this.btnRestaurar = new System.Windows.Forms.PictureBox();
             this.button1 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.RdoInactivo = new System.Windows.Forms.RadioButton();
+            this.RdoActivo = new System.Windows.Forms.RadioButton();
+            this.BtnGenerar = new System.Windows.Forms.Button();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.btnModificar = new System.Windows.Forms.Button();
             this.DtpInicio = new System.Windows.Forms.DateTimePicker();
@@ -45,10 +49,6 @@
             this.LblEmail = new System.Windows.Forms.Label();
             this.TxtNombre = new System.Windows.Forms.TextBox();
             this.LblIngresaDUI = new System.Windows.Forms.Label();
-            this.BtnGenerar = new System.Windows.Forms.Button();
-            this.RdoActivo = new System.Windows.Forms.RadioButton();
-            this.RdoInactivo = new System.Windows.Forms.RadioButton();
-            this.label1 = new System.Windows.Forms.Label();
             this.barAcciones.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnOcultar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMaximizar)).BeginInit();
@@ -165,6 +165,50 @@
             this.panel1.Size = new System.Drawing.Size(367, 453);
             this.panel1.TabIndex = 14;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
+            this.label1.Location = new System.Drawing.Point(37, 261);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(50, 19);
+            this.label1.TabIndex = 25;
+            this.label1.Text = "Estado";
+            // 
+            // RdoInactivo
+            // 
+            this.RdoInactivo.AutoSize = true;
+            this.RdoInactivo.Location = new System.Drawing.Point(203, 300);
+            this.RdoInactivo.Name = "RdoInactivo";
+            this.RdoInactivo.Size = new System.Drawing.Size(63, 17);
+            this.RdoInactivo.TabIndex = 24;
+            this.RdoInactivo.TabStop = true;
+            this.RdoInactivo.Text = "Inactivo";
+            this.RdoInactivo.UseVisualStyleBackColor = true;
+            // 
+            // RdoActivo
+            // 
+            this.RdoActivo.AutoSize = true;
+            this.RdoActivo.Checked = true;
+            this.RdoActivo.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.RdoActivo.Location = new System.Drawing.Point(89, 300);
+            this.RdoActivo.Name = "RdoActivo";
+            this.RdoActivo.Size = new System.Drawing.Size(55, 17);
+            this.RdoActivo.TabIndex = 23;
+            this.RdoActivo.TabStop = true;
+            this.RdoActivo.Text = "Activo";
+            this.RdoActivo.UseVisualStyleBackColor = true;
+            // 
+            // BtnGenerar
+            // 
+            this.BtnGenerar.Location = new System.Drawing.Point(212, 86);
+            this.BtnGenerar.Name = "BtnGenerar";
+            this.BtnGenerar.Size = new System.Drawing.Size(75, 23);
+            this.BtnGenerar.TabIndex = 22;
+            this.BtnGenerar.Text = "Generar";
+            this.BtnGenerar.UseVisualStyleBackColor = true;
+            this.BtnGenerar.Click += new System.EventHandler(this.BtnGenerar_Click);
+            // 
             // btnAgregar
             // 
             this.btnAgregar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(170)))), ((int)(((byte)(28)))));
@@ -256,50 +300,6 @@
             this.LblIngresaDUI.TabIndex = 7;
             this.LblIngresaDUI.Text = "Ingresar DUI";
             // 
-            // BtnGenerar
-            // 
-            this.BtnGenerar.Location = new System.Drawing.Point(212, 86);
-            this.BtnGenerar.Name = "BtnGenerar";
-            this.BtnGenerar.Size = new System.Drawing.Size(75, 23);
-            this.BtnGenerar.TabIndex = 22;
-            this.BtnGenerar.Text = "Generar";
-            this.BtnGenerar.UseVisualStyleBackColor = true;
-            this.BtnGenerar.Click += new System.EventHandler(this.BtnGenerar_Click);
-            // 
-            // RdoActivo
-            // 
-            this.RdoActivo.AutoSize = true;
-            this.RdoActivo.Checked = true;
-            this.RdoActivo.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.RdoActivo.Location = new System.Drawing.Point(89, 300);
-            this.RdoActivo.Name = "RdoActivo";
-            this.RdoActivo.Size = new System.Drawing.Size(55, 17);
-            this.RdoActivo.TabIndex = 23;
-            this.RdoActivo.TabStop = true;
-            this.RdoActivo.Text = "Activo";
-            this.RdoActivo.UseVisualStyleBackColor = true;
-            // 
-            // RdoInactivo
-            // 
-            this.RdoInactivo.AutoSize = true;
-            this.RdoInactivo.Location = new System.Drawing.Point(203, 300);
-            this.RdoInactivo.Name = "RdoInactivo";
-            this.RdoInactivo.Size = new System.Drawing.Size(63, 17);
-            this.RdoInactivo.TabIndex = 24;
-            this.RdoInactivo.TabStop = true;
-            this.RdoInactivo.Text = "Inactivo";
-            this.RdoInactivo.UseVisualStyleBackColor = true;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
-            this.label1.Location = new System.Drawing.Point(37, 261);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(50, 19);
-            this.label1.TabIndex = 25;
-            this.label1.Text = "Estado";
-            // 
             // FormMembership
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -311,6 +311,7 @@
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormMembership";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormMembership";
             this.barAcciones.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.btnOcultar)).EndInit();

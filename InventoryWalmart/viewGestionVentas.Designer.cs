@@ -29,11 +29,9 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(viewGestionVentas));
-
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.barAcciones = new System.Windows.Forms.Panel();
             this.btnOcultar = new System.Windows.Forms.PictureBox();
             this.btnMaximizar = new System.Windows.Forms.PictureBox();
@@ -49,7 +47,6 @@
             this.btnPromociones = new System.Windows.Forms.Button();
             this.btnInicio = new System.Windows.Forms.Button();
             this.logo = new System.Windows.Forms.PictureBox();
-
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabVentas = new System.Windows.Forms.TabPage();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -98,6 +95,13 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.tabHistorialVentas = new System.Windows.Forms.TabPage();
+            this.tableBenefitsRewards = new System.Windows.Forms.DataGridView();
+            this.columnID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnCantidadDescuento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnDescriptionDiscount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnTypeDiscount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnStatu = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnAccion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.button10 = new System.Windows.Forms.Button();
             this.button9 = new System.Windows.Forms.Button();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
@@ -110,14 +114,6 @@
             this.label30 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.tableBenefitsRewards = new System.Windows.Forms.DataGridView();
-            this.columnID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnCantidadDescuento = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnDescriptionDiscount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnTypeDiscount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnStatu = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnAccion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-
             this.barAcciones.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnOcultar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMaximizar)).BeginInit();
@@ -125,7 +121,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnRestaurar)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.logo)).BeginInit();
-
             this.tabControl1.SuspendLayout();
             this.tabVentas.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -136,9 +131,8 @@
             this.panel5.SuspendLayout();
             this.panel4.SuspendLayout();
             this.tabHistorialVentas.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tableBenefitsRewards)).BeginInit();
-
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // barAcciones
@@ -151,11 +145,7 @@
             this.barAcciones.Dock = System.Windows.Forms.DockStyle.Top;
             this.barAcciones.Location = new System.Drawing.Point(0, 0);
             this.barAcciones.Name = "barAcciones";
-
-            this.barAcciones.Size = new System.Drawing.Size(1280, 59);
-
             this.barAcciones.Size = new System.Drawing.Size(1264, 59);
-
             this.barAcciones.TabIndex = 5;
             this.barAcciones.MouseDown += new System.Windows.Forms.MouseEventHandler(this.barAcciones_MouseDown);
             // 
@@ -164,11 +154,7 @@
             this.btnOcultar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnOcultar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnOcultar.Image = global::InventoryWalmart.Properties.Resources.ocultar;
-
-            this.btnOcultar.Location = new System.Drawing.Point(1138, 12);
-
             this.btnOcultar.Location = new System.Drawing.Point(1122, 12);
-
             this.btnOcultar.Name = "btnOcultar";
             this.btnOcultar.Size = new System.Drawing.Size(30, 30);
             this.btnOcultar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -181,11 +167,7 @@
             this.btnMaximizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnMaximizar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnMaximizar.Image = ((System.Drawing.Image)(resources.GetObject("btnMaximizar.Image")));
-
-            this.btnMaximizar.Location = new System.Drawing.Point(1191, 12);
-
             this.btnMaximizar.Location = new System.Drawing.Point(1175, 12);
-
             this.btnMaximizar.Name = "btnMaximizar";
             this.btnMaximizar.Size = new System.Drawing.Size(30, 30);
             this.btnMaximizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -198,11 +180,7 @@
             this.btnCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCerrar.Image = ((System.Drawing.Image)(resources.GetObject("btnCerrar.Image")));
-
-            this.btnCerrar.Location = new System.Drawing.Point(1236, 12);
-
             this.btnCerrar.Location = new System.Drawing.Point(1220, 12);
-
             this.btnCerrar.Name = "btnCerrar";
             this.btnCerrar.Size = new System.Drawing.Size(32, 32);
             this.btnCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -215,11 +193,7 @@
             this.btnRestaurar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnRestaurar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnRestaurar.Image = ((System.Drawing.Image)(resources.GetObject("btnRestaurar.Image")));
-
-            this.btnRestaurar.Location = new System.Drawing.Point(1191, 12);
-
             this.btnRestaurar.Location = new System.Drawing.Point(1175, 12);
-
             this.btnRestaurar.Name = "btnRestaurar";
             this.btnRestaurar.Size = new System.Drawing.Size(30, 30);
             this.btnRestaurar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -242,11 +216,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 59);
             this.panel1.Name = "panel1";
-
-            this.panel1.Size = new System.Drawing.Size(250, 661);
-
             this.panel1.Size = new System.Drawing.Size(250, 622);
-
             this.panel1.TabIndex = 19;
             // 
             // BtnPuntos
@@ -429,7 +399,6 @@
             this.logo.TabIndex = 0;
             this.logo.TabStop = false;
             // 
-
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.tabVentas);
@@ -937,6 +906,91 @@
             this.tabHistorialVentas.Text = "Historial de Ventas";
             this.tabHistorialVentas.UseVisualStyleBackColor = true;
             // 
+            // tableBenefitsRewards
+            // 
+            this.tableBenefitsRewards.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.tableBenefitsRewards.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.tableBenefitsRewards.BackgroundColor = System.Drawing.Color.White;
+            this.tableBenefitsRewards.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tableBenefitsRewards.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(113)))), ((int)(((byte)(207)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.tableBenefitsRewards.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.tableBenefitsRewards.ColumnHeadersHeight = 70;
+            this.tableBenefitsRewards.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.tableBenefitsRewards.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.columnID,
+            this.ColumnCantidadDescuento,
+            this.ColumnDescriptionDiscount,
+            this.ColumnTypeDiscount,
+            this.ColumnStatu,
+            this.ColumnAccion});
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.tableBenefitsRewards.DefaultCellStyle = dataGridViewCellStyle2;
+            this.tableBenefitsRewards.EnableHeadersVisualStyles = false;
+            this.tableBenefitsRewards.Location = new System.Drawing.Point(278, 206);
+            this.tableBenefitsRewards.Name = "tableBenefitsRewards";
+            this.tableBenefitsRewards.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(113)))), ((int)(((byte)(207)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.tableBenefitsRewards.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.tableBenefitsRewards.RowHeadersVisible = false;
+            this.tableBenefitsRewards.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.tableBenefitsRewards.Size = new System.Drawing.Size(455, 108);
+            this.tableBenefitsRewards.TabIndex = 15;
+            // 
+            // columnID
+            // 
+            this.columnID.HeaderText = "N° Venta";
+            this.columnID.Name = "columnID";
+            this.columnID.Width = 79;
+            // 
+            // ColumnCantidadDescuento
+            // 
+            this.ColumnCantidadDescuento.HeaderText = "Fecha";
+            this.ColumnCantidadDescuento.Name = "ColumnCantidadDescuento";
+            this.ColumnCantidadDescuento.Width = 67;
+            // 
+            // ColumnDescriptionDiscount
+            // 
+            this.ColumnDescriptionDiscount.HeaderText = "Cliente";
+            this.ColumnDescriptionDiscount.Name = "ColumnDescriptionDiscount";
+            this.ColumnDescriptionDiscount.Width = 75;
+            // 
+            // ColumnTypeDiscount
+            // 
+            this.ColumnTypeDiscount.HeaderText = "Total";
+            this.ColumnTypeDiscount.Name = "ColumnTypeDiscount";
+            this.ColumnTypeDiscount.Width = 63;
+            // 
+            // ColumnStatu
+            // 
+            this.ColumnStatu.HeaderText = "Metodo de pago";
+            this.ColumnStatu.Name = "ColumnStatu";
+            this.ColumnStatu.Width = 95;
+            // 
+            // ColumnAccion
+            // 
+            this.ColumnAccion.HeaderText = "Estado";
+            this.ColumnAccion.Name = "ColumnAccion";
+            this.ColumnAccion.Width = 73;
+            // 
             // button10
             // 
             this.button10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(144)))), ((int)(((byte)(223)))));
@@ -1058,109 +1112,20 @@
             this.pictureBox1.TabIndex = 22;
             this.pictureBox1.TabStop = false;
             // 
-            // tableBenefitsRewards
-            // 
-            this.tableBenefitsRewards.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.tableBenefitsRewards.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.tableBenefitsRewards.BackgroundColor = System.Drawing.Color.White;
-            this.tableBenefitsRewards.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tableBenefitsRewards.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(113)))), ((int)(((byte)(207)))));
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.tableBenefitsRewards.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
-            this.tableBenefitsRewards.ColumnHeadersHeight = 70;
-            this.tableBenefitsRewards.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.tableBenefitsRewards.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.columnID,
-            this.ColumnCantidadDescuento,
-            this.ColumnDescriptionDiscount,
-            this.ColumnTypeDiscount,
-            this.ColumnStatu,
-            this.ColumnAccion});
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.tableBenefitsRewards.DefaultCellStyle = dataGridViewCellStyle5;
-            this.tableBenefitsRewards.EnableHeadersVisualStyles = false;
-            this.tableBenefitsRewards.Location = new System.Drawing.Point(278, 206);
-            this.tableBenefitsRewards.Name = "tableBenefitsRewards";
-            this.tableBenefitsRewards.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(113)))), ((int)(((byte)(207)))));
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.tableBenefitsRewards.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
-            this.tableBenefitsRewards.RowHeadersVisible = false;
-            this.tableBenefitsRewards.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.tableBenefitsRewards.Size = new System.Drawing.Size(455, 108);
-            this.tableBenefitsRewards.TabIndex = 15;
-            // 
-            // columnID
-            // 
-            this.columnID.HeaderText = "N° Venta";
-            this.columnID.Name = "columnID";
-            this.columnID.Width = 79;
-            // 
-            // ColumnCantidadDescuento
-            // 
-            this.ColumnCantidadDescuento.HeaderText = "Fecha";
-            this.ColumnCantidadDescuento.Name = "ColumnCantidadDescuento";
-            this.ColumnCantidadDescuento.Width = 67;
-            // 
-            // ColumnDescriptionDiscount
-            // 
-            this.ColumnDescriptionDiscount.HeaderText = "Cliente";
-            this.ColumnDescriptionDiscount.Name = "ColumnDescriptionDiscount";
-            this.ColumnDescriptionDiscount.Width = 75;
-            // 
-            // ColumnTypeDiscount
-            // 
-            this.ColumnTypeDiscount.HeaderText = "Total";
-            this.ColumnTypeDiscount.Name = "ColumnTypeDiscount";
-            this.ColumnTypeDiscount.Width = 63;
-            // 
-            // ColumnStatu
-            // 
-            this.ColumnStatu.HeaderText = "Metodo de pago";
-            this.ColumnStatu.Name = "ColumnStatu";
-            this.ColumnStatu.Width = 95;
-            // 
-            // ColumnAccion
-            // 
-            this.ColumnAccion.HeaderText = "Estado";
-            this.ColumnAccion.Name = "ColumnAccion";
-            this.ColumnAccion.Width = 73;
-            // 
-
             // viewGestionVentas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-
-            this.ClientSize = new System.Drawing.Size(1280, 720);
+            this.ClientSize = new System.Drawing.Size(1264, 681);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.tabControl1);
-
-            this.ClientSize = new System.Drawing.Size(1264, 681);
-
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.barAcciones);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "viewGestionVentas";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "viewGestionVentas";
             this.Load += new System.EventHandler(this.viewGestionVentas_Load);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.barAcciones_MouseDown);
@@ -1171,7 +1136,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnRestaurar)).EndInit();
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.logo)).EndInit();
-
             this.tabControl1.ResumeLayout(false);
             this.tabVentas.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
@@ -1187,13 +1151,10 @@
             this.panel4.PerformLayout();
             this.tabHistorialVentas.ResumeLayout(false);
             this.tabHistorialVentas.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tableBenefitsRewards)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
-
-            this.ResumeLayout(false);
-
 
         }
 

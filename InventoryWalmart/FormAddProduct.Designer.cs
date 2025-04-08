@@ -31,6 +31,12 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormAddProduct));
             this.LblTitulo = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.txtStock = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txtPrecio = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.cb_categoria = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.txtDescrip = new System.Windows.Forms.TextBox();
             this.LblDescripcion = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -49,12 +55,6 @@
             this.btnCerrar = new System.Windows.Forms.PictureBox();
             this.btnRestaurar = new System.Windows.Forms.PictureBox();
             this.button1 = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
-            this.cb_categoria = new System.Windows.Forms.ComboBox();
-            this.txtPrecio = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.txtStock = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.barAcciones.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnOcultar)).BeginInit();
@@ -101,6 +101,68 @@
             this.panel1.Size = new System.Drawing.Size(367, 573);
             this.panel1.TabIndex = 19;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // txtStock
+            // 
+            this.txtStock.Location = new System.Drawing.Point(38, 290);
+            this.txtStock.Name = "txtStock";
+            this.txtStock.Size = new System.Drawing.Size(271, 20);
+            this.txtStock.TabIndex = 32;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.label4.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
+            this.label4.Location = new System.Drawing.Point(34, 268);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(44, 19);
+            this.label4.TabIndex = 31;
+            this.label4.Text = "Stock";
+            // 
+            // txtPrecio
+            // 
+            this.txtPrecio.Location = new System.Drawing.Point(38, 230);
+            this.txtPrecio.Name = "txtPrecio";
+            this.txtPrecio.Size = new System.Drawing.Size(271, 20);
+            this.txtPrecio.TabIndex = 30;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
+            this.label3.Location = new System.Drawing.Point(34, 208);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(48, 19);
+            this.label3.TabIndex = 29;
+            this.label3.Text = "Precio";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
+            // 
+            // cb_categoria
+            // 
+            this.cb_categoria.FormattingEnabled = true;
+            this.cb_categoria.Items.AddRange(new object[] {
+            "Electronicos",
+            "Electrodomesticos",
+            "Ropa",
+            "Juguetes",
+            "Comida"});
+            this.cb_categoria.Location = new System.Drawing.Point(111, 166);
+            this.cb_categoria.Name = "cb_categoria";
+            this.cb_categoria.Size = new System.Drawing.Size(191, 21);
+            this.cb_categoria.TabIndex = 28;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
+            this.label2.Location = new System.Drawing.Point(34, 166);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(69, 19);
+            this.label2.TabIndex = 27;
+            this.label2.Text = "Categoria";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // txtDescrip
             // 
@@ -301,76 +363,17 @@
             this.button1.TabIndex = 5;
             this.button1.UseVisualStyleBackColor = false;
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
-            this.label2.Location = new System.Drawing.Point(34, 166);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(69, 19);
-            this.label2.TabIndex = 27;
-            this.label2.Text = "Categoria";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
-            // 
-            // cb_categoria
-            // 
-            this.cb_categoria.FormattingEnabled = true;
-            this.cb_categoria.Items.AddRange(new object[] {
-            "Electronicos",
-            "Electrodomesticos",
-            "Ropa",
-            "Juguetes",
-            "Comida"});
-            this.cb_categoria.Location = new System.Drawing.Point(111, 166);
-            this.cb_categoria.Name = "cb_categoria";
-            this.cb_categoria.Size = new System.Drawing.Size(191, 21);
-            this.cb_categoria.TabIndex = 28;
-            // 
-            // txtPrecio
-            // 
-            this.txtPrecio.Location = new System.Drawing.Point(38, 230);
-            this.txtPrecio.Name = "txtPrecio";
-            this.txtPrecio.Size = new System.Drawing.Size(271, 20);
-            this.txtPrecio.TabIndex = 30;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
-            this.label3.Location = new System.Drawing.Point(34, 208);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(48, 19);
-            this.label3.TabIndex = 29;
-            this.label3.Text = "Precio";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
-            // 
-            // txtStock
-            // 
-            this.txtStock.Location = new System.Drawing.Point(38, 290);
-            this.txtStock.Name = "txtStock";
-            this.txtStock.Size = new System.Drawing.Size(271, 20);
-            this.txtStock.TabIndex = 32;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.label4.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
-            this.label4.Location = new System.Drawing.Point(34, 268);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(44, 19);
-            this.label4.TabIndex = 31;
-            this.label4.Text = "Stock";
-            // 
             // FormAddProduct
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(410, 664);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.barAcciones);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormAddProduct";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormAddProduct";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

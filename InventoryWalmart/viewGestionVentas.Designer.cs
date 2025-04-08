@@ -29,9 +29,11 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(viewGestionVentas));
+
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+
             this.barAcciones = new System.Windows.Forms.Panel();
             this.btnOcultar = new System.Windows.Forms.PictureBox();
             this.btnMaximizar = new System.Windows.Forms.PictureBox();
@@ -47,6 +49,7 @@
             this.btnPromociones = new System.Windows.Forms.Button();
             this.btnInicio = new System.Windows.Forms.Button();
             this.logo = new System.Windows.Forms.PictureBox();
+
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabVentas = new System.Windows.Forms.TabPage();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -114,6 +117,7 @@
             this.ColumnTypeDiscount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnStatu = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnAccion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+
             this.barAcciones.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnOcultar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMaximizar)).BeginInit();
@@ -121,6 +125,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnRestaurar)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.logo)).BeginInit();
+
             this.tabControl1.SuspendLayout();
             this.tabVentas.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -133,6 +138,7 @@
             this.tabHistorialVentas.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tableBenefitsRewards)).BeginInit();
+
             this.SuspendLayout();
             // 
             // barAcciones
@@ -145,7 +151,11 @@
             this.barAcciones.Dock = System.Windows.Forms.DockStyle.Top;
             this.barAcciones.Location = new System.Drawing.Point(0, 0);
             this.barAcciones.Name = "barAcciones";
+
             this.barAcciones.Size = new System.Drawing.Size(1280, 59);
+
+            this.barAcciones.Size = new System.Drawing.Size(1264, 59);
+
             this.barAcciones.TabIndex = 5;
             this.barAcciones.MouseDown += new System.Windows.Forms.MouseEventHandler(this.barAcciones_MouseDown);
             // 
@@ -154,7 +164,11 @@
             this.btnOcultar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnOcultar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnOcultar.Image = global::InventoryWalmart.Properties.Resources.ocultar;
+
             this.btnOcultar.Location = new System.Drawing.Point(1138, 12);
+
+            this.btnOcultar.Location = new System.Drawing.Point(1122, 12);
+
             this.btnOcultar.Name = "btnOcultar";
             this.btnOcultar.Size = new System.Drawing.Size(30, 30);
             this.btnOcultar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -167,7 +181,11 @@
             this.btnMaximizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnMaximizar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnMaximizar.Image = ((System.Drawing.Image)(resources.GetObject("btnMaximizar.Image")));
+
             this.btnMaximizar.Location = new System.Drawing.Point(1191, 12);
+
+            this.btnMaximizar.Location = new System.Drawing.Point(1175, 12);
+
             this.btnMaximizar.Name = "btnMaximizar";
             this.btnMaximizar.Size = new System.Drawing.Size(30, 30);
             this.btnMaximizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -180,7 +198,11 @@
             this.btnCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCerrar.Image = ((System.Drawing.Image)(resources.GetObject("btnCerrar.Image")));
+
             this.btnCerrar.Location = new System.Drawing.Point(1236, 12);
+
+            this.btnCerrar.Location = new System.Drawing.Point(1220, 12);
+
             this.btnCerrar.Name = "btnCerrar";
             this.btnCerrar.Size = new System.Drawing.Size(32, 32);
             this.btnCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -193,7 +215,11 @@
             this.btnRestaurar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnRestaurar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnRestaurar.Image = ((System.Drawing.Image)(resources.GetObject("btnRestaurar.Image")));
+
             this.btnRestaurar.Location = new System.Drawing.Point(1191, 12);
+
+            this.btnRestaurar.Location = new System.Drawing.Point(1175, 12);
+
             this.btnRestaurar.Name = "btnRestaurar";
             this.btnRestaurar.Size = new System.Drawing.Size(30, 30);
             this.btnRestaurar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -216,7 +242,11 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 59);
             this.panel1.Name = "panel1";
+
             this.panel1.Size = new System.Drawing.Size(250, 661);
+
+            this.panel1.Size = new System.Drawing.Size(250, 622);
+
             this.panel1.TabIndex = 19;
             // 
             // BtnPuntos
@@ -399,6 +429,7 @@
             this.logo.TabIndex = 0;
             this.logo.TabStop = false;
             // 
+
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.tabVentas);
@@ -1112,15 +1143,20 @@
             this.ColumnAccion.Name = "ColumnAccion";
             this.ColumnAccion.Width = 73;
             // 
+
             // viewGestionVentas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
+
             this.ClientSize = new System.Drawing.Size(1280, 720);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.tabControl1);
+
+            this.ClientSize = new System.Drawing.Size(1264, 681);
+
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.barAcciones);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -1135,6 +1171,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnRestaurar)).EndInit();
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.logo)).EndInit();
+
             this.tabControl1.ResumeLayout(false);
             this.tabVentas.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
@@ -1155,6 +1192,9 @@
             this.ResumeLayout(false);
             this.PerformLayout();
 
+            this.ResumeLayout(false);
+
+
         }
 
         #endregion
@@ -1174,6 +1214,7 @@
         private System.Windows.Forms.Button btnPromociones;
         private System.Windows.Forms.Button btnInicio;
         private System.Windows.Forms.PictureBox logo;
+
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabVentas;
         private System.Windows.Forms.TabPage tabHistorialVentas;
@@ -1241,5 +1282,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnTypeDiscount;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnStatu;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnAccion;
+
     }
 }

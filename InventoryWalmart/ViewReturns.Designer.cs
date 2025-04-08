@@ -47,13 +47,6 @@
             this.btnCerrar = new System.Windows.Forms.PictureBox();
             this.btnRestaurar = new System.Windows.Forms.PictureBox();
             this.Table_Customers = new System.Windows.Forms.DataGridView();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.btnModificar = new System.Windows.Forms.Button();
-            this.btnAgregar = new System.Windows.Forms.Button();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.inputBuscar = new System.Windows.Forms.TextBox();
-            this.btnBuscar = new System.Windows.Forms.Button();
-            this.Lbl_Title = new System.Windows.Forms.Label();
             this.ColumnId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnIdVenta = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -61,6 +54,13 @@
             this.ColumnFechaDevolucion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnDescripción = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnEstado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.btnModificar = new System.Windows.Forms.Button();
+            this.btnAgregar = new System.Windows.Forms.Button();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.inputBuscar = new System.Windows.Forms.TextBox();
+            this.btnBuscar = new System.Windows.Forms.Button();
+            this.Lbl_Title = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.logo)).BeginInit();
             this.barAcciones.SuspendLayout();
@@ -233,8 +233,7 @@
             this.btnPromociones.Padding = new System.Windows.Forms.Padding(0, 0, 50, 0);
             this.btnPromociones.Size = new System.Drawing.Size(250, 40);
             this.btnPromociones.TabIndex = 2;
-            this.btnPromociones.Text = "Promociones";
-            this.btnPromociones.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnPromociones.Text = "       Beneficios";
             this.btnPromociones.UseVisualStyleBackColor = false;
             this.btnPromociones.Click += new System.EventHandler(this.btnPromociones_Click);
             // 
@@ -379,6 +378,53 @@
             this.Table_Customers.Size = new System.Drawing.Size(633, 408);
             this.Table_Customers.TabIndex = 31;
             // 
+            // ColumnId
+            // 
+            this.ColumnId.HeaderText = "ID";
+            this.ColumnId.Name = "ColumnId";
+            this.ColumnId.Width = 46;
+            // 
+            // ColumnCliente
+            // 
+            this.ColumnCliente.HeaderText = "Cliente";
+            this.ColumnCliente.Name = "ColumnCliente";
+            this.ColumnCliente.ReadOnly = true;
+            this.ColumnCliente.Width = 75;
+            // 
+            // ColumnIdVenta
+            // 
+            this.ColumnIdVenta.HeaderText = "ID Venta";
+            this.ColumnIdVenta.Name = "ColumnIdVenta";
+            this.ColumnIdVenta.Width = 85;
+            // 
+            // ColumnProducto
+            // 
+            this.ColumnProducto.HeaderText = "Producto";
+            this.ColumnProducto.Name = "ColumnProducto";
+            this.ColumnProducto.ReadOnly = true;
+            this.ColumnProducto.Width = 88;
+            // 
+            // ColumnFechaDevolucion
+            // 
+            this.ColumnFechaDevolucion.HeaderText = "Fecha de devolucion";
+            this.ColumnFechaDevolucion.Name = "ColumnFechaDevolucion";
+            this.ColumnFechaDevolucion.ReadOnly = true;
+            this.ColumnFechaDevolucion.Width = 158;
+            // 
+            // ColumnDescripción
+            // 
+            this.ColumnDescripción.HeaderText = "Descripción";
+            this.ColumnDescripción.Name = "ColumnDescripción";
+            this.ColumnDescripción.ReadOnly = true;
+            this.ColumnDescripción.Width = 104;
+            // 
+            // ColumnEstado
+            // 
+            this.ColumnEstado.HeaderText = "Estado";
+            this.ColumnEstado.Name = "ColumnEstado";
+            this.ColumnEstado.ReadOnly = true;
+            this.ColumnEstado.Width = 73;
+            // 
             // panel3
             // 
             this.panel3.Controls.Add(this.btnModificar);
@@ -468,53 +514,6 @@
             this.Lbl_Title.Size = new System.Drawing.Size(244, 50);
             this.Lbl_Title.TabIndex = 28;
             this.Lbl_Title.Text = "Devoluciones";
-            // 
-            // ColumnId
-            // 
-            this.ColumnId.HeaderText = "ID";
-            this.ColumnId.Name = "ColumnId";
-            this.ColumnId.Width = 46;
-            // 
-            // ColumnCliente
-            // 
-            this.ColumnCliente.HeaderText = "Cliente";
-            this.ColumnCliente.Name = "ColumnCliente";
-            this.ColumnCliente.ReadOnly = true;
-            this.ColumnCliente.Width = 75;
-            // 
-            // ColumnIdVenta
-            // 
-            this.ColumnIdVenta.HeaderText = "ID Venta";
-            this.ColumnIdVenta.Name = "ColumnIdVenta";
-            this.ColumnIdVenta.Width = 85;
-            // 
-            // ColumnProducto
-            // 
-            this.ColumnProducto.HeaderText = "Producto";
-            this.ColumnProducto.Name = "ColumnProducto";
-            this.ColumnProducto.ReadOnly = true;
-            this.ColumnProducto.Width = 88;
-            // 
-            // ColumnFechaDevolucion
-            // 
-            this.ColumnFechaDevolucion.HeaderText = "Fecha de devolucion";
-            this.ColumnFechaDevolucion.Name = "ColumnFechaDevolucion";
-            this.ColumnFechaDevolucion.ReadOnly = true;
-            this.ColumnFechaDevolucion.Width = 158;
-            // 
-            // ColumnDescripción
-            // 
-            this.ColumnDescripción.HeaderText = "Descripción";
-            this.ColumnDescripción.Name = "ColumnDescripción";
-            this.ColumnDescripción.ReadOnly = true;
-            this.ColumnDescripción.Width = 104;
-            // 
-            // ColumnEstado
-            // 
-            this.ColumnEstado.HeaderText = "Estado";
-            this.ColumnEstado.Name = "ColumnEstado";
-            this.ColumnEstado.ReadOnly = true;
-            this.ColumnEstado.Width = 73;
             // 
             // ViewReturns
             // 

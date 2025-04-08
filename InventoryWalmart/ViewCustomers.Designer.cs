@@ -29,13 +29,19 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ViewCustomers));
+
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+
             this.barAcciones = new System.Windows.Forms.Panel();
             this.btnOcultar = new System.Windows.Forms.PictureBox();
             this.btnMaximizar = new System.Windows.Forms.PictureBox();
             this.btnCerrar = new System.Windows.Forms.PictureBox();
             this.btnRestaurar = new System.Windows.Forms.PictureBox();
+
             this.Table_Customers = new System.Windows.Forms.DataGridView();
             this.columnID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.columnDUI = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -45,6 +51,7 @@
             this.ColumnEmail = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnTelefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnTipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+
             this.panel3 = new System.Windows.Forms.Panel();
             this.btnModificar = new System.Windows.Forms.Button();
             this.btnAplicarBene = new System.Windows.Forms.Button();
@@ -64,16 +71,32 @@
             this.btnPromociones = new System.Windows.Forms.Button();
             this.btnInicio = new System.Windows.Forms.Button();
             this.logo = new System.Windows.Forms.PictureBox();
+
+            this.Table_Customers = new System.Windows.Forms.DataGridView();
+            this.columnID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.columnDUI = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnApellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnFechaNacimiento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnEmail = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnTelefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnTipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+
             this.barAcciones.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnOcultar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMaximizar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnRestaurar)).BeginInit();
+
             ((System.ComponentModel.ISupportInitialize)(this.Table_Customers)).BeginInit();
+
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.logo)).BeginInit();
+
+            ((System.ComponentModel.ISupportInitialize)(this.Table_Customers)).BeginInit();
+
             this.SuspendLayout();
             // 
             // barAcciones
@@ -91,6 +114,7 @@
             this.barAcciones.MouseDown += new System.Windows.Forms.MouseEventHandler(this.barAcciones_MouseDown);
             // 
             // btnOcultar
+
             // 
             this.btnOcultar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnOcultar.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -211,28 +235,57 @@
             this.ColumnApellido.Width = 84;
             // 
             // ColumnFechaNacimiento
+
             // 
-            this.ColumnFechaNacimiento.HeaderText = "FechaNacimiento";
-            this.ColumnFechaNacimiento.Name = "ColumnFechaNacimiento";
-            this.ColumnFechaNacimiento.Width = 138;
+            this.btnOcultar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnOcultar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnOcultar.Image = global::InventoryWalmart.Properties.Resources.ocultar;
+            this.btnOcultar.Location = new System.Drawing.Point(1138, 12);
+            this.btnOcultar.Name = "btnOcultar";
+            this.btnOcultar.Size = new System.Drawing.Size(30, 30);
+            this.btnOcultar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.btnOcultar.TabIndex = 4;
+            this.btnOcultar.TabStop = false;
+            this.btnOcultar.Click += new System.EventHandler(this.btnOcultar_Click);
             // 
-            // ColumnEmail
+            // btnMaximizar
             // 
-            this.ColumnEmail.HeaderText = "Email";
-            this.ColumnEmail.Name = "ColumnEmail";
-            this.ColumnEmail.Width = 66;
+            this.btnMaximizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnMaximizar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnMaximizar.Image = ((System.Drawing.Image)(resources.GetObject("btnMaximizar.Image")));
+            this.btnMaximizar.Location = new System.Drawing.Point(1191, 14);
+            this.btnMaximizar.Name = "btnMaximizar";
+            this.btnMaximizar.Size = new System.Drawing.Size(30, 30);
+            this.btnMaximizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.btnMaximizar.TabIndex = 3;
+            this.btnMaximizar.TabStop = false;
+            this.btnMaximizar.Click += new System.EventHandler(this.btnMaximizar_Click);
             // 
-            // ColumnTelefono
+            // btnCerrar
             // 
-            this.ColumnTelefono.HeaderText = "Estado";
-            this.ColumnTelefono.Name = "ColumnTelefono";
-            this.ColumnTelefono.Width = 73;
+            this.btnCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCerrar.Image = ((System.Drawing.Image)(resources.GetObject("btnCerrar.Image")));
+            this.btnCerrar.Location = new System.Drawing.Point(1236, 12);
+            this.btnCerrar.Name = "btnCerrar";
+            this.btnCerrar.Size = new System.Drawing.Size(32, 32);
+            this.btnCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.btnCerrar.TabIndex = 2;
+            this.btnCerrar.TabStop = false;
+            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
             // 
-            // ColumnTipo
+            // btnRestaurar
             // 
-            this.ColumnTipo.HeaderText = "Tipo";
-            this.ColumnTipo.Name = "ColumnTipo";
-            this.ColumnTipo.Width = 60;
+            this.btnRestaurar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnRestaurar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnRestaurar.Image = ((System.Drawing.Image)(resources.GetObject("btnRestaurar.Image")));
+            this.btnRestaurar.Location = new System.Drawing.Point(1191, 12);
+            this.btnRestaurar.Name = "btnRestaurar";
+            this.btnRestaurar.Size = new System.Drawing.Size(30, 30);
+            this.btnRestaurar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.btnRestaurar.TabIndex = 3;
+            this.btnRestaurar.TabStop = false;
+            this.btnRestaurar.Click += new System.EventHandler(this.btnRestaurar_Click);
             // 
             // panel3
             // 
@@ -524,8 +577,7 @@
             this.btnPromociones.Padding = new System.Windows.Forms.Padding(0, 0, 50, 0);
             this.btnPromociones.Size = new System.Drawing.Size(250, 40);
             this.btnPromociones.TabIndex = 2;
-            this.btnPromociones.Text = "Promociones";
-            this.btnPromociones.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnPromociones.Text = "       Beneficios";
             this.btnPromociones.UseVisualStyleBackColor = false;
             this.btnPromociones.Click += new System.EventHandler(this.btnPromociones_Click);
             // 
@@ -562,14 +614,107 @@
             this.logo.TabIndex = 0;
             this.logo.TabStop = false;
             // 
+
+            // Table_Customers
+            // 
+            this.Table_Customers.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.Table_Customers.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.Table_Customers.BackgroundColor = System.Drawing.Color.White;
+            this.Table_Customers.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.Table_Customers.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(113)))), ((int)(((byte)(207)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Table_Customers.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.Table_Customers.ColumnHeadersHeight = 70;
+            this.Table_Customers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.Table_Customers.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.columnID,
+            this.columnDUI,
+            this.ColumnNombre,
+            this.ColumnApellido,
+            this.ColumnFechaNacimiento,
+            this.ColumnEmail,
+            this.ColumnTelefono,
+            this.ColumnTipo});
+            this.Table_Customers.EnableHeadersVisualStyles = false;
+            this.Table_Customers.Location = new System.Drawing.Point(463, 267);
+            this.Table_Customers.Name = "Table_Customers";
+            this.Table_Customers.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(113)))), ((int)(((byte)(207)))));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Table_Customers.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            this.Table_Customers.RowHeadersVisible = false;
+            this.Table_Customers.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.Table_Customers.Size = new System.Drawing.Size(606, 408);
+            this.Table_Customers.TabIndex = 19;
+            // 
+            // columnID
+            // 
+            this.columnID.HeaderText = "ID";
+            this.columnID.Name = "columnID";
+            this.columnID.Width = 46;
+            // 
+            // columnDUI
+            // 
+            this.columnDUI.HeaderText = "DUI";
+            this.columnDUI.Name = "columnDUI";
+            this.columnDUI.Width = 55;
+            // 
+            // ColumnNombre
+            // 
+            this.ColumnNombre.HeaderText = "Nombre";
+            this.ColumnNombre.Name = "ColumnNombre";
+            this.ColumnNombre.Width = 82;
+            // 
+            // ColumnApellido
+            // 
+            this.ColumnApellido.HeaderText = "Apellido";
+            this.ColumnApellido.Name = "ColumnApellido";
+            this.ColumnApellido.Width = 84;
+            // 
+            // ColumnFechaNacimiento
+            // 
+            this.ColumnFechaNacimiento.HeaderText = "FechaNacimiento";
+            this.ColumnFechaNacimiento.Name = "ColumnFechaNacimiento";
+            this.ColumnFechaNacimiento.Width = 138;
+            // 
+            // ColumnEmail
+            // 
+            this.ColumnEmail.HeaderText = "Email";
+            this.ColumnEmail.Name = "ColumnEmail";
+            this.ColumnEmail.Width = 66;
+            // 
+            // ColumnTelefono
+            // 
+            this.ColumnTelefono.HeaderText = "Estado";
+            this.ColumnTelefono.Name = "ColumnTelefono";
+            this.ColumnTelefono.Width = 73;
+            // 
+            // ColumnTipo
+            // 
+            this.ColumnTipo.HeaderText = "Tipo";
+            this.ColumnTipo.Name = "ColumnTipo";
+            this.ColumnTipo.Width = 60;
+            // 
+
             // ViewCustomers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1280, 720);
-            this.Controls.Add(this.panel1);
             this.Controls.Add(this.Table_Customers);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.Lbl_Title);
@@ -577,17 +722,23 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ViewCustomers";
             this.Text = "ViewCustomers";
+            this.Load += new System.EventHandler(this.ViewCustomers_Load);
             this.barAcciones.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.btnOcultar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMaximizar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnRestaurar)).EndInit();
+
             ((System.ComponentModel.ISupportInitialize)(this.Table_Customers)).EndInit();
+
             this.panel3.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.logo)).EndInit();
+
+            ((System.ComponentModel.ISupportInitialize)(this.Table_Customers)).EndInit();
+
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -599,15 +750,6 @@
         private System.Windows.Forms.PictureBox btnMaximizar;
         private System.Windows.Forms.PictureBox btnCerrar;
         private System.Windows.Forms.PictureBox btnRestaurar;
-        private System.Windows.Forms.DataGridView Table_Customers;
-        private System.Windows.Forms.DataGridViewTextBoxColumn columnID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn columnDUI;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnNombre;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnApellido;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnFechaNacimiento;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnEmail;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnTelefono;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnTipo;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Button btnModificar;
         private System.Windows.Forms.Button btnAplicarBene;
@@ -627,5 +769,14 @@
         private System.Windows.Forms.Button btnPromociones;
         private System.Windows.Forms.Button btnInicio;
         private System.Windows.Forms.PictureBox logo;
+        private System.Windows.Forms.DataGridView Table_Customers;
+        private System.Windows.Forms.DataGridViewTextBoxColumn columnID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn columnDUI;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnNombre;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnApellido;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnFechaNacimiento;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnEmail;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnTelefono;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnTipo;
     }
 }

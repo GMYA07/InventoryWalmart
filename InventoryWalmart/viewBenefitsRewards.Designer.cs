@@ -86,8 +86,9 @@
             this.barAcciones.Controls.Add(this.btnRestaurar);
             this.barAcciones.Dock = System.Windows.Forms.DockStyle.Top;
             this.barAcciones.Location = new System.Drawing.Point(0, 0);
+            this.barAcciones.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.barAcciones.Name = "barAcciones";
-            this.barAcciones.Size = new System.Drawing.Size(1280, 59);
+            this.barAcciones.Size = new System.Drawing.Size(1707, 73);
             this.barAcciones.TabIndex = 3;
             this.barAcciones.MouseDown += new System.Windows.Forms.MouseEventHandler(this.barAcciones_MouseDown);
             // 
@@ -96,9 +97,10 @@
             this.btnOcultar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnOcultar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnOcultar.Image = global::InventoryWalmart.Properties.Resources.ocultar;
-            this.btnOcultar.Location = new System.Drawing.Point(1138, 12);
+            this.btnOcultar.Location = new System.Drawing.Point(1517, 15);
+            this.btnOcultar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnOcultar.Name = "btnOcultar";
-            this.btnOcultar.Size = new System.Drawing.Size(30, 30);
+            this.btnOcultar.Size = new System.Drawing.Size(40, 37);
             this.btnOcultar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.btnOcultar.TabIndex = 4;
             this.btnOcultar.TabStop = false;
@@ -109,9 +111,10 @@
             this.btnMaximizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnMaximizar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnMaximizar.Image = ((System.Drawing.Image)(resources.GetObject("btnMaximizar.Image")));
-            this.btnMaximizar.Location = new System.Drawing.Point(1191, 14);
+            this.btnMaximizar.Location = new System.Drawing.Point(1588, 17);
+            this.btnMaximizar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnMaximizar.Name = "btnMaximizar";
-            this.btnMaximizar.Size = new System.Drawing.Size(30, 30);
+            this.btnMaximizar.Size = new System.Drawing.Size(40, 37);
             this.btnMaximizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.btnMaximizar.TabIndex = 3;
             this.btnMaximizar.TabStop = false;
@@ -122,9 +125,10 @@
             this.btnCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCerrar.Image = ((System.Drawing.Image)(resources.GetObject("btnCerrar.Image")));
-            this.btnCerrar.Location = new System.Drawing.Point(1236, 12);
+            this.btnCerrar.Location = new System.Drawing.Point(1648, 15);
+            this.btnCerrar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnCerrar.Name = "btnCerrar";
-            this.btnCerrar.Size = new System.Drawing.Size(32, 32);
+            this.btnCerrar.Size = new System.Drawing.Size(43, 39);
             this.btnCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.btnCerrar.TabIndex = 2;
             this.btnCerrar.TabStop = false;
@@ -135,9 +139,10 @@
             this.btnRestaurar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnRestaurar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnRestaurar.Image = ((System.Drawing.Image)(resources.GetObject("btnRestaurar.Image")));
-            this.btnRestaurar.Location = new System.Drawing.Point(1191, 12);
+            this.btnRestaurar.Location = new System.Drawing.Point(1588, 15);
+            this.btnRestaurar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnRestaurar.Name = "btnRestaurar";
-            this.btnRestaurar.Size = new System.Drawing.Size(30, 30);
+            this.btnRestaurar.Size = new System.Drawing.Size(40, 37);
             this.btnRestaurar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.btnRestaurar.TabIndex = 3;
             this.btnRestaurar.TabStop = false;
@@ -156,9 +161,10 @@
             this.panel1.Controls.Add(this.btnInicio);
             this.panel1.Controls.Add(this.logo);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel1.Location = new System.Drawing.Point(0, 59);
+            this.panel1.Location = new System.Drawing.Point(0, 73);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(250, 661);
+            this.panel1.Size = new System.Drawing.Size(333, 813);
             this.panel1.TabIndex = 4;
             // 
             // btnClientes
@@ -172,10 +178,11 @@
             this.btnClientes.ForeColor = System.Drawing.Color.White;
             this.btnClientes.Image = global::InventoryWalmart.Properties.Resources.UsuariosIcon;
             this.btnClientes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnClientes.Location = new System.Drawing.Point(0, 368);
+            this.btnClientes.Location = new System.Drawing.Point(0, 452);
+            this.btnClientes.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnClientes.Name = "btnClientes";
-            this.btnClientes.Padding = new System.Windows.Forms.Padding(0, 0, 100, 0);
-            this.btnClientes.Size = new System.Drawing.Size(250, 40);
+            this.btnClientes.Padding = new System.Windows.Forms.Padding(0, 0, 133, 0);
+            this.btnClientes.Size = new System.Drawing.Size(333, 49);
             this.btnClientes.TabIndex = 7;
             this.btnClientes.Text = "Clientes";
             this.btnClientes.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -193,10 +200,11 @@
             this.btnEmpleado.ForeColor = System.Drawing.Color.White;
             this.btnEmpleado.Image = global::InventoryWalmart.Properties.Resources.EmpleadosIcon;
             this.btnEmpleado.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEmpleado.Location = new System.Drawing.Point(0, 328);
+            this.btnEmpleado.Location = new System.Drawing.Point(0, 403);
+            this.btnEmpleado.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnEmpleado.Name = "btnEmpleado";
-            this.btnEmpleado.Padding = new System.Windows.Forms.Padding(0, 0, 80, 0);
-            this.btnEmpleado.Size = new System.Drawing.Size(250, 40);
+            this.btnEmpleado.Padding = new System.Windows.Forms.Padding(0, 0, 107, 0);
+            this.btnEmpleado.Size = new System.Drawing.Size(333, 49);
             this.btnEmpleado.TabIndex = 6;
             this.btnEmpleado.Text = "Empleado";
             this.btnEmpleado.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -214,10 +222,11 @@
             this.btnReportes.ForeColor = System.Drawing.Color.White;
             this.btnReportes.Image = global::InventoryWalmart.Properties.Resources.ReportesIcon;
             this.btnReportes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnReportes.Location = new System.Drawing.Point(0, 288);
+            this.btnReportes.Location = new System.Drawing.Point(0, 354);
+            this.btnReportes.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnReportes.Name = "btnReportes";
-            this.btnReportes.Padding = new System.Windows.Forms.Padding(0, 0, 90, 0);
-            this.btnReportes.Size = new System.Drawing.Size(250, 40);
+            this.btnReportes.Padding = new System.Windows.Forms.Padding(0, 0, 120, 0);
+            this.btnReportes.Size = new System.Drawing.Size(333, 49);
             this.btnReportes.TabIndex = 5;
             this.btnReportes.Text = "Reportes";
             this.btnReportes.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -235,10 +244,11 @@
             this.btnDevoluciones.ForeColor = System.Drawing.Color.White;
             this.btnDevoluciones.Image = global::InventoryWalmart.Properties.Resources.RenvolsosIcon;
             this.btnDevoluciones.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDevoluciones.Location = new System.Drawing.Point(0, 248);
+            this.btnDevoluciones.Location = new System.Drawing.Point(0, 305);
+            this.btnDevoluciones.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnDevoluciones.Name = "btnDevoluciones";
-            this.btnDevoluciones.Padding = new System.Windows.Forms.Padding(0, 0, 50, 0);
-            this.btnDevoluciones.Size = new System.Drawing.Size(250, 40);
+            this.btnDevoluciones.Padding = new System.Windows.Forms.Padding(0, 0, 67, 0);
+            this.btnDevoluciones.Size = new System.Drawing.Size(333, 49);
             this.btnDevoluciones.TabIndex = 4;
             this.btnDevoluciones.Text = "Devoluciones";
             this.btnDevoluciones.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -256,36 +266,39 @@
             this.btnProductos.ForeColor = System.Drawing.Color.White;
             this.btnProductos.Image = global::InventoryWalmart.Properties.Resources.ProductosIcon;
             this.btnProductos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnProductos.Location = new System.Drawing.Point(0, 208);
+            this.btnProductos.Location = new System.Drawing.Point(0, 256);
+            this.btnProductos.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnProductos.Name = "btnProductos";
-            this.btnProductos.Padding = new System.Windows.Forms.Padding(0, 0, 75, 0);
-            this.btnProductos.Size = new System.Drawing.Size(250, 40);
+            this.btnProductos.Padding = new System.Windows.Forms.Padding(0, 0, 100, 0);
+            this.btnProductos.Size = new System.Drawing.Size(333, 49);
             this.btnProductos.TabIndex = 3;
             this.btnProductos.Text = "Productos";
             this.btnProductos.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnProductos.UseVisualStyleBackColor = false;
             this.btnProductos.Click += new System.EventHandler(this.btnProductos_Click);
             // 
-            // btnBeneficios
+
+            // btnPromociones
             // 
-            this.btnBeneficios.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(114)))), ((int)(((byte)(223)))));
-            this.btnBeneficios.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnBeneficios.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnBeneficios.FlatAppearance.BorderSize = 0;
-            this.btnBeneficios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBeneficios.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBeneficios.ForeColor = System.Drawing.Color.White;
-            this.btnBeneficios.Image = ((System.Drawing.Image)(resources.GetObject("btnBeneficios.Image")));
-            this.btnBeneficios.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBeneficios.Location = new System.Drawing.Point(0, 168);
-            this.btnBeneficios.Name = "btnBeneficios";
-            this.btnBeneficios.Padding = new System.Windows.Forms.Padding(0, 0, 80, 0);
-            this.btnBeneficios.Size = new System.Drawing.Size(250, 40);
-            this.btnBeneficios.TabIndex = 2;
-            this.btnBeneficios.Text = "Beneficios";
-            this.btnBeneficios.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnBeneficios.UseVisualStyleBackColor = false;
-            this.btnBeneficios.Click += new System.EventHandler(this.btnPromociones_Click);
+            this.btnPromociones.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(114)))), ((int)(((byte)(223)))));
+            this.btnPromociones.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnPromociones.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnPromociones.FlatAppearance.BorderSize = 0;
+            this.btnPromociones.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPromociones.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPromociones.ForeColor = System.Drawing.Color.White;
+            this.btnPromociones.Image = ((System.Drawing.Image)(resources.GetObject("btnPromociones.Image")));
+            this.btnPromociones.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnPromociones.Location = new System.Drawing.Point(0, 207);
+            this.btnPromociones.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnPromociones.Name = "btnPromociones";
+            this.btnPromociones.Padding = new System.Windows.Forms.Padding(0, 0, 67, 0);
+            this.btnPromociones.Size = new System.Drawing.Size(333, 49);
+            this.btnPromociones.TabIndex = 2;
+            this.btnPromociones.Text = "Promociones";
+            this.btnPromociones.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnPromociones.UseVisualStyleBackColor = false;
+
             // 
             // btnInicio
             // 
@@ -298,10 +311,11 @@
             this.btnInicio.ForeColor = System.Drawing.Color.White;
             this.btnInicio.Image = global::InventoryWalmart.Properties.Resources.DashboardIcon;
             this.btnInicio.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnInicio.Location = new System.Drawing.Point(0, 128);
+            this.btnInicio.Location = new System.Drawing.Point(0, 158);
+            this.btnInicio.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnInicio.Name = "btnInicio";
-            this.btnInicio.Padding = new System.Windows.Forms.Padding(0, 0, 120, 0);
-            this.btnInicio.Size = new System.Drawing.Size(250, 40);
+            this.btnInicio.Padding = new System.Windows.Forms.Padding(0, 0, 160, 0);
+            this.btnInicio.Size = new System.Drawing.Size(333, 49);
             this.btnInicio.TabIndex = 1;
             this.btnInicio.Text = "Inicio";
             this.btnInicio.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -313,9 +327,12 @@
             this.logo.Dock = System.Windows.Forms.DockStyle.Top;
             this.logo.Image = global::InventoryWalmart.Properties.Resources.logo;
             this.logo.Location = new System.Drawing.Point(0, 0);
+            this.logo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.logo.Name = "logo";
+
             this.logo.Padding = new System.Windows.Forms.Padding(10);
             this.logo.Size = new System.Drawing.Size(250, 128);
+
             this.logo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.logo.TabIndex = 0;
             this.logo.TabStop = false;
@@ -324,27 +341,30 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(499, 99);
+            this.label1.Location = new System.Drawing.Point(665, 122);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(476, 50);
+            this.label1.Size = new System.Drawing.Size(602, 62);
             this.label1.TabIndex = 5;
             this.label1.Text = "Beneficios y Recompensas";
             // 
             // inputBuscar
             // 
-            this.inputBuscar.Location = new System.Drawing.Point(3, 8);
+            this.inputBuscar.Location = new System.Drawing.Point(4, 10);
+            this.inputBuscar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.inputBuscar.Multiline = true;
             this.inputBuscar.Name = "inputBuscar";
-            this.inputBuscar.Size = new System.Drawing.Size(370, 32);
+            this.inputBuscar.Size = new System.Drawing.Size(492, 38);
             this.inputBuscar.TabIndex = 6;
             // 
             // panel2
             // 
             this.panel2.Controls.Add(this.inputBuscar);
             this.panel2.Controls.Add(this.btnBuscar);
-            this.panel2.Location = new System.Drawing.Point(279, 196);
+            this.panel2.Location = new System.Drawing.Point(372, 241);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(416, 53);
+            this.panel2.Size = new System.Drawing.Size(555, 65);
             this.panel2.TabIndex = 8;
             // 
             // btnBuscar
@@ -354,10 +374,13 @@
             this.btnBuscar.FlatAppearance.BorderSize = 0;
             this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBuscar.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscar.Image")));
-            this.btnBuscar.Location = new System.Drawing.Point(370, 8);
+            this.btnBuscar.Location = new System.Drawing.Point(493, 10);
+            this.btnBuscar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnBuscar.Name = "btnBuscar";
+
             this.btnBuscar.Padding = new System.Windows.Forms.Padding(50);
             this.btnBuscar.Size = new System.Drawing.Size(35, 32);
+
             this.btnBuscar.TabIndex = 7;
             this.btnBuscar.UseVisualStyleBackColor = false;
             // 
@@ -367,9 +390,10 @@
             this.panel3.Controls.Add(this.btnAplicarBene);
             this.panel3.Controls.Add(this.btnEliminar);
             this.panel3.Controls.Add(this.btnAgregar);
-            this.panel3.Location = new System.Drawing.Point(712, 196);
+            this.panel3.Location = new System.Drawing.Point(949, 241);
+            this.panel3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(556, 53);
+            this.panel3.Size = new System.Drawing.Size(741, 65);
             this.panel3.TabIndex = 9;
             // 
             // btnModificar
@@ -382,10 +406,11 @@
             this.btnModificar.ForeColor = System.Drawing.Color.White;
             this.btnModificar.Image = global::InventoryWalmart.Properties.Resources.iconoModificar;
             this.btnModificar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnModificar.Location = new System.Drawing.Point(412, 4);
+            this.btnModificar.Location = new System.Drawing.Point(549, 5);
+            this.btnModificar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnModificar.Name = "btnModificar";
-            this.btnModificar.Padding = new System.Windows.Forms.Padding(0, 0, 10, 0);
-            this.btnModificar.Size = new System.Drawing.Size(122, 40);
+            this.btnModificar.Padding = new System.Windows.Forms.Padding(0, 0, 13, 0);
+            this.btnModificar.Size = new System.Drawing.Size(163, 49);
             this.btnModificar.TabIndex = 13;
             this.btnModificar.Text = "Modificar";
             this.btnModificar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -401,9 +426,10 @@
             this.btnAplicarBene.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAplicarBene.Image = ((System.Drawing.Image)(resources.GetObject("btnAplicarBene.Image")));
             this.btnAplicarBene.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAplicarBene.Location = new System.Drawing.Point(13, 4);
+            this.btnAplicarBene.Location = new System.Drawing.Point(17, 5);
+            this.btnAplicarBene.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnAplicarBene.Name = "btnAplicarBene";
-            this.btnAplicarBene.Size = new System.Drawing.Size(122, 40);
+            this.btnAplicarBene.Size = new System.Drawing.Size(163, 49);
             this.btnAplicarBene.TabIndex = 10;
             this.btnAplicarBene.Text = "Aplicar Beneficio\r\nUsuario";
             this.btnAplicarBene.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -419,10 +445,11 @@
             this.btnEliminar.ForeColor = System.Drawing.Color.White;
             this.btnEliminar.Image = global::InventoryWalmart.Properties.Resources.iconoEliminar;
             this.btnEliminar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEliminar.Location = new System.Drawing.Point(284, 4);
+            this.btnEliminar.Location = new System.Drawing.Point(379, 5);
+            this.btnEliminar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Padding = new System.Windows.Forms.Padding(5, 0, 10, 0);
-            this.btnEliminar.Size = new System.Drawing.Size(122, 40);
+            this.btnEliminar.Padding = new System.Windows.Forms.Padding(7, 0, 13, 0);
+            this.btnEliminar.Size = new System.Drawing.Size(163, 49);
             this.btnEliminar.TabIndex = 12;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -438,10 +465,11 @@
             this.btnAgregar.ForeColor = System.Drawing.Color.White;
             this.btnAgregar.Image = global::InventoryWalmart.Properties.Resources.iconoAgregar;
             this.btnAgregar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAgregar.Location = new System.Drawing.Point(156, 3);
+            this.btnAgregar.Location = new System.Drawing.Point(208, 4);
+            this.btnAgregar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
-            this.btnAgregar.Size = new System.Drawing.Size(122, 40);
+            this.btnAgregar.Padding = new System.Windows.Forms.Padding(13, 0, 13, 0);
+            this.btnAgregar.Size = new System.Drawing.Size(163, 49);
             this.btnAgregar.TabIndex = 11;
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -476,8 +504,10 @@
             this.ColumnStatu,
             this.ColumnAccion});
             this.tableBenefitsRewards.EnableHeadersVisualStyles = false;
+
             this.tableBenefitsRewards.Location = new System.Drawing.Point(359, 279);
             this.tableBenefitsRewards.Margin = new System.Windows.Forms.Padding(2);
+
             this.tableBenefitsRewards.Name = "tableBenefitsRewards";
             this.tableBenefitsRewards.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
@@ -489,8 +519,9 @@
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.tableBenefitsRewards.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.tableBenefitsRewards.RowHeadersVisible = false;
+            this.tableBenefitsRewards.RowHeadersWidth = 51;
             this.tableBenefitsRewards.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.tableBenefitsRewards.Size = new System.Drawing.Size(845, 332);
+            this.tableBenefitsRewards.Size = new System.Drawing.Size(1127, 409);
             this.tableBenefitsRewards.TabIndex = 10;
             this.tableBenefitsRewards.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.tableBenefitsRewards_CellContentClick);
             // 
@@ -499,62 +530,63 @@
             this.columnID.HeaderText = "ID";
             this.columnID.MinimumWidth = 6;
             this.columnID.Name = "columnID";
-            this.columnID.Width = 46;
+            this.columnID.Width = 56;
             // 
             // columnBenefits
             // 
             this.columnBenefits.HeaderText = "Beneficio";
             this.columnBenefits.MinimumWidth = 6;
             this.columnBenefits.Name = "columnBenefits";
-            this.columnBenefits.Width = 89;
+            this.columnBenefits.Width = 112;
             // 
             // ColumnDescripBene
             // 
             this.ColumnDescripBene.HeaderText = "Descripcion Beneficio";
             this.ColumnDescripBene.MinimumWidth = 6;
             this.ColumnDescripBene.Name = "ColumnDescripBene";
-            this.ColumnDescripBene.Width = 150;
+            this.ColumnDescripBene.Width = 191;
             // 
             // ColumnPorcentajeDesc
             // 
             this.ColumnPorcentajeDesc.HeaderText = "Porcentaje \nDescuento";
             this.ColumnPorcentajeDesc.MinimumWidth = 6;
             this.ColumnPorcentajeDesc.Name = "ColumnPorcentajeDesc";
-            this.ColumnPorcentajeDesc.Width = 101;
+            this.ColumnPorcentajeDesc.Width = 126;
             // 
             // ColumnDateStartD
             // 
             this.ColumnDateStartD.HeaderText = "Fecha Inicio \nDescuento";
             this.ColumnDateStartD.MinimumWidth = 6;
             this.ColumnDateStartD.Name = "ColumnDateStartD";
+            this.ColumnDateStartD.Width = 136;
             // 
             // ColumnDateEndD
             // 
             this.ColumnDateEndD.HeaderText = "Fecha Final \nDescuento";
             this.ColumnDateEndD.MinimumWidth = 6;
             this.ColumnDateEndD.Name = "ColumnDateEndD";
-            this.ColumnDateEndD.Width = 105;
+            this.ColumnDateEndD.Width = 131;
             // 
             // ColumnPointsReq
             // 
             this.ColumnPointsReq.HeaderText = "Puntos\nRequeridos";
             this.ColumnPointsReq.MinimumWidth = 6;
             this.ColumnPointsReq.Name = "ColumnPointsReq";
-            this.ColumnPointsReq.Width = 101;
+            this.ColumnPointsReq.Width = 128;
             // 
             // ColumnStatu
             // 
             this.ColumnStatu.HeaderText = "Estado";
             this.ColumnStatu.MinimumWidth = 6;
             this.ColumnStatu.Name = "ColumnStatu";
-            this.ColumnStatu.Width = 73;
+            this.ColumnStatu.Width = 91;
             // 
             // ColumnAccion
             // 
             this.ColumnAccion.HeaderText = "Accion";
             this.ColumnAccion.MinimumWidth = 6;
             this.ColumnAccion.Name = "ColumnAccion";
-            this.ColumnAccion.Width = 73;
+            this.ColumnAccion.Width = 91;
             // 
             // BtnPuntos
             // 
@@ -579,10 +611,10 @@
             // 
             // viewBenefitsRewards
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1280, 720);
+            this.ClientSize = new System.Drawing.Size(1707, 886);
             this.Controls.Add(this.tableBenefitsRewards);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
@@ -590,6 +622,7 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.barAcciones);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "viewBenefitsRewards";
             this.Text = "viewBenefitsRewards";
             this.Load += new System.EventHandler(this.viewBenefitsRewards_Load);

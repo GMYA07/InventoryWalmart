@@ -71,6 +71,12 @@
     <Compile Include="formAccionModificarDescuentoProduct.Designer.cs">
       <DependentUpon>formAccionModificarDescuentoProduct.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormAddProduct.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAddProduct.Designer.cs">
+      <DependentUpon>FormAddProduct.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormCustomers.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -162,6 +168,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="formAccionModificarDescuentoProduct.resx">
       <DependentUpon>formAccionModificarDescuentoProduct.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormAddProduct.resx">
+      <DependentUpon>FormAddProduct.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormCustomers.resx">
       <DependentUpon>FormCustomers.cs</DependentUpon>

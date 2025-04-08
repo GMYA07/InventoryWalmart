@@ -37,6 +37,8 @@
             this.button1 = new System.Windows.Forms.Button();
             this.LblTitulo = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.LblDescripcion = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.RdoInactivo = new System.Windows.Forms.RadioButton();
             this.RdoActivo = new System.Windows.Forms.RadioButton();
@@ -48,8 +50,6 @@
             this.LblEmail = new System.Windows.Forms.Label();
             this.TxtNombre = new System.Windows.Forms.TextBox();
             this.LblIngresaDUI = new System.Windows.Forms.Label();
-            this.LblDescripcion = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.barAcciones.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnOcultar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMaximizar)).BeginInit();
@@ -168,6 +168,25 @@
             this.panel1.Size = new System.Drawing.Size(367, 529);
             this.panel1.TabIndex = 16;
             // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(52, 268);
+            this.textBox1.Multiline = true;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(250, 85);
+            this.textBox1.TabIndex = 26;
+            // 
+            // LblDescripcion
+            // 
+            this.LblDescripcion.AutoSize = true;
+            this.LblDescripcion.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.LblDescripcion.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
+            this.LblDescripcion.Location = new System.Drawing.Point(34, 246);
+            this.LblDescripcion.Name = "LblDescripcion";
+            this.LblDescripcion.Size = new System.Drawing.Size(83, 19);
+            this.LblDescripcion.TabIndex = 17;
+            this.LblDescripcion.Text = "Descripcion";
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -220,6 +239,7 @@
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnAgregar.UseVisualStyleBackColor = false;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // btnModificar
             // 
@@ -291,25 +311,6 @@
             this.LblIngresaDUI.Size = new System.Drawing.Size(87, 19);
             this.LblIngresaDUI.TabIndex = 7;
             this.LblIngresaDUI.Text = "Ingresar DUI";
-            // 
-            // LblDescripcion
-            // 
-            this.LblDescripcion.AutoSize = true;
-            this.LblDescripcion.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.LblDescripcion.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
-            this.LblDescripcion.Location = new System.Drawing.Point(34, 246);
-            this.LblDescripcion.Name = "LblDescripcion";
-            this.LblDescripcion.Size = new System.Drawing.Size(83, 19);
-            this.LblDescripcion.TabIndex = 17;
-            this.LblDescripcion.Text = "Descripcion";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(52, 268);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(250, 85);
-            this.textBox1.TabIndex = 26;
             // 
             // FormReturns
             // 

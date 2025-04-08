@@ -76,5 +76,38 @@ namespace InventoryWalmart
             this.Hide();
             viewUser.Show();
         }
+        private void ChangeView<T>() where T : Form, new()
+        {
+            T vista = new T();
+            this.Hide();
+            vista.Show();
+        }
+
+        private void btnInicio_Click(object sender, EventArgs e)
+        {
+            ChangeView<dashboard>();
+        }       
+
+
+        private void btnPromociones_Click(object sender, EventArgs e)
+        {
+            ChangeView<viewBenefitsRewards>();
+        }
+
+        private void btnDevoluciones_Click(object sender, EventArgs e)
+        {
+            ChangeView<ViewReturns>();
+        }
+
+        private void btnClientes_Click(object sender, EventArgs e)
+        {
+            ChangeView<ViewCustomers>();
+        }
+
+        private void BtnPuntos_Click(object sender, EventArgs e)
+        {
+            ChangeView<ViewPoints>();
+
+        }
     }
 }

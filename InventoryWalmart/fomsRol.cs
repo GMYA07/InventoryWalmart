@@ -67,5 +67,12 @@ namespace InventoryWalmart
         {
             ChangeView<ViewCustomers>();
         }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            ViewUser viewUser = new ViewUser();
+            this.Hide();
+            viewUser.Show();
+        }
     }
 }

@@ -69,5 +69,12 @@ namespace InventoryWalmart
             btnRestaurar.Visible = true;
 
         }
+
+        private void btnEmpleado_Click(object sender, EventArgs e)
+        {
+            ViewUser viewUser = new ViewUser();
+            this.Hide();
+            viewUser.Show();
+        }
     }
 }

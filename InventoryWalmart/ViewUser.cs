@@ -69,5 +69,27 @@ namespace InventoryWalmart
             btnRestaurar.Visible = true;
 
         }
+
+        private void btnAplicarBene_Click(object sender, EventArgs e)
+        {
+            fomsRol fomsRol = new fomsRol();
+            this.Hide();
+            fomsRol.Show();
+        }
+
+        private void btnAgregar_Click(object sender, EventArgs e)
+        {
+            formEmpleado empleado = new formEmpleado();
+            this.Hide();
+            empleado.Show();
+        }
+
+        private void btnReportes_Click_1(object sender, EventArgs e)
+        {
+            FormGenerarReporte formGenerarReporte = new FormGenerarReporte();
+            this.Hide();
+            formGenerarReporte.Show();
+
+        }
     }
 }

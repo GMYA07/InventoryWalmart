@@ -53,6 +53,12 @@
     <Compile Include="dashboard.Designer.cs">
       <DependentUpon>dashboard.cs</DependentUpon>
     </Compile>
+    <Compile Include="fomsRol.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fomsRol.Designer.cs">
+      <DependentUpon>fomsRol.cs</DependentUpon>
+    </Compile>
     <Compile Include="formAccionBeneficioReco.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -171,6 +177,9 @@
     </Compile>
     <EmbeddedResource Include="dashboard.resx">
       <DependentUpon>dashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fomsRol.resx">
+      <DependentUpon>fomsRol.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="formAccionBeneficioReco.resx">
       <DependentUpon>formAccionBeneficioReco.cs</DependentUpon>

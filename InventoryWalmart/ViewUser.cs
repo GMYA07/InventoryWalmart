@@ -69,5 +69,59 @@ namespace InventoryWalmart
             btnRestaurar.Visible = true;
 
         }
+
+        private void btnAplicarBene_Click(object sender, EventArgs e)
+        {
+            fomsRol fomsRol = new fomsRol();
+            this.Hide();
+            fomsRol.Show();
+        }
+
+        private void btnAgregar_Click(object sender, EventArgs e)
+        {
+            formEmpleado empleado = new formEmpleado();
+            this.Hide();
+            empleado.Show();
+        }
+
+        private void btnReportes_Click_1(object sender, EventArgs e)
+        {
+            FormGenerarReporte formGenerarReporte = new FormGenerarReporte();
+            this.Hide();
+            formGenerarReporte.Show();
+
+        }
+
+        private void ChangeView<T>() where T : Form, new()
+        {
+            T vista = new T();
+            this.Hide();
+            vista.Show();
+        }
+
+        private void BtnPuntos_Click_1(object sender, EventArgs e)
+        {
+            ChangeView<ViewPoints>();
+        }
+
+        private void btnInicio_Click_1(object sender, EventArgs e)
+        {
+            ChangeView<dashboard>();
+        }
+
+        private void btnPromociones_Click_1(object sender, EventArgs e)
+        {
+            ChangeView<viewBenefitsRewards>();
+        }
+
+        private void btnDevoluciones_Click_1(object sender, EventArgs e)
+        {
+            ChangeView<ViewReturns>();
+        }
+
+        private void btnClientes_Click_1(object sender, EventArgs e)
+        {
+            ChangeView<ViewCustomers>();
+        }
     }
 }

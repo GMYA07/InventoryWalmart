@@ -29,15 +29,16 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(dashboard));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea8 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend8 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series8 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.barAcciones = new System.Windows.Forms.Panel();
             this.btnOcultar = new System.Windows.Forms.PictureBox();
             this.btnMaximizar = new System.Windows.Forms.PictureBox();
             this.btnCerrar = new System.Windows.Forms.PictureBox();
             this.btnRestaurar = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.BtnPuntos = new System.Windows.Forms.Button();
             this.btnClientes = new System.Windows.Forms.Button();
             this.btnEmpleado = new System.Windows.Forms.Button();
             this.btnReportes = new System.Windows.Forms.Button();
@@ -66,7 +67,6 @@
             this.panelBeneficiosReco = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.BtnPuntos = new System.Windows.Forms.Button();
             this.barAcciones.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnOcultar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMaximizar)).BeginInit();
@@ -172,6 +172,27 @@
             this.panel1.TabIndex = 3;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
+            // BtnPuntos
+            // 
+            this.BtnPuntos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(114)))), ((int)(((byte)(223)))));
+            this.BtnPuntos.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnPuntos.Dock = System.Windows.Forms.DockStyle.Top;
+            this.BtnPuntos.FlatAppearance.BorderSize = 0;
+            this.BtnPuntos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnPuntos.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnPuntos.ForeColor = System.Drawing.Color.White;
+            this.BtnPuntos.Image = global::InventoryWalmart.Properties.Resources.PointsIcon;
+            this.BtnPuntos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnPuntos.Location = new System.Drawing.Point(0, 408);
+            this.BtnPuntos.Name = "BtnPuntos";
+            this.BtnPuntos.Padding = new System.Windows.Forms.Padding(0, 0, 100, 0);
+            this.BtnPuntos.Size = new System.Drawing.Size(250, 40);
+            this.BtnPuntos.TabIndex = 10;
+            this.BtnPuntos.Text = "Puntos";
+            this.BtnPuntos.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnPuntos.UseVisualStyleBackColor = false;
+            this.BtnPuntos.Click += new System.EventHandler(this.BtnPuntos_Click);
+            // 
             // btnClientes
             // 
             this.btnClientes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(114)))), ((int)(((byte)(223)))));
@@ -275,6 +296,7 @@
             this.btnProductos.Text = "Productos";
             this.btnProductos.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnProductos.UseVisualStyleBackColor = false;
+            this.btnProductos.Click += new System.EventHandler(this.btnProductos_Click);
             // 
             // btnPromociones
             // 
@@ -346,17 +368,17 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.chart1.BackColor = System.Drawing.Color.WhiteSmoke;
-            chartArea8.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea8);
+            chartArea1.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea1);
             this.chart1.Cursor = System.Windows.Forms.Cursors.Hand;
-            legend8.Name = "Legend1";
-            this.chart1.Legends.Add(legend8);
+            legend1.Name = "Legend1";
+            this.chart1.Legends.Add(legend1);
             this.chart1.Location = new System.Drawing.Point(300, 365);
             this.chart1.Name = "chart1";
-            series8.ChartArea = "ChartArea1";
-            series8.Legend = "Legend1";
-            series8.Name = "Series1";
-            this.chart1.Series.Add(series8);
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            this.chart1.Series.Add(series1);
             this.chart1.Size = new System.Drawing.Size(475, 299);
             this.chart1.TabIndex = 6;
             this.chart1.Text = "chart1";
@@ -583,27 +605,6 @@
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox2.TabIndex = 0;
             this.pictureBox2.TabStop = false;
-            // 
-            // BtnPuntos
-            // 
-            this.BtnPuntos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(114)))), ((int)(((byte)(223)))));
-            this.BtnPuntos.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnPuntos.Dock = System.Windows.Forms.DockStyle.Top;
-            this.BtnPuntos.FlatAppearance.BorderSize = 0;
-            this.BtnPuntos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnPuntos.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnPuntos.ForeColor = System.Drawing.Color.White;
-            this.BtnPuntos.Image = global::InventoryWalmart.Properties.Resources.PointsIcon;
-            this.BtnPuntos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnPuntos.Location = new System.Drawing.Point(0, 408);
-            this.BtnPuntos.Name = "BtnPuntos";
-            this.BtnPuntos.Padding = new System.Windows.Forms.Padding(0, 0, 100, 0);
-            this.BtnPuntos.Size = new System.Drawing.Size(250, 40);
-            this.BtnPuntos.TabIndex = 10;
-            this.BtnPuntos.Text = "Puntos";
-            this.BtnPuntos.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.BtnPuntos.UseVisualStyleBackColor = false;
-            this.BtnPuntos.Click += new System.EventHandler(this.BtnPuntos_Click);
             // 
             // dashboard
             // 

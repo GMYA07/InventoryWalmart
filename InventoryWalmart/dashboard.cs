@@ -79,7 +79,9 @@ namespace InventoryWalmart
 
         private void btnProductos_Click(object sender, EventArgs e)
         {
-
+            viewInventary viewInventary = new viewInventary();
+            this.Hide();
+            viewInventary.Show();
         }
 
         private void btnDevoluciones_Click(object sender, EventArgs e)

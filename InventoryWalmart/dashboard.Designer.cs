@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(dashboard));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea8 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend8 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series8 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.barAcciones = new System.Windows.Forms.Panel();
             this.btnOcultar = new System.Windows.Forms.PictureBox();
             this.btnMaximizar = new System.Windows.Forms.PictureBox();
@@ -51,8 +51,6 @@
             this.tittleDashboard = new System.Windows.Forms.Label();
             this.panelTotalMoney = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
@@ -68,6 +66,7 @@
             this.panelBeneficiosReco = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.BtnPuntos = new System.Windows.Forms.Button();
             this.barAcciones.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnOcultar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMaximizar)).BeginInit();
@@ -77,7 +76,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.logo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.panelTotalMoney.SuspendLayout();
-            this.panel2.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel6.SuspendLayout();
@@ -158,6 +156,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(114)))), ((int)(((byte)(223)))));
+            this.panel1.Controls.Add(this.BtnPuntos);
             this.panel1.Controls.Add(this.btnClientes);
             this.panel1.Controls.Add(this.btnEmpleado);
             this.panel1.Controls.Add(this.btnReportes);
@@ -192,6 +191,7 @@
             this.btnClientes.Text = "Clientes";
             this.btnClientes.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnClientes.UseVisualStyleBackColor = false;
+            this.btnClientes.Click += new System.EventHandler(this.btnClientes_Click);
             // 
             // btnEmpleado
             // 
@@ -233,6 +233,7 @@
             this.btnReportes.Text = "Reportes";
             this.btnReportes.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnReportes.UseVisualStyleBackColor = false;
+            this.btnReportes.Click += new System.EventHandler(this.btnReportes_Click);
             // 
             // btnDevoluciones
             // 
@@ -288,12 +289,13 @@
             this.btnPromociones.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnPromociones.Location = new System.Drawing.Point(0, 168);
             this.btnPromociones.Name = "btnPromociones";
-            this.btnPromociones.Padding = new System.Windows.Forms.Padding(0, 0, 50, 0);
+            this.btnPromociones.Padding = new System.Windows.Forms.Padding(0, 0, 80, 0);
             this.btnPromociones.Size = new System.Drawing.Size(250, 40);
             this.btnPromociones.TabIndex = 2;
-            this.btnPromociones.Text = "Promociones";
+            this.btnPromociones.Text = "Beneficios";
             this.btnPromociones.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnPromociones.UseVisualStyleBackColor = false;
+            this.btnPromociones.Click += new System.EventHandler(this.btnPromociones_Click);
             // 
             // btnInicio
             // 
@@ -322,7 +324,7 @@
             this.logo.Image = global::InventoryWalmart.Properties.Resources.logo;
             this.logo.Location = new System.Drawing.Point(0, 0);
             this.logo.Name = "logo";
-            this.logo.Padding = new System.Windows.Forms.Padding(10, 10, 10, 10);
+            this.logo.Padding = new System.Windows.Forms.Padding(10);
             this.logo.Size = new System.Drawing.Size(250, 128);
             this.logo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.logo.TabIndex = 0;
@@ -333,7 +335,7 @@
             this.inputFecha.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.inputFecha.Location = new System.Drawing.Point(628, 92);
+            this.inputFecha.Location = new System.Drawing.Point(567, 92);
             this.inputFecha.Name = "inputFecha";
             this.inputFecha.Size = new System.Drawing.Size(446, 20);
             this.inputFecha.TabIndex = 4;
@@ -344,18 +346,18 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.chart1.BackColor = System.Drawing.Color.WhiteSmoke;
-            chartArea1.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea1);
+            chartArea8.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea8);
             this.chart1.Cursor = System.Windows.Forms.Cursors.Hand;
-            legend1.Name = "Legend1";
-            this.chart1.Legends.Add(legend1);
-            this.chart1.Location = new System.Drawing.Point(297, 352);
+            legend8.Name = "Legend1";
+            this.chart1.Legends.Add(legend8);
+            this.chart1.Location = new System.Drawing.Point(300, 365);
             this.chart1.Name = "chart1";
-            series1.ChartArea = "ChartArea1";
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            this.chart1.Series.Add(series1);
-            this.chart1.Size = new System.Drawing.Size(718, 398);
+            series8.ChartArea = "ChartArea1";
+            series8.Legend = "Legend1";
+            series8.Name = "Series1";
+            this.chart1.Series.Add(series8);
+            this.chart1.Size = new System.Drawing.Size(475, 299);
             this.chart1.TabIndex = 6;
             this.chart1.Text = "chart1";
             // 
@@ -367,7 +369,7 @@
             this.tittleDashboard.AutoSize = true;
             this.tittleDashboard.Cursor = System.Windows.Forms.Cursors.Hand;
             this.tittleDashboard.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tittleDashboard.Location = new System.Drawing.Point(974, 290);
+            this.tittleDashboard.Location = new System.Drawing.Point(974, 307);
             this.tittleDashboard.Name = "tittleDashboard";
             this.tittleDashboard.Size = new System.Drawing.Size(108, 45);
             this.tittleDashboard.TabIndex = 7;
@@ -381,9 +383,9 @@
             this.panelTotalMoney.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(114)))), ((int)(((byte)(223)))));
             this.panelTotalMoney.Controls.Add(this.label1);
             this.panelTotalMoney.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.panelTotalMoney.Location = new System.Drawing.Point(815, 352);
+            this.panelTotalMoney.Location = new System.Drawing.Point(841, 360);
             this.panelTotalMoney.Name = "panelTotalMoney";
-            this.panelTotalMoney.Size = new System.Drawing.Size(429, 240);
+            this.panelTotalMoney.Size = new System.Drawing.Size(172, 131);
             this.panelTotalMoney.TabIndex = 8;
             // 
             // label1
@@ -397,25 +399,6 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Dinero Total";
             // 
-            // panel2
-            // 
-            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel2.Controls.Add(this.panel3);
-            this.panel2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.panel2.Location = new System.Drawing.Point(850, 518);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(240, 80);
-            this.panel2.TabIndex = 9;
-            // 
-            // panel3
-            // 
-            this.panel3.Location = new System.Drawing.Point(8, 8);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(189, 160);
-            this.panel3.TabIndex = 9;
-            // 
             // panel4
             // 
             this.panel4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -424,9 +407,9 @@
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(194)))), ((int)(((byte)(33)))));
             this.panel4.Controls.Add(this.label2);
             this.panel4.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.panel4.Location = new System.Drawing.Point(1055, 352);
+            this.panel4.Location = new System.Drawing.Point(1058, 360);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(429, 240);
+            this.panel4.Size = new System.Drawing.Size(186, 131);
             this.panel4.TabIndex = 9;
             // 
             // label2
@@ -448,9 +431,9 @@
             this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(194)))), ((int)(((byte)(33)))));
             this.panel5.Controls.Add(this.label3);
             this.panel5.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.panel5.Location = new System.Drawing.Point(815, 529);
+            this.panel5.Location = new System.Drawing.Point(841, 516);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(429, 240);
+            this.panel5.Size = new System.Drawing.Size(172, 132);
             this.panel5.TabIndex = 9;
             // 
             // label3
@@ -472,9 +455,9 @@
             this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(114)))), ((int)(((byte)(223)))));
             this.panel6.Controls.Add(this.label4);
             this.panel6.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.panel6.Location = new System.Drawing.Point(1055, 529);
+            this.panel6.Location = new System.Drawing.Point(1058, 516);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(429, 240);
+            this.panel6.Size = new System.Drawing.Size(186, 132);
             this.panel6.TabIndex = 10;
             // 
             // label4
@@ -498,7 +481,7 @@
             this.panel10.Cursor = System.Windows.Forms.Cursors.Hand;
             this.panel10.Location = new System.Drawing.Point(982, 158);
             this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(400, 200);
+            this.panel10.Size = new System.Drawing.Size(146, 131);
             this.panel10.TabIndex = 12;
             // 
             // panelDescuentos
@@ -510,9 +493,9 @@
             this.panelDescuentos.Controls.Add(this.label5);
             this.panelDescuentos.Controls.Add(this.pictureBox3);
             this.panelDescuentos.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.panelDescuentos.Location = new System.Drawing.Point(589, 158);
+            this.panelDescuentos.Location = new System.Drawing.Point(556, 158);
             this.panelDescuentos.Name = "panelDescuentos";
-            this.panelDescuentos.Size = new System.Drawing.Size(400, 200);
+            this.panelDescuentos.Size = new System.Drawing.Size(169, 131);
             this.panelDescuentos.TabIndex = 12;
             this.panelDescuentos.Click += new System.EventHandler(this.panelDescuentos_Click);
             this.panelDescuentos.Paint += new System.Windows.Forms.PaintEventHandler(this.panelDescuentos_Paint);
@@ -545,9 +528,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(32)))), ((int)(((byte)(66)))));
             this.panel9.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.panel9.Location = new System.Drawing.Point(782, 158);
+            this.panel9.Location = new System.Drawing.Point(774, 158);
             this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(400, 200);
+            this.panel9.Size = new System.Drawing.Size(161, 131);
             this.panel9.TabIndex = 12;
             // 
             // pictureBox1
@@ -557,9 +540,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox1.Image = global::InventoryWalmart.Properties.Resources.user;
-            this.pictureBox1.Location = new System.Drawing.Point(1191, 74);
+            this.pictureBox1.Location = new System.Drawing.Point(1191, 77);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(290, 130);
+            this.pictureBox1.Size = new System.Drawing.Size(58, 55);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 13;
             this.pictureBox1.TabStop = false;
@@ -573,9 +556,9 @@
             this.panelBeneficiosReco.Controls.Add(this.label6);
             this.panelBeneficiosReco.Controls.Add(this.pictureBox2);
             this.panelBeneficiosReco.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.panelBeneficiosReco.Location = new System.Drawing.Point(390, 158);
+            this.panelBeneficiosReco.Location = new System.Drawing.Point(338, 158);
             this.panelBeneficiosReco.Name = "panelBeneficiosReco";
-            this.panelBeneficiosReco.Size = new System.Drawing.Size(400, 200);
+            this.panelBeneficiosReco.Size = new System.Drawing.Size(166, 131);
             this.panelBeneficiosReco.TabIndex = 14;
             this.panelBeneficiosReco.Click += new System.EventHandler(this.panelBeneficiosReco_Click);
             this.panelBeneficiosReco.Paint += new System.Windows.Forms.PaintEventHandler(this.panelBeneficiosReco_Paint);
@@ -601,6 +584,27 @@
             this.pictureBox2.TabIndex = 0;
             this.pictureBox2.TabStop = false;
             // 
+            // BtnPuntos
+            // 
+            this.BtnPuntos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(114)))), ((int)(((byte)(223)))));
+            this.BtnPuntos.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnPuntos.Dock = System.Windows.Forms.DockStyle.Top;
+            this.BtnPuntos.FlatAppearance.BorderSize = 0;
+            this.BtnPuntos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnPuntos.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnPuntos.ForeColor = System.Drawing.Color.White;
+            this.BtnPuntos.Image = global::InventoryWalmart.Properties.Resources.PointsIcon;
+            this.BtnPuntos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnPuntos.Location = new System.Drawing.Point(0, 408);
+            this.BtnPuntos.Name = "BtnPuntos";
+            this.BtnPuntos.Padding = new System.Windows.Forms.Padding(0, 0, 100, 0);
+            this.BtnPuntos.Size = new System.Drawing.Size(250, 40);
+            this.BtnPuntos.TabIndex = 10;
+            this.BtnPuntos.Text = "Puntos";
+            this.BtnPuntos.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnPuntos.UseVisualStyleBackColor = false;
+            this.BtnPuntos.Click += new System.EventHandler(this.BtnPuntos_Click);
+            // 
             // dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -608,14 +612,13 @@
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1280, 720);
             this.Controls.Add(this.panelBeneficiosReco);
+            this.Controls.Add(this.panel4);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.panel9);
             this.Controls.Add(this.panelDescuentos);
             this.Controls.Add(this.panel10);
             this.Controls.Add(this.panel6);
             this.Controls.Add(this.panel5);
-            this.Controls.Add(this.panel2);
-            this.Controls.Add(this.panel4);
             this.Controls.Add(this.panelTotalMoney);
             this.Controls.Add(this.tittleDashboard);
             this.Controls.Add(this.chart1);
@@ -636,7 +639,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             this.panelTotalMoney.ResumeLayout(false);
             this.panelTotalMoney.PerformLayout();
-            this.panel2.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             this.panel5.ResumeLayout(false);
@@ -675,8 +677,6 @@
         private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
         private System.Windows.Forms.Label tittleDashboard;
         private System.Windows.Forms.Panel panelTotalMoney;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Panel panel6;
@@ -693,5 +693,6 @@
         private System.Windows.Forms.Panel panelBeneficiosReco;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Button BtnPuntos;
     }
 }

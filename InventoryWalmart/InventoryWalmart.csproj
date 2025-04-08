@@ -333,5 +333,8 @@
   <ItemGroup>
     <None Include="Resources\PointsIcon.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Billetes.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

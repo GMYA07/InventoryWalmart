@@ -107,5 +107,15 @@ namespace InventoryWalmart
             this.Hide();
             vista.Show();
         }
+
+        private void label26_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tableBenefitsRewards_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            
+        }
     }
 }

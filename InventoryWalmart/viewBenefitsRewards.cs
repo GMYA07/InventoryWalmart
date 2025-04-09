@@ -110,7 +110,9 @@ namespace InventoryWalmart
 
         private void btnReportes_Click(object sender, EventArgs e)
         {
-
+            FormGenerarReporte FGR = new FormGenerarReporte();
+            this.Hide();
+            FGR.Show();
         }
 
         private void btnEmpleado_Click(object sender, EventArgs e)
@@ -134,5 +136,11 @@ namespace InventoryWalmart
             vistaPoints.Show();
         }
 
+        private void BtnVentas_Click(object sender, EventArgs e)
+        {
+            viewGestionVentas vista=new viewGestionVentas();
+            this.Hide();
+            vista.Show();
+        }
     }
 }

@@ -104,6 +104,7 @@
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.BtnVentas = new System.Windows.Forms.Button();
             this.barAcciones.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnOcultar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMaximizar)).BeginInit();
@@ -197,6 +198,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(114)))), ((int)(((byte)(223)))));
+            this.panel1.Controls.Add(this.BtnVentas);
             this.panel1.Controls.Add(this.BtnPuntos);
             this.panel1.Controls.Add(this.btnClientes);
             this.panel1.Controls.Add(this.btnEmpleado);
@@ -927,6 +929,27 @@
             this.label3.TabIndex = 26;
             this.label3.Text = "Fecha fin ";
             // 
+            // BtnVentas
+            // 
+            this.BtnVentas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(114)))), ((int)(((byte)(223)))));
+            this.BtnVentas.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnVentas.Dock = System.Windows.Forms.DockStyle.Top;
+            this.BtnVentas.FlatAppearance.BorderSize = 0;
+            this.BtnVentas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnVentas.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnVentas.ForeColor = System.Drawing.Color.White;
+            this.BtnVentas.Image = global::InventoryWalmart.Properties.Resources.IconoSales;
+            this.BtnVentas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnVentas.Location = new System.Drawing.Point(0, 448);
+            this.BtnVentas.Name = "BtnVentas";
+            this.BtnVentas.Padding = new System.Windows.Forms.Padding(0, 0, 100, 0);
+            this.BtnVentas.Size = new System.Drawing.Size(250, 40);
+            this.BtnVentas.TabIndex = 12;
+            this.BtnVentas.Text = "Ventas";
+            this.BtnVentas.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnVentas.UseVisualStyleBackColor = false;
+            this.BtnVentas.Click += new System.EventHandler(this.BtnVentas_Click);
+            // 
             // FormGenerarReporte
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1038,5 +1061,6 @@
         private System.Windows.Forms.DateTimePicker dateTimePicker2;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button BtnVentas;
     }
 }

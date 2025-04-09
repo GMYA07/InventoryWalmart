@@ -81,7 +81,7 @@ namespace InventoryWalmart
 
         private void btnReportes_Click(object sender, EventArgs e)
         {
-            //ChangeView<dashboard>();
+            ChangeView<FormGenerarReporte>();
         }
 
         private void btnEmpleado_Click(object sender, EventArgs e)
@@ -97,6 +97,11 @@ namespace InventoryWalmart
         private void BtnPuntos_Click(object sender, EventArgs e)
         {
             ChangeView<ViewPoints>();
+        }
+
+        private void BtnVentas_Click(object sender, EventArgs e)
+        {
+            ChangeView<viewGestionVentas>();
         }
 
         private void ChangeView<T>() where T : Form, new()

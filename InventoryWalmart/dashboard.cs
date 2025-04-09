@@ -150,5 +150,19 @@ namespace InventoryWalmart
             this.Hide();
             viewDiscount.Show();
         }
+
+        private void BtnVentas_Click(object sender, EventArgs e)
+        {
+            viewGestionVentas viewGestionVentas = new viewGestionVentas();
+            this.Hide();
+            viewGestionVentas.Show();
+        }
+
+        private void PanelProveedores_Click(object sender, EventArgs e)
+        {
+            ViewSuppliers supplier = new ViewSuppliers();
+            this.Hide();
+            supplier.Show();
+        }
     }
 }

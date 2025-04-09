@@ -114,5 +114,10 @@ namespace InventoryWalmart
         {
             ChangeView<viewInventary>();
         }
+
+        private void BtnVentas_Click(object sender, EventArgs e)
+        {
+            ChangeView<viewGestionVentas>();
+        }
     }
 }

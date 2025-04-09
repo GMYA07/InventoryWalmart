@@ -100,12 +100,12 @@ namespace InventoryWalmart
 
         private void btnReportes_Click_1(object sender, EventArgs e)
         {
-            ChangeView<dashboard>();
+            ChangeView<FormGenerarReporte>();
         }
 
         private void btnEmpleado_Click_1(object sender, EventArgs e)
         {
-            ChangeView<ViewSuppliers>();
+            ChangeView<ViewUser>();
         }
 
         private void btnClientes_Click_1(object sender, EventArgs e)
@@ -116,6 +116,11 @@ namespace InventoryWalmart
         private void BtnPuntos_Click_1(object sender, EventArgs e)
         {
             ChangeView<ViewPoints>();
+        }
+
+        private void BtnVentas_Click(object sender, EventArgs e)
+        {
+            ChangeView<viewGestionVentas>();
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)

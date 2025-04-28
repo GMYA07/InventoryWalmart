@@ -500,6 +500,7 @@
             this.btnAplicarBene.Text = "Editar";
             this.btnAplicarBene.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnAplicarBene.UseVisualStyleBackColor = false;
+            this.btnAplicarBene.Click += new System.EventHandler(this.btnAplicarBene_Click_1);
             // 
             // btnAgregar
             // 

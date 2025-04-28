@@ -128,6 +128,11 @@ namespace InventoryWalmart
             ChangeView<FormAddProduct>();
         }
 
+        private void btnAplicarBene_Click_1(object sender, EventArgs e)
+        {
+            Database.Connection.prueba();
+        }
+
         //fin conexiones
     }
 }

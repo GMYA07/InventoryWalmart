@@ -119,5 +119,67 @@ namespace InventoryWalmart
         {
             ChangeView<viewGestionVentas>();
         }
+
+        private void FormGenerarReporte_Load(object sender, EventArgs e)
+        {
+            tabControl1.DrawMode = TabDrawMode.OwnerDrawFixed;
+            tabControl1.ItemSize = new Size(195, 30);
+            tabControl1.SizeMode = TabSizeMode.Fixed;
+
+          
+            tabControl3.DrawMode = TabDrawMode.OwnerDrawFixed;
+            tabControl3.ItemSize = new Size(258, 30);
+            tabControl3.SizeMode = TabSizeMode.Fixed;
+
+            // Asociamos el evento con ambos controles
+            tabControl1.DrawItem += tabControl_DrawItem;
+
+            tabControl3.DrawItem += tabControl_DrawItem;
+        }
+
+
+        private void tabControl_DrawItem(object sender, DrawItemEventArgs e)
+        {
+            TabControl tabControl = sender as TabControl; // El control que llama al evento
+            TabPage tabPage = tabControl.TabPages[e.Index];
+            Rectangle tabBounds = tabControl.GetTabRect(e.Index);
+            Graphics g = e.Graphics;
+
+            bool isSelected = (e.State & DrawItemState.Selected) == DrawItemState.Selected;
+
+            // Definir colores diferentes para tabControl1 y tabControl2
+            Color backColor;
+            Color textColor;
+
+            if (tabControl == tabControl3)
+            {
+                // Colores personalizados para tabControl2
+                backColor = isSelected ? Color.FromArgb(33, 150, 100) : Color.FromArgb(240, 240, 240);
+                textColor = isSelected ? Color.White : Color.Black;
+            }
+            else
+            {
+                // Colores personalizados para tabControl1
+                backColor = isSelected ? Color.FromArgb(33, 150, 243) : Color.FromArgb(240, 240, 240);
+                textColor = isSelected ? Color.White : Color.Black;
+            }
+
+            // Dibujar fondo
+            using (SolidBrush brush = new SolidBrush(backColor))
+            {
+                g.FillRectangle(brush, tabBounds);
+            }
+
+            // Dibujar texto centrado
+            TextRenderer.DrawText(
+                g,
+                tabPage.Text,
+                tabControl.Font,
+                tabBounds,
+                textColor,
+                TextFormatFlags.HorizontalCenter | TextFormatFlags.VerticalCenter
+            );
+        }
+
     }
 }

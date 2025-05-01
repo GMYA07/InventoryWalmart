@@ -5,12 +5,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using System.Net;
 namespace InventoryWalmart.Database
 {
     internal class Connection
     {
-        private static String  nameServidor = "JAVI";
+        
+        private static String  nameServidor = Dns.GetHostName();
 
         private static string connectionString = $"Server={nameServidor};Database=inventoryWalmart;Trusted_Connection=True;TrustServerCertificate=True;";
 

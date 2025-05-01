@@ -8,6 +8,8 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using InventoryWalmart.Database;
+using InventoryWalmart.Model;
 
 namespace InventoryWalmart
 {
@@ -73,6 +75,28 @@ namespace InventoryWalmart
             ViewUser viewUser = new ViewUser();
             this.Hide();
             viewUser.Show();
+        }
+
+        private void btnAgregar_Click(object sender, EventArgs e)
+        {
+            String name = TxtNombre.Text.Trim(); ;
+            String description = tex_description.Text.Trim(); ;
+
+            if (string.IsNullOrEmpty(name) || string.IsNullOrEmpty(description))
+            {
+                MessageBox.Show("Por favor, ingrese ambos datos: Nombre y Descripción.");
+                return;
+            }
+
+            RolesDAO rolesDAO = new RolesDAO();
+            rolesDAO.InsertarRol(new Roles(0, name, description));
+            limpiar();
+        }
+
+        public void limpiar()
+        {
+            TxtNombre.Clear();
+            tex_description.Clear();
         }
     }
 }

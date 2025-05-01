@@ -10,13 +10,16 @@ namespace InventoryWalmart.Database
 {
     internal class Connection
     {
-        private static string connectionString = "Server=BRIANLAPTOP;Database=inventoryWalmart;Trusted_Connection=True;TrustServerCertificate=True;";
+        private static String  nameServidor = "JAVI";
+
+        private static string connectionString = $"Server={nameServidor};Database=inventoryWalmart;Trusted_Connection=True;TrustServerCertificate=True;";
+
 
         public static SqlConnection ObtenerConexion()
         {
             return new SqlConnection(connectionString);
         }
-
+        
 
         public static void prueba()
         {

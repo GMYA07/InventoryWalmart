@@ -54,6 +54,7 @@
       <DependentUpon>dashboard.cs</DependentUpon>
     </Compile>
     <Compile Include="Database\Connection.cs" />
+    <Compile Include="Database\RolesDAO.cs" />
     <Compile Include="fomsRol.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -114,6 +115,7 @@
     <Compile Include="FormReturns.Designer.cs">
       <DependentUpon>FormReturns.cs</DependentUpon>
     </Compile>
+    <Compile Include="Model\Roles.cs" />
     <Compile Include="viewGestionVentas.cs">
       <SubType>Form</SubType>
     </Compile>

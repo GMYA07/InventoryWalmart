@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using InventoryWalmart.Utils;
 
 namespace InventoryWalmart.Controllers
 {
@@ -10,7 +11,11 @@ namespace InventoryWalmart.Controllers
     {
 
         public void IniciarSesion(string userName, string pass) {
-            Console.WriteLine("Llegue loco");
+
+            //encriptaremos la contraseña dada por el usuario para mas seguridad
+            Encriptacion encriptacion = new Encriptacion();
+            string passEncriptada = encriptacion.EncriptarSHA256(pass);
+
         }
     }
 }

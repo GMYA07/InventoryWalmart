@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace InventoryWalmart.Database
 {
-    internal class LoginDAO
+    internal class AccountDAO
     {
     }
 }

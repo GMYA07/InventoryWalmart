@@ -47,6 +47,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\loginController.cs" />
     <Compile Include="dashboard.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -115,6 +116,7 @@
     <Compile Include="FormReturns.Designer.cs">
       <DependentUpon>FormReturns.cs</DependentUpon>
     </Compile>
+    <Compile Include="Model\Account.cs" />
     <Compile Include="Model\Roles.cs" />
     <Compile Include="viewGestionVentas.cs">
       <SubType>Form</SubType>
@@ -382,5 +384,6 @@
   <ItemGroup>
     <None Include="Resources\IconSupplier.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

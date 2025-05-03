@@ -96,7 +96,7 @@ namespace InventoryWalmart
         {
             loginController loginController = new loginController();
 
-            if (inputUser.Text == "" && inputPass.Text == "")
+            if (inputUser.Text == "" || inputPass.Text == "")
             {
                 Alerta.AlertError("¡Error al Iniciar Sesion!", "¡Alguno de los campos esta vacio!");
                 return;

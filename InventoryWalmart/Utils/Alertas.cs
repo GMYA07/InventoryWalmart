@@ -17,5 +17,9 @@ namespace InventoryWalmart.Utils
         {
             MessageBox.Show(razoAlerta,tituloAlerta, MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
+
+        public void AlertCorrect(string tituloAlerta, string razoAlerta) { 
+            MessageBox.Show(razoAlerta,tituloAlerta, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+        }
     }
 }

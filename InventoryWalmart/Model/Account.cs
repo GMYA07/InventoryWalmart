@@ -13,11 +13,11 @@ namespace InventoryWalmart.Model
         private int idUser;
         private string userName;
         private string password;
-        private int statusAccount;
+        private Boolean statusAccount;
 
         //Constructores
         public Account() { }
-        public Account(int idAccount, int idUser, string userName, string password, int statusAccount)
+        public Account(int idAccount, int idUser, string userName, string password, Boolean statusAccount)
         {
             this.idAccount = idAccount;
             this.idUser = idUser;
@@ -39,7 +39,7 @@ namespace InventoryWalmart.Model
         public string GetPassword() { return password;}
         public void SetPassword(string password) { this.password = password;}
         //--------
-        public int GetStatusAccount() {  return this.statusAccount; }
-        public void SetStatusAccount(int statusAccount) { this.statusAccount =statusAccount; }
+        public Boolean GetStatusAccount() {  return this.statusAccount; }
+        public void SetStatusAccount(Boolean statusAccount) { this.statusAccount = statusAccount; }
     }
 }

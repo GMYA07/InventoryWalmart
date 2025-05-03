@@ -57,6 +57,7 @@
     <Compile Include="Database\AccountDAO.cs" />
     <Compile Include="Database\Connection.cs" />
     <Compile Include="Database\RolesDAO.cs" />
+    <Compile Include="Database\UserDAO.cs" />
     <Compile Include="fomsRol.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -119,8 +120,10 @@
     </Compile>
     <Compile Include="Model\Account.cs" />
     <Compile Include="Model\Roles.cs" />
+    <Compile Include="Model\User.cs" />
     <Compile Include="Utils\Alertas.cs" />
     <Compile Include="Utils\Encriptacion.cs" />
+    <Compile Include="Utils\SessionManager.cs" />
     <Compile Include="viewGestionVentas.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -102,7 +102,11 @@ namespace InventoryWalmart
                 return;
             }
 
-            loginController.IniciarSesion(inputUser.Text, inputPass.Text);
+            if (loginController.IniciarSesion(inputUser.Text, inputPass.Text)) //si devuelve true es por q se cumplio el proceso y podemos ocultar este form de lo contrario no
+            {
+                this.Hide();
+            }
+
         }
     }
 }

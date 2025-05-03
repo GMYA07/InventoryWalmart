@@ -13,7 +13,7 @@ namespace InventoryWalmart.Controllers
     {
         Alertas Alerta = new Alertas();
 
-        public void IniciarSesion(string userName, string pass) {
+        public Boolean IniciarSesion(string userName, string pass) {
 
             //encriptaremos la contraseña dada por el usuario para mas seguridad
             Encriptacion encriptacion = new Encriptacion();
@@ -26,13 +26,40 @@ namespace InventoryWalmart.Controllers
 
             if (account != null)
             {
-                Alerta.AlertCorrect("Se inicio Sesion", "Se ha podido Iniciar Sesion bro");
+                User user = new User();
+                UserDAO userDAO = new UserDAO();
 
+                user = userDAO.obtenerUsuario(account.GetIdUser());
 
+                if (user != null) {
 
-            }else
+                    //Aqui asignamos un valor a la variable global de userID
+                    SessionManager.UserId = user.GetIdUser();
+
+                    switch (user.GetIdRole()) {
+
+                        case 1: //admin
+                            dashboard dashboard = new dashboard();
+                            dashboard.Show();
+                            return true; //para cerrar la ventana anterior
+                            break;
+                        default:
+                            return false; //para cerrar la ventana anterior
+                            break;
+                    
+                    }
+
+                }
+                else
+                {
+                    Alerta.AlertError("No se pudo iniciar Sesion", "No se ha encontrado el usuario en la bdd");
+                    return false; //para cerrar la ventana anterior
+                }
+            }
+            else
             {
                 Alerta.AlertError("No se pudo iniciar Sesion","No se ha podido Iniciar Sesion");
+                return false; //para cerrar la ventana anterior
             }
         }
     }

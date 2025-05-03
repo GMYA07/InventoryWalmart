@@ -8,11 +8,16 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using InventoryWalmart.Controllers;
+using InventoryWalmart.Utils;
 
 namespace InventoryWalmart
 {
     public partial class login : Form
     {
+        //Variables Globales
+        Alertas Alerta = new Alertas();
+
         public login()
         {
             InitializeComponent();
@@ -89,9 +94,19 @@ namespace InventoryWalmart
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            dashboard formDash = new dashboard();
-            this.Hide();
-            formDash.Show();
+            loginController loginController = new loginController();
+
+            if (inputUser.Text == "" || inputPass.Text == "")
+            {
+                Alerta.AlertError("¡Error al Iniciar Sesion!", "¡Alguno de los campos esta vacio!");
+                return;
+            }
+
+            if (loginController.IniciarSesion(inputUser.Text, inputPass.Text)) //si devuelve true es por q se cumplio el proceso y podemos ocultar este form de lo contrario no
+            {
+                this.Hide();
+            }
+
         }
     }
 }

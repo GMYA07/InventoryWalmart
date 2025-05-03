@@ -115,6 +115,7 @@
             this.inputPass.Name = "inputPass";
             this.inputPass.Size = new System.Drawing.Size(325, 29);
             this.inputPass.TabIndex = 3;
+            this.inputPass.UseSystemPasswordChar = true;
             // 
             // label1
             // 

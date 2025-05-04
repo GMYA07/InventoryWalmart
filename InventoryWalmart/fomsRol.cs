@@ -8,6 +8,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using InventoryWalmart.Controllers;
 using InventoryWalmart.Database;
 using InventoryWalmart.Model;
 
@@ -87,9 +88,7 @@ namespace InventoryWalmart
                 MessageBox.Show("Por favor, ingrese ambos datos: Nombre y Descripción.");
                 return;
             }
-
-            RolesDAO rolesDAO = new RolesDAO();
-            rolesDAO.InsertarRol(new Roles(0, name, description));
+            RolesControllers.enviarRolBdd(new Roles(0, name, description));
             limpiar();
         }
 

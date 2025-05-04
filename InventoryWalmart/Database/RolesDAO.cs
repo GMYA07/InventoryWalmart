@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -16,28 +17,26 @@ namespace InventoryWalmart.Database
 
         public void InsertarRol(Roles r)
         {
-            try{
-                String query = "INSERT INTO ROLES (role_name, description) VALUES (@rol_name,@description)";
-
+            try
+            {
                 SqlConnection connection = Connection.ObtenerConexion();
-                SqlCommand conn = new SqlCommand(query, connection);
+                SqlCommand cmd = new SqlCommand("insert_Roles", connection);
+                cmd.CommandType = CommandType.StoredProcedure;
 
-                conn.Parameters.AddWithValue("@rol_name", r.RoleName);
-                conn.Parameters.AddWithValue("@description", r.RoleDescription);
+                cmd.Parameters.AddWithValue("@role_name", r.RoleName);
+                cmd.Parameters.AddWithValue("@description", r.RoleDescription);
 
                 connection.Open();
-                conn.ExecuteNonQuery();
+                cmd.ExecuteNonQuery();
                 connection.Close();
 
-                MessageBox.Show("Rol insertada correctamente", "Inserción exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
+                MessageBox.Show("Rol insertado correctamente", "Inserción exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (SqlException ex)
             {
                 MessageBox.Show("Error al insertar el rol: " + ex.Message, "Error de inserción", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
             }
-
         }
+
     }
 }

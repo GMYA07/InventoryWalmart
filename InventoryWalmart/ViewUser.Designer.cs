@@ -36,7 +36,7 @@
             this.btnMaximizar = new System.Windows.Forms.PictureBox();
             this.btnCerrar = new System.Windows.Forms.PictureBox();
             this.btnRestaurar = new System.Windows.Forms.PictureBox();
-            this.Table_Customers = new System.Windows.Forms.DataGridView();
+            this.Table_user = new System.Windows.Forms.DataGridView();
             this.Colum_nombreEmpleado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Colum_telefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Colum_DUI = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -71,7 +71,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnMaximizar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnRestaurar)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Table_Customers)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Table_user)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -149,13 +149,13 @@
             this.btnRestaurar.TabStop = false;
             this.btnRestaurar.Click += new System.EventHandler(this.btnRestaurar_Click);
             // 
-            // Table_Customers
+            // Table_user
             // 
-            this.Table_Customers.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.Table_Customers.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.Table_Customers.BackgroundColor = System.Drawing.Color.White;
-            this.Table_Customers.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.Table_Customers.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.Table_user.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.Table_user.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.Table_user.BackgroundColor = System.Drawing.Color.White;
+            this.Table_user.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.Table_user.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(113)))), ((int)(((byte)(207)))));
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -163,10 +163,10 @@
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Table_Customers.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.Table_Customers.ColumnHeadersHeight = 50;
-            this.Table_Customers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.Table_Customers.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Table_user.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.Table_user.ColumnHeadersHeight = 50;
+            this.Table_user.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.Table_user.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Colum_nombreEmpleado,
             this.Colum_telefono,
             this.Colum_DUI,
@@ -176,11 +176,11 @@
             this.Colum_fechaContratacion,
             this.Colum_fechaNacimineto,
             this.Colum_estado});
-            this.Table_Customers.EnableHeadersVisualStyles = false;
-            this.Table_Customers.Location = new System.Drawing.Point(379, 258);
-            this.Table_Customers.Margin = new System.Windows.Forms.Padding(4);
-            this.Table_Customers.Name = "Table_Customers";
-            this.Table_Customers.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.Table_user.EnableHeadersVisualStyles = false;
+            this.Table_user.Location = new System.Drawing.Point(379, 258);
+            this.Table_user.Margin = new System.Windows.Forms.Padding(4);
+            this.Table_user.Name = "Table_user";
+            this.Table_user.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(113)))), ((int)(((byte)(207)))));
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -188,12 +188,12 @@
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.GradientActiveCaption;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Table_Customers.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.Table_Customers.RowHeadersVisible = false;
-            this.Table_Customers.RowHeadersWidth = 51;
-            this.Table_Customers.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.Table_Customers.Size = new System.Drawing.Size(1156, 524);
-            this.Table_Customers.TabIndex = 18;
+            this.Table_user.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.Table_user.RowHeadersVisible = false;
+            this.Table_user.RowHeadersWidth = 51;
+            this.Table_user.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.Table_user.Size = new System.Drawing.Size(1156, 524);
+            this.Table_user.TabIndex = 18;
             // 
             // Colum_nombreEmpleado
             // 
@@ -625,7 +625,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
-            this.Controls.Add(this.Table_Customers);
+            this.Controls.Add(this.Table_user);
             this.Controls.Add(this.barAcciones);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(4);
@@ -637,7 +637,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnMaximizar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnRestaurar)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Table_Customers)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Table_user)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel3.ResumeLayout(false);
@@ -655,7 +655,7 @@
         private System.Windows.Forms.PictureBox btnMaximizar;
         private System.Windows.Forms.PictureBox btnCerrar;
         private System.Windows.Forms.PictureBox btnRestaurar;
-        private System.Windows.Forms.DataGridView Table_Customers;
+        private System.Windows.Forms.DataGridView Table_user;
         private System.Windows.Forms.DataGridViewTextBoxColumn Colum_nombreEmpleado;
         private System.Windows.Forms.DataGridViewTextBoxColumn Colum_telefono;
         private System.Windows.Forms.DataGridViewTextBoxColumn Colum_DUI;

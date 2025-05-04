@@ -65,6 +65,7 @@ namespace InventoryWalmart.Database
         }
 
 
+       
 
         public void insertarUsers(User u)
         {
@@ -96,6 +97,54 @@ namespace InventoryWalmart.Database
                 MessageBox.Show("Error al insertar el Usuario: " + ex.Message, "Error de inserción", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
+        }
+
+
+
+        public static List<User> TraerUsuarios()
+        {
+            List<User> listaUsuarios = new List<User>();
+
+            string query = "SELECT id_user, first_name, last_name, date_of_birth, hire_date, cellphone, dui, id_department, id_district, id_role FROM USERS";
+
+            using (SqlConnection conn = Connection.ObtenerConexion())
+            {
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    try
+                    {
+                        conn.Open();
+
+                        using (SqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+
+                                User user = new User();
+                                user.SetIdUser(reader.GetInt32(0));          
+                                user.SetFirst_name(reader.GetString(1));     
+                                user.SetLast_name(reader.GetString(2));      
+                                user.SetDate_of_birth(reader.GetDateTime(3)); 
+                                user.SetHire_date(reader.GetDateTime(4));     
+                                user.SetCellphone(reader.GetString(5));      
+                                user.SetDui(reader.GetString(6));            
+                                user.SetIdDepartment(reader.GetInt32(7));    
+                                user.SetIdDistrict(reader.GetInt32(8));      
+                                user.SetIdRole(reader.GetInt32(9));          
+
+                                listaUsuarios.Add(user);
+                            }
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine("Error: " + ex.ToString());
+                        return new List<User>(); // Devuelve lista vacía en caso de error
+                    }
+                }
+            }
+
+            return listaUsuarios;
         }
     }
 }

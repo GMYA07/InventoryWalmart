@@ -8,6 +8,8 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using InventoryWalmart.Database;
+using InventoryWalmart.Model;
 
 namespace InventoryWalmart
 {
@@ -16,6 +18,7 @@ namespace InventoryWalmart
         public ViewUser()
         {
             InitializeComponent();
+            llenarTabla();
         }
 
         //Drag Form
@@ -133,5 +136,34 @@ namespace InventoryWalmart
         {
             ChangeView<viewGestionVentas>();
         }
+
+
+        private void llenarTabla()
+        {
+            Table_user.Rows.Clear(); // Limpia filas anteriores
+
+            List<User> usuarios = UserDAO.TraerUsuarios();
+
+            foreach (User u in usuarios)
+            {
+                string nombreCompleto = u.GetFirst_name() + " " + u.GetLast_name();
+                string telefono = u.GetCellphone();
+                string dui = u.GetDui();
+                int departamento = u.GetIdDepartment(); 
+                int distrito = u.GetIdDistrict();       
+                int rol = u.GetIdRole();                
+                string fechaContratacion = u.GetHire_date().ToShortDateString();
+                string fechaNacimiento = u.GetDate_of_birth().ToShortDateString();
+                string estado = "Activo"; // O tu lógica
+
+                Table_user.Rows.Add(nombreCompleto, telefono, dui, departamento, distrito, rol, fechaContratacion, fechaNacimiento, estado);
+            }
+        }
+
+
+
+
+
+
     }
 }

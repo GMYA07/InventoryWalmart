@@ -68,4 +68,6 @@ namespace InventoryWalmart.Model
         public void SetIdDepartment(int id_department) { this.id_department = id_department; }
 
     }
+
+
 }

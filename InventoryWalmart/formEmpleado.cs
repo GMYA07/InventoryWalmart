@@ -8,6 +8,9 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using InventoryWalmart.Controllers;
+using InventoryWalmart.Database;
+using InventoryWalmart.Model;
 
 namespace InventoryWalmart
 {
@@ -16,6 +19,8 @@ namespace InventoryWalmart
         public formEmpleado()
         {
             InitializeComponent();
+            llenarCombox();
+
         }
 
         //Codigo q nos ayuda con la administrasion de la barra de arriba y mover la ventana.
@@ -61,6 +66,65 @@ namespace InventoryWalmart
             ViewUser viewUser = new ViewUser();
             this.Hide();
             viewUser.Show();
+        }
+
+        private void btnAgregar_Click(object sender, EventArgs e)
+        {
+            string nombre = TxtNombre.Text.Trim();
+            string apellido = TxtApellido.Text.Trim();
+            string telefono = tex_telefono.Text.Trim();
+            string dui = tex_dui.Text.Trim();
+
+            DateTime fechaNacimiento = DtpNacimiento.Value;
+            DateTime fechaContratacion = date_fechaContracion.Value;
+
+            Department departmentSelec = comb_departemeto.Items.OfType<Department>().FirstOrDefault();
+            District districtSelec = comb_distritos.Items.OfType<District>().FirstOrDefault();
+            Roles rolSect = comb_cargo.Items.OfType<Roles>().FirstOrDefault();
+
+           ValidarCampos();
+            UserController.pasarUsuerDdd(new User(0, districtSelec.Id_district, rolSect.IdRol, nombre, apellido, fechaNacimiento, fechaContratacion, telefono, dui, departmentSelec.id_department));
+
+
+        }
+
+        private bool ValidarCampos()
+        {
+            
+
+            // Validaciones
+            if (string.IsNullOrEmpty(TxtNombre.Text.Trim()) ||
+                string.IsNullOrEmpty(TxtApellido.Text.Trim()) ||
+                string.IsNullOrEmpty(tex_telefono.Text.Trim()) ||
+                string.IsNullOrEmpty(tex_dui.Text.Trim()) )
+            {
+                MessageBox.Show("Por favor, complete todos los campos obligatorios.", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+
+
+            if (
+                string.IsNullOrWhiteSpace(comb_departemeto.Text) ||
+                string.IsNullOrWhiteSpace(comb_distritos.Text) ||
+                string.IsNullOrWhiteSpace(comb_cargo.Text)
+                )
+            {
+                MessageBox.Show("Por favor, complete Combobos.", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+            return true;
+        }
+
+        private void llenarCombox()
+        {
+            comb_departemeto.DataSource = DepartmentDAO.TraerDepartments();
+            comb_departemeto.DisplayMember = "department_name";
+
+            comb_distritos.DataSource = DistrictDAO.TraerDistrict();
+            comb_distritos.DisplayMember = "district_Name";
+
+            comb_cargo.DataSource = RolesDAO.TraerRol();
+            comb_cargo.DisplayMember = "RoleName";
         }
     }
 }

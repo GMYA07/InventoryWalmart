@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using InventoryWalmart.Model;
 namespace InventoryWalmart.Database
 {
@@ -58,6 +60,40 @@ namespace InventoryWalmart.Database
                         return null;
                     }
                 }
+            }
+
+        }
+
+
+
+        public void insertarUsers(User u)
+        {
+            try
+            {
+                SqlConnection conn = Connection.ObtenerConexion();
+                SqlCommand cmd = new SqlCommand("insert_User", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.AddWithValue("@first_name", u.GetFirst_name());
+                cmd.Parameters.AddWithValue("@last_name", u.GetLast_name());
+                cmd.Parameters.AddWithValue("@date_of_birth", u.GetDate_of_birth());
+                cmd.Parameters.AddWithValue("@hire_date", u.GetHire_date());
+                cmd.Parameters.AddWithValue("@cellphone", u.GetCellphone());
+                cmd.Parameters.AddWithValue("@dui", u.GetDui());
+                cmd.Parameters.AddWithValue("@id_department", u.GetIdDepartment());
+                cmd.Parameters.AddWithValue("@id_district", u.GetIdDistrict());
+                cmd.Parameters.AddWithValue("@id_role", u.GetIdRole());
+
+                conn.Open();
+                cmd.ExecuteNonQuery();
+                conn.Close();
+
+                MessageBox.Show("Usuario insertado correctamente", "Inserción exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show("Error al insertar el Usuario: " + ex.Message, "Error de inserción", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
         }

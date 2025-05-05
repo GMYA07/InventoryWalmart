@@ -143,23 +143,37 @@ namespace InventoryWalmart
 
         private void llenarTabla()
         {
+            Table_user.Rows.Clear(); 
+            Table_user.Columns.Clear(); 
+
+            Table_user.Columns.Add("Nombre", "Nombre");
+            Table_user.Columns.Add("Telefono", "Teléfono");
+            Table_user.Columns.Add("DUI", "DUI");
+            Table_user.Columns.Add("Departamento", "Departamento");
+            Table_user.Columns.Add("Distrito", "Distrito");
+            Table_user.Columns.Add("Rol", "Rol");
+            Table_user.Columns.Add("FechaContratacion", "Fecha Contratación");
+            Table_user.Columns.Add("FechaNacimiento", "Fecha Nacimiento");
+
             var usuarios = UserDAO.TraerUsuarios();
 
-            var datos = usuarios.Select(u => new
+            foreach (var u in usuarios)
             {
-                Nombre = u.GetFirst_name() + " " + u.GetLast_name(),
-                Telefono = u.GetCellphone(),
-                DUI = u.GetDui(),
-                Departamento = u.GetIdDepartment(),
-                Distrito = u.GetIdDistrict(),
-                Rol = u.GetIdRole(),
-                FechaContratacion = u.GetHire_date().ToShortDateString(),
-                FechaNacimiento = u.GetDate_of_birth().ToShortDateString(),
-                Estado = "Activo",
-                Id = u.GetIdUser() 
-            }).ToList();
+                int index = Table_user.Rows.Add(
+                    u.GetFirst_name() + " " + u.GetLast_name(),
+                    u.GetCellphone(),
+                    u.GetDui(),
+                    u.GetIdDepartment(),
+                    u.GetIdDistrict(),
+                    u.GetIdRole(),
+                    u.GetHire_date().ToShortDateString(),
+                    u.GetDate_of_birth().ToShortDateString(),
+                    "Activo"
+                );
 
-            Table_user.DataSource = datos;
+                // Guardar el objeto completo en la fila
+                Table_user.Rows[index].Tag = u;
+            }
         }
 
 
@@ -168,13 +182,6 @@ namespace InventoryWalmart
 
         private void Table_user_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex >= 0)
-            {
-                DataGridViewRow fila = Table_user.Rows[e.RowIndex];
-                int id = Convert.ToInt32(fila.Cells["Id"].Value); 
-                setIdUser(id);
-            }
-
         }
 
 
@@ -187,18 +194,51 @@ namespace InventoryWalmart
         {
             if (Table_user.SelectedRows.Count > 0)
             {
-                DataGridViewRow fila = Table_user.SelectedRows[0];
+                var user = Table_user.SelectedRows[0].Tag as User;
 
-                // Ejemplo: obtener el ID
-                int id = Convert.ToInt32(fila.Cells["Id"].Value);
-                MessageBox.Show("qwejideui" + id);
-                llenarTabla();
+                if (user != null)
+                {
+                    int id = user.GetIdUser();
+                    UserController.borrarUser(id);
+                    llenarTabla();
+                }
+                else
+                {
+                    MessageBox.Show("Error: No se encontró el usuario en la fila.");
+                }
             }
             else
             {
                 MessageBox.Show("Por favor, seleccione una fila para continuar.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+        }
 
+
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+            if (Table_user.SelectedRows.Count > 0)
+            {
+                User usuario = Table_user.SelectedRows[0].Tag as User;
+
+                if (usuario != null)
+                {
+                    
+                    MessageBox.Show("" + usuario.GetFirst_name());
+
+                    formEmpleado empleado = new formEmpleado();
+                    empleado.llenarCampos(usuario, "Edit");
+                    empleado.Show();
+                    this.Hide();
+                }
+                else
+                {
+                    MessageBox.Show("El objeto User es null. Verifica que lo asignaste con Tag.");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Seleccione una fila.");
+            }
         }
     }
 }

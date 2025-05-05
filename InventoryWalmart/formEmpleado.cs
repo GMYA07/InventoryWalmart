@@ -16,12 +16,53 @@ namespace InventoryWalmart
 {
     public partial class formEmpleado : Form
     {
+        String controlador = "";
+        int id = 0;
+        public void llenarCampos(User User, String controlador)
+        {
+
+            if (User == null)
+            {
+                MessageBox.Show("El usuario no fue pasado correctamente.");
+                return;
+            }
+
+            this.controlador = controlador;
+            if (controlador == "Edit"){
+                this.id = User.GetIdUser();
+            }
+
+            if (User != null)
+            {
+                TxtNombre.Text = User.GetFirst_name();
+                TxtApellido.Text = User.GetLast_name();
+                tex_telefono.Text = User.GetCellphone();
+                tex_dui.Text = User.GetDui();
+
+                DtpNacimiento.Value = User.GetDate_of_birth();
+                date_fechaContracion.Value = User.GetHire_date();
+
+                // Buscar y seleccionar el objeto correspondiente en los ComboBox
+                comb_departemeto.SelectedItem = comb_departemeto.Items
+                    .OfType<Department>()
+                    .FirstOrDefault(dep => dep.id_department == User.GetIdDepartment());
+
+                comb_distritos.SelectedItem = comb_distritos.Items
+                    .OfType<District>()
+                    .FirstOrDefault(dis => dis.Id_district == User.GetIdDistrict());
+
+                comb_cargo.SelectedItem = comb_cargo.Items
+                    .OfType<Roles>()
+                    .FirstOrDefault(role => role.IdRol == User.GetIdRole());
+            }
+
+        }
+
         public formEmpleado()
         {
             InitializeComponent();
             llenarCombox();
-
-        }
+        }        
 
         //Codigo q nos ayuda con la administrasion de la barra de arriba y mover la ventana.
         //Drag Form
@@ -83,8 +124,7 @@ namespace InventoryWalmart
             Roles rolSect = comb_cargo.Items.OfType<Roles>().FirstOrDefault();
 
            ValidarCampos();
-            UserController.pasarUsuerDdd(new User(0, districtSelec.Id_district, rolSect.IdRol, nombre, apellido, fechaNacimiento, fechaContratacion, telefono, dui, departmentSelec.id_department));
-
+           UserController.pasarUsuerDdd(new User(id, districtSelec.Id_district, rolSect.IdRol, nombre, apellido, fechaNacimiento, fechaContratacion, telefono, dui, departmentSelec.id_department), controlador);
 
         }
 

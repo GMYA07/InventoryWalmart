@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace InventoryWalmart.Model
 {
-    internal class User
+    public class User
     {
         private int id_user;
         private int id_district;

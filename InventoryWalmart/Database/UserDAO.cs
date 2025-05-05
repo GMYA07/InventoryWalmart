@@ -171,5 +171,42 @@ namespace InventoryWalmart.Database
 
             return listaUsuarios;
         }
+
+
+
+
+
+        public void EditarUser(User u)
+        {
+            try
+            {
+                SqlConnection conn = Connection.ObtenerConexion();
+                SqlCommand cmd = new SqlCommand("update_User", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.AddWithValue("@id_user", u.GetIdUser());
+                cmd.Parameters.AddWithValue("@first_name", u.GetFirst_name());
+                cmd.Parameters.AddWithValue("@last_name", u.GetLast_name());
+                cmd.Parameters.AddWithValue("@date_of_birth", u.GetDate_of_birth());
+                cmd.Parameters.AddWithValue("@hire_date", u.GetHire_date());
+                cmd.Parameters.AddWithValue("@cellphone", u.GetCellphone());
+                cmd.Parameters.AddWithValue("@dui", u.GetDui());
+                cmd.Parameters.AddWithValue("@id_department", u.GetIdDepartment());
+                cmd.Parameters.AddWithValue("@id_district", u.GetIdDistrict());
+                cmd.Parameters.AddWithValue("@id_role", u.GetIdRole());
+
+                conn.Open();
+                cmd.ExecuteNonQuery();
+                conn.Close();
+
+                MessageBox.Show("Usuario Editado correctamente", "Edicion exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show("Error al editar el Usuario: " + ex.Message, "Error al editar", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+        }
     }
 }

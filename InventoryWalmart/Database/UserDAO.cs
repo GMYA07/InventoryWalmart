@@ -65,6 +65,31 @@ namespace InventoryWalmart.Database
         }
 
 
+
+
+        public void eliminarUser(int id)
+        {
+            try
+            {
+                SqlConnection conn = Connection.ObtenerConexion();
+                SqlCommand cmd = new SqlCommand("delete_User", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.AddWithValue("@id_user", id);
+
+                conn.Open();
+                cmd.ExecuteNonQuery();
+                conn.Close();
+
+                MessageBox.Show("Usuario eliminar correctamente", "Eliminacion exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show("Error al eliminar el Usuario: " + ex.Message, "Error al eliminar", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+        }
+
        
 
         public void insertarUsers(User u)

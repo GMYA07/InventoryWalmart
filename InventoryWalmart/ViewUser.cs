@@ -8,6 +8,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using InventoryWalmart.Controllers;
 using InventoryWalmart.Database;
 using InventoryWalmart.Model;
 
@@ -15,6 +16,8 @@ namespace InventoryWalmart
 {
     public partial class ViewUser : Form
     {
+        private int idUser =-1;
+
         public ViewUser()
         {
             InitializeComponent();
@@ -140,30 +143,62 @@ namespace InventoryWalmart
 
         private void llenarTabla()
         {
-            Table_user.Rows.Clear(); // Limpia filas anteriores
+            var usuarios = UserDAO.TraerUsuarios();
 
-            List<User> usuarios = UserDAO.TraerUsuarios();
-
-            foreach (User u in usuarios)
+            var datos = usuarios.Select(u => new
             {
-                string nombreCompleto = u.GetFirst_name() + " " + u.GetLast_name();
-                string telefono = u.GetCellphone();
-                string dui = u.GetDui();
-                int departamento = u.GetIdDepartment(); 
-                int distrito = u.GetIdDistrict();       
-                int rol = u.GetIdRole();                
-                string fechaContratacion = u.GetHire_date().ToShortDateString();
-                string fechaNacimiento = u.GetDate_of_birth().ToShortDateString();
-                string estado = "Activo"; // O tu lógica
+                Nombre = u.GetFirst_name() + " " + u.GetLast_name(),
+                Telefono = u.GetCellphone(),
+                DUI = u.GetDui(),
+                Departamento = u.GetIdDepartment(),
+                Distrito = u.GetIdDistrict(),
+                Rol = u.GetIdRole(),
+                FechaContratacion = u.GetHire_date().ToShortDateString(),
+                FechaNacimiento = u.GetDate_of_birth().ToShortDateString(),
+                Estado = "Activo",
+                Id = u.GetIdUser() 
+            }).ToList();
 
-                Table_user.Rows.Add(nombreCompleto, telefono, dui, departamento, distrito, rol, fechaContratacion, fechaNacimiento, estado);
-            }
+            Table_user.DataSource = datos;
         }
 
 
 
 
 
+        private void Table_user_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow fila = Table_user.Rows[e.RowIndex];
+                int id = Convert.ToInt32(fila.Cells["Id"].Value); 
+                setIdUser(id);
+            }
 
+        }
+
+
+        public void setIdUser(int idUser)
+        {
+            this.idUser = idUser;
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            if (Table_user.SelectedRows.Count > 0)
+            {
+                DataGridViewRow fila = Table_user.SelectedRows[0];
+
+                // Ejemplo: obtener el ID
+                int id = Convert.ToInt32(fila.Cells["Id"].Value);
+                MessageBox.Show("qwejideui" + id);
+                llenarTabla();
+            }
+            else
+            {
+                MessageBox.Show("Por favor, seleccione una fila para continuar.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+
+        }
     }
 }

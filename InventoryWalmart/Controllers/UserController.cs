@@ -16,5 +16,11 @@ namespace InventoryWalmart.Controllers
            UserDAO dao = new UserDAO();
             dao.insertarUsers(u);
         }
+
+        public static void borrarUser(int id)
+        {
+            UserDAO dao = new UserDAO();
+            dao.eliminarUser(id);
+        }
     }
 }

@@ -29,23 +29,14 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ViewUser));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.barAcciones = new System.Windows.Forms.Panel();
             this.btnOcultar = new System.Windows.Forms.PictureBox();
             this.btnMaximizar = new System.Windows.Forms.PictureBox();
             this.btnCerrar = new System.Windows.Forms.PictureBox();
             this.btnRestaurar = new System.Windows.Forms.PictureBox();
             this.Table_user = new System.Windows.Forms.DataGridView();
-            this.Colum_nombreEmpleado = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Colum_telefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Colum_DUI = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Colum_depertameto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Colum_distrito = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Colum_rol = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Colum_fechaContratacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Colum_fechaNacimineto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Colum_estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel2 = new System.Windows.Forms.Panel();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.btnBuscar = new System.Windows.Forms.Button();
@@ -156,98 +147,35 @@
             this.Table_user.BackgroundColor = System.Drawing.Color.White;
             this.Table_user.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.Table_user.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(113)))), ((int)(((byte)(207)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Table_user.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(113)))), ((int)(((byte)(207)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Table_user.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.Table_user.ColumnHeadersHeight = 50;
             this.Table_user.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.Table_user.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Colum_nombreEmpleado,
-            this.Colum_telefono,
-            this.Colum_DUI,
-            this.Colum_depertameto,
-            this.Colum_distrito,
-            this.Colum_rol,
-            this.Colum_fechaContratacion,
-            this.Colum_fechaNacimineto,
-            this.Colum_estado});
             this.Table_user.EnableHeadersVisualStyles = false;
             this.Table_user.Location = new System.Drawing.Point(379, 258);
             this.Table_user.Margin = new System.Windows.Forms.Padding(4);
             this.Table_user.Name = "Table_user";
             this.Table_user.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(113)))), ((int)(((byte)(207)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Table_user.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(113)))), ((int)(((byte)(207)))));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Table_user.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.Table_user.RowHeadersVisible = false;
             this.Table_user.RowHeadersWidth = 51;
             this.Table_user.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.Table_user.Size = new System.Drawing.Size(1156, 524);
             this.Table_user.TabIndex = 18;
-            // 
-            // Colum_nombreEmpleado
-            // 
-            this.Colum_nombreEmpleado.HeaderText = "Nombre";
-            this.Colum_nombreEmpleado.MinimumWidth = 6;
-            this.Colum_nombreEmpleado.Name = "Colum_nombreEmpleado";
-            // 
-            // Colum_telefono
-            // 
-            this.Colum_telefono.HeaderText = "Telefono ";
-            this.Colum_telefono.MinimumWidth = 6;
-            this.Colum_telefono.Name = "Colum_telefono";
-            // 
-            // Colum_DUI
-            // 
-            this.Colum_DUI.HeaderText = "DUI";
-            this.Colum_DUI.MinimumWidth = 6;
-            this.Colum_DUI.Name = "Colum_DUI";
-            // 
-            // Colum_depertameto
-            // 
-            this.Colum_depertameto.HeaderText = "Departamento";
-            this.Colum_depertameto.MinimumWidth = 6;
-            this.Colum_depertameto.Name = "Colum_depertameto";
-            // 
-            // Colum_distrito
-            // 
-            this.Colum_distrito.HeaderText = "DIstrito";
-            this.Colum_distrito.MinimumWidth = 6;
-            this.Colum_distrito.Name = "Colum_distrito";
-            // 
-            // Colum_rol
-            // 
-            this.Colum_rol.HeaderText = "Rol";
-            this.Colum_rol.MinimumWidth = 6;
-            this.Colum_rol.Name = "Colum_rol";
-            // 
-            // Colum_fechaContratacion
-            // 
-            this.Colum_fechaContratacion.HeaderText = "Fecha Contratacion";
-            this.Colum_fechaContratacion.MinimumWidth = 6;
-            this.Colum_fechaContratacion.Name = "Colum_fechaContratacion";
-            // 
-            // Colum_fechaNacimineto
-            // 
-            this.Colum_fechaNacimineto.HeaderText = "Feche nacimiento";
-            this.Colum_fechaNacimineto.MinimumWidth = 6;
-            this.Colum_fechaNacimineto.Name = "Colum_fechaNacimineto";
-            // 
-            // Colum_estado
-            // 
-            this.Colum_estado.HeaderText = "Estado";
-            this.Colum_estado.MinimumWidth = 6;
-            this.Colum_estado.Name = "Colum_estado";
+            this.Table_user.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Table_user_CellContentClick);
             // 
             // panel2
             // 
@@ -353,6 +281,7 @@
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnEliminar.UseVisualStyleBackColor = false;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // btnAgregar
             // 
@@ -656,15 +585,6 @@
         private System.Windows.Forms.PictureBox btnCerrar;
         private System.Windows.Forms.PictureBox btnRestaurar;
         private System.Windows.Forms.DataGridView Table_user;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Colum_nombreEmpleado;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Colum_telefono;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Colum_DUI;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Colum_depertameto;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Colum_distrito;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Colum_rol;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Colum_fechaContratacion;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Colum_fechaNacimineto;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Colum_estado;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button btnBuscar;

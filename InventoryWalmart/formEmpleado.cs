@@ -42,18 +42,14 @@ namespace InventoryWalmart
                 DtpNacimiento.Value = User.GetDate_of_birth();
                 date_fechaContracion.Value = User.GetHire_date();
 
-                // Buscar y seleccionar el objeto correspondiente en los ComboBox
-                comb_departemeto.SelectedItem = comb_departemeto.Items
-                    .OfType<Department>()
-                    .FirstOrDefault(dep => dep.id_department == User.GetIdDepartment());
+                // Seleccionar el departamento en el ComboBox
+                comb_departemeto.SelectedValue = User.GetIdDepartment();
 
-                comb_distritos.SelectedItem = comb_distritos.Items
-                    .OfType<District>()
-                    .FirstOrDefault(dis => dis.Id_district == User.GetIdDistrict());
+                // Seleccionar el distrito en el ComboBox
+                comb_distritos.SelectedValue = User.GetIdDistrict();
 
-                comb_cargo.SelectedItem = comb_cargo.Items
-                    .OfType<Roles>()
-                    .FirstOrDefault(role => role.IdRol == User.GetIdRole());
+                // Seleccionar el rol en el ComboBox
+                comb_cargo.SelectedValue = User.GetIdRole();
             }
 
         }
@@ -111,6 +107,7 @@ namespace InventoryWalmart
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
+            // Obtener los valores de los campos de texto
             string nombre = TxtNombre.Text.Trim();
             string apellido = TxtApellido.Text.Trim();
             string telefono = tex_telefono.Text.Trim();
@@ -119,12 +116,14 @@ namespace InventoryWalmart
             DateTime fechaNacimiento = DtpNacimiento.Value;
             DateTime fechaContratacion = date_fechaContracion.Value;
 
-            Department departmentSelec = comb_departemeto.Items.OfType<Department>().FirstOrDefault();
-            District districtSelec = comb_distritos.Items.OfType<District>().FirstOrDefault();
-            Roles rolSect = comb_cargo.Items.OfType<Roles>().FirstOrDefault();
+            // Validar si los ComboBox tienen un ítem seleccionado
+            Department departmentSelec = comb_departemeto.SelectedItem as Department;
+            District districtSelec = comb_distritos.SelectedItem as District;
+            Roles rolSect = comb_cargo.SelectedItem as Roles;
 
-           ValidarCampos();
-           UserController.pasarUsuerDdd(new User(id, districtSelec.Id_district, rolSect.IdRol, nombre, apellido, fechaNacimiento, fechaContratacion, telefono, dui, departmentSelec.id_department), controlador);
+            ValidarCampos();
+
+            UserController.pasarUsuerDdd(new User(id, districtSelec.Id_district, rolSect.IdRol, nombre, apellido, fechaNacimiento, fechaContratacion, telefono, dui, departmentSelec.id_department), controlador);
 
         }
 
@@ -157,14 +156,21 @@ namespace InventoryWalmart
 
         private void llenarCombox()
         {
+            // Llenar ComboBox de departamentos
             comb_departemeto.DataSource = DepartmentDAO.TraerDepartments();
-            comb_departemeto.DisplayMember = "department_name";
+            comb_departemeto.DisplayMember = "department_name"; // Mostrar el nombre del departamento
+            comb_departemeto.ValueMember = "id_department"; // Usar el id del departamento como valor
 
+            // Llenar ComboBox de distritos
             comb_distritos.DataSource = DistrictDAO.TraerDistrict();
-            comb_distritos.DisplayMember = "district_Name";
+            comb_distritos.DisplayMember = "district_Name"; // Mostrar el nombre del distrito
+            comb_distritos.ValueMember = "Id_district"; // Usar el id del distrito como valor
 
+            // Llenar ComboBox de roles
             comb_cargo.DataSource = RolesDAO.TraerRol();
-            comb_cargo.DisplayMember = "RoleName";
+            comb_cargo.DisplayMember = "RoleName"; // Mostrar el nombre del rol
+            comb_cargo.ValueMember = "IdRol"; // Usar el id del rol como valor
         }
+
     }
 }

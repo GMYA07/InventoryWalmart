@@ -19,6 +19,11 @@ namespace InventoryWalmart.Model
         private string dui;
         private int id_department;
 
+        public string DepartmentName { get; set; }
+        public string DistrictName { get; set; }
+        public string RoleName { get; set; }
+
+
         public User() { }
 
         public User(int id_user, int id_district, int id_role, string first_name, string last_name, DateTime date_of_birth, DateTime hire_date, string cellphone, string dui, int id_department)

@@ -130,7 +130,26 @@ namespace InventoryWalmart.Database
         {
             List<User> listaUsuarios = new List<User>();
 
-            string query = "SELECT id_user, first_name, last_name, date_of_birth, hire_date, cellphone, dui, id_department, id_district, id_role FROM USERS";
+            string query = @"
+    SELECT 
+        u.id_user, 
+        u.first_name, 
+        u.last_name, 
+        u.date_of_birth, 
+        u.hire_date, 
+        u.cellphone, 
+        u.dui, 
+        d.department_name,  -- Nombre del departamento
+        dis.district_name,  -- Nombre del distrito
+        r.role_name,        -- Nombre del rol
+        u.id_department,    -- ID del departamento
+        u.id_district,      -- ID del distrito
+        u.id_role           -- ID del rol
+    FROM USERS u
+    JOIN DEPARTMENT d ON u.id_department = d.id_department
+    JOIN DISTRICT dis ON u.id_district = dis.id_district
+    JOIN ROLES r ON u.id_role = r.id_role;
+";
 
             using (SqlConnection conn = Connection.ObtenerConexion())
             {
@@ -146,16 +165,22 @@ namespace InventoryWalmart.Database
                             {
 
                                 User user = new User();
-                                user.SetIdUser(reader.GetInt32(0));          
-                                user.SetFirst_name(reader.GetString(1));     
-                                user.SetLast_name(reader.GetString(2));      
-                                user.SetDate_of_birth(reader.GetDateTime(3)); 
-                                user.SetHire_date(reader.GetDateTime(4));     
-                                user.SetCellphone(reader.GetString(5));      
-                                user.SetDui(reader.GetString(6));            
-                                user.SetIdDepartment(reader.GetInt32(7));    
-                                user.SetIdDistrict(reader.GetInt32(8));      
-                                user.SetIdRole(reader.GetInt32(9));          
+                                user.SetIdUser(reader.GetInt32(0));
+                                user.SetFirst_name(reader.GetString(1));
+                                user.SetLast_name(reader.GetString(2));
+                                user.SetDate_of_birth(reader.GetDateTime(3));
+                                user.SetHire_date(reader.GetDateTime(4));
+                                user.SetCellphone(reader.GetString(5));
+                                user.SetDui(reader.GetString(6));
+
+                                user.DepartmentName = reader.GetString(7); 
+                                user.DistrictName = reader.GetString(8);   
+                                user.RoleName = reader.GetString(9);       
+
+                                // Asignar los ID (si los necesitas)
+                                user.SetIdDepartment(reader.GetInt32(10));
+                                user.SetIdDistrict(reader.GetInt32(11));
+                                user.SetIdRole(reader.GetInt32(12));
 
                                 listaUsuarios.Add(user);
                             }
@@ -164,7 +189,7 @@ namespace InventoryWalmart.Database
                     catch (Exception ex)
                     {
                         Console.WriteLine("Error: " + ex.ToString());
-                        return new List<User>(); // Devuelve lista vacía en caso de error
+                        return new List<User>(); 
                     }
                 }
             }

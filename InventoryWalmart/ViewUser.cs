@@ -141,12 +141,34 @@ namespace InventoryWalmart
         }
 
 
+        private void llenarTabla2()
+        {
+            var usuarios = UserDAO.TraerUsuarios();
+
+            var datos = usuarios.Select(u => new
+            {
+                Nombre = u.GetFirst_name() + " " + u.GetLast_name(),
+                Telefono = u.GetCellphone(),
+                DUI = u.GetDui(),
+                Departamento = u.DepartmentName,  // Aquí usas el nombre del departamento
+                Distrito = u.DistrictName,       // Aquí usas el nombre del distrito
+                Rol = u.RoleName,                // Aquí usas el nombre del rol
+                FechaContratacion = u.GetHire_date().ToShortDateString(),
+                FechaNacimiento = u.GetDate_of_birth().ToShortDateString(),
+                Estado = "Activo",
+                Id = u.GetIdUser()
+            }).ToList();
+
+            Table_user.DataSource = datos;
+        }
+
         private void llenarTabla()
         {
-            Table_user.Rows.Clear(); 
-            Table_user.Columns.Clear(); 
+            Table_user.Rows.Clear();
+            Table_user.Columns.Clear();
 
-            Table_user.Columns.Add("Nombre", "Nombre");
+            // Definir las columnas si no se están definiendo desde el diseñador
+            Table_user.Columns.Add("Nombres", "Nombres");
             Table_user.Columns.Add("Telefono", "Teléfono");
             Table_user.Columns.Add("DUI", "DUI");
             Table_user.Columns.Add("Departamento", "Departamento");
@@ -157,27 +179,24 @@ namespace InventoryWalmart
 
             var usuarios = UserDAO.TraerUsuarios();
 
+            // Ahora agregamos las filas
             foreach (var u in usuarios)
             {
                 int index = Table_user.Rows.Add(
                     u.GetFirst_name() + " " + u.GetLast_name(),
                     u.GetCellphone(),
                     u.GetDui(),
-                    u.GetIdDepartment(),
-                    u.GetIdDistrict(),
-                    u.GetIdRole(),
+                    u.DepartmentName,
+                    u.DistrictName,
+                    u.RoleName,
                     u.GetHire_date().ToShortDateString(),
-                    u.GetDate_of_birth().ToShortDateString(),
-                    "Activo"
+                    u.GetDate_of_birth().ToShortDateString()
                 );
 
-                // Guardar el objeto completo en la fila
+                // Asignar el objeto User a la propiedad Tag de la fila
                 Table_user.Rows[index].Tag = u;
             }
         }
-
-
-
 
 
         private void Table_user_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -222,9 +241,6 @@ namespace InventoryWalmart
 
                 if (usuario != null)
                 {
-                    
-                    MessageBox.Show("" + usuario.GetFirst_name());
-
                     formEmpleado empleado = new formEmpleado();
                     empleado.llenarCampos(usuario, "Edit");
                     empleado.Show();
@@ -232,7 +248,7 @@ namespace InventoryWalmart
                 }
                 else
                 {
-                    MessageBox.Show("El objeto User es null. Verifica que lo asignaste con Tag.");
+                    MessageBox.Show("Erro no hay rejistros .");
                 }
             }
             else

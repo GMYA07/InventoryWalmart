@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace InventoryWalmart.Model
 {
-    internal class User
+    public class User
     {
         private int id_user;
         private int id_district;
@@ -18,6 +18,11 @@ namespace InventoryWalmart.Model
         private string cellphone;
         private string dui;
         private int id_department;
+
+        public string DepartmentName { get; set; }
+        public string DistrictName { get; set; }
+        public string RoleName { get; set; }
+
 
         public User() { }
 
@@ -68,4 +73,6 @@ namespace InventoryWalmart.Model
         public void SetIdDepartment(int id_department) { this.id_department = id_department; }
 
     }
+
+
 }

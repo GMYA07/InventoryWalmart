@@ -38,5 +38,33 @@ namespace InventoryWalmart.Database
             }
         }
 
+        public static List<Roles> TraerRol()
+        {
+            List<Roles> lista = new List<Roles>();
+
+            string query = "SELECT id_role, role_name, description FROM roles";
+            SqlConnection connection = Connection.ObtenerConexion();
+            SqlCommand command = new SqlCommand(query, connection);
+
+            connection.Open();
+            SqlDataReader reader = command.ExecuteReader();
+
+            while (reader.Read())
+            {
+                Roles dept = new Roles
+                {
+                    IdRol = reader.GetInt32(0),
+                    RoleName = reader.GetString(1),
+                    RoleDescription = reader.GetString(2)
+                };
+                lista.Add(dept);
+            }
+
+            reader.Close();
+            connection.Close();
+
+            return lista;
+        }
+
     }
 }

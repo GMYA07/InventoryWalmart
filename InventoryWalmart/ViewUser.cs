@@ -141,26 +141,6 @@ namespace InventoryWalmart
         }
 
 
-        private void llenarTabla2()
-        {
-            var usuarios = UserDAO.TraerUsuarios();
-
-            var datos = usuarios.Select(u => new
-            {
-                Nombre = u.GetFirst_name() + " " + u.GetLast_name(),
-                Telefono = u.GetCellphone(),
-                DUI = u.GetDui(),
-                Departamento = u.DepartmentName,  // Aquí usas el nombre del departamento
-                Distrito = u.DistrictName,       // Aquí usas el nombre del distrito
-                Rol = u.RoleName,                // Aquí usas el nombre del rol
-                FechaContratacion = u.GetHire_date().ToShortDateString(),
-                FechaNacimiento = u.GetDate_of_birth().ToShortDateString(),
-                Estado = "Activo",
-                Id = u.GetIdUser()
-            }).ToList();
-
-            Table_user.DataSource = datos;
-        }
 
         private void llenarTabla()
         {
@@ -176,6 +156,8 @@ namespace InventoryWalmart
             Table_user.Columns.Add("Rol", "Rol");
             Table_user.Columns.Add("FechaContratacion", "Fecha Contratación");
             Table_user.Columns.Add("FechaNacimiento", "Fecha Nacimiento");
+            Table_user.Columns.Add("status", "status");
+
 
             var usuarios = UserDAO.TraerUsuarios();
 
@@ -190,7 +172,8 @@ namespace InventoryWalmart
                     u.DistrictName,
                     u.RoleName,
                     u.GetHire_date().ToShortDateString(),
-                    u.GetDate_of_birth().ToShortDateString()
+                    u.GetDate_of_birth().ToShortDateString(),
+                    u.status ? "Activo" : "Inactivo"
                 );
 
                 // Asignar el objeto User a la propiedad Tag de la fila

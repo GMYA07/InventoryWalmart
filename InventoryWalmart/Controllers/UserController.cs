@@ -11,22 +11,27 @@ namespace InventoryWalmart.Controllers
 {
     internal class UserController
     {
-        public static void pasarUsuerDdd(User u, String controlador)
+        public static int pasarUsuerDdd(User u, String controlador)
         {
             UserDAO dao = new UserDAO();
 
             if (controlador != "Edit")
             {
-                dao.insertarUsers(u);
+                int id;
+             return id = dao.insertarUsers(u);
             }
             else
             {
                 dao.EditarUser(u);
+                return 0;   
             }
-                
+        }
 
+        public static void pasarLogin()
+        {
 
         }
+
 
         public static void borrarUser(int id)
         {
@@ -35,7 +40,6 @@ namespace InventoryWalmart.Controllers
         }
 
         public static void editarUser (User user, String controlador){
-            UserDAO dao = new UserDAO();
 
         }
 

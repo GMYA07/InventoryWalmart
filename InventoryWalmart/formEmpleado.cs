@@ -123,19 +123,36 @@ namespace InventoryWalmart
 
             ValidarCampos();
 
-            UserController.pasarUsuerDdd(new User(id, districtSelec.Id_district, rolSect.IdRol, nombre, apellido, fechaNacimiento, fechaContratacion, telefono, dui, departmentSelec.id_department), controlador);
+         int id_user = UserController.pasarUsuerDdd( new User(id, districtSelec.Id_district, rolSect.IdRol, nombre, apellido, fechaNacimiento, fechaContratacion, telefono, dui, departmentSelec.id_department), controlador);
 
+            loginController.pasarPassUser(new Account(0,id_user, tex_user.Text, tex_pass.Text, optenerStado()));
+        }
+
+        public Boolean optenerStado()
+        {
+            Boolean estadoCuenta = false;
+
+            if (btR_status_account_activo.Checked)
+            {
+                estadoCuenta = true;
+            }
+            else if (btR_status_account_desactivo.Checked)
+            {
+                estadoCuenta = false;
+            }
+            return estadoCuenta;
         }
 
         private bool ValidarCampos()
         {
-            
-
             // Validaciones
             if (string.IsNullOrEmpty(TxtNombre.Text.Trim()) ||
                 string.IsNullOrEmpty(TxtApellido.Text.Trim()) ||
                 string.IsNullOrEmpty(tex_telefono.Text.Trim()) ||
-                string.IsNullOrEmpty(tex_dui.Text.Trim()) )
+                string.IsNullOrEmpty(tex_dui.Text.Trim()) ||
+                string.IsNullOrEmpty(tex_user.Text.Trim()) ||
+                string.IsNullOrEmpty(tex_pass.Text.Trim())
+                )
             {
                 MessageBox.Show("Por favor, complete todos los campos obligatorios.", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;

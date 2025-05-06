@@ -36,6 +36,8 @@
             this.btnRestaurar = new System.Windows.Forms.PictureBox();
             this.button1 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.comb_departemeto = new System.Windows.Forms.ComboBox();
+            this.comb_distritos = new System.Windows.Forms.ComboBox();
             this.comb_cargo = new System.Windows.Forms.ComboBox();
             this.date_fechaContracion = new System.Windows.Forms.DateTimePicker();
             this.label3 = new System.Windows.Forms.Label();
@@ -54,8 +56,12 @@
             this.TxtNombre = new System.Windows.Forms.TextBox();
             this.LblApellido = new System.Windows.Forms.Label();
             this.LblNombre = new System.Windows.Forms.Label();
-            this.comb_distritos = new System.Windows.Forms.ComboBox();
-            this.comb_departemeto = new System.Windows.Forms.ComboBox();
+            this.tex_user = new System.Windows.Forms.TextBox();
+            this.tex_pass = new System.Windows.Forms.TextBox();
+            this.btR_status_account_activo = new System.Windows.Forms.RadioButton();
+            this.btR_status_account_desactivo = new System.Windows.Forms.RadioButton();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.barAcciones.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnOcultar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMaximizar)).BeginInit();
@@ -74,7 +80,7 @@
             this.barAcciones.Controls.Add(this.button1);
             this.barAcciones.Dock = System.Windows.Forms.DockStyle.Top;
             this.barAcciones.Location = new System.Drawing.Point(0, 0);
-            this.barAcciones.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.barAcciones.Margin = new System.Windows.Forms.Padding(4);
             this.barAcciones.Name = "barAcciones";
             this.barAcciones.Size = new System.Drawing.Size(579, 73);
             this.barAcciones.TabIndex = 3;
@@ -86,7 +92,7 @@
             this.btnOcultar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnOcultar.Image = global::InventoryWalmart.Properties.Resources.ocultar;
             this.btnOcultar.Location = new System.Drawing.Point(389, 15);
-            this.btnOcultar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnOcultar.Margin = new System.Windows.Forms.Padding(4);
             this.btnOcultar.Name = "btnOcultar";
             this.btnOcultar.Size = new System.Drawing.Size(40, 37);
             this.btnOcultar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -100,7 +106,7 @@
             this.btnMaximizar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnMaximizar.Image = ((System.Drawing.Image)(resources.GetObject("btnMaximizar.Image")));
             this.btnMaximizar.Location = new System.Drawing.Point(460, 15);
-            this.btnMaximizar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnMaximizar.Margin = new System.Windows.Forms.Padding(4);
             this.btnMaximizar.Name = "btnMaximizar";
             this.btnMaximizar.Size = new System.Drawing.Size(40, 37);
             this.btnMaximizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -114,7 +120,7 @@
             this.btnCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCerrar.Image = ((System.Drawing.Image)(resources.GetObject("btnCerrar.Image")));
             this.btnCerrar.Location = new System.Drawing.Point(520, 15);
-            this.btnCerrar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCerrar.Margin = new System.Windows.Forms.Padding(4);
             this.btnCerrar.Name = "btnCerrar";
             this.btnCerrar.Size = new System.Drawing.Size(43, 39);
             this.btnCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -128,7 +134,7 @@
             this.btnRestaurar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnRestaurar.Image = ((System.Drawing.Image)(resources.GetObject("btnRestaurar.Image")));
             this.btnRestaurar.Location = new System.Drawing.Point(460, 15);
-            this.btnRestaurar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnRestaurar.Margin = new System.Windows.Forms.Padding(4);
             this.btnRestaurar.Name = "btnRestaurar";
             this.btnRestaurar.Size = new System.Drawing.Size(40, 37);
             this.btnRestaurar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -142,7 +148,7 @@
             this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button1.Image = global::InventoryWalmart.Properties.Resources.IconoRegresar1;
             this.button1.Location = new System.Drawing.Point(16, 15);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(47, 43);
             this.button1.TabIndex = 5;
@@ -152,6 +158,12 @@
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.label5);
+            this.panel1.Controls.Add(this.label4);
+            this.panel1.Controls.Add(this.btR_status_account_desactivo);
+            this.panel1.Controls.Add(this.btR_status_account_activo);
+            this.panel1.Controls.Add(this.tex_pass);
+            this.panel1.Controls.Add(this.tex_user);
             this.panel1.Controls.Add(this.comb_departemeto);
             this.panel1.Controls.Add(this.comb_distritos);
             this.panel1.Controls.Add(this.comb_cargo);
@@ -173,24 +185,42 @@
             this.panel1.Controls.Add(this.LblApellido);
             this.panel1.Controls.Add(this.LblNombre);
             this.panel1.Location = new System.Drawing.Point(45, 102);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(489, 557);
+            this.panel1.Size = new System.Drawing.Size(489, 626);
             this.panel1.TabIndex = 12;
+            // 
+            // comb_departemeto
+            // 
+            this.comb_departemeto.FormattingEnabled = true;
+            this.comb_departemeto.Location = new System.Drawing.Point(48, 428);
+            this.comb_departemeto.Margin = new System.Windows.Forms.Padding(4);
+            this.comb_departemeto.Name = "comb_departemeto";
+            this.comb_departemeto.Size = new System.Drawing.Size(162, 24);
+            this.comb_departemeto.TabIndex = 30;
+            // 
+            // comb_distritos
+            // 
+            this.comb_distritos.FormattingEnabled = true;
+            this.comb_distritos.Location = new System.Drawing.Point(229, 428);
+            this.comb_distritos.Margin = new System.Windows.Forms.Padding(4);
+            this.comb_distritos.Name = "comb_distritos";
+            this.comb_distritos.Size = new System.Drawing.Size(199, 24);
+            this.comb_distritos.TabIndex = 29;
             // 
             // comb_cargo
             // 
             this.comb_cargo.FormattingEnabled = true;
-            this.comb_cargo.Location = new System.Drawing.Point(121, 433);
-            this.comb_cargo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.comb_cargo.Location = new System.Drawing.Point(52, 505);
+            this.comb_cargo.Margin = new System.Windows.Forms.Padding(4);
             this.comb_cargo.Name = "comb_cargo";
-            this.comb_cargo.Size = new System.Drawing.Size(239, 24);
+            this.comb_cargo.Size = new System.Drawing.Size(170, 24);
             this.comb_cargo.TabIndex = 28;
             // 
             // date_fechaContracion
             // 
             this.date_fechaContracion.Location = new System.Drawing.Point(76, 290);
-            this.date_fechaContracion.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.date_fechaContracion.Margin = new System.Windows.Forms.Padding(4);
             this.date_fechaContracion.Name = "date_fechaContracion";
             this.date_fechaContracion.Size = new System.Drawing.Size(353, 22);
             this.date_fechaContracion.TabIndex = 27;
@@ -209,7 +239,7 @@
             // tex_dui
             // 
             this.tex_dui.Location = new System.Drawing.Point(279, 132);
-            this.tex_dui.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tex_dui.Margin = new System.Windows.Forms.Padding(4);
             this.tex_dui.Name = "tex_dui";
             this.tex_dui.Size = new System.Drawing.Size(179, 22);
             this.tex_dui.TabIndex = 25;
@@ -219,7 +249,7 @@
             // 
             this.tex_telefono.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.tex_telefono.Location = new System.Drawing.Point(51, 132);
-            this.tex_telefono.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tex_telefono.Margin = new System.Windows.Forms.Padding(4);
             this.tex_telefono.Name = "tex_telefono";
             this.tex_telefono.Size = new System.Drawing.Size(160, 22);
             this.tex_telefono.TabIndex = 23;
@@ -257,8 +287,8 @@
             this.btnAgregar.ForeColor = System.Drawing.Color.White;
             this.btnAgregar.Image = global::InventoryWalmart.Properties.Resources.iconoAgregar;
             this.btnAgregar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAgregar.Location = new System.Drawing.Point(128, 491);
-            this.btnAgregar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAgregar.Location = new System.Drawing.Point(127, 557);
+            this.btnAgregar.Margin = new System.Windows.Forms.Padding(4);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Padding = new System.Windows.Forms.Padding(13, 0, 47, 0);
             this.btnAgregar.Size = new System.Drawing.Size(227, 55);
@@ -278,8 +308,8 @@
             this.btnModificar.ForeColor = System.Drawing.Color.White;
             this.btnModificar.Image = global::InventoryWalmart.Properties.Resources.iconoModificar;
             this.btnModificar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnModificar.Location = new System.Drawing.Point(128, 491);
-            this.btnModificar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnModificar.Location = new System.Drawing.Point(127, 557);
+            this.btnModificar.Margin = new System.Windows.Forms.Padding(4);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Padding = new System.Windows.Forms.Padding(0, 0, 53, 0);
             this.btnModificar.Size = new System.Drawing.Size(227, 55);
@@ -291,9 +321,9 @@
             // DtpNacimiento
             // 
             this.DtpNacimiento.Location = new System.Drawing.Point(76, 213);
-            this.DtpNacimiento.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.DtpNacimiento.Margin = new System.Windows.Forms.Padding(4);
             this.DtpNacimiento.Name = "DtpNacimiento";
-            this.DtpNacimiento.Size = new System.Drawing.Size(353, 22);
+            this.DtpNacimiento.Size = new System.Drawing.Size(378, 22);
             this.DtpNacimiento.TabIndex = 18;
             // 
             // LblNacimiento
@@ -311,7 +341,7 @@
             // 
             this.LblEmail.AutoSize = true;
             this.LblEmail.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
-            this.LblEmail.Location = new System.Drawing.Point(45, 335);
+            this.LblEmail.Location = new System.Drawing.Point(44, 401);
             this.LblEmail.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.LblEmail.Name = "LblEmail";
             this.LblEmail.Size = new System.Drawing.Size(111, 23);
@@ -322,7 +352,7 @@
             // 
             this.LblDUI.AutoSize = true;
             this.LblDUI.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
-            this.LblDUI.Location = new System.Drawing.Point(264, 335);
+            this.LblDUI.Location = new System.Drawing.Point(263, 401);
             this.LblDUI.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.LblDUI.Name = "LblDUI";
             this.LblDUI.Size = new System.Drawing.Size(65, 23);
@@ -333,7 +363,7 @@
             // 
             this.LblTelefono.AutoSize = true;
             this.LblTelefono.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
-            this.LblTelefono.Location = new System.Drawing.Point(116, 406);
+            this.LblTelefono.Location = new System.Drawing.Point(47, 478);
             this.LblTelefono.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.LblTelefono.Name = "LblTelefono";
             this.LblTelefono.Size = new System.Drawing.Size(85, 23);
@@ -343,7 +373,7 @@
             // TxtApellido
             // 
             this.TxtApellido.Location = new System.Drawing.Point(279, 55);
-            this.TxtApellido.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.TxtApellido.Margin = new System.Windows.Forms.Padding(4);
             this.TxtApellido.Name = "TxtApellido";
             this.TxtApellido.Size = new System.Drawing.Size(179, 22);
             this.TxtApellido.TabIndex = 10;
@@ -352,7 +382,7 @@
             // TxtNombre
             // 
             this.TxtNombre.Location = new System.Drawing.Point(51, 55);
-            this.TxtNombre.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.TxtNombre.Margin = new System.Windows.Forms.Padding(4);
             this.TxtNombre.Name = "TxtNombre";
             this.TxtNombre.Size = new System.Drawing.Size(160, 22);
             this.TxtNombre.TabIndex = 8;
@@ -380,34 +410,79 @@
             this.LblNombre.TabIndex = 7;
             this.LblNombre.Text = "Nombre";
             // 
-            // comb_distritos
+            // tex_user
             // 
-            this.comb_distritos.FormattingEnabled = true;
-            this.comb_distritos.Location = new System.Drawing.Point(230, 362);
-            this.comb_distritos.Margin = new System.Windows.Forms.Padding(4);
-            this.comb_distritos.Name = "comb_distritos";
-            this.comb_distritos.Size = new System.Drawing.Size(199, 24);
-            this.comb_distritos.TabIndex = 29;
+            this.tex_user.Location = new System.Drawing.Point(75, 356);
+            this.tex_user.Margin = new System.Windows.Forms.Padding(4);
+            this.tex_user.Name = "tex_user";
+            this.tex_user.Size = new System.Drawing.Size(160, 22);
+            this.tex_user.TabIndex = 31;
+            this.tex_user.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // comb_departemeto
+            // tex_pass
             // 
-            this.comb_departemeto.FormattingEnabled = true;
-            this.comb_departemeto.Location = new System.Drawing.Point(49, 362);
-            this.comb_departemeto.Margin = new System.Windows.Forms.Padding(4);
-            this.comb_departemeto.Name = "comb_departemeto";
-            this.comb_departemeto.Size = new System.Drawing.Size(162, 24);
-            this.comb_departemeto.TabIndex = 30;
+            this.tex_pass.Location = new System.Drawing.Point(268, 356);
+            this.tex_pass.Margin = new System.Windows.Forms.Padding(4);
+            this.tex_pass.Name = "tex_pass";
+            this.tex_pass.Size = new System.Drawing.Size(160, 22);
+            this.tex_pass.TabIndex = 32;
+            this.tex_pass.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // btR_status_account_activo
+            // 
+            this.btR_status_account_activo.AutoSize = true;
+            this.btR_status_account_activo.Checked = true;
+            this.btR_status_account_activo.Location = new System.Drawing.Point(314, 478);
+            this.btR_status_account_activo.Name = "btR_status_account_activo";
+            this.btR_status_account_activo.Size = new System.Drawing.Size(65, 20);
+            this.btR_status_account_activo.TabIndex = 33;
+            this.btR_status_account_activo.TabStop = true;
+            this.btR_status_account_activo.Text = "Activo";
+            this.btR_status_account_activo.UseVisualStyleBackColor = true;
+            // 
+            // btR_status_account_desactivo
+            // 
+            this.btR_status_account_desactivo.AutoSize = true;
+            this.btR_status_account_desactivo.Location = new System.Drawing.Point(314, 506);
+            this.btR_status_account_desactivo.Name = "btR_status_account_desactivo";
+            this.btR_status_account_desactivo.Size = new System.Drawing.Size(87, 20);
+            this.btR_status_account_desactivo.TabIndex = 34;
+            this.btR_status_account_desactivo.TabStop = true;
+            this.btR_status_account_desactivo.Text = "NO activo";
+            this.btR_status_account_desactivo.UseVisualStyleBackColor = true;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
+            this.label4.Location = new System.Drawing.Point(73, 327);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(73, 23);
+            this.label4.TabIndex = 35;
+            this.label4.Text = "Usuario ";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
+            this.label5.Location = new System.Drawing.Point(274, 329);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(97, 23);
+            this.label5.TabIndex = 36;
+            this.label5.Text = "Contraseña";
             // 
             // formEmpleado
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(579, 690);
+            this.ClientSize = new System.Drawing.Size(579, 761);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.barAcciones);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "formEmpleado";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "formEmpleado";
@@ -451,5 +526,11 @@
         private System.Windows.Forms.ComboBox comb_cargo;
         private System.Windows.Forms.ComboBox comb_departemeto;
         private System.Windows.Forms.ComboBox comb_distritos;
+        private System.Windows.Forms.RadioButton btR_status_account_desactivo;
+        private System.Windows.Forms.RadioButton btR_status_account_activo;
+        private System.Windows.Forms.TextBox tex_pass;
+        private System.Windows.Forms.TextBox tex_user;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label4;
     }
 }

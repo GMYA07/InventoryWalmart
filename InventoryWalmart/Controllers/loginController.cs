@@ -62,5 +62,14 @@ namespace InventoryWalmart.Controllers
                 return false; //para cerrar la ventana anterior
             }
         }
+
+
+
+        public static void pasarPassUser(Account a)
+        {
+            AccountDAO accountDAO = new AccountDAO();
+            accountDAO.insertarAccount(a);
+
+        }
     }
 }

@@ -115,6 +115,7 @@
             this.inputPass.Name = "inputPass";
             this.inputPass.Size = new System.Drawing.Size(325, 29);
             this.inputPass.TabIndex = 3;
+            this.inputPass.UseSystemPasswordChar = true;
             // 
             // label1
             // 
@@ -233,6 +234,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "login";
             this.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "login";
             this.Load += new System.EventHandler(this.login_Load);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.login_MouseDown);

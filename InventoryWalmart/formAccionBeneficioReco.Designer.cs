@@ -343,6 +343,7 @@
             this.Controls.Add(this.barAcciones);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "formAccionBeneficioReco";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "formAgregarBeneficio";
             this.Load += new System.EventHandler(this.formAgregarBeneficio_Load);
             this.barAcciones.ResumeLayout(false);

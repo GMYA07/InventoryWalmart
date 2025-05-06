@@ -1,4 +1,5 @@
-﻿using System;
+﻿using InventoryWalmart.Utils;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -67,12 +68,54 @@ namespace InventoryWalmart
 
         private void btnInicio_Click(object sender, EventArgs e)
         {
+            this.Show();
+        }
 
+        private void btnPromociones_Click(object sender, EventArgs e)
+        {
+            viewBenefitsRewards viewBenefitsRewards = new viewBenefitsRewards();
+            this.Hide();
+            viewBenefitsRewards.Show();
+        }
+
+        private void btnProductos_Click(object sender, EventArgs e)
+        {
+            viewInventary viewInventary = new viewInventary();
+            this.Hide();
+            viewInventary.Show();
         }
 
         private void btnDevoluciones_Click(object sender, EventArgs e)
         {
+            ViewReturns vistaDevoluviones = new ViewReturns();
+            this.Hide();
+            vistaDevoluviones.Show();
+        }
 
+        private void btnReportes_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnEmpleado_Click(object sender, EventArgs e)
+        {
+            ViewUser vistaEmpleado = new ViewUser();
+            this.Hide();
+            vistaEmpleado.Show();
+        }
+
+        private void btnClientes_Click(object sender, EventArgs e)
+        {
+            ViewCustomers vistaClientes = new ViewCustomers();
+            this.Hide();
+            vistaClientes.Show();
+        }
+
+        private void BtnPuntos_Click(object sender, EventArgs e)
+        {
+            ViewPoints vistaPoints = new ViewPoints();
+            this.Hide();
+            vistaPoints.Show();
         }
 
         private void dashboard_Load(object sender, EventArgs e)
@@ -109,10 +152,18 @@ namespace InventoryWalmart
             viewDiscount.Show();
         }
 
-        private void btnEmpleado_Click(object sender, EventArgs e)
+        private void BtnVentas_Click(object sender, EventArgs e)
         {
-            
+            viewGestionVentas viewGestionVentas = new viewGestionVentas();
+            this.Hide();
+            viewGestionVentas.Show();
+        }
 
+        private void PanelProveedores_Click(object sender, EventArgs e)
+        {
+            ViewSuppliers supplier = new ViewSuppliers();
+            this.Hide();
+            supplier.Show();
         }
     }
 }

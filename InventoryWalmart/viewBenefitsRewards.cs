@@ -81,6 +81,7 @@ namespace InventoryWalmart
 
         }
 
+
         private void btnInicio_Click(object sender, EventArgs e)
         {
             dashboard dashboard = new dashboard();
@@ -95,7 +96,9 @@ namespace InventoryWalmart
 
         private void btnProductos_Click(object sender, EventArgs e)
         {
-
+            viewInventary viewInventary = new viewInventary();
+            this.Hide();
+            viewInventary.Show();
         }
 
         private void btnDevoluciones_Click(object sender, EventArgs e)
@@ -107,7 +110,9 @@ namespace InventoryWalmart
 
         private void btnReportes_Click(object sender, EventArgs e)
         {
-
+            FormGenerarReporte FGR = new FormGenerarReporte();
+            this.Hide();
+            FGR.Show();
         }
 
         private void btnEmpleado_Click(object sender, EventArgs e)
@@ -129,6 +134,13 @@ namespace InventoryWalmart
             ViewPoints vistaPoints = new ViewPoints();
             this.Hide();
             vistaPoints.Show();
+        }
+
+        private void BtnVentas_Click(object sender, EventArgs e)
+        {
+            viewGestionVentas vista=new viewGestionVentas();
+            this.Hide();
+            vista.Show();
         }
     }
 }

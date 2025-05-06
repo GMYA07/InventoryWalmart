@@ -47,11 +47,26 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\loginController.cs" />
+    <Compile Include="Controllers\RolesControllers.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="dashboard.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="dashboard.Designer.cs">
       <DependentUpon>dashboard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Database\AccountDAO.cs" />
+    <Compile Include="Database\Connection.cs" />
+    <Compile Include="Database\DepartmentDAO.cs" />
+    <Compile Include="Database\DistrictDAO.cs" />
+    <Compile Include="Database\RolesDAO.cs" />
+    <Compile Include="Database\UserDAO.cs" />
+    <Compile Include="fomsRol.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fomsRol.Designer.cs">
+      <DependentUpon>fomsRol.cs</DependentUpon>
     </Compile>
     <Compile Include="formAccionBeneficioReco.cs">
       <SubType>Form</SubType>
@@ -71,11 +86,29 @@
     <Compile Include="formAccionModificarDescuentoProduct.Designer.cs">
       <DependentUpon>formAccionModificarDescuentoProduct.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormAddProduct.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAddProduct.Designer.cs">
+      <DependentUpon>FormAddProduct.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormCustomers.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormCustomers.Designer.cs">
       <DependentUpon>FormCustomers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="formEmpleado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formEmpleado.Designer.cs">
+      <DependentUpon>formEmpleado.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormGenerarReporte.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormGenerarReporte.Designer.cs">
+      <DependentUpon>FormGenerarReporte.cs</DependentUpon>
     </Compile>
     <Compile Include="FormMembership.cs">
       <SubType>Form</SubType>
@@ -89,6 +122,14 @@
     <Compile Include="FormReturns.Designer.cs">
       <DependentUpon>FormReturns.cs</DependentUpon>
     </Compile>
+    <Compile Include="Model\Account.cs" />
+    <Compile Include="Model\Department.cs" />
+    <Compile Include="Model\District.cs" />
+    <Compile Include="Model\Roles.cs" />
+    <Compile Include="Model\User.cs" />
+    <Compile Include="Utils\Alertas.cs" />
+    <Compile Include="Utils\Encriptacion.cs" />
+    <Compile Include="Utils\SessionManager.cs" />
     <Compile Include="viewGestionVentas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -166,6 +207,9 @@
     <EmbeddedResource Include="dashboard.resx">
       <DependentUpon>dashboard.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="fomsRol.resx">
+      <DependentUpon>fomsRol.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="formAccionBeneficioReco.resx">
       <DependentUpon>formAccionBeneficioReco.cs</DependentUpon>
     </EmbeddedResource>
@@ -175,8 +219,17 @@
     <EmbeddedResource Include="formAccionModificarDescuentoProduct.resx">
       <DependentUpon>formAccionModificarDescuentoProduct.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormAddProduct.resx">
+      <DependentUpon>FormAddProduct.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormCustomers.resx">
       <DependentUpon>FormCustomers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formEmpleado.resx">
+      <DependentUpon>formEmpleado.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormGenerarReporte.resx">
+      <DependentUpon>FormGenerarReporte.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormMembership.resx">
       <DependentUpon>FormMembership.cs</DependentUpon>
@@ -224,6 +277,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ViewUser.resx">
       <DependentUpon>ViewUser.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -332,6 +386,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\PointsIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Billetes.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\IconoSales.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\IconSupplier.png" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Database\ArchivosBDD\CREACION DE FUNCIONES.sql" />
+    <Content Include="Database\ArchivosBDD\CREACIONBDD.sql" />
+    <Content Include="Database\ArchivosBDD\Trggers InventoryWalmart.sql" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

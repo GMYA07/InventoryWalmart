@@ -8,14 +8,20 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using InventoryWalmart.Controllers;
+using InventoryWalmart.Database;
+using InventoryWalmart.Model;
 
 namespace InventoryWalmart
 {
     public partial class ViewUser : Form
     {
+        private int idUser =-1;
+
         public ViewUser()
         {
             InitializeComponent();
+            llenarTabla();
         }
 
         //Drag Form
@@ -68,6 +74,187 @@ namespace InventoryWalmart
             btnMaximizar.Visible = false;
             btnRestaurar.Visible = true;
 
+        }
+
+        private void btnAplicarBene_Click(object sender, EventArgs e)
+        {
+            fomsRol fomsRol = new fomsRol();
+            this.Hide();
+            fomsRol.Show();
+        }
+
+        private void btnAgregar_Click(object sender, EventArgs e)
+        {
+            formEmpleado empleado = new formEmpleado();
+            this.Hide();
+            empleado.Show();
+        }
+
+        private void btnReportes_Click_1(object sender, EventArgs e)
+        {
+            FormGenerarReporte formGenerarReporte = new FormGenerarReporte();
+            this.Hide();
+            formGenerarReporte.Show();
+
+        }
+
+        private void ChangeView<T>() where T : Form, new()
+        {
+            T vista = new T();
+            this.Hide();
+            vista.Show();
+        }
+
+        private void BtnPuntos_Click_1(object sender, EventArgs e)
+        {
+            ChangeView<ViewPoints>();
+        }
+
+        private void btnInicio_Click_1(object sender, EventArgs e)
+        {
+            ChangeView<dashboard>();
+        }
+
+        private void btnPromociones_Click_1(object sender, EventArgs e)
+        {
+            ChangeView<viewBenefitsRewards>();
+        }
+
+        private void btnDevoluciones_Click_1(object sender, EventArgs e)
+        {
+            ChangeView<ViewReturns>();
+        }
+
+        private void btnClientes_Click_1(object sender, EventArgs e)
+        {
+            ChangeView<ViewCustomers>();
+        }
+
+        private void btnProductos_Click(object sender, EventArgs e)
+        {
+            ChangeView<viewInventary>();
+        }
+
+        private void BtnVentas_Click(object sender, EventArgs e)
+        {
+            ChangeView<viewGestionVentas>();
+        }
+
+
+        private void llenarTabla2()
+        {
+            var usuarios = UserDAO.TraerUsuarios();
+
+            var datos = usuarios.Select(u => new
+            {
+                Nombre = u.GetFirst_name() + " " + u.GetLast_name(),
+                Telefono = u.GetCellphone(),
+                DUI = u.GetDui(),
+                Departamento = u.DepartmentName,  // Aquí usas el nombre del departamento
+                Distrito = u.DistrictName,       // Aquí usas el nombre del distrito
+                Rol = u.RoleName,                // Aquí usas el nombre del rol
+                FechaContratacion = u.GetHire_date().ToShortDateString(),
+                FechaNacimiento = u.GetDate_of_birth().ToShortDateString(),
+                Estado = "Activo",
+                Id = u.GetIdUser()
+            }).ToList();
+
+            Table_user.DataSource = datos;
+        }
+
+        private void llenarTabla()
+        {
+            Table_user.Rows.Clear();
+            Table_user.Columns.Clear();
+
+            // Definir las columnas si no se están definiendo desde el diseñador
+            Table_user.Columns.Add("Nombres", "Nombres");
+            Table_user.Columns.Add("Telefono", "Teléfono");
+            Table_user.Columns.Add("DUI", "DUI");
+            Table_user.Columns.Add("Departamento", "Departamento");
+            Table_user.Columns.Add("Distrito", "Distrito");
+            Table_user.Columns.Add("Rol", "Rol");
+            Table_user.Columns.Add("FechaContratacion", "Fecha Contratación");
+            Table_user.Columns.Add("FechaNacimiento", "Fecha Nacimiento");
+
+            var usuarios = UserDAO.TraerUsuarios();
+
+            // Ahora agregamos las filas
+            foreach (var u in usuarios)
+            {
+                int index = Table_user.Rows.Add(
+                    u.GetFirst_name() + " " + u.GetLast_name(),
+                    u.GetCellphone(),
+                    u.GetDui(),
+                    u.DepartmentName,
+                    u.DistrictName,
+                    u.RoleName,
+                    u.GetHire_date().ToShortDateString(),
+                    u.GetDate_of_birth().ToShortDateString()
+                );
+
+                // Asignar el objeto User a la propiedad Tag de la fila
+                Table_user.Rows[index].Tag = u;
+            }
+        }
+
+
+        private void Table_user_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+        }
+
+
+        public void setIdUser(int idUser)
+        {
+            this.idUser = idUser;
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            if (Table_user.SelectedRows.Count > 0)
+            {
+                var user = Table_user.SelectedRows[0].Tag as User;
+
+                if (user != null)
+                {
+                    int id = user.GetIdUser();
+                    UserController.borrarUser(id);
+                    llenarTabla();
+                }
+                else
+                {
+                    MessageBox.Show("Error: No se encontró el usuario en la fila.");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Por favor, seleccione una fila para continuar.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+            if (Table_user.SelectedRows.Count > 0)
+            {
+                User usuario = Table_user.SelectedRows[0].Tag as User;
+
+                if (usuario != null)
+                {
+                    formEmpleado empleado = new formEmpleado();
+                    empleado.llenarCampos(usuario, "Edit");
+                    empleado.Show();
+                    this.Hide();
+                }
+                else
+                {
+                    MessageBox.Show("Erro no hay rejistros .");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Seleccione una fila.");
+            }
         }
     }
 }

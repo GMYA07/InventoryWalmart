@@ -1,10 +1,12 @@
 ﻿using InventoryWalmart.Model;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace InventoryWalmart.Database
 {
@@ -49,6 +51,32 @@ namespace InventoryWalmart.Database
 
             return suppliers;
         }
+
+        public static void InsertSupplier(Supplier supplier)
+        {
+            try
+            {
+                using (SqlConnection connection = Connection.ObtenerConexion())
+                {
+                    SqlCommand command = new SqlCommand("sp_InsertSupplier", connection);
+                    command.CommandType = CommandType.StoredProcedure;
+
+                    command.Parameters.AddWithValue("@manager_name", supplier.manager_name);
+                    command.Parameters.AddWithValue("@company_name", supplier.company_name);
+                    command.Parameters.AddWithValue("@email", supplier.email);
+                    command.Parameters.AddWithValue("@phone", supplier.phone);
+                    command.Parameters.AddWithValue("@id_department", supplier.department_name);
+
+                    connection.Open();
+                    int filasAfectadas = command.ExecuteNonQuery();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al insertar proveedor: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
 
     }
 }

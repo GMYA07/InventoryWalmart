@@ -1,0 +1,54 @@
+﻿using InventoryWalmart.Model;
+using System;
+using System.Collections.Generic;
+using System.Data.SqlClient;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace InventoryWalmart.Database
+{
+    internal class SupplierDAO_
+    {
+        public static List<Supplier> GetSuppliers()
+        {
+            List<Supplier> suppliers = new List<Supplier>();
+
+            string query = @"SELECT
+                            s.id_supplier,
+                            s.manager_name,
+                            s.company_name,
+                            s.email,
+                            s.phone,
+                            d.department_name
+                        FROM SUPPLIERS AS s
+                        INNER JOIN DEPARTMENT AS d ON s.id_department = d.id_department
+                        ;";
+            SqlConnection connection = Connection.ObtenerConexion();
+            SqlCommand command = new SqlCommand(query, connection);
+
+            connection.Open();
+            SqlDataReader reader = command.ExecuteReader();
+
+            while (reader.Read())
+            {
+                Supplier supplier = new Supplier
+                {
+                    id_supplier = reader.GetInt32(0),
+                    manager_name = reader.GetString(1),
+                    company_name = reader.GetString(2),
+                    email = reader.GetString(3),
+                    phone = reader.GetString(4),
+                    department_name = reader.GetString(5)
+                };
+                suppliers.Add(supplier);
+            }
+
+            reader.Close();
+            connection.Close();
+
+            return suppliers;
+        }
+
+    }
+}

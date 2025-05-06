@@ -1,4 +1,5 @@
-﻿using System;
+﻿using InventoryWalmart.Database;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -19,9 +20,23 @@ namespace InventoryWalmart
         public ViewSuppliers()
         {
             InitializeComponent();
+            cargarTabla();
         }
 
+        public void cargarTabla()
+        {
+        
 
+            try
+            {
+                var lista = SupplierDAO_.GetSuppliers();
+                Table_Suppliers.DataSource = lista;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al cargar datos: " + ex.Message);
+            }
+        }
 
         //Codigo q nos ayuda con la administrasion de la barra de arriba y mover la ventana.
         //Drag Form

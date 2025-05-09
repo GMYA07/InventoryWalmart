@@ -600,6 +600,7 @@
             this.Name = "viewInventary";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "viewInventary";
+            this.Load += new System.EventHandler(this.viewInventary_Load);
             this.barAcciones.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.btnOcultar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMaximizar)).EndInit();

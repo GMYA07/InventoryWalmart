@@ -133,6 +133,11 @@ namespace InventoryWalmart
             Database.Connection.prueba();
         }
 
+        private void viewInventary_Load(object sender, EventArgs e)
+        {
+
+        }
+
         //fin conexiones
     }
 }

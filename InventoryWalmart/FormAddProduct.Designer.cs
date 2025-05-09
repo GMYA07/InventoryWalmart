@@ -315,6 +315,7 @@
             this.btnOcultar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.btnOcultar.TabIndex = 4;
             this.btnOcultar.TabStop = false;
+            this.btnOcultar.Click += new System.EventHandler(this.btnOcultar_Click);
             // 
             // btnMaximizar
             // 
@@ -327,6 +328,7 @@
             this.btnMaximizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.btnMaximizar.TabIndex = 3;
             this.btnMaximizar.TabStop = false;
+            this.btnMaximizar.Click += new System.EventHandler(this.btnMaximizar_Click);
             // 
             // btnCerrar
             // 
@@ -339,6 +341,7 @@
             this.btnCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.btnCerrar.TabIndex = 2;
             this.btnCerrar.TabStop = false;
+            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
             // 
             // btnRestaurar
             // 
@@ -351,6 +354,7 @@
             this.btnRestaurar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.btnRestaurar.TabIndex = 3;
             this.btnRestaurar.TabStop = false;
+            this.btnRestaurar.Click += new System.EventHandler(this.btnRestaurar_Click);
             // 
             // button1
             // 
@@ -362,6 +366,7 @@
             this.button1.Size = new System.Drawing.Size(35, 35);
             this.button1.TabIndex = 5;
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // FormAddProduct
             // 
@@ -375,6 +380,7 @@
             this.Name = "FormAddProduct";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormAddProduct";
+            this.Load += new System.EventHandler(this.FormAddProduct_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.barAcciones.ResumeLayout(false);

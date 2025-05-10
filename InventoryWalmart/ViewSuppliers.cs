@@ -1,5 +1,6 @@
 ﻿using InventoryWalmart.Database;
 using InventoryWalmart.Model;
+using InventoryWalmart.Utils;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,6 +18,7 @@ namespace InventoryWalmart
     public partial class ViewSuppliers : Form
     {
 
+        public static string email = "";
         public static string opcion = "";
 
         public ViewSuppliers()
@@ -173,17 +175,38 @@ namespace InventoryWalmart
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
+            DataGridViewRow row = Table_Suppliers.SelectedRows[0];
+            Supplier Supp = (Supplier)row.DataBoundItem;
 
-            //SeleccionarFila();
-            opcion = "editar";
-            ChangeView<FormSupplier>();
+            if (ConfirmarSeleccion("Editar") == true)
+            {
+                email = Supp.email;
+                opcion = "editar"; 
+                ChangeView<FormSupplier>();
+            }
+
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            int id = ObtenerIdDeFila();
-            SupplierDAO_.DeleteSupplier(id);
-            cargarTabla();
+            if(ConfirmarSeleccion("Eliminar") == true)
+            {
+                int id = ObtenerIdDeFila();
+                SupplierDAO_.DeleteSupplier(id);
+                cargarTabla();
+            }
+
+        }
+
+        public bool ConfirmarSeleccion(string accion)
+        {
+            DataGridViewRow row = Table_Suppliers.SelectedRows[0];
+            Supplier FilaSeleccionada = (Supplier) row.DataBoundItem;
+
+            ValidarSeleccion();
+            bool confirmacion = Alertas.Confirmacion("¡Advetencia!", $"¿Seguro que quieres {accion} a {FilaSeleccionada.manager_name}?");
+
+            return confirmacion;
         }
     }
 }

@@ -53,6 +53,73 @@ namespace InventoryWalmart.Database
             return suppliers;
         }
 
+        public static List<Supplier> GetInfoSup(int id)
+        {
+            List<Supplier> suppliers = new List<Supplier>();
+
+            string query = $@"SELECT
+                            s.id_supplier,
+                            s.manager_name,
+                            s.company_name,
+                            s.email,
+                            s.phone,
+                            d.id_department
+                        FROM SUPPLIERS AS s
+                        INNER JOIN DEPARTMENT AS d ON s.id_department = d.id_department
+                        WHERE s.id_supplier = {id};";
+            SqlConnection connection = Connection.ObtenerConexion();
+            SqlCommand command = new SqlCommand(query, connection);
+
+            connection.Open();
+            SqlDataReader reader = command.ExecuteReader();
+
+            while (reader.Read())
+            {
+                Supplier supplier = new Supplier
+                {
+                    id_supplier = reader.GetInt32(0),
+                    manager_name = reader.GetString(1),
+                    company_name = reader.GetString(2),
+                    email = reader.GetString(3),
+                    phone = reader.GetString(4),
+                    id_department = reader.GetInt32(5)
+                };
+                suppliers.Add(supplier);
+            }
+
+            reader.Close();
+            connection.Close();
+
+            return suppliers;
+        }
+
+        public static int GetidSup(string email)
+        {
+            int id = 0;
+
+            string query = $@"SELECT
+                            s.id_supplier
+                        FROM SUPPLIERS AS s
+                        WHERE s.email = '{email}';";
+            SqlConnection connection = Connection.ObtenerConexion();
+            SqlCommand command = new SqlCommand(query, connection);
+
+            connection.Open();
+            SqlDataReader reader = command.ExecuteReader();
+
+            while (reader.Read())
+            {
+
+                id = reader.GetInt32(0);
+
+            }
+
+            reader.Close();
+            connection.Close();
+
+            return id;
+        }
+
         public static void InsertSupplier(Supplier supplier)
         {
             try
@@ -71,7 +138,35 @@ namespace InventoryWalmart.Database
                     connection.Open();
                     int filasAfectadas = command.ExecuteNonQuery();
 
-                    Utils.Alertas.AlertCorrect("Exito","Usuario insertado correctamente");
+                    Alertas.AlertCorrect("Exito","Usuario Actualizado correctamente");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al insertar proveedor: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        public static void UpdateSupplier(Supplier supplier)
+        {
+            try
+            {
+                using (SqlConnection connection = Connection.ObtenerConexion())
+                {
+                    SqlCommand command = new SqlCommand("update_Supplier", connection);
+                    command.CommandType = CommandType.StoredProcedure;
+
+                    command.Parameters.AddWithValue("@id_supplier", supplier.id_supplier);
+                    command.Parameters.AddWithValue("@manager_name", supplier.manager_name);
+                    command.Parameters.AddWithValue("@company_name", supplier.company_name);
+                    command.Parameters.AddWithValue("@email", supplier.email);
+                    command.Parameters.AddWithValue("@phone", supplier.phone);
+                    command.Parameters.AddWithValue("@id_department", supplier.id_department);
+
+                    connection.Open();
+                    int filasAfectadas = command.ExecuteNonQuery();
+
+                    Alertas.AlertCorrect("Exito", "Usuario insertado correctamente");
                 }
             }
             catch (Exception ex)

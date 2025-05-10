@@ -83,6 +83,20 @@ namespace InventoryWalmart
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
+            if (ViewSuppliers.opcion == "agregar")
+            {
+                InsertarSupplier();
+            }
+            else
+            {
+                ActualizarSupplier();
+            }
+
+
+        }
+
+        public void InsertarSupplier()
+        {
             Supplier supp = new Supplier();
             supp.manager_name = TxtNombre.Text;
             supp.company_name = Txtcompañia.Text;
@@ -91,6 +105,21 @@ namespace InventoryWalmart
             supp.id_department = 1;
 
             SupplierDAO_.InsertSupplier(supp);
+        }
+
+        public void ActualizarSupplier()
+        {
+            string correo = ViewSuppliers.email;
+
+            Supplier supp = new Supplier();
+            supp.id_supplier = SupplierDAO_.GetidSup(correo) ;
+            supp.manager_name = TxtNombre.Text;
+            supp.company_name = Txtcompañia.Text;
+            supp.email = TxtEmail.Text;
+            supp.phone = TxtTelefono.Text;
+            supp.id_department = 1;
+
+            SupplierDAO_.UpdateSupplier(supp);
         }
     }
 }

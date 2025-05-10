@@ -1,4 +1,5 @@
 ﻿using InventoryWalmart.Database;
+using InventoryWalmart.Model;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -9,6 +10,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace InventoryWalmart
 {
@@ -25,10 +27,9 @@ namespace InventoryWalmart
 
         public void cargarTabla()
         {
-        
-
             try
             {
+                Table_Suppliers.AutoGenerateColumns = false;
                 var lista = SupplierDAO_.GetSuppliers();
                 Table_Suppliers.DataSource = lista;
             }
@@ -37,6 +38,35 @@ namespace InventoryWalmart
                 MessageBox.Show("Error al cargar datos: " + ex.Message);
             }
         }
+
+       
+        //    public int SeleccionarFila()
+        //    {
+        //        if (Table_Suppliers.SelectedRows.Count != 1)
+        //        {
+        //        MessageBox.Show("Por favor selecciona una sola fila antes de continuar.", "Selección requerida", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        //        return 0;
+        //        }
+
+        //        // Obtener la fila seleccionada
+        //        DataGridViewRow row = Table_Suppliers.SelectedRows[0];
+
+        //        // Validar y convertir el DataBoundItem
+        //        if (row.DataBoundItem is Supplier registro)
+        //        {
+        //            int id = registro.id_supplier;
+
+
+        //            return id;
+        //        }
+        //        else
+        //        {
+        //            MessageBox.Show("No se pudo leer la información del proveedor seleccionado.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        //        }
+
+        //        return;
+        //}
+        
 
         //Codigo q nos ayuda con la administrasion de la barra de arriba y mover la ventana.
         //Drag Form
@@ -136,6 +166,8 @@ namespace InventoryWalmart
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
+
+            //SeleccionarFila();
             opcion = "editar";
             ChangeView<FormSupplier>();
         }

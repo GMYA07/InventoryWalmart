@@ -32,6 +32,12 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ViewSuppliers));
             this.Table_Suppliers = new System.Windows.Forms.DataGridView();
+            this.ColumnId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnManger = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnCompany = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnEmail = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnTelefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnDepartamento = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel3 = new System.Windows.Forms.Panel();
             this.btnModificar = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
@@ -56,12 +62,6 @@
             this.btnPromociones = new System.Windows.Forms.Button();
             this.btnInicio = new System.Windows.Forms.Button();
             this.logo = new System.Windows.Forms.PictureBox();
-            this.ColumnId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnManger = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnCompany = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnEmail = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnTelefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnDepartamento = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.Table_Suppliers)).BeginInit();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -77,7 +77,7 @@
             // Table_Suppliers
             // 
             this.Table_Suppliers.AllowUserToAddRows = false;
-            this.Table_Suppliers.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.Table_Suppliers.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.Table_Suppliers.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.Table_Suppliers.BackgroundColor = System.Drawing.Color.White;
             this.Table_Suppliers.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -100,7 +100,7 @@
             this.ColumnTelefono,
             this.ColumnDepartamento});
             this.Table_Suppliers.EnableHeadersVisualStyles = false;
-            this.Table_Suppliers.Location = new System.Drawing.Point(488, 256);
+            this.Table_Suppliers.Location = new System.Drawing.Point(424, 251);
             this.Table_Suppliers.Name = "Table_Suppliers";
             this.Table_Suppliers.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
@@ -113,8 +113,44 @@
             this.Table_Suppliers.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.Table_Suppliers.RowHeadersVisible = false;
             this.Table_Suppliers.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.Table_Suppliers.Size = new System.Drawing.Size(493, 408);
+            this.Table_Suppliers.Size = new System.Drawing.Size(680, 408);
             this.Table_Suppliers.TabIndex = 23;
+            // 
+            // ColumnId
+            // 
+            this.ColumnId.DataPropertyName = "id_supplier";
+            this.ColumnId.HeaderText = "ID";
+            this.ColumnId.Name = "ColumnId";
+            // 
+            // ColumnManger
+            // 
+            this.ColumnManger.DataPropertyName = "manager_name";
+            this.ColumnManger.HeaderText = "Manger";
+            this.ColumnManger.Name = "ColumnManger";
+            // 
+            // ColumnCompany
+            // 
+            this.ColumnCompany.DataPropertyName = "company_name";
+            this.ColumnCompany.HeaderText = "Compañia";
+            this.ColumnCompany.Name = "ColumnCompany";
+            // 
+            // ColumnEmail
+            // 
+            this.ColumnEmail.DataPropertyName = "email";
+            this.ColumnEmail.HeaderText = "Email";
+            this.ColumnEmail.Name = "ColumnEmail";
+            // 
+            // ColumnTelefono
+            // 
+            this.ColumnTelefono.DataPropertyName = "phone";
+            this.ColumnTelefono.HeaderText = "Telefono";
+            this.ColumnTelefono.Name = "ColumnTelefono";
+            // 
+            // ColumnDepartamento
+            // 
+            this.ColumnDepartamento.DataPropertyName = "department_name";
+            this.ColumnDepartamento.HeaderText = "Departamento";
+            this.ColumnDepartamento.Name = "ColumnDepartamento";
             // 
             // panel3
             // 
@@ -509,48 +545,6 @@
             this.logo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.logo.TabIndex = 0;
             this.logo.TabStop = false;
-            // 
-            // ColumnId
-            // 
-            this.ColumnId.DataPropertyName = "id_supplier";
-            this.ColumnId.HeaderText = "ID";
-            this.ColumnId.Name = "ColumnId";
-            this.ColumnId.Width = 46;
-            // 
-            // ColumnManger
-            // 
-            this.ColumnManger.DataPropertyName = "manager_name";
-            this.ColumnManger.HeaderText = "Manger";
-            this.ColumnManger.Name = "ColumnManger";
-            this.ColumnManger.Width = 79;
-            // 
-            // ColumnCompany
-            // 
-            this.ColumnCompany.DataPropertyName = "company_name";
-            this.ColumnCompany.HeaderText = "Compañia";
-            this.ColumnCompany.Name = "ColumnCompany";
-            this.ColumnCompany.Width = 94;
-            // 
-            // ColumnEmail
-            // 
-            this.ColumnEmail.DataPropertyName = "email";
-            this.ColumnEmail.HeaderText = "Email";
-            this.ColumnEmail.Name = "ColumnEmail";
-            this.ColumnEmail.Width = 66;
-            // 
-            // ColumnTelefono
-            // 
-            this.ColumnTelefono.DataPropertyName = "phone";
-            this.ColumnTelefono.HeaderText = "Telefono";
-            this.ColumnTelefono.Name = "ColumnTelefono";
-            this.ColumnTelefono.Width = 86;
-            // 
-            // ColumnDepartamento
-            // 
-            this.ColumnDepartamento.DataPropertyName = "department_name";
-            this.ColumnDepartamento.HeaderText = "Departamento";
-            this.ColumnDepartamento.Name = "ColumnDepartamento";
-            this.ColumnDepartamento.Width = 121;
             // 
             // ViewSuppliers
             // 

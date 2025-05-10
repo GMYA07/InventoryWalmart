@@ -1,4 +1,5 @@
 ﻿using InventoryWalmart.Model;
+using InventoryWalmart.Utils;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -58,17 +59,19 @@ namespace InventoryWalmart.Database
             {
                 using (SqlConnection connection = Connection.ObtenerConexion())
                 {
-                    SqlCommand command = new SqlCommand("sp_InsertSupplier", connection);
+                    SqlCommand command = new SqlCommand("insert_Supplier", connection);
                     command.CommandType = CommandType.StoredProcedure;
 
                     command.Parameters.AddWithValue("@manager_name", supplier.manager_name);
                     command.Parameters.AddWithValue("@company_name", supplier.company_name);
                     command.Parameters.AddWithValue("@email", supplier.email);
                     command.Parameters.AddWithValue("@phone", supplier.phone);
-                    command.Parameters.AddWithValue("@id_department", supplier.department_name);
+                    command.Parameters.AddWithValue("@id_department", supplier.id_department);
 
                     connection.Open();
                     int filasAfectadas = command.ExecuteNonQuery();
+
+                    Utils.Alertas.AlertCorrect("Exito","Usuario insertado correctamente");
                 }
             }
             catch (Exception ex)
@@ -77,6 +80,28 @@ namespace InventoryWalmart.Database
             }
         }
 
+        public static void DeleteSupplier(int id)
+        {
+            try
+            {
+                using (SqlConnection connection = Connection.ObtenerConexion())
+                {
+                    SqlCommand command = new SqlCommand("delete_Supplier", connection);
+                    command.CommandType = CommandType.StoredProcedure;
+
+                    command.Parameters.AddWithValue("@id_supplier", id);
+
+                    connection.Open();
+                    command.ExecuteNonQuery();
+
+                    MessageBox.Show("Proveedor eliminado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al eliminar proveedor: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
 
     }
 }

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using InventoryWalmart.Database;
+using InventoryWalmart.Model;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -77,6 +79,18 @@ namespace InventoryWalmart
         private void BtnRegresar_Click(object sender, EventArgs e)
         {
             ChangeView<ViewSuppliers>();
+        }
+
+        private void btnAgregar_Click(object sender, EventArgs e)
+        {
+            Supplier supp = new Supplier();
+            supp.manager_name = TxtNombre.Text;
+            supp.company_name = Txtcompañia.Text;
+            supp.email = TxtEmail.Text;
+            supp.phone = TxtTelefono.Text;
+            supp.id_department = 1;
+
+            SupplierDAO_.InsertSupplier(supp);
         }
     }
 }

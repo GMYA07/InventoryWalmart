@@ -10,14 +10,16 @@ namespace InventoryWalmart.Model
     {
         public int id_supplier { get; set; }
 
-        public String manager_name { get; set; }
+        public string manager_name { get; set; }
 
-        public String company_name { get; set; }
+        public string company_name { get; set; }
 
-        public String email { get; set; }
+        public string email { get; set; }
 
-        public String phone { get; set; }
+        public string phone { get; set; }
 
-        public String department_name { get; set; }
+        public int id_department { get; set; }
+
+        public string department_name { get; set; }
     }
 }

@@ -133,6 +133,7 @@
     <Compile Include="Utils\Alertas.cs" />
     <Compile Include="Utils\Encriptacion.cs" />
     <Compile Include="Utils\SessionManager.cs" />
+    <Compile Include="Utils\Validar.cs" />
     <Compile Include="viewGestionVentas.cs">
       <SubType>Form</SubType>
     </Compile>

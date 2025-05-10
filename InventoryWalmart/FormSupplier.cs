@@ -26,7 +26,7 @@ namespace InventoryWalmart
                 LblTitulo.Text = "Editar cliente";
                 btnAgregar.Text = "Editar";
                 btnAgregar.BackColor = Color.Blue;
-                //this
+                TraerInfo();
             }
         }
 
@@ -95,6 +95,18 @@ namespace InventoryWalmart
 
         }
 
+        public void TraerInfo()
+        {
+            int id = SupplierDAO_.GetidSup(ViewSuppliers.email);
+            Supplier supp = SupplierDAO_.GetInfoSup(id);
+
+            TxtNombre.Text = supp.manager_name;
+            Txtcompañia.Text= supp.company_name;
+            TxtEmail.Text = supp.email;
+            TxtTelefono.Text = supp.phone;
+            CboDepartamento.SelectedIndex = supp.id_department;
+        }
+
         public void InsertarSupplier()
         {
             Supplier supp = new Supplier();
@@ -102,7 +114,7 @@ namespace InventoryWalmart
             supp.company_name = Txtcompañia.Text;
             supp.email = TxtEmail.Text;
             supp.phone = TxtTelefono.Text;
-            supp.id_department = 1;
+            supp.id_department = CboDepartamento.SelectedIndex;
 
             SupplierDAO_.InsertSupplier(supp);
         }
@@ -117,7 +129,7 @@ namespace InventoryWalmart
             supp.company_name = Txtcompañia.Text;
             supp.email = TxtEmail.Text;
             supp.phone = TxtTelefono.Text;
-            supp.id_department = 1;
+            supp.id_department = CboDepartamento.SelectedIndex;
 
             SupplierDAO_.UpdateSupplier(supp);
         }

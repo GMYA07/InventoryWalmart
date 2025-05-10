@@ -53,9 +53,9 @@ namespace InventoryWalmart.Database
             return suppliers;
         }
 
-        public static List<Supplier> GetInfoSup(int id)
+        public static Supplier GetInfoSup(int id)
         {
-            List<Supplier> suppliers = new List<Supplier>();
+            Supplier suppliers = new Supplier();
 
             string query = $@"SELECT
                             s.id_supplier,
@@ -84,7 +84,7 @@ namespace InventoryWalmart.Database
                     phone = reader.GetString(4),
                     id_department = reader.GetInt32(5)
                 };
-                suppliers.Add(supplier);
+                suppliers = supplier;
             }
 
             reader.Close();
@@ -138,7 +138,7 @@ namespace InventoryWalmart.Database
                     connection.Open();
                     int filasAfectadas = command.ExecuteNonQuery();
 
-                    Alertas.AlertCorrect("Exito","Usuario Actualizado correctamente");
+                    Alertas.AlertCorrect("Exito","Usuario Agregado correctamente");
                 }
             }
             catch (Exception ex)
@@ -166,7 +166,7 @@ namespace InventoryWalmart.Database
                     connection.Open();
                     int filasAfectadas = command.ExecuteNonQuery();
 
-                    Alertas.AlertCorrect("Exito", "Usuario insertado correctamente");
+                    Alertas.AlertCorrect("Exito", "Usuario actualizado correctamente");
                 }
             }
             catch (Exception ex)

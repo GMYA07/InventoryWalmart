@@ -79,7 +79,12 @@ namespace InventoryWalmart.Controllers
             {
              return  accountDAO.update_account(a);
             }
+        }
 
+        public static void borrar(Account a)
+        {
+            AccountDAO accountDAO = new AccountDAO();
+            accountDAO.update_account(a);
         }
     }
 }

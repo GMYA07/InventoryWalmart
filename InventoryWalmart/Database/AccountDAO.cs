@@ -78,7 +78,7 @@ namespace InventoryWalmart.Database
                 string passEncriptada = encriptacion.EncriptarSHA256(acc.GetPassword());
 
                 // Agregar parámetros correctamente
-                cmd.Parameters.AddWithValue("@id_account", acc.GetIdAccount());
+                cmd.Parameters.AddWithValue("@id_user", acc.GetIdUser());
                 cmd.Parameters.AddWithValue("@username", acc.GetUserName());
                 cmd.Parameters.AddWithValue("@pass", passEncriptada);
                 cmd.Parameters.AddWithValue("@status_account", acc.GetStatusAccount());
@@ -91,7 +91,14 @@ namespace InventoryWalmart.Database
             }
             catch (Exception ex)
             {
-                alertas.AlertError("No se pudo ingresar Account", "Error al insertar: " + ex.Message);
+                int tex = acc.GetIdAccount();
+
+                // String id = tex.ToString();
+
+                String id = acc.GetUserName();
+
+
+                alertas.AlertError("No se pudo ingresar Account", "Error al insertar: " + id +  " " + ex.Message);
             }
         }
 
@@ -110,19 +117,33 @@ namespace InventoryWalmart.Database
                 SqlCommand cmd = new SqlCommand("update_account", connection);
                 cmd.CommandType = CommandType.StoredProcedure;
 
-                Encriptacion encriptacion = new Encriptacion();
-                string passEncriptada = encriptacion.EncriptarSHA256(acc.GetPassword());
-
                 cmd.Parameters.AddWithValue("@id_account", acc.GetIdAccount());
-                cmd.Parameters.AddWithValue("@username", acc.GetUserName());
-                cmd.Parameters.AddWithValue("@pass", passEncriptada);
+
+                // Solo enviar username si no es null
+                if (acc.GetUserName() != null)
+                    cmd.Parameters.AddWithValue("@username", acc.GetUserName());
+                else
+                    cmd.Parameters.AddWithValue("@username", DBNull.Value);
+
+                // Solo encriptar y enviar pass si no es null
+                if (acc.GetPassword() != null)
+                {
+                    Encriptacion encriptacion = new Encriptacion();
+                    string passEncriptada = encriptacion.EncriptarSHA256(acc.GetPassword());
+                    cmd.Parameters.AddWithValue("@pass", passEncriptada);
+                }
+                else
+                {
+                    cmd.Parameters.AddWithValue("@pass", DBNull.Value);
+                }
+
                 cmd.Parameters.AddWithValue("@status_account", acc.GetStatusAccount());
 
                 connection.Open();
                 int filasAfectadas = cmd.ExecuteNonQuery();
                 connection.Close();
 
-              return  filasAfectadas > 0 ? true : false;
+                return filasAfectadas > 0;
             }
             catch (Exception ex)
             {
@@ -130,6 +151,7 @@ namespace InventoryWalmart.Database
                 return false;
             }
         }
+
 
     }
 }

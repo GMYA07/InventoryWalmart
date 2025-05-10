@@ -67,6 +67,20 @@ namespace InventoryWalmart
 
                 // Seleccionar el rol en el ComboBox
                 comb_cargo.SelectedValue = User.GetIdRole();
+
+                if (User.status != null && User.status)
+                {
+                    btR_status_account_activo.Checked = true;
+                    btR_status_account_desactivo.Checked = false;
+                }
+                else
+                {
+                    btR_status_account_activo.Checked = false;
+                    btR_status_account_desactivo.Checked = true;
+                }
+
+
+
             }
             else
             {
@@ -156,6 +170,7 @@ namespace InventoryWalmart
             else if (controlador == "")
             {
                 loginController.pasarPassUser(new Account(0, id_user, tex_user.Text.Trim(), tex_pass.Text.Trim(), optenerStado()), controlador);
+               
             }
 
 
@@ -220,6 +235,8 @@ namespace InventoryWalmart
             comb_cargo.DataSource = RolesDAO.TraerRol();
             comb_cargo.DisplayMember = "RoleName"; // Mostrar el nombre del rol
             comb_cargo.ValueMember = "IdRol"; // Usar el id del rol como valor
+
+
         }
 
 

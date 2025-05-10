@@ -203,6 +203,12 @@ namespace InventoryWalmart
             var user2 = Table_user.SelectedRows[0].Tag as User;
             DialogResult resultado = alertas.AlertConfirmacion("Confirmación ", "¿Está seguro de eliminar al user: " + user2.GetFirst_name()+"?");
 
+            if (user2.status)
+            {
+                alertas.AlertError("No se pude","El segistro no se puede elimimar");
+                return;
+            }
+
             if (resultado != DialogResult.Yes)
             {
                return;
@@ -216,8 +222,9 @@ namespace InventoryWalmart
                 if (user != null)
                 {
                     int id = user.GetIdUser();
-                    UserController.borrarUser(id);
-                  //  llenarTabla();
+                    //UserController.borrarUser(id);
+                    loginController.borrar(new Account(user.idAccount, user.GetIdUser(), null, null, false));
+                    llenarTabla();
                 }
                 else
                 {

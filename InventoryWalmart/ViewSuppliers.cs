@@ -39,34 +39,41 @@ namespace InventoryWalmart
             }
         }
 
-       
-        //    public int SeleccionarFila()
-        //    {
-        //        if (Table_Suppliers.SelectedRows.Count != 1)
-        //        {
-        //        MessageBox.Show("Por favor selecciona una sola fila antes de continuar.", "Selección requerida", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-        //        return 0;
-        //        }
 
-        //        // Obtener la fila seleccionada
-        //        DataGridViewRow row = Table_Suppliers.SelectedRows[0];
+        public int ObtenerIdDeFila()
+        {
 
-        //        // Validar y convertir el DataBoundItem
-        //        if (row.DataBoundItem is Supplier registro)
-        //        {
-        //            int id = registro.id_supplier;
+            ValidarSeleccion();
+
+            // Obtener la fila seleccionada
+            DataGridViewRow row = Table_Suppliers.SelectedRows[0];
+
+            // Validar y convertir el DataBoundItem
+            if (row.DataBoundItem is Supplier registro)
+            {
+                int id = registro.id_supplier;
 
 
-        //            return id;
-        //        }
-        //        else
-        //        {
-        //            MessageBox.Show("No se pudo leer la información del proveedor seleccionado.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        //        }
+                return id;
+            }
+            else
+            {
+                MessageBox.Show("No se pudo leer la información del proveedor seleccionado.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
 
-        //        return;
-        //}
-        
+            return 0;
+        }
+
+        public bool ValidarSeleccion()
+        {
+            if (Table_Suppliers.SelectedRows.Count != 1)
+            {
+                MessageBox.Show("Por favor selecciona una sola fila antes de continuar.", "Selección requerida", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+
+            return true;
+        }
 
         //Codigo q nos ayuda con la administrasion de la barra de arriba y mover la ventana.
         //Drag Form
@@ -172,6 +179,11 @@ namespace InventoryWalmart
             ChangeView<FormSupplier>();
         }
 
-        
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            int id = ObtenerIdDeFila();
+            SupplierDAO_.DeleteSupplier(id);
+            cargarTabla();
+        }
     }
 }

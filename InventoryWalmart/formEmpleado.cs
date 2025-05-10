@@ -212,7 +212,7 @@ namespace InventoryWalmart
             comb_departemeto.ValueMember = "id_department"; // Usar el id del departamento como valor
 
             // Llenar ComboBox de distritos
-            comb_distritos.DataSource = DistrictDAO.TraerDistrict();
+            comb_distritos.DataSource = DistrictDAO.TraerDistrict(1);
             comb_distritos.DisplayMember = "district_Name"; // Mostrar el nombre del distrito
             comb_distritos.ValueMember = "Id_district"; // Usar el id del distrito como valor
 
@@ -256,6 +256,17 @@ namespace InventoryWalmart
                 tex_pass.Text = "************";
             }
 
+        }
+
+        private void comb_departemeto_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Department departmentSelec = comb_departemeto.SelectedItem as Department;
+
+
+            // Llenar ComboBox de distritos
+            comb_distritos.DataSource = DistrictDAO.TraerDistrict(departmentSelec.id_department);
+            comb_distritos.DisplayMember = "district_Name"; // Mostrar el nombre del distrito
+            comb_distritos.ValueMember = "Id_district"; // Usar el id del distrito como valor
         }
     }
 }

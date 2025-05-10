@@ -158,6 +158,7 @@ namespace InventoryWalmart
             Table_user.Columns.Add("Rol", "Rol");
             Table_user.Columns.Add("FechaContratacion", "Fecha Contratación");
             Table_user.Columns.Add("FechaNacimiento", "Fecha Nacimiento");
+            Table_user.Columns.Add("Usuario", "Usuario");
             Table_user.Columns.Add("status", "status");
 
 
@@ -176,6 +177,7 @@ namespace InventoryWalmart
                     u.RoleName,
                     u.GetHire_date().ToShortDateString(),
                     u.GetDate_of_birth().ToShortDateString(),
+                    u.nameUsuario,
                     u.status ? "Activo" : "Inactivo"
                 );
 

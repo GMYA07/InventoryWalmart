@@ -36,6 +36,7 @@
             this.btnRestaurar = new System.Windows.Forms.PictureBox();
             this.button1 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.btR_status_account_desactivo = new System.Windows.Forms.RadioButton();
@@ -62,7 +63,6 @@
             this.TxtNombre = new System.Windows.Forms.TextBox();
             this.LblApellido = new System.Windows.Forms.Label();
             this.LblNombre = new System.Windows.Forms.Label();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.barAcciones.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnOcultar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMaximizar)).BeginInit();
@@ -192,6 +192,17 @@
             this.panel1.Size = new System.Drawing.Size(489, 668);
             this.panel1.TabIndex = 12;
             // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(77, 332);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(157, 20);
+            this.checkBox1.TabIndex = 38;
+            this.checkBox1.Text = "Actualizar contraseña";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -262,6 +273,7 @@
             this.comb_departemeto.Name = "comb_departemeto";
             this.comb_departemeto.Size = new System.Drawing.Size(162, 24);
             this.comb_departemeto.TabIndex = 30;
+            this.comb_departemeto.SelectedIndexChanged += new System.EventHandler(this.comb_departemeto_SelectedIndexChanged);
             // 
             // comb_distritos
             // 
@@ -473,17 +485,6 @@
             this.LblNombre.Size = new System.Drawing.Size(73, 23);
             this.LblNombre.TabIndex = 7;
             this.LblNombre.Text = "Nombre";
-            // 
-            // checkBox1
-            // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(77, 332);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(157, 20);
-            this.checkBox1.TabIndex = 38;
-            this.checkBox1.Text = "Actualizar contraseña";
-            this.checkBox1.UseVisualStyleBackColor = true;
-            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
             // formEmpleado
             // 

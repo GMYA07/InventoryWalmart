@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using InventoryWalmart.Controllers;
 using InventoryWalmart.Database;
 using InventoryWalmart.Model;
+using InventoryWalmart.Utils;
 
 namespace InventoryWalmart
 {
@@ -18,8 +19,22 @@ namespace InventoryWalmart
     {
         String controlador = "";
         int id = 0;
+        int idAccount = 0;
+
+
+
+        public formEmpleado()
+        {
+            InitializeComponent();
+            llenarCombox();
+        }
+
+
         public void llenarCampos(User User, String controlador)
         {
+            Alertas alertas = new Alertas();
+
+            this.controlador = controlador;
 
             if (User == null)
             {
@@ -27,9 +42,10 @@ namespace InventoryWalmart
                 return;
             }
 
-            this.controlador = controlador;
-            if (controlador == "Edit"){
+            if (controlador == "Edit")
+            {
                 this.id = User.GetIdUser();
+                this.idAccount = User.idAccount;
             }
 
             if (User != null)
@@ -38,6 +54,7 @@ namespace InventoryWalmart
                 TxtApellido.Text = User.GetLast_name();
                 tex_telefono.Text = User.GetCellphone();
                 tex_dui.Text = User.GetDui();
+                tex_user.Text = User.nameUsuario;
 
                 DtpNacimiento.Value = User.GetDate_of_birth();
                 date_fechaContracion.Value = User.GetHire_date();
@@ -51,14 +68,11 @@ namespace InventoryWalmart
                 // Seleccionar el rol en el ComboBox
                 comb_cargo.SelectedValue = User.GetIdRole();
             }
-
+            else
+            {
+                alertas.AlertError("Error", "No se encontro el usuario");
+            }
         }
-
-        public formEmpleado()
-        {
-            InitializeComponent();
-            llenarCombox();
-        }        
 
         //Codigo q nos ayuda con la administrasion de la barra de arriba y mover la ventana.
         //Drag Form
@@ -105,13 +119,20 @@ namespace InventoryWalmart
             viewUser.Show();
         }
 
+
         private void btnAgregar_Click(object sender, EventArgs e)
         {
+            if (!ValidarCampos())
+                return;
+
             // Obtener los valores de los campos de texto
             string nombre = TxtNombre.Text.Trim();
             string apellido = TxtApellido.Text.Trim();
             string telefono = tex_telefono.Text.Trim();
             string dui = tex_dui.Text.Trim();
+
+            String usuario = tex_user.Text.Trim();
+            String pass = tex_pass.Text.Trim();
 
             DateTime fechaNacimiento = DtpNacimiento.Value;
             DateTime fechaContratacion = date_fechaContracion.Value;
@@ -121,11 +142,23 @@ namespace InventoryWalmart
             District districtSelec = comb_distritos.SelectedItem as District;
             Roles rolSect = comb_cargo.SelectedItem as Roles;
 
-            ValidarCampos();
 
-         int id_user = UserController.pasarUsuerDdd( new User(id, districtSelec.Id_district, rolSect.IdRol, nombre, apellido, fechaNacimiento, fechaContratacion, telefono, dui, departmentSelec.id_department), controlador);
 
-            loginController.pasarPassUser(new Account(0,id_user, tex_user.Text, tex_pass.Text, optenerStado()));
+            int id_user = UserController.pasarUsuerDdd(
+                new User(id, districtSelec.Id_district, rolSect.IdRol, nombre, apellido, fechaNacimiento, fechaContratacion, telefono, dui, departmentSelec.id_department),
+                controlador);
+
+            // se pasa los datos para ingresar el usuario y la contra
+            if(controlador == "Edit")
+            {
+                loginController.pasarPassUser(new Account(idAccount, id_user, tex_user.Text.Trim(), tex_pass.Text.Trim(), optenerStado()), controlador);
+            }
+            else if (controlador == "")
+            {
+                loginController.pasarPassUser(new Account(0, id_user, tex_user.Text.Trim(), tex_pass.Text.Trim(), optenerStado()), controlador);
+            }
+
+
         }
 
         public Boolean optenerStado()
@@ -189,5 +222,40 @@ namespace InventoryWalmart
             comb_cargo.ValueMember = "IdRol"; // Usar el id del rol como valor
         }
 
+
+        public void esconderRadioButon(String operecion)
+        {
+            if (operecion == "Edit")
+            {
+                checkBox1.Visible = true;
+                tex_pass.ReadOnly = true;
+                tex_pass.Text = "************"; 
+                return;
+            }
+            else if (operecion == "Add")
+            {
+                checkBox1.Visible = false;
+                tex_pass.ReadOnly = false;
+                tex_pass.Clear();
+                return;
+            }
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+
+            if (checkBox1.Checked)
+            {
+                tex_pass.ReadOnly = false;
+                tex_pass.Clear();
+            }
+            else
+            {
+                tex_pass.ReadOnly = true;
+
+                tex_pass.Text = "************";
+            }
+
+        }
     }
 }

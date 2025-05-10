@@ -65,34 +65,6 @@ namespace InventoryWalmart.Database
         }
 
 
-
-        public void insertarAccount2(Account acc)
-        {
-            Account accountObtenida = new Account();
-            string query = $"EXEC insert_account '{acc.GetIdUser()}', '{acc.GetUserName()}', '{acc.GetPassword()}', {acc.GetStatusAccount()}";
-            try
-            {
-                SqlConnection conn = Connection.ObtenerConexion();
-                SqlCommand cmd = new SqlCommand(query, conn);
-                cmd.CommandType = CommandType.StoredProcedure;
-
-                cmd.Parameters.AddWithValue("@id_user", acc.GetIdUser());
-                cmd.Parameters.AddWithValue("@username", acc.GetUserName());
-                cmd.Parameters.AddWithValue("@status_account", acc.GetStatusAccount());
-
-                conn.Open();
-                object result = cmd.ExecuteScalar();
-                conn.Close();
-                Console.WriteLine("Account se ingreso correcta mete");
-            }
-            catch (Exception ex)
-            {
-                alertas.AlertError("No se pudo ingresar Account","Error al insertar: " + ex);
-            }
-        }
-
-
-
         public void insertarAccount(Account acc)
         {
             try
@@ -106,7 +78,7 @@ namespace InventoryWalmart.Database
                 string passEncriptada = encriptacion.EncriptarSHA256(acc.GetPassword());
 
                 // Agregar parámetros correctamente
-                cmd.Parameters.AddWithValue("@id_user", acc.GetIdUser());
+                cmd.Parameters.AddWithValue("@id_account", acc.GetIdAccount());
                 cmd.Parameters.AddWithValue("@username", acc.GetUserName());
                 cmd.Parameters.AddWithValue("@pass", passEncriptada);
                 cmd.Parameters.AddWithValue("@status_account", acc.GetStatusAccount());
@@ -122,5 +94,42 @@ namespace InventoryWalmart.Database
                 alertas.AlertError("No se pudo ingresar Account", "Error al insertar: " + ex.Message);
             }
         }
+
+
+
+
+
+
+
+
+        public Boolean update_account(Account acc)
+        {
+            try
+            {
+                SqlConnection connection = Connection.ObtenerConexion();
+                SqlCommand cmd = new SqlCommand("update_account", connection);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                Encriptacion encriptacion = new Encriptacion();
+                string passEncriptada = encriptacion.EncriptarSHA256(acc.GetPassword());
+
+                cmd.Parameters.AddWithValue("@id_account", acc.GetIdAccount());
+                cmd.Parameters.AddWithValue("@username", acc.GetUserName());
+                cmd.Parameters.AddWithValue("@pass", passEncriptada);
+                cmd.Parameters.AddWithValue("@status_account", acc.GetStatusAccount());
+
+                connection.Open();
+                int filasAfectadas = cmd.ExecuteNonQuery();
+                connection.Close();
+
+              return  filasAfectadas > 0 ? true : false;
+            }
+            catch (Exception ex)
+            {
+                alertas.AlertError("No se pudo actualizar Account", "Error al actualizar: " + ex.Message);
+                return false;
+            }
+        }
+
     }
 }

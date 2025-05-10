@@ -39,9 +39,6 @@ namespace InventoryWalmart.Controllers
             dao.eliminarUser(id);
         }
 
-        public static void editarUser (User user, String controlador){
-
-        }
 
     }
 }

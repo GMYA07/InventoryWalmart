@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using InventoryWalmart.Controllers;
 using InventoryWalmart.Database;
 using InventoryWalmart.Model;
+using InventoryWalmart.Utils;
 
 namespace InventoryWalmart
 {
@@ -86,6 +87,7 @@ namespace InventoryWalmart
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             formEmpleado empleado = new formEmpleado();
+            empleado.esconderRadioButon("Add");
             this.Hide();
             empleado.Show();
         }
@@ -159,6 +161,7 @@ namespace InventoryWalmart
             Table_user.Columns.Add("status", "status");
 
 
+
             var usuarios = UserDAO.TraerUsuarios();
 
             // Ahora agregamos las filas
@@ -194,15 +197,25 @@ namespace InventoryWalmart
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
+            Alertas alertas = new Alertas();
+            var user2 = Table_user.SelectedRows[0].Tag as User;
+            DialogResult resultado = alertas.AlertConfirmacion("Confirmación ", "¿Está seguro de eliminar al user: " + user2.GetFirst_name()+"?");
+
+            if (resultado != DialogResult.Yes)
+            {
+               return;
+            }
+
+
             if (Table_user.SelectedRows.Count > 0)
             {
-                var user = Table_user.SelectedRows[0].Tag as User;
+               var user = Table_user.SelectedRows[0].Tag as User;
 
                 if (user != null)
                 {
                     int id = user.GetIdUser();
                     UserController.borrarUser(id);
-                    llenarTabla();
+                  //  llenarTabla();
                 }
                 else
                 {
@@ -226,6 +239,7 @@ namespace InventoryWalmart
                 {
                     formEmpleado empleado = new formEmpleado();
                     empleado.llenarCampos(usuario, "Edit");
+                    empleado.esconderRadioButon("Edit");
                     empleado.Show();
                     this.Hide();
                 }

@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using InventoryWalmart.Utils;
 using InventoryWalmart.Model;
 using InventoryWalmart.Database;
+using System.ComponentModel;
+using System.Windows.Forms;
 
 namespace InventoryWalmart.Controllers
 {
@@ -65,10 +67,18 @@ namespace InventoryWalmart.Controllers
 
 
 
-        public static void pasarPassUser(Account a)
+        public static Boolean pasarPassUser(Account a, String proseso)
         {
             AccountDAO accountDAO = new AccountDAO();
-            accountDAO.insertarAccount(a);
+            if (proseso != "Edit")
+            {
+                accountDAO.insertarAccount(a);
+                return false;
+            }
+            else
+            {
+             return  accountDAO.update_account(a);
+            }
 
         }
     }

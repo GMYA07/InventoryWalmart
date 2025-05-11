@@ -13,7 +13,7 @@ namespace InventoryWalmart.Utils
         public Alertas() { }
 
         //Metodos
-        public void AlertError(string tituloAlerta, string razoAlerta)
+        public static void AlertError(string tituloAlerta, string razoAlerta)
         {
             MessageBox.Show(razoAlerta,tituloAlerta, MessageBoxButtons.OK, MessageBoxIcon.Error);
         }

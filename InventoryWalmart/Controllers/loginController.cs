@@ -13,7 +13,6 @@ namespace InventoryWalmart.Controllers
 {
     internal class loginController
     {
-        Alertas Alerta = new Alertas();
 
         public Boolean IniciarSesion(string userName, string pass) {
 
@@ -54,13 +53,13 @@ namespace InventoryWalmart.Controllers
                 }
                 else
                 {
-                    Alerta.AlertError("No se pudo iniciar Sesion", "No se ha encontrado el usuario en la bdd");
+                    Alertas.AlertError("No se pudo iniciar Sesion", "No se ha encontrado el usuario en la bdd");
                     return false; //para cerrar la ventana anterior
                 }
             }
             else
             {
-                Alerta.AlertError("No se pudo iniciar Sesion","No se ha podido Iniciar Sesion");
+                Alertas.AlertError("No se pudo iniciar Sesion", "No se ha encontrado el usuario en la bdd");
                 return false; //para cerrar la ventana anterior
             }
         }
@@ -69,7 +68,6 @@ namespace InventoryWalmart.Controllers
 
         public static void pasarPassUser(Account a, string proceso)
         {
-            Alertas alerta = new Alertas();
             AccountDAO accountDAO = new AccountDAO();
             bool resultado = false;
 
@@ -80,16 +78,16 @@ namespace InventoryWalmart.Controllers
                     resultado = accountDAO.insertarAccount(a);
                     if (resultado)
                     {
-                        alerta.AlertCorrect("Usuario creado", "El usuario se agregó correctamente.");
+                        Alertas.AlertCorrect("Usuario creado", "El usuario se agregó correctamente.");
                     }
                     else
                     {
-                        alerta.AlertError("Error", "No se pudo crear la cuenta asociada.");
+                        Alertas.AlertError("Error", "No se pudo crear la cuenta asociada.");
                     }
                 }
                 else
                 {
-                    alerta.AlertError("Error", "No se pudo crear el usuario.");
+                    Alertas.AlertError("Error", "No se pudo crear el usuario.");
                 }
             }
             else

@@ -32,8 +32,7 @@ namespace InventoryWalmart
 
         public void llenarCampos(User User, String controlador)
         {
-            Alertas alertas = new Alertas();
-
+          
             this.controlador = controlador;
 
             btnAgregar.Text = "Actualizar";
@@ -77,7 +76,7 @@ namespace InventoryWalmart
             }
             else
             {
-                alertas.AlertError("Error", "No se encontro el usuario");
+                Alertas.AlertError("Error", "No se encontro el usuario");
             }
         }
 

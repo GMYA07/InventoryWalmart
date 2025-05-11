@@ -80,7 +80,7 @@ namespace InventoryWalmart.Controllers
                     resultado = accountDAO.insertarAccount(a);
                     if (resultado)
                     {
-                        alerta.AlertCorrect("Usuario creado", "El usuario se agregó correctamente.");
+                        Alertas.AlertCorrect("Usuario creado", "El usuario se agregó correctamente.");
                     }
                     else
                     {

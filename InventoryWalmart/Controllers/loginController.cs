@@ -59,7 +59,7 @@ namespace InventoryWalmart.Controllers
             }
             else
             {
-                Alertas.AlertError("No se pudo iniciar Sesion", "No se ha encontrado el usuario en la bdd");
+                Alertas.AlertError("No se pudo iniciar Sesion", "No se ha encontrado el cuenta en la bdd");
                 return false; //para cerrar la ventana anterior
             }
         }

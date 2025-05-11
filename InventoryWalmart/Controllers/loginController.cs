@@ -67,24 +67,35 @@ namespace InventoryWalmart.Controllers
 
 
 
-        public static Boolean pasarPassUser(Account a, String proseso)
+        public static void pasarPassUser(Account a, string proceso)
         {
+            Alertas alerta = new Alertas();
             AccountDAO accountDAO = new AccountDAO();
-            if (proseso != "Edit")
+            bool resultado = false;
+
+            if (proceso != "Edit")
             {
-                accountDAO.insertarAccount(a);
-                return false;
+                if (a.GetIdUser() != -1)
+                {
+                    resultado = accountDAO.insertarAccount(a);
+                    if (resultado)
+                    {
+                        alerta.AlertCorrect("Usuario creado", "El usuario se agregó correctamente.");
+                    }
+                    else
+                    {
+                        alerta.AlertError("Error", "No se pudo crear la cuenta asociada.");
+                    }
+                }
+                else
+                {
+                    alerta.AlertError("Error", "No se pudo crear el usuario.");
+                }
             }
             else
             {
-             return  accountDAO.update_account(a);
+                 accountDAO.update_account(a);
             }
-        }
-
-        public static void borrar(Account a)
-        {
-            AccountDAO accountDAO = new AccountDAO();
-            accountDAO.update_account(a);
         }
     }
 }

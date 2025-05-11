@@ -36,11 +36,7 @@ namespace InventoryWalmart
 
             this.controlador = controlador;
 
-            if (User == null)
-            {
-                MessageBox.Show("El usuario no fue pasado correctamente.");
-                return;
-            }
+            btnAgregar.Text = "Actualizar";
 
             if (controlador == "Edit")
             {
@@ -78,9 +74,6 @@ namespace InventoryWalmart
                     btR_status_account_activo.Checked = false;
                     btR_status_account_desactivo.Checked = true;
                 }
-
-
-
             }
             else
             {
@@ -180,22 +173,17 @@ namespace InventoryWalmart
             else if (controlador == "")
             {
                 loginController.pasarPassUser(new Account(0, id_user, tex_user.Text.Trim(), tex_pass.Text.Trim(), optenerStado()), controlador);
-               
             }
         }
 
         public Boolean optenerStado()
         {
             Boolean estadoCuenta = false;
-
             if (btR_status_account_activo.Checked)
-            {
-                estadoCuenta = true;
-            }
+                estadoCuenta = true;   
             else if (btR_status_account_desactivo.Checked)
-            {
                 estadoCuenta = false;
-            }
+            
             return estadoCuenta;
         }
 
@@ -287,11 +275,10 @@ namespace InventoryWalmart
         {
             Department departmentSelec = comb_departemeto.SelectedItem as Department;
 
-
             // Llenar ComboBox de distritos
             comb_distritos.DataSource = DistrictDAO.TraerDistrict(departmentSelec.id_department);
-            comb_distritos.DisplayMember = "district_Name"; // Mostrar el nombre del distrito
-            comb_distritos.ValueMember = "Id_district"; // Usar el id del distrito como valor
+            comb_distritos.DisplayMember = "district_Name";
+            comb_distritos.ValueMember = "Id_district"; 
         }
     }
 }

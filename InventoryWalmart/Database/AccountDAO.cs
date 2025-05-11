@@ -67,7 +67,7 @@ namespace InventoryWalmart.Database
         }
 
 
-        public void insertarAccount(Account acc)
+        public Boolean insertarAccount(Account acc)
         {
             try
             {
@@ -90,24 +90,14 @@ namespace InventoryWalmart.Database
                 conn.Close();
 
                 Console.WriteLine("Account se ingresó correctamente");
+                return true;
             }
             catch (Exception ex)
             {
-                int tex = acc.GetIdAccount();
-
-                // String id = tex.ToString();
-
-                String id = acc.GetUserName();
-
-
-                alertas.AlertError("No se pudo ingresar Account", "Error al insertar: " + id +  " " + ex.Message);
+                Console.WriteLine("No se pudo ingresar Account", "Error al insertar: "+ ex.Message);
+                return false;
             }
         }
-
-
-
-
-
 
 
 
@@ -143,7 +133,7 @@ namespace InventoryWalmart.Database
             }
             catch (Exception ex)
             {
-                alertas.AlertError("No se pudo actualizar Account", "Error al actualizar: " + ex.Message);
+                Console.WriteLine("No se pudo actualizar Account", "Error al actualizar por que pusta maaaaaaaaaaa: " + ex.Message);
                 return false;
             }
         }

@@ -17,28 +17,14 @@ namespace InventoryWalmart.Controllers
 
             if (controlador != "Edit")
             {
-                int id;
-             return id = dao.insertarUsers(u);
+             return dao.insertarUsers(u);
             }
             else
             {
                 dao.EditarUser(u);
-                return 0;   
+                return -1;   
             }
         }
-
-        public static void pasarLogin()
-        {
-
-        }
-
-
-        public static void borrarUser(int id)
-        {
-            UserDAO dao = new UserDAO();
-            dao.eliminarUser(id);
-        }
-
 
     }
 }

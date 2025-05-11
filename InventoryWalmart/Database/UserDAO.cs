@@ -118,12 +118,12 @@ namespace InventoryWalmart.Database
                 if (result != null)
                 {
                     newId = Convert.ToInt32(result);
-                    MessageBox.Show("Usuario insertado", "Inserción exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    Console.WriteLine("Usuario insertado", "Inserción exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
             catch (SqlException ex)
             {
-                MessageBox.Show("Error al insertar el Usuario: " + ex.Message, "Error de inserción", MessageBoxButtons.OK, MessageBoxIcon.Error);
+              Console.WriteLine("Error al insertar el Usuario: " + ex.Message + "Error de inserción", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
             return newId;

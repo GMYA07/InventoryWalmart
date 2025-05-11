@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using InventoryWalmart.Controllers;
 using InventoryWalmart.Database;
 using InventoryWalmart.Model;
+using InventoryWalmart.Utils;
 
 namespace InventoryWalmart
 {
@@ -86,6 +87,7 @@ namespace InventoryWalmart
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             formEmpleado empleado = new formEmpleado();
+            empleado.esconderRadioButon("Add");
             this.Hide();
             empleado.Show();
         }
@@ -141,26 +143,6 @@ namespace InventoryWalmart
         }
 
 
-        private void llenarTabla2()
-        {
-            var usuarios = UserDAO.TraerUsuarios();
-
-            var datos = usuarios.Select(u => new
-            {
-                Nombre = u.GetFirst_name() + " " + u.GetLast_name(),
-                Telefono = u.GetCellphone(),
-                DUI = u.GetDui(),
-                Departamento = u.DepartmentName,  // Aquí usas el nombre del departamento
-                Distrito = u.DistrictName,       // Aquí usas el nombre del distrito
-                Rol = u.RoleName,                // Aquí usas el nombre del rol
-                FechaContratacion = u.GetHire_date().ToShortDateString(),
-                FechaNacimiento = u.GetDate_of_birth().ToShortDateString(),
-                Estado = "Activo",
-                Id = u.GetIdUser()
-            }).ToList();
-
-            Table_user.DataSource = datos;
-        }
 
         private void llenarTabla()
         {
@@ -176,6 +158,10 @@ namespace InventoryWalmart
             Table_user.Columns.Add("Rol", "Rol");
             Table_user.Columns.Add("FechaContratacion", "Fecha Contratación");
             Table_user.Columns.Add("FechaNacimiento", "Fecha Nacimiento");
+            Table_user.Columns.Add("Usuario", "Usuario");
+            Table_user.Columns.Add("status", "status");
+
+
 
             var usuarios = UserDAO.TraerUsuarios();
 
@@ -190,7 +176,9 @@ namespace InventoryWalmart
                     u.DistrictName,
                     u.RoleName,
                     u.GetHire_date().ToShortDateString(),
-                    u.GetDate_of_birth().ToShortDateString()
+                    u.GetDate_of_birth().ToShortDateString(),
+                    u.nameUsuario,
+                    u.status ? "Activo" : "Inactivo"
                 );
 
                 // Asignar el objeto User a la propiedad Tag de la fila
@@ -204,35 +192,6 @@ namespace InventoryWalmart
         }
 
 
-        public void setIdUser(int idUser)
-        {
-            this.idUser = idUser;
-        }
-
-        private void btnEliminar_Click(object sender, EventArgs e)
-        {
-            if (Table_user.SelectedRows.Count > 0)
-            {
-                var user = Table_user.SelectedRows[0].Tag as User;
-
-                if (user != null)
-                {
-                    int id = user.GetIdUser();
-                    UserController.borrarUser(id);
-                    llenarTabla();
-                }
-                else
-                {
-                    MessageBox.Show("Error: No se encontró el usuario en la fila.");
-                }
-            }
-            else
-            {
-                MessageBox.Show("Por favor, seleccione una fila para continuar.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-        }
-
-
         private void btnModificar_Click(object sender, EventArgs e)
         {
             if (Table_user.SelectedRows.Count > 0)
@@ -243,6 +202,7 @@ namespace InventoryWalmart
                 {
                     formEmpleado empleado = new formEmpleado();
                     empleado.llenarCampos(usuario, "Edit");
+                    empleado.esconderRadioButon("Edit");
                     empleado.Show();
                     this.Hide();
                 }

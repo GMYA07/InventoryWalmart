@@ -90,10 +90,11 @@ namespace InventoryWalmart.Database
 
         }
 
-       
 
-        public void insertarUsers(User u)
+        public int insertarUsers(User u)
         {
+            int newId = -1;
+
             try
             {
                 SqlConnection conn = Connection.ObtenerConexion();
@@ -111,18 +112,23 @@ namespace InventoryWalmart.Database
                 cmd.Parameters.AddWithValue("@id_role", u.GetIdRole());
 
                 conn.Open();
-                cmd.ExecuteNonQuery();
+                object result = cmd.ExecuteScalar(); 
                 conn.Close();
 
-                MessageBox.Show("Usuario insertado correctamente", "Inserción exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
+                if (result != null)
+                {
+                    newId = Convert.ToInt32(result);
+                    Console.WriteLine("Usuario insertado", "Inserción exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
             }
             catch (SqlException ex)
             {
-                MessageBox.Show("Error al insertar el Usuario: " + ex.Message, "Error de inserción", MessageBoxButtons.OK, MessageBoxIcon.Error);
+              Console.WriteLine("Error al insertar el Usuario: " + ex.Message + "Error de inserción", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
+            return newId;
         }
+
 
 
 
@@ -131,24 +137,27 @@ namespace InventoryWalmart.Database
             List<User> listaUsuarios = new List<User>();
 
             string query = @"
-    SELECT 
-        u.id_user, 
-        u.first_name, 
-        u.last_name, 
-        u.date_of_birth, 
-        u.hire_date, 
-        u.cellphone, 
-        u.dui, 
-        d.department_name,  -- Nombre del departamento
-        dis.district_name,  -- Nombre del distrito
-        r.role_name,        -- Nombre del rol
-        u.id_department,    -- ID del departamento
-        u.id_district,      -- ID del distrito
-        u.id_role           -- ID del rol
-    FROM USERS u
-    JOIN DEPARTMENT d ON u.id_department = d.id_department
-    JOIN DISTRICT dis ON u.id_district = dis.id_district
-    JOIN ROLES r ON u.id_role = r.id_role;
+	SELECT u.id_user, 
+       u.first_name, 
+       u.last_name, 
+       u.date_of_birth, 
+       u.hire_date, 
+       u.cellphone, 
+       u.dui, 
+       d.department_name,  
+       dis.district_name,  
+       r.role_name,        
+	   a.status_account,
+	   a.username,
+       u.id_department,    
+       u.id_district,      
+       u.id_role,
+	   a.id_account
+FROM USERS u	
+JOIN DEPARTMENT d ON u.id_department = d.id_department
+JOIN DISTRICT dis ON u.id_district = dis.id_district
+JOIN ROLES r ON u.id_role = r.id_role
+JOIN ACCOUNT a On a.id_user = u.id_user;
 ";
 
             using (SqlConnection conn = Connection.ObtenerConexion())
@@ -176,11 +185,13 @@ namespace InventoryWalmart.Database
                                 user.DepartmentName = reader.GetString(7); 
                                 user.DistrictName = reader.GetString(8);   
                                 user.RoleName = reader.GetString(9);       
-
+                                user.status = reader.GetBoolean(10);
+                                user.nameUsuario = reader.GetString(11);
                                 // Asignar los ID (si los necesitas)
-                                user.SetIdDepartment(reader.GetInt32(10));
-                                user.SetIdDistrict(reader.GetInt32(11));
-                                user.SetIdRole(reader.GetInt32(12));
+                                user.SetIdDepartment(reader.GetInt32(12));
+                                user.SetIdDistrict(reader.GetInt32(13));
+                                user.SetIdRole(reader.GetInt32(14));
+                                user.idAccount = reader.GetInt32(15);
 
                                 listaUsuarios.Add(user);
                             }

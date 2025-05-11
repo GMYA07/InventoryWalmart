@@ -21,5 +21,11 @@ namespace InventoryWalmart.Utils
         public void AlertCorrect(string tituloAlerta, string razoAlerta) { 
             MessageBox.Show(razoAlerta,tituloAlerta, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
         }
+
+        public DialogResult AlertConfirmacion(string tituloAlerta, string mensajeAlerta)
+        {
+            return MessageBox.Show(mensajeAlerta, tituloAlerta, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+        }
+
     }
 }

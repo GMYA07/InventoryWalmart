@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using InventoryWalmart.Utils;
 using InventoryWalmart.Model;
 using InventoryWalmart.Database;
+using System.ComponentModel;
+using System.Windows.Forms;
 
 namespace InventoryWalmart.Controllers
 {
@@ -60,6 +62,39 @@ namespace InventoryWalmart.Controllers
             {
                 Alerta.AlertError("No se pudo iniciar Sesion","No se ha podido Iniciar Sesion");
                 return false; //para cerrar la ventana anterior
+            }
+        }
+
+
+
+        public static void pasarPassUser(Account a, string proceso)
+        {
+            Alertas alerta = new Alertas();
+            AccountDAO accountDAO = new AccountDAO();
+            bool resultado = false;
+
+            if (proceso != "Edit")
+            {
+                if (a.GetIdUser() != -1)
+                {
+                    resultado = accountDAO.insertarAccount(a);
+                    if (resultado)
+                    {
+                        alerta.AlertCorrect("Usuario creado", "El usuario se agregó correctamente.");
+                    }
+                    else
+                    {
+                        alerta.AlertError("Error", "No se pudo crear la cuenta asociada.");
+                    }
+                }
+                else
+                {
+                    alerta.AlertError("Error", "No se pudo crear el usuario.");
+                }
+            }
+            else
+            {
+                 accountDAO.update_account(a);
             }
         }
     }

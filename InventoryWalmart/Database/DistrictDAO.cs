@@ -12,11 +12,11 @@ namespace InventoryWalmart.Database
 
     internal class DistrictDAO
     {
-        public static List<District> TraerDistrict()
+        public static List<District> TraerDistrict(int id)
         {
             List<District> lista = new List<District>();
 
-            string query = "SELECT Id_district, district_Name, id_department FROM district";
+            string query = $"SELECT Id_district, district_Name, id_department FROM district WHERE id_department = {id}";
             SqlConnection connection = Connection.ObtenerConexion();
             SqlCommand command = new SqlCommand(query, connection);
 

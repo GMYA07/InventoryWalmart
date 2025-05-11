@@ -33,5 +33,12 @@ namespace InventoryWalmart.Utils
 
             return resultado == DialogResult.Yes;
         }
+
+        public DialogResult AlertConfirmacion(string tituloAlerta, string mensajeAlerta)
+        {
+            return MessageBox.Show(mensajeAlerta, tituloAlerta, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+        }
+
+
     }
 }

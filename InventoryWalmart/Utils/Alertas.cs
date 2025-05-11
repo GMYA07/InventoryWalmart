@@ -18,14 +18,27 @@ namespace InventoryWalmart.Utils
             MessageBox.Show(razoAlerta,tituloAlerta, MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
-        public void AlertCorrect(string tituloAlerta, string razoAlerta) { 
+        public static void AlertCorrect(string tituloAlerta, string razoAlerta) { 
             MessageBox.Show(razoAlerta,tituloAlerta, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+        }
+
+        public static void AlertInfo(string tituloAlerta, string razoAlerta)
+        {
+            MessageBox.Show(razoAlerta, tituloAlerta, MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        public static bool Confirmacion(string tituloAlerta, string razoAlerta)
+        {
+            DialogResult resultado = MessageBox.Show(razoAlerta, tituloAlerta, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            return resultado == DialogResult.Yes;
         }
 
         public DialogResult AlertConfirmacion(string tituloAlerta, string mensajeAlerta)
         {
             return MessageBox.Show(mensajeAlerta, tituloAlerta, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
         }
+
 
     }
 }

@@ -157,6 +157,16 @@ namespace InventoryWalmart
             Roles rolSect = comb_cargo.SelectedItem as Roles;
 
 
+            // valida que no se actualize la contra al no querer
+            String Pass;
+            if (!checkBox1.Checked)
+            {
+                pass = null;
+            }
+            else
+            {
+                pass = tex_pass.Text;
+            }
 
             int id_user = UserController.pasarUsuerDdd(
                 new User(id, districtSelec.Id_district, rolSect.IdRol, nombre, apellido, fechaNacimiento, fechaContratacion, telefono, dui, departmentSelec.id_department),
@@ -165,15 +175,13 @@ namespace InventoryWalmart
             // se pasa los datos para ingresar el usuario y la contra
             if(controlador == "Edit")
             {
-                loginController.pasarPassUser(new Account(idAccount, id_user, tex_user.Text.Trim(), tex_pass.Text.Trim(), optenerStado()), controlador);
+                loginController.pasarPassUser(new Account(idAccount, id_user, tex_user.Text.Trim(), pass, optenerStado()), controlador);
             }
             else if (controlador == "")
             {
                 loginController.pasarPassUser(new Account(0, id_user, tex_user.Text.Trim(), tex_pass.Text.Trim(), optenerStado()), controlador);
                
             }
-
-
         }
 
         public Boolean optenerStado()

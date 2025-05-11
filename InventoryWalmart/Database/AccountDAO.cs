@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using InventoryWalmart.Model;
 using InventoryWalmart.Utils;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
@@ -119,12 +121,6 @@ namespace InventoryWalmart.Database
 
                 cmd.Parameters.AddWithValue("@id_account", acc.GetIdAccount());
 
-                // Solo enviar username si no es null
-                if (acc.GetUserName() != null)
-                    cmd.Parameters.AddWithValue("@username", acc.GetUserName());
-                else
-                    cmd.Parameters.AddWithValue("@username", DBNull.Value);
-
                 // Solo encriptar y enviar pass si no es null
                 if (acc.GetPassword() != null)
                 {
@@ -136,7 +132,7 @@ namespace InventoryWalmart.Database
                 {
                     cmd.Parameters.AddWithValue("@pass", DBNull.Value);
                 }
-
+                cmd.Parameters.AddWithValue("@username", acc.GetUserName());
                 cmd.Parameters.AddWithValue("@status_account", acc.GetStatusAccount());
 
                 connection.Open();

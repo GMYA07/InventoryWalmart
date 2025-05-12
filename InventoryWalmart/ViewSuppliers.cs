@@ -41,42 +41,6 @@ namespace InventoryWalmart
             }
         }
 
-
-        public int ObtenerIdDeFila()
-        {
-
-            ValidarSeleccion();
-
-            // Obtener la fila seleccionada
-            DataGridViewRow row = Table_Suppliers.SelectedRows[0];
-
-            // Validar y convertir el DataBoundItem
-            if (row.DataBoundItem is Supplier registro)
-            {
-                int id = registro.id_supplier;
-
-
-                return id;
-            }
-            else
-            {
-                MessageBox.Show("No se pudo leer la información del proveedor seleccionado.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-
-            return 0;
-        }
-
-        public bool ValidarSeleccion()
-        {
-            if (Table_Suppliers.SelectedRows.Count != 1)
-            {
-                MessageBox.Show("Por favor selecciona una sola fila antes de continuar.", "Selección requerida", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return false;
-            }
-
-            return true;
-        }
-
         //Codigo q nos ayuda con la administrasion de la barra de arriba y mover la ventana.
         //Drag Form
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
@@ -171,6 +135,41 @@ namespace InventoryWalmart
         {
             opcion = "agregar";
             ChangeView<FormSupplier>();
+        }
+
+        public int ObtenerIdDeFila()
+        {
+
+            ValidarSeleccion();
+
+            // Obtener la fila seleccionada
+            DataGridViewRow row = Table_Suppliers.SelectedRows[0];
+
+            // Validar y convertir el DataBoundItem
+            if (row.DataBoundItem is Supplier registro)
+            {
+                int id = registro.id_supplier;
+
+
+                return id;
+            }
+            else
+            {
+                MessageBox.Show("No se pudo leer la información del proveedor seleccionado.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            return 0;
+        }
+
+        public bool ValidarSeleccion()
+        {
+            if (Table_Suppliers.SelectedRows.Count != 1)
+            {
+                MessageBox.Show("Por favor selecciona una sola fila antes de continuar.", "Selección requerida", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+
+            return true;
         }
 
         private void btnModificar_Click(object sender, EventArgs e)

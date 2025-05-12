@@ -18,11 +18,14 @@ namespace InventoryWalmart
         public FormSupplier()
         {
             InitializeComponent();
+            ActualizarCombo();
 
-            if (ViewSuppliers.opcion == "agregar"){
+            if (ViewSuppliers.opcion == "agregar")
+            {
 
             }
-            else{
+            else
+            {
                 LblTitulo.Text = "Editar cliente";
                 btnAgregar.Text = "Editar";
                 btnAgregar.BackColor = Color.Blue;
@@ -101,10 +104,10 @@ namespace InventoryWalmart
             Supplier supp = SupplierDAO_.GetInfoSup(id);
 
             TxtNombre.Text = supp.manager_name;
-            Txtcompañia.Text= supp.company_name;
+            Txtcompañia.Text = supp.company_name;
             TxtEmail.Text = supp.email;
             TxtTelefono.Text = supp.phone;
-            CboDepartamento.SelectedIndex = supp.id_department;
+            CboDepartamento.SelectedIndex = supp.id_department - 1;
         }
 
         public void InsertarSupplier()
@@ -114,7 +117,7 @@ namespace InventoryWalmart
             supp.company_name = Txtcompañia.Text;
             supp.email = TxtEmail.Text;
             supp.phone = TxtTelefono.Text;
-            supp.id_department = CboDepartamento.SelectedIndex;
+            supp.id_department = CboDepartamento.SelectedIndex + 1;
 
             SupplierDAO_.InsertSupplier(supp);
         }
@@ -124,14 +127,22 @@ namespace InventoryWalmart
             string correo = ViewSuppliers.email;
 
             Supplier supp = new Supplier();
-            supp.id_supplier = SupplierDAO_.GetidSup(correo) ;
+            supp.id_supplier = SupplierDAO_.GetidSup(correo);
             supp.manager_name = TxtNombre.Text;
             supp.company_name = Txtcompañia.Text;
             supp.email = TxtEmail.Text;
             supp.phone = TxtTelefono.Text;
-            supp.id_department = CboDepartamento.SelectedIndex;
+            supp.id_department = CboDepartamento.SelectedIndex + 1;
 
             SupplierDAO_.UpdateSupplier(supp);
+        }
+
+        public void ActualizarCombo()
+        {
+            CboDepartamento.DataSource = DepartmentDAO.TraerDepartments();
+            CboDepartamento.DisplayMember = "department_name"; 
+            CboDepartamento.ValueMember = "id_department";     
+
         }
     }
 }

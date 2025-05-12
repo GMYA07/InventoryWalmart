@@ -275,6 +275,7 @@
             this.barAcciones.Name = "barAcciones";
             this.barAcciones.Size = new System.Drawing.Size(1280, 59);
             this.barAcciones.TabIndex = 18;
+            this.barAcciones.MouseDown += new System.Windows.Forms.MouseEventHandler(this.barAcciones_MouseDown);
             // 
             // btnOcultar
             // 

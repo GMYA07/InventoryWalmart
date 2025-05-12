@@ -404,6 +404,7 @@
   <ItemGroup>
     <Content Include="Database\ArchivosBDD\CREACION DE FUNCIONES.sql" />
     <Content Include="Database\ArchivosBDD\CREACIONBDD.sql" />
+    <Content Include="Database\ArchivosBDD\departments_district.sql" />
     <Content Include="Database\ArchivosBDD\Trggers InventoryWalmart.sql" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

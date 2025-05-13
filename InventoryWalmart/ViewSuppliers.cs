@@ -1,4 +1,7 @@
-﻿using System;
+﻿using InventoryWalmart.Database;
+using InventoryWalmart.Model;
+using InventoryWalmart.Utils;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -8,20 +11,35 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace InventoryWalmart
 {
     public partial class ViewSuppliers : Form
     {
 
+        public static string email = "";
         public static string opcion = "";
 
         public ViewSuppliers()
         {
             InitializeComponent();
+            cargarTabla();
         }
 
-
+        public void cargarTabla()
+        {
+            try
+            {
+                Table_Suppliers.AutoGenerateColumns = false;
+                var lista = SupplierDAO_.GetSuppliers();
+                Table_Suppliers.DataSource = lista;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al cargar datos: " + ex.Message);
+            }
+        }
 
         //Codigo q nos ayuda con la administrasion de la barra de arriba y mover la ventana.
         //Drag Form
@@ -119,12 +137,75 @@ namespace InventoryWalmart
             ChangeView<FormSupplier>();
         }
 
-        private void btnModificar_Click(object sender, EventArgs e)
+        public int ObtenerIdDeFila()
         {
-            opcion = "editar";
-            ChangeView<FormSupplier>();
+
+            ValidarSeleccion();
+
+            // Obtener la fila seleccionada
+            DataGridViewRow row = Table_Suppliers.SelectedRows[0];
+
+            // Validar y convertir el DataBoundItem
+            if (row.DataBoundItem is Supplier registro)
+            {
+                int id = registro.id_supplier;
+
+
+                return id;
+            }
+            else
+            {
+                MessageBox.Show("No se pudo leer la información del proveedor seleccionado.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            return 0;
         }
 
-        
+        public bool ValidarSeleccion()
+        {
+            if (Table_Suppliers.SelectedRows.Count != 1)
+            {
+                MessageBox.Show("Por favor selecciona una sola fila antes de continuar.", "Selección requerida", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+
+            return true;
+        }
+
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+            DataGridViewRow row = Table_Suppliers.SelectedRows[0];
+            Supplier Supp = (Supplier)row.DataBoundItem;
+
+            if (ConfirmarSeleccion("Editar") == true)
+            {
+                email = Supp.email;
+                opcion = "editar"; 
+                ChangeView<FormSupplier>();
+            }
+
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            if(ConfirmarSeleccion("Eliminar") == true)
+            {
+                int id = ObtenerIdDeFila();
+                SupplierDAO_.DeleteSupplier(id);
+                cargarTabla();
+            }
+
+        }
+
+        public bool ConfirmarSeleccion(string accion)
+        {
+            DataGridViewRow row = Table_Suppliers.SelectedRows[0];
+            Supplier FilaSeleccionada = (Supplier) row.DataBoundItem;
+
+            ValidarSeleccion();
+            bool confirmacion = Alertas.Confirmacion("¡Advetencia!", $"¿Seguro que quieres {accion} a {FilaSeleccionada.manager_name}?");
+
+            return confirmacion;
+        }
     }
 }

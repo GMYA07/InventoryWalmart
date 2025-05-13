@@ -6,12 +6,13 @@ using System.Threading.Tasks;
 using InventoryWalmart.Utils;
 using InventoryWalmart.Model;
 using InventoryWalmart.Database;
+using System.ComponentModel;
+using System.Windows.Forms;
 
 namespace InventoryWalmart.Controllers
 {
     internal class loginController
     {
-        Alertas Alerta = new Alertas();
 
         public Boolean IniciarSesion(string userName, string pass) {
 
@@ -52,14 +53,46 @@ namespace InventoryWalmart.Controllers
                 }
                 else
                 {
-                    Alerta.AlertError("No se pudo iniciar Sesion", "No se ha encontrado el usuario en la bdd");
+                    Alertas.AlertError("No se pudo iniciar Sesion", "No se ha encontrado el usuario en la bdd");
                     return false; //para cerrar la ventana anterior
                 }
             }
             else
             {
-                Alerta.AlertError("No se pudo iniciar Sesion","No se ha podido Iniciar Sesion");
+                Alertas.AlertError("No se pudo iniciar Sesion", "No se ha encontrado el cuenta en la bdd");
                 return false; //para cerrar la ventana anterior
+            }
+        }
+
+
+
+        public static void pasarPassUser(Account a, string proceso)
+        {
+            AccountDAO accountDAO = new AccountDAO();
+            bool resultado = false;
+
+            if (proceso != "Edit")
+            {
+                if (a.GetIdUser() != -1)
+                {
+                    resultado = accountDAO.insertarAccount(a);
+                    if (resultado)
+                    {
+                        Alertas.AlertCorrect("Usuario creado", "El usuario se agregó correctamente.");
+                    }
+                    else
+                    {
+                        Alertas.AlertError("Error", "No se pudo crear la cuenta asociada.");
+                    }
+                }
+                else
+                {
+                    Alertas.AlertError("Error", "No se pudo crear el usuario.");
+                }
+            }
+            else
+            {
+                 accountDAO.update_account(a);
             }
         }
     }

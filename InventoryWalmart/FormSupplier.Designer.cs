@@ -40,7 +40,6 @@
             this.CboDepartamento = new System.Windows.Forms.ComboBox();
             this.LblDepartamento = new System.Windows.Forms.Label();
             this.btnAgregar = new System.Windows.Forms.Button();
-            this.btnModificar = new System.Windows.Forms.Button();
             this.TxtEmail = new System.Windows.Forms.TextBox();
             this.LblEmail = new System.Windows.Forms.Label();
             this.TxtTelefono = new System.Windows.Forms.TextBox();
@@ -152,7 +151,6 @@
             this.panel1.Controls.Add(this.CboDepartamento);
             this.panel1.Controls.Add(this.LblDepartamento);
             this.panel1.Controls.Add(this.btnAgregar);
-            this.panel1.Controls.Add(this.btnModificar);
             this.panel1.Controls.Add(this.TxtEmail);
             this.panel1.Controls.Add(this.LblEmail);
             this.panel1.Controls.Add(this.TxtTelefono);
@@ -194,7 +192,7 @@
             this.btnAgregar.ForeColor = System.Drawing.Color.White;
             this.btnAgregar.Image = global::InventoryWalmart.Properties.Resources.iconoAgregar;
             this.btnAgregar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAgregar.Location = new System.Drawing.Point(97, 248);
+            this.btnAgregar.Location = new System.Drawing.Point(86, 265);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Padding = new System.Windows.Forms.Padding(10, 0, 35, 0);
             this.btnAgregar.Size = new System.Drawing.Size(170, 45);
@@ -202,25 +200,7 @@
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnAgregar.UseVisualStyleBackColor = false;
-            // 
-            // btnModificar
-            // 
-            this.btnModificar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(114)))), ((int)(((byte)(223)))));
-            this.btnModificar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnModificar.FlatAppearance.BorderSize = 0;
-            this.btnModificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnModificar.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnModificar.ForeColor = System.Drawing.Color.White;
-            this.btnModificar.Image = global::InventoryWalmart.Properties.Resources.iconoModificar;
-            this.btnModificar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnModificar.Location = new System.Drawing.Point(97, 248);
-            this.btnModificar.Name = "btnModificar";
-            this.btnModificar.Padding = new System.Windows.Forms.Padding(0, 0, 40, 0);
-            this.btnModificar.Size = new System.Drawing.Size(170, 45);
-            this.btnModificar.TabIndex = 20;
-            this.btnModificar.Text = "Modificar";
-            this.btnModificar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnModificar.UseVisualStyleBackColor = false;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // TxtEmail
             // 
@@ -276,9 +256,9 @@
             this.LblNombreC.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
             this.LblNombreC.Location = new System.Drawing.Point(205, 23);
             this.LblNombreC.Name = "LblNombreC";
-            this.LblNombreC.Size = new System.Drawing.Size(123, 19);
+            this.LblNombreC.Size = new System.Drawing.Size(127, 19);
             this.LblNombreC.TabIndex = 9;
-            this.LblNombreC.Text = "NombreCompañia";
+            this.LblNombreC.Text = "Nombre Compañia";
             // 
             // LblNombre
             // 
@@ -326,7 +306,6 @@
         private System.Windows.Forms.Label LblTitulo;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btnAgregar;
-        private System.Windows.Forms.Button btnModificar;
         private System.Windows.Forms.TextBox TxtEmail;
         private System.Windows.Forms.Label LblEmail;
         private System.Windows.Forms.TextBox TxtTelefono;

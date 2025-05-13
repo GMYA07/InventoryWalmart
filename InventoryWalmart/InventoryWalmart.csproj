@@ -49,6 +49,7 @@
   <ItemGroup>
     <Compile Include="Controllers\loginController.cs" />
     <Compile Include="Controllers\RolesControllers.cs" />
+    <Compile Include="Controllers\SupplierController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="dashboard.cs">
       <SubType>Form</SubType>
@@ -61,6 +62,7 @@
     <Compile Include="Database\DepartmentDAO.cs" />
     <Compile Include="Database\DistrictDAO.cs" />
     <Compile Include="Database\RolesDAO.cs" />
+    <Compile Include="Database\SupplierDAO_.cs" />
     <Compile Include="Database\UserDAO.cs" />
     <Compile Include="fomsRol.cs">
       <SubType>Form</SubType>
@@ -126,10 +128,12 @@
     <Compile Include="Model\Department.cs" />
     <Compile Include="Model\District.cs" />
     <Compile Include="Model\Roles.cs" />
+    <Compile Include="Model\Supplier.cs" />
     <Compile Include="Model\User.cs" />
     <Compile Include="Utils\Alertas.cs" />
     <Compile Include="Utils\Encriptacion.cs" />
     <Compile Include="Utils\SessionManager.cs" />
+    <Compile Include="Utils\Validar.cs" />
     <Compile Include="viewGestionVentas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -400,6 +404,7 @@
   <ItemGroup>
     <Content Include="Database\ArchivosBDD\CREACION DE FUNCIONES.sql" />
     <Content Include="Database\ArchivosBDD\CREACIONBDD.sql" />
+    <Content Include="Database\ArchivosBDD\departments_district.sql" />
     <Content Include="Database\ArchivosBDD\Trggers InventoryWalmart.sql" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -21,7 +21,11 @@ namespace InventoryWalmart.Model
 
         public string DepartmentName { get; set; }
         public string DistrictName { get; set; }
+
         public string RoleName { get; set; }
+        public Boolean status { get; set; }
+        public String nameUsuario { get; set; }
+        public int idAccount { get; set; }
 
 
         public User() { }

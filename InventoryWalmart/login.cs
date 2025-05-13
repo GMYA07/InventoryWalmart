@@ -15,8 +15,6 @@ namespace InventoryWalmart
 {
     public partial class login : Form
     {
-        //Variables Globales
-        Alertas Alerta = new Alertas();
 
         public login()
         {
@@ -98,7 +96,7 @@ namespace InventoryWalmart
 
             if (inputUser.Text == "" || inputPass.Text == "")
             {
-                Alerta.AlertError("¡Error al Iniciar Sesion!", "¡Alguno de los campos esta vacio!");
+                Alertas.AlertError("¡Error al Iniciar Sesion!", "¡Alguno de los campos esta vacio!");
                 return;
             }
 

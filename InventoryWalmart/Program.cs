@@ -1,4 +1,5 @@
-﻿using System;
+﻿using InventoryWalmart.views.Cajero;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -17,7 +18,7 @@ namespace InventoryWalmart
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            Application.Run(new ViewUser());
+            Application.Run(new login());
 
 
         }

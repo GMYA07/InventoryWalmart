@@ -64,5 +64,17 @@ namespace InventoryWalmart.views.Cajero
         {
 
         }
+
+        private void panelBeneficiosReco_Paint(object sender, PaintEventArgs e)
+        {
+            
+        }
+
+        public void redireccionControlador(object sender, EventArgs e)
+        {
+            viewRegistrarVentaCajero view = new viewRegistrarVentaCajero();
+            view.Show();
+            this.Close();
+        }
     }
 }

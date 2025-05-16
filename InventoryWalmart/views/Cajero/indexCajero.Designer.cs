@@ -155,6 +155,8 @@
             this.panelBeneficiosReco.Name = "panelBeneficiosReco";
             this.panelBeneficiosReco.Size = new System.Drawing.Size(279, 109);
             this.panelBeneficiosReco.TabIndex = 15;
+            this.panelBeneficiosReco.Click += new System.EventHandler(this.redireccionControlador);
+            this.panelBeneficiosReco.Paint += new System.Windows.Forms.PaintEventHandler(this.panelBeneficiosReco_Paint);
             // 
             // label6
             // 
@@ -166,6 +168,7 @@
             this.label6.Size = new System.Drawing.Size(162, 30);
             this.label6.TabIndex = 15;
             this.label6.Text = "Registrar Venta\r\n";
+            this.label6.Click += new System.EventHandler(this.redireccionControlador);
             // 
             // pictureBox2
             // 
@@ -176,6 +179,7 @@
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox2.TabIndex = 0;
             this.pictureBox2.TabStop = false;
+            this.pictureBox2.Click += new System.EventHandler(this.redireccionControlador);
             // 
             // panel2
             // 

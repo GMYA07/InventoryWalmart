@@ -16,5 +16,22 @@ namespace InventoryWalmart.Validaciones
             //    Alertas
             //}
         }
+
+        public static Boolean validarDescuento(string discount_code)
+        {
+            if (discount_code.Equals(""))
+            {
+                Alertas.AlertError("Error al aplicar el codigo", "El campo de codigo de descuento esta vacio");
+                return false;
+            }
+
+            if (discount_code.Length != 10)
+            {
+                Alertas.AlertError("Error al aplicar el codigo","El codigo costituye de 10 letras y numeros");
+                return false;
+            }
+
+            return true;
+        }
     }
 }

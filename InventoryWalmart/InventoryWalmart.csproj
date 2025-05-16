@@ -59,7 +59,10 @@
       <DependentUpon>dashboard.cs</DependentUpon>
     </Compile>
     <Compile Include="Database\AccountDAO.cs" />
+    <Compile Include="Database\BenefitsDAO.cs" />
     <Compile Include="Database\Connection.cs" />
+    <Compile Include="Database\CustomerDAO.cs" />
+    <Compile Include="Database\Customer_CardDAO.cs" />
     <Compile Include="Database\DepartmentDAO.cs" />
     <Compile Include="Database\DiscountDAO.cs" />
     <Compile Include="Database\DistrictDAO.cs" />
@@ -134,6 +137,9 @@
       <DependentUpon>inventoryWalmartDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="Model\Account.cs" />
+    <Compile Include="Model\Benefits.cs" />
+    <Compile Include="Model\Customer.cs" />
+    <Compile Include="Model\Customer_Card.cs" />
     <Compile Include="Model\Department.cs" />
     <Compile Include="Model\Discount.cs" />
     <Compile Include="Model\District.cs" />

@@ -50,6 +50,11 @@
             this.label3 = new System.Windows.Forms.Label();
             this.labelMostrarTotal = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnMostrarBeneficios = new System.Windows.Forms.Button();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.btnAplicarBeneficios = new System.Windows.Forms.Button();
+            this.label18 = new System.Windows.Forms.Label();
             this.btnAplicarCodDesc = new System.Windows.Forms.Button();
             this.inputCodigoDescuento = new System.Windows.Forms.TextBox();
             this.inputTargetaCliente = new System.Windows.Forms.TextBox();
@@ -77,6 +82,14 @@
             this.btnLimpiarTodaLista = new System.Windows.Forms.Button();
             this.labelTextDescApli = new System.Windows.Forms.Label();
             this.labelDescuentoApli = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.labelMostrarSubtotalCompra = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.labelDescuentoDinero = new System.Windows.Forms.Label();
+            this.inputDui = new System.Windows.Forms.TextBox();
+            this.label20 = new System.Windows.Forms.Label();
             this.barAcciones.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnOcultar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMaximizar)).BeginInit();
@@ -301,7 +314,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Red;
-            this.label3.Location = new System.Drawing.Point(1223, 614);
+            this.label3.Location = new System.Drawing.Point(1223, 626);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(130, 20);
             this.label3.TabIndex = 24;
@@ -312,7 +325,7 @@
             // 
             this.labelMostrarTotal.AutoSize = true;
             this.labelMostrarTotal.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelMostrarTotal.Location = new System.Drawing.Point(1373, 614);
+            this.labelMostrarTotal.Location = new System.Drawing.Point(1373, 626);
             this.labelMostrarTotal.Name = "labelMostrarTotal";
             this.labelMostrarTotal.Size = new System.Drawing.Size(18, 20);
             this.labelMostrarTotal.TabIndex = 25;
@@ -321,6 +334,13 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label20);
+            this.groupBox1.Controls.Add(this.inputDui);
+            this.groupBox1.Controls.Add(this.btnMostrarBeneficios);
+            this.groupBox1.Controls.Add(this.label19);
+            this.groupBox1.Controls.Add(this.label15);
+            this.groupBox1.Controls.Add(this.btnAplicarBeneficios);
+            this.groupBox1.Controls.Add(this.label18);
             this.groupBox1.Controls.Add(this.btnAplicarCodDesc);
             this.groupBox1.Controls.Add(this.inputCodigoDescuento);
             this.groupBox1.Controls.Add(this.inputTargetaCliente);
@@ -344,6 +364,71 @@
             this.groupBox1.TabIndex = 26;
             this.groupBox1.TabStop = false;
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+            // 
+            // btnMostrarBeneficios
+            // 
+            this.btnMostrarBeneficios.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(114)))), ((int)(((byte)(223)))));
+            this.btnMostrarBeneficios.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btnMostrarBeneficios.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnMostrarBeneficios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMostrarBeneficios.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMostrarBeneficios.ForeColor = System.Drawing.Color.White;
+            this.btnMostrarBeneficios.Location = new System.Drawing.Point(16, 416);
+            this.btnMostrarBeneficios.Name = "btnMostrarBeneficios";
+            this.btnMostrarBeneficios.Size = new System.Drawing.Size(121, 39);
+            this.btnMostrarBeneficios.TabIndex = 65;
+            this.btnMostrarBeneficios.Text = "Mostrar Beneficios Targeta\r\n\r\n";
+            this.btnMostrarBeneficios.UseVisualStyleBackColor = false;
+            this.btnMostrarBeneficios.Click += new System.EventHandler(this.btnMostrarBeneficios_Click);
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label19.ForeColor = System.Drawing.Color.Red;
+            this.label19.Location = new System.Drawing.Point(13, 471);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(199, 15);
+            this.label19.TabIndex = 63;
+            this.label19.Text = "Descuento de compra (Beneficio): ";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.Location = new System.Drawing.Point(141, 513);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(13, 13);
+            this.label15.TabIndex = 64;
+            this.label15.Text = "0";
+            this.label15.Visible = false;
+            // 
+            // btnAplicarBeneficios
+            // 
+            this.btnAplicarBeneficios.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(114)))), ((int)(((byte)(223)))));
+            this.btnAplicarBeneficios.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btnAplicarBeneficios.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAplicarBeneficios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAplicarBeneficios.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAplicarBeneficios.ForeColor = System.Drawing.Color.White;
+            this.btnAplicarBeneficios.Location = new System.Drawing.Point(144, 416);
+            this.btnAplicarBeneficios.Name = "btnAplicarBeneficios";
+            this.btnAplicarBeneficios.Size = new System.Drawing.Size(138, 39);
+            this.btnAplicarBeneficios.TabIndex = 52;
+            this.btnAplicarBeneficios.Text = "Aplicar Beneficios de \r\nTargeta";
+            this.btnAplicarBeneficios.UseVisualStyleBackColor = false;
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label18.ForeColor = System.Drawing.Color.Red;
+            this.label18.Location = new System.Drawing.Point(15, 497);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(145, 26);
+            this.label18.TabIndex = 63;
+            this.label18.Text = "Se ha aplicado el beneficio\r\ncon un descuento del:";
+            this.label18.Visible = false;
             // 
             // btnAplicarCodDesc
             // 
@@ -371,7 +456,7 @@
             // inputTargetaCliente
             // 
             this.inputTargetaCliente.Enabled = false;
-            this.inputTargetaCliente.Location = new System.Drawing.Point(17, 380);
+            this.inputTargetaCliente.Location = new System.Drawing.Point(16, 318);
             this.inputTargetaCliente.Name = "inputTargetaCliente";
             this.inputTargetaCliente.Size = new System.Drawing.Size(222, 20);
             this.inputTargetaCliente.TabIndex = 48;
@@ -383,7 +468,7 @@
             this.colNameBenefit,
             this.colPtsReq,
             this.colPorcenDescuento});
-            this.tablaBeneficiosAplicables.Location = new System.Drawing.Point(327, 301);
+            this.tablaBeneficiosAplicables.Location = new System.Drawing.Point(339, 301);
             this.tablaBeneficiosAplicables.Name = "tablaBeneficiosAplicables";
             this.tablaBeneficiosAplicables.Size = new System.Drawing.Size(343, 243);
             this.tablaBeneficiosAplicables.TabIndex = 47;
@@ -427,7 +512,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(257, 370);
+            this.label8.Location = new System.Drawing.Point(252, 302);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(45, 13);
             this.label8.TabIndex = 39;
@@ -437,7 +522,7 @@
             // 
             this.checkTieneTargeta.AutoSize = true;
             this.checkTieneTargeta.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.checkTieneTargeta.Location = new System.Drawing.Point(272, 386);
+            this.checkTieneTargeta.Location = new System.Drawing.Point(267, 318);
             this.checkTieneTargeta.Name = "checkTieneTargeta";
             this.checkTieneTargeta.Size = new System.Drawing.Size(15, 14);
             this.checkTieneTargeta.TabIndex = 38;
@@ -448,7 +533,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(13, 345);
+            this.label7.Location = new System.Drawing.Point(14, 281);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(125, 21);
             this.label7.TabIndex = 37;
@@ -580,7 +665,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(1353, 614);
+            this.label10.Location = new System.Drawing.Point(1353, 626);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(18, 20);
             this.label10.TabIndex = 52;
@@ -604,11 +689,11 @@
             // labelTextDescApli
             // 
             this.labelTextDescApli.AutoSize = true;
-            this.labelTextDescApli.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTextDescApli.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelTextDescApli.ForeColor = System.Drawing.Color.Red;
-            this.labelTextDescApli.Location = new System.Drawing.Point(947, 655);
+            this.labelTextDescApli.Location = new System.Drawing.Point(947, 662);
             this.labelTextDescApli.Name = "labelTextDescApli";
-            this.labelTextDescApli.Size = new System.Drawing.Size(134, 40);
+            this.labelTextDescApli.Size = new System.Drawing.Size(102, 26);
             this.labelTextDescApli.TabIndex = 55;
             this.labelTextDescApli.Text = "Se ha aplicado un \r\ndescuento del: ";
             this.labelTextDescApli.Visible = false;
@@ -616,13 +701,93 @@
             // labelDescuentoApli
             // 
             this.labelDescuentoApli.AutoSize = true;
-            this.labelDescuentoApli.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelDescuentoApli.Location = new System.Drawing.Point(1087, 675);
+            this.labelDescuentoApli.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelDescuentoApli.Location = new System.Drawing.Point(1048, 675);
             this.labelDescuentoApli.Name = "labelDescuentoApli";
-            this.labelDescuentoApli.Size = new System.Drawing.Size(18, 20);
+            this.labelDescuentoApli.Size = new System.Drawing.Size(15, 17);
             this.labelDescuentoApli.TabIndex = 56;
             this.labelDescuentoApli.Text = "0";
             this.labelDescuentoApli.Visible = false;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.ForeColor = System.Drawing.Color.Red;
+            this.label13.Location = new System.Drawing.Point(945, 631);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(116, 13);
+            this.label13.TabIndex = 57;
+            this.label13.Text = "SubTotal de compra: ";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(1063, 631);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(15, 17);
+            this.label14.TabIndex = 59;
+            this.label14.Text = "$";
+            // 
+            // labelMostrarSubtotalCompra
+            // 
+            this.labelMostrarSubtotalCompra.AutoSize = true;
+            this.labelMostrarSubtotalCompra.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelMostrarSubtotalCompra.Location = new System.Drawing.Point(1082, 631);
+            this.labelMostrarSubtotalCompra.Name = "labelMostrarSubtotalCompra";
+            this.labelMostrarSubtotalCompra.Size = new System.Drawing.Size(15, 17);
+            this.labelMostrarSubtotalCompra.TabIndex = 58;
+            this.labelMostrarSubtotalCompra.Text = "0";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.ForeColor = System.Drawing.Color.Red;
+            this.label16.Location = new System.Drawing.Point(945, 604);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(173, 13);
+            this.label16.TabIndex = 60;
+            this.label16.Text = "Descuento de compra (codigo): ";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.Location = new System.Drawing.Point(1120, 604);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(15, 17);
+            this.label17.TabIndex = 61;
+            this.label17.Text = "$";
+            // 
+            // labelDescuentoDinero
+            // 
+            this.labelDescuentoDinero.AutoSize = true;
+            this.labelDescuentoDinero.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelDescuentoDinero.Location = new System.Drawing.Point(1139, 604);
+            this.labelDescuentoDinero.Name = "labelDescuentoDinero";
+            this.labelDescuentoDinero.Size = new System.Drawing.Size(15, 17);
+            this.labelDescuentoDinero.TabIndex = 62;
+            this.labelDescuentoDinero.Text = "0";
+            // 
+            // inputDui
+            // 
+            this.inputDui.Enabled = false;
+            this.inputDui.Location = new System.Drawing.Point(17, 376);
+            this.inputDui.Name = "inputDui";
+            this.inputDui.Size = new System.Drawing.Size(222, 20);
+            this.inputDui.TabIndex = 66;
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label20.Location = new System.Drawing.Point(14, 352);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(37, 21);
+            this.label20.TabIndex = 67;
+            this.label20.Text = "Dui";
             // 
             // viewRegistrarVentaCajero
             // 
@@ -630,6 +795,12 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1533, 720);
+            this.Controls.Add(this.labelDescuentoDinero);
+            this.Controls.Add(this.label17);
+            this.Controls.Add(this.label16);
+            this.Controls.Add(this.label14);
+            this.Controls.Add(this.labelMostrarSubtotalCompra);
+            this.Controls.Add(this.label13);
             this.Controls.Add(this.labelDescuentoApli);
             this.Controls.Add(this.labelTextDescApli);
             this.Controls.Add(this.btnLimpiarTodaLista);
@@ -717,5 +888,18 @@
         private System.Windows.Forms.Button btnAplicarCodDesc;
         private System.Windows.Forms.Label labelTextDescApli;
         private System.Windows.Forms.Label labelDescuentoApli;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label labelMostrarSubtotalCompra;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label labelDescuentoDinero;
+        private System.Windows.Forms.Button btnAplicarBeneficios;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Button btnMostrarBeneficios;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.TextBox inputDui;
     }
 }

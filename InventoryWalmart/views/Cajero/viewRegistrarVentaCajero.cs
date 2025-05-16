@@ -27,6 +27,8 @@ namespace InventoryWalmart.views.Cajero
         List<Product>listaVenta = new List<Product>();
         //Se usara para llevar el total de la venta
         decimal totalVenta =0;
+        decimal subTotalVentaMostrar = 0;
+        decimal totalDescuentoMostrar = 0;
         Boolean codigoAplicado = false;
         string codigoDescuento = "";
 
@@ -82,11 +84,16 @@ namespace InventoryWalmart.views.Cajero
             if (checkTieneTargeta.Checked )
             {
                 inputTargetaCliente.Enabled = true;
+                inputDui.Enabled = true;
+
             }
             
             if (!checkTieneTargeta.Checked )
             {
                 inputTargetaCliente.Enabled = false;
+                inputDui.Enabled = false;
+                inputTargetaCliente.Text = "";
+                inputDui.Text = "";
             }
         }
 
@@ -160,10 +167,22 @@ namespace InventoryWalmart.views.Cajero
             if (codigoAplicado == true)
             {
                 totalVenta = cajeroController.aplicarDescuentoAlAgregar_QuitarProducto(totalVenta, codigoDescuento, subTotal, "agregando");
+
+                //agregamos la suma al subTotal de todo sin ningun descuento ni nada
+                subTotalVentaMostrar += subTotal;
+                labelMostrarSubtotalCompra.Text = subTotalVentaMostrar.ToString();
+
+                //Ahora aplicamos esto para saber el valor del descuento osea en dinero y mostrarlo al usuario
+                totalDescuentoMostrar = cajeroController.conocerCantidadDescuento(subTotalVentaMostrar, codigoDescuento);
+                labelDescuentoDinero.Text = totalDescuentoMostrar.ToString();
             }
             else
             {
                 totalVenta += subTotal;
+                //agregamos la suma al subTotal de todo sin ningun descuento ni nada
+                subTotalVentaMostrar += subTotal;
+                labelMostrarSubtotalCompra.Text = subTotalVentaMostrar.ToString();
+
             }
 
             labelMostrarTotal.Text = totalVenta.ToString();
@@ -197,7 +216,28 @@ namespace InventoryWalmart.views.Cajero
                 if (cantidadNuevaVenta == 0)
                 {
                     //Ahora vamos a calcular el total de la venta para actualizarlo
-                    decimal totalVentaNuevoEliminacionTotal = cajeroController.aplicarDescuentoAlAgregar_QuitarProducto(totalVenta,codigoDescuento, decimal.Parse(filaProducto.Cells[4].Value.ToString()),"retirando");
+                    decimal totalVentaNuevoEliminacionTotal = 0;
+                    if (codigoAplicado == true)
+                    {
+                        totalVentaNuevoEliminacionTotal = cajeroController.aplicarDescuentoAlAgregar_QuitarProducto(totalVenta, codigoDescuento, decimal.Parse(filaProducto.Cells[4].Value.ToString()), "retirando");
+
+                        //agregamos la resta al subTotal de todo sin ningun descuento ni nada
+                        subTotalVentaMostrar -= decimal.Parse(filaProducto.Cells[4].Value.ToString());
+                        labelMostrarSubtotalCompra.Text = subTotalVentaMostrar.ToString();
+
+                        //Ahora aplicamos esto para saber el valor del descuento osea en dinero y mostrarlo al usuario
+                        totalDescuentoMostrar = cajeroController.conocerCantidadDescuento(subTotalVentaMostrar, codigoDescuento);
+                        labelDescuentoDinero.Text = totalDescuentoMostrar.ToString();
+                    }
+                    else
+                    {
+                        totalVentaNuevoEliminacionTotal = totalVenta - decimal.Parse(filaProducto.Cells[4].Value.ToString());
+
+                        //agregamos la resta al subTotal de todo sin ningun descuento ni nada
+                        subTotalVentaMostrar -= decimal.Parse(filaProducto.Cells[4].Value.ToString());
+                        labelMostrarSubtotalCompra.Text = subTotalVentaMostrar.ToString();
+
+                    }
                     totalVenta = totalVentaNuevoEliminacionTotal;
                     labelMostrarTotal.Text = totalVentaNuevoEliminacionTotal.ToString();
                     tablaVenta.Rows.RemoveAt(tablaVenta.SelectedRows[0].Index);
@@ -213,10 +253,23 @@ namespace InventoryWalmart.views.Cajero
                 if (codigoAplicado == true) //verificamos si tiene descuento actualmente aplicado
                 {
                     totalVentaNuevo = cajeroController.aplicarDescuentoAlAgregar_QuitarProducto(totalVenta, codigoDescuento, dineroRetirarSubtotal, "retirando"); //calculo el nuevo precio del total de la venta 
+
+                    //agregamos la resta al subTotal de todo sin ningun descuento ni nada
+                    subTotalVentaMostrar -= dineroRetirarSubtotal;
+                    labelMostrarSubtotalCompra.Text = subTotalVentaMostrar.ToString();
+
+                    //Ahora aplicamos esto para saber el valor del descuento osea en dinero y mostrarlo al usuario
+                    totalDescuentoMostrar = cajeroController.conocerCantidadDescuento(subTotalVentaMostrar, codigoDescuento);
+                    labelDescuentoDinero.Text = totalDescuentoMostrar.ToString();
                 }
                 else
                 {
                     totalVentaNuevo = totalVenta - dineroRetirarSubtotal; //calculo el nuevo precio del total de la venta 
+
+                    //agregamos la resta al subTotal de todo sin ningun descuento ni nada
+                    subTotalVentaMostrar -= dineroRetirarSubtotal;
+                    labelMostrarSubtotalCompra.Text = subTotalVentaMostrar.ToString();
+
                 }
 
                 //Ahora Actualizaremos los valores visualmente
@@ -239,7 +292,13 @@ namespace InventoryWalmart.views.Cajero
             {
                 tablaVenta.Rows.Clear();
                 labelMostrarTotal.Text = "0";
+                labelMostrarSubtotalCompra.Text = "0";
+                labelDescuentoDinero.Text = "0";
                 totalVenta = 0;
+                subTotalVentaMostrar = 0;
+                totalDescuentoMostrar = 0;
+                
+
                 Alertas.AlertCorrect("Productos Retirados", "¡Se han retirados los productos existosamente!");
             }
         }
@@ -269,6 +328,11 @@ namespace InventoryWalmart.views.Cajero
                 labelTextDescApli.Visible = false; // se desactiva para avisar que aplico un descuento
                 labelDescuentoApli.Visible = false;//se desactiva para avisar visualmente la cantidad del descuento
                 labelDescuentoApli.Text = "0"; // aqui se prepara el texto
+
+                //Ahora aplicamos esto para saber el valor del descuento osea en dinero pero aqui se reiniciara todo ya q se retiro el descuento
+                totalDescuentoMostrar = 0;
+                labelDescuentoDinero.Text = "0";
+
                 Alertas.AlertCorrect("Desaplicar codigo descuento", "El codigo descuento ha sido quitado");
                 return;
             }
@@ -300,6 +364,11 @@ namespace InventoryWalmart.views.Cajero
                         labelTextDescApli.Visible = true; // se activa para avisar que aplico un descuento
                         labelDescuentoApli.Visible = true;//se activa para avisar visualmente la cantidad del descuento
                         labelDescuentoApli.Text = discount.DiscountAmount.ToString() + " %"; // aqui se prepara el texto
+
+                        //Ahora aplicamos esto para saber el valor del descuento osea en dinero
+                        totalDescuentoMostrar = cajeroController.conocerCantidadDescuento(subTotalVentaMostrar,codigoDescuento);
+                        labelDescuentoDinero.Text = totalDescuentoMostrar.ToString();
+
                         Alertas.AlertCorrect("Aplicar codigo descuento", "El codigo ha sido aplicado con exito");
                         return;
                     }
@@ -308,6 +377,19 @@ namespace InventoryWalmart.views.Cajero
                         Alertas.AlertError("Error al aplicar el descuento", "El codigo deseado a aplicar no existe o ya vencio");
                         return;
                     }
+                }
+            }
+        }
+
+        private void btnMostrarBeneficios_Click(object sender, EventArgs e)
+        {
+            cajeroController cajeroController = new cajeroController();
+
+            if (!Validar.validarInputVacio(inputTargetaCliente.Text,"targeta cliente") && !Validar.validarTargeta(inputTargetaCliente.Text))
+            {
+                if (!Validar.validarInputVacio(inputDui.Text,"dui") && !Validar.validarDUI(inputDui.Text))
+                {
+                    
                 }
             }
         }
@@ -341,5 +423,12 @@ namespace InventoryWalmart.views.Cajero
         {
 
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        
     }
 }

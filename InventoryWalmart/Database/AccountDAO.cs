@@ -50,7 +50,7 @@ namespace InventoryWalmart.Database
                                 return accountObtenida;
                             }
                             else {
-                                Console.WriteLine("Usuario no encontrado");
+                                Console.WriteLine("Cuenta no encontrada");
                                 return null;
                             }
                         }

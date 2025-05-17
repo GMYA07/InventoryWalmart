@@ -30,6 +30,7 @@ namespace InventoryWalmart.views.Cajero
         decimal subTotalVentaMostrar = 0;
         decimal totalDescuentoMostrar = 0;
         Boolean codigoAplicado = false;
+        Boolean beneficioAplicado = false;
         string codigoDescuento = "";
 
         //Drag Form
@@ -92,8 +93,11 @@ namespace InventoryWalmart.views.Cajero
             {
                 inputTargetaCliente.Enabled = false;
                 inputDui.Enabled = false;
+                btnAplicarBeneficios.Enabled = false;
                 inputTargetaCliente.Text = "";
                 inputDui.Text = "";
+                labelPtsTargeta.Text = "0";
+                tablaBeneficiosAplicables.Rows.Clear();
             }
         }
 
@@ -389,7 +393,111 @@ namespace InventoryWalmart.views.Cajero
             {
                 if (!Validar.validarInputVacio(inputDui.Text,"dui") && !Validar.validarDUI(inputDui.Text))
                 {
+                    if (!cajeroController.verificarExistenciaTargetaCliente(inputTargetaCliente.Text))
+                    {
+                        if (!cajeroController.verificarExistenciaDUI(inputDui.Text))
+                        {
+
+                            if (cajeroController.verificarAsociacionTargetaDui(inputTargetaCliente.Text, inputDui.Text))
+                            {
+                                List<Benefits> listBenefits = cajeroController.obtenerBeneficiosClientes(inputTargetaCliente.Text, inputDui.Text);
+
+                                tablaBeneficiosAplicables.Rows.Clear();
+
+                                foreach (Benefits b in listBenefits)
+                                {
+                                    tablaBeneficiosAplicables.Rows.Add(b.BenefitName,b.PointsRequierd,b.DiscountPercent);
+                                }
+
+                                btnAplicarBeneficios.Enabled = true;
+                                labelPtsTargeta.Text = cajeroController.obtenerPtsCustomerCard(inputTargetaCliente.Text);
+                                Alertas.AlertCorrect("Encontrar Beneficios", "Se han encontrado los beneficios asociados a la targeta");
+                                return;
+                            }
+                            else
+                            {
+                                Alertas.AlertError("Error en credenciales", "Parece que esta Targeta no esta asociada a este DUI");
+                            }
+
+                        }
+                        else
+                        {
+                            Alertas.AlertError("Error al encontrar Cliente", "No se ha encontrado un cliente con ese dui");
+                        }
+
+                    }
+                    else
+                    {
+                        Alertas.AlertError("Error al encontrar Targeta", "No se ha encontrado una targeta con ese codigo");
+                    }
+                }
+            }
+        }
+
+        private void btnAplicarBeneficios_Click(object sender, EventArgs e)
+        {
+            int columnaPoints = 1;
+            int columnaPorcentajeDiscount = 2;
+            cajeroController cajeroController = new cajeroController();
+           
+
+            if (tablaVenta.Rows.Count == 0)
+            {
+                Alertas.AlertError("Error al aplicar el beneficio", "¡Deben haber productos en la lista!");
+            }
+            else
+            {
+
+                if (tablaBeneficiosAplicables.SelectedRows.Count == 1)
+                {
+                    DataGridViewRow filaBeneficio = tablaBeneficiosAplicables.SelectedRows[0]; // se le pone 0 por que nos referimos a la primera fila q selecciono el usuario
                     
+                    if (beneficioAplicado == true) { 
+
+                        beneficioAplicado = false; //Cambiando el estado a true para decir que ya esta aplicado
+                        /*Diseñaremos el nuevo boton luego de aplicar el beneficio*/
+                        btnAplicarBeneficios.BackColor = Color.FromArgb(0, 114, 223);
+                        btnAplicarBeneficios.Text = "Aplicar Beneficios de \r\nTargeta";
+                        //Abilitamos de nuevo los inputs
+                        inputDui.Enabled = true;
+                        inputTargetaCliente.Enabled = true;
+                        btnMostrarBeneficios.Enabled = true; //habilitamos el boton para q pueda filtrarlos otra vez
+                        tablaBeneficiosAplicables.Enabled = true; //desbloqueamos la tabla para que pueda hacer seleccion de otro beneficio
+                        return;
+                    }
+
+                    if (!cajeroController.verificarPuntosTargetaParaAplicarBeneficio(inputTargetaCliente.Text, int.Parse(filaBeneficio.Cells[columnaPoints].Value.ToString())))
+                    {
+                        if (!cajeroController.validarPorcentajeDescuentoCodigo_DescuentoBeneficio(codigoDescuento, decimal.Parse(filaBeneficio.Cells[columnaPorcentajeDiscount].Value.ToString())))
+                        {
+                            beneficioAplicado = true; //Cambiando el estado a true para decir que ya esta aplicado
+                            /*Diseñaremos el nuevo boton luego de aplicar el beneficio*/
+                            btnAplicarBeneficios.BackColor = Color.Red;
+                            btnAplicarBeneficios.Text = "Desaplicar Beneficios de \r\nTargeta";
+                            //Bloqueamos los inputs por cualquier cosa
+                            inputDui.Enabled = false;
+                            inputTargetaCliente.Enabled = false;
+                            btnMostrarBeneficios.Enabled = false; //bloqueamos el boton para que no pueda filtrar de nuevo y q se quite su seleccion
+                            tablaBeneficiosAplicables.Enabled = false; //y bloqueamos la tabla para que no seleccione por error otro beneficio
+
+                            Alertas.AlertCorrect("Aplicando Beneficios", "Se ha aplicado el beneficio");
+                            return;
+                        }
+                        else
+                        {
+                            Alertas.AlertError("Error al aplicar el codigo", "Existe un codigo de descuento que hace pasar el 100%");
+                        }
+
+                    }
+                    else
+                    {
+                        Alertas.AlertError("Error al aplicar el beneficio", "¡No tienes la cantidad de puntos requerida para obtener este beneficio!");
+                        return;
+                    }
+                }
+                else
+                {
+                    Alertas.AlertError("Error al aplicar el beneficio","¡Debe seleccionar un beneficio!");
                 }
             }
         }
@@ -429,6 +537,19 @@ namespace InventoryWalmart.views.Cajero
 
         }
 
-        
+        private void label18_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label15_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void labelPtsTargeta_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

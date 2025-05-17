@@ -50,10 +50,11 @@ namespace InventoryWalmart.Database
                     }
                     catch (Exception ex) { 
                         Console.WriteLine(ex.Message);
+                        return null;
                     }
                 }
             }
-            return customerEncontrado;
+            
         }
     }
 }

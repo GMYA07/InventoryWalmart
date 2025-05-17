@@ -38,30 +38,125 @@ namespace InventoryWalmart.Controllers
             return discount;
         }
 
-        public List<Benefits> obtenerBeneficiosCliente(string targetaCliente,string duiCliente)
+        public List<Benefits> obtenerBeneficiosClientes(string targetaCliente,string duiCliente)
         {
+
             BenefitsDAO benefitsDAO = new BenefitsDAO();
             List<Benefits> benefits = new List<Benefits>(); //Lista que retornaremos
 
-            benefits = benefitsDAO.obtenerBeneficiosClienteDAO(targetaCliente, duiCliente);
+            benefits = benefitsDAO.obtenerBeneficiosClientesDAO(targetaCliente, duiCliente);
 
             if (benefits == null)
             {
+                Alertas.AlertError("Error al encontrar la lista", "Parece que ocurrio un error al momento de encontrar la lista");
                 return null;
             }
 
             return benefits;
         }
 
-        public Boolean verificarExistenciaTargetaCliente(string targetaCliente)
+        public Benefits obtenerBeneficioCliente(string targetaCliente)
+        {
+            BenefitsDAO benefitsDAO= new BenefitsDAO();
+            Benefits benefit = new Benefits();
+
+            benefit = benefitsDAO.obtenerBeneficioClienteDAO(targetaCliente);
+
+            return benefit;
+
+        }
+
+        public Customer_Card obtenerCustomerCard(string targetaCliente)
+        {
+            Customer_Card customer_Card = new Customer_Card();
+            Customer_CardDAO customer_CardDAO = new Customer_CardDAO();
+
+            customer_Card = customer_CardDAO.obtenerCustomer_CardWithCardNumber(targetaCliente);
+
+            if (customer_Card == null) {
+                return null;
+            }
+            return customer_Card;
+        }
+
+        public string obtenerPtsCustomerCard(string targetaCliente)
+        {
+            Customer_Card customer_Card = obtenerCustomerCard(targetaCliente);
+
+            if (customer_Card == null)
+            {
+                return "";   
+            }
+            string ptsCard = customer_Card.PointsBalance.ToString();
+
+            return ptsCard;
+        }
+
+        public Boolean verificarAsociacionTargetaDui(string targetaCliente,string dui)
         {
             Customer customer = new Customer();
+            Customer_CardDAO customerCardDAO = new Customer_CardDAO();
+            CustomerDAO customerDAO = new CustomerDAO();
 
-            return true;
+            customer = customerDAO.obtenerCustomerWithDUI(dui);
+
+            return customerCardDAO.verificarAsociacionTargetaDuiDAO(targetaCliente, customer.IdCustomer.ToString());
+
         }
-        public Boolean verificarExistenciaDUI(string targetaCliente)
+
+        public Boolean verificarExistenciaTargetaCliente(string targetaCliente)
         {
-            return true;
+            Customer_Card customerCard = new Customer_Card();
+            Customer_CardDAO customerCardDAO = new Customer_CardDAO();
+
+            customerCard = customerCardDAO.obtenerCustomer_CardWithCardNumber(targetaCliente);
+
+            if (customerCard == null)
+            {
+                return true;
+            }
+            return false;
+        }
+        public Boolean verificarExistenciaDUI(string dui)
+        {
+            Customer customer = new Customer();
+            CustomerDAO customerDAO = new CustomerDAO();
+
+            customer = customerDAO.obtenerCustomerWithDUI(dui);
+
+            if (customer == null)
+            {
+                
+                return true;
+            }
+
+            return false;
+        }
+
+        public Boolean verificarPuntosTargetaParaAplicarBeneficio(string codigoTargeta, int puntosRequeridos)
+        {
+            //Obtendremos los puntos de la targeta para verificar
+            Customer_CardDAO customer_CardDAO = new Customer_CardDAO();
+            Customer_Card customer_Card = new Customer_Card();
+            customer_Card = customer_CardDAO.obtenerCustomer_CardWithCardNumber(codigoTargeta);
+
+            if (customer_Card == null) {
+                Alertas.AlertError("Error","No se encontro la targeta");
+                return true;
+            }
+            else
+            {
+                decimal ptsTargeta = customer_Card.PointsBalance;
+
+                if (ptsTargeta < puntosRequeridos)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            } 
         }
 
         public decimal aplicar_revertirDescuentoTotalVenta(decimal totalVenta, decimal descuento, string tipoOperacion) 
@@ -122,6 +217,37 @@ namespace InventoryWalmart.Controllers
             descuentoApli = subTotalVenta * (discount.DiscountAmount/100); //aqui descubirmos 
 
             return Math.Round(descuentoApli,2)*-1;
+        }
+
+        public Boolean validarPorcentajeDescuentoCodigo_DescuentoBeneficio(string codigoBeneficio, decimal porcentajeBeneficio)
+        {
+
+            Discount descuento = new Discount();
+            DiscountDAO discountDAO = new DiscountDAO();
+
+            descuento = discountDAO.obtenerDescuentoActivo(codigoBeneficio);
+
+            if (descuento == null) //si no encontro ningun descuento se le envia false por q no hay q evaluar nada y haya se usara el operador ! para q pueda pasar el if
+            {
+                return false;
+            }
+            else
+            {
+                decimal sumaPorcentajes = porcentajeBeneficio + descuento.DiscountAmount;
+
+                if (sumaPorcentajes > 100)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+
+
+
+            
         }
 
     }

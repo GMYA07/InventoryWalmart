@@ -36,7 +36,6 @@ namespace InventoryWalmart.Database
                                 descuentoEncontrado.DiscountType = reader.GetString(4);
                                 descuentoEncontrado.Status = reader.GetString(5);
 
-                                Console.WriteLine("Descuento Encontrado");
                                 return descuentoEncontrado;
                             }
                             else
@@ -49,12 +48,11 @@ namespace InventoryWalmart.Database
                     }
                     catch (Exception ex) { 
                         ex.ToString();
+                        return null;
                     }
                     
                 }
             }
-
-            return descuentoEncontrado;
         }
     }
 }

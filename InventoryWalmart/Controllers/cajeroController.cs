@@ -38,13 +38,13 @@ namespace InventoryWalmart.Controllers
             return discount;
         }
 
-        public List<Benefits> obtenerBeneficiosClientes(string targetaCliente,string duiCliente)
+        public List<Benefits> obtenerBeneficiosClientes(string duiCliente)
         {
 
             BenefitsDAO benefitsDAO = new BenefitsDAO();
             List<Benefits> benefits = new List<Benefits>(); //Lista que retornaremos
 
-            benefits = benefitsDAO.obtenerBeneficiosClientesDAO(targetaCliente, duiCliente);
+            benefits = benefitsDAO.obtenerBeneficiosClientesDAO(duiCliente);
 
             if (benefits == null)
             {
@@ -55,15 +55,14 @@ namespace InventoryWalmart.Controllers
             return benefits;
         }
 
-        public Benefits obtenerBeneficioCliente(string targetaCliente)
+        public Benefits obtenerBeneficio(int idBene)
         {
-            BenefitsDAO benefitsDAO= new BenefitsDAO();
             Benefits benefit = new Benefits();
+            BenefitsDAO benefitDAO = new BenefitsDAO();
 
-            benefit = benefitsDAO.obtenerBeneficioClienteDAO(targetaCliente);
+            benefit = benefitDAO.obtenerBeneficio(idBene);
 
             return benefit;
-
         }
 
         public Customer_Card obtenerCustomerCard(string targetaCliente)
@@ -207,6 +206,57 @@ namespace InventoryWalmart.Controllers
             }
         }
 
+        public decimal aplicarBeneficioAlAgregar_QuitarProducto(decimal totalVenta, int idBeneficio, decimal subtotal, string tipo)
+        {
+            decimal totalVentaNew = totalVenta;
+            Benefits beneficio = new Benefits();
+            BenefitsDAO benefitDAO = new BenefitsDAO();
+            beneficio = benefitDAO.obtenerBeneficio(idBeneficio); // se ocupara para poder usarlo mas adelante en los calculos
+
+            if (tipo.Equals("agregando"))
+            {
+                totalVentaNew = aplicar_revertirDescuentoTotalVenta(totalVenta, beneficio.DiscountPercent, "revertir");
+                totalVentaNew += subtotal;
+                totalVentaNew = aplicar_revertirDescuentoTotalVenta(totalVentaNew, beneficio.DiscountPercent, "aplicar");
+
+                return totalVentaNew;
+            }
+            else
+            {
+                totalVentaNew = aplicar_revertirDescuentoTotalVenta(totalVenta, beneficio.DiscountPercent, "revertir");
+                totalVentaNew = totalVentaNew - subtotal;
+                totalVentaNew = aplicar_revertirDescuentoTotalVenta(totalVentaNew, beneficio.DiscountPercent, "aplicar");
+                return totalVentaNew;
+            }
+        }
+
+        public decimal revertirDobleDescuento(decimal descuentoCodigo, decimal descuentoBeneficio, decimal totalActual, decimal dineroRetirarLista)
+        {
+            decimal totalVentaNew = 0;
+            decimal factorDescuentoCodigo = (100 - descuentoCodigo) / 100;
+            decimal factorDescuentoBeneficio = (100 - descuentoBeneficio) / 100;
+
+            decimal totalVentaSinDescuentos = totalActual / (factorDescuentoBeneficio * factorDescuentoCodigo);
+            Console.WriteLine("Ya reverti: " + totalVentaSinDescuentos);
+            //ahora le retiramos la cantidad q se le quito
+            totalVentaNew = totalVentaSinDescuentos - dineroRetirarLista;
+            //ahora volvemos a aplicar el descuento
+            totalVentaNew = aplicarDobleDescuento(descuentoCodigo,descuentoBeneficio,totalVentaNew);
+            return totalVentaNew;
+        }
+
+        public decimal aplicarDobleDescuento(decimal descuentoCodigo, decimal descuentoBeneficio, decimal totalActual)
+        {
+            decimal totalVentaNew = 0;
+            decimal factorDescuentoCodigo = (100 - descuentoCodigo) / 100;
+            decimal factorDescuentoBeneficio = (100 - descuentoBeneficio) / 100;
+
+            totalVentaNew = (totalActual * factorDescuentoCodigo) * factorDescuentoBeneficio;
+
+            return Math.Round(totalVentaNew,2);
+        }
+
+
         public decimal conocerCantidadDescuento(decimal subTotalVenta, string codDescuento)
         {
             decimal descuentoApli = 0;
@@ -219,21 +269,62 @@ namespace InventoryWalmart.Controllers
             return Math.Round(descuentoApli,2)*-1;
         }
 
-        public Boolean validarPorcentajeDescuentoCodigo_DescuentoBeneficio(string codigoBeneficio, decimal porcentajeBeneficio)
+        public decimal conocerCantidadDescuentoDoble(decimal descuentoCodigo, decimal descuentoBeneficio, decimal totalActual)
         {
+            decimal descuentoDinero = 0;
+            decimal factorDescuentoCodigo = (100 - descuentoCodigo) / 100;
+            decimal factorDescuentoBeneficio = (100 - descuentoBeneficio) / 100;
+            decimal factorAPagar = factorDescuentoCodigo * factorDescuentoBeneficio;
+            decimal descuentoTotal = 1 - factorAPagar;
 
+            descuentoDinero = totalActual * descuentoTotal;
+
+            return Math.Round(descuentoDinero, 2);
+        }
+
+        public decimal conocerBeneficioDescuento(decimal subTotalVenta, decimal porcentajeBeneficio)
+        {
+            decimal beneficioApli = 0;
+
+            beneficioApli = subTotalVenta * (porcentajeBeneficio/100);
+
+            return Math.Round(beneficioApli,2)*-1;
+        }
+
+        public Boolean validarPorcentajeDescuentoCodigo_DescuentoBeneficio(string codigo, decimal porcentaje, string tipo)
+        {
+            //Lo ocupamos por si viene de beneficios (aqui por si ya existe un descuento aplicado)
             Discount descuento = new Discount();
             DiscountDAO discountDAO = new DiscountDAO();
+            //lo ocupamos por si viene de descuento por codigo (aqui por si existe ya un beneficio aplicado)
+            Benefits beneficio = new Benefits();
+            BenefitsDAO benefitsDAO = new BenefitsDAO();
+            decimal sumaPorcentajes = 0;
 
-            descuento = discountDAO.obtenerDescuentoActivo(codigoBeneficio);
+            if (tipo.Equals("beneficio"))
+            {
+                descuento = discountDAO.obtenerDescuentoActivo(codigo);
+            }
+            else
+            {
+                int id = int.Parse(codigo);
+                beneficio = benefitsDAO.obtenerBeneficio(id);
+            }
 
-            if (descuento == null) //si no encontro ningun descuento se le envia false por q no hay q evaluar nada y haya se usara el operador ! para q pueda pasar el if
+            if (descuento == null || beneficio == null) //si no encontro ningun descuento se le envia false por q no hay q evaluar nada y haya se usara el operador ! para q pueda pasar el if
             {
                 return false;
             }
             else
             {
-                decimal sumaPorcentajes = porcentajeBeneficio + descuento.DiscountAmount;
+                if (tipo.Equals("beneficio"))
+                {
+                    sumaPorcentajes = porcentaje + descuento.DiscountAmount;
+                }
+                else
+                {
+                    sumaPorcentajes = porcentaje + beneficio.DiscountPercent;
+                }
 
                 if (sumaPorcentajes > 100)
                 {
@@ -244,10 +335,6 @@ namespace InventoryWalmart.Controllers
                     return false;
                 }
             }
-
-
-
-            
         }
 
     }

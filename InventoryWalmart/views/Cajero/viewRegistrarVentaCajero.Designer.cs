@@ -50,6 +50,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.labelMostrarTotal = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.labelPtsTargeta = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
             this.labelDescuentoBeneficio = new System.Windows.Forms.Label();
@@ -63,9 +65,6 @@
             this.inputCodigoDescuento = new System.Windows.Forms.TextBox();
             this.inputTargetaCliente = new System.Windows.Forms.TextBox();
             this.tablaBeneficiosAplicables = new System.Windows.Forms.DataGridView();
-            this.colNameBenefit = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colPtsReq = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colPorcenDescuento = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -92,8 +91,10 @@
             this.label16 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.labelDescuentoDinero = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.labelPtsTargeta = new System.Windows.Forms.Label();
+            this.colIdBene = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colNameBenefit = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colPtsReq = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colPorcenDescuento = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.barAcciones.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnOcultar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMaximizar)).BeginInit();
@@ -373,6 +374,29 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
+            // labelPtsTargeta
+            // 
+            this.labelPtsTargeta.AutoSize = true;
+            this.labelPtsTargeta.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelPtsTargeta.Location = new System.Drawing.Point(108, 531);
+            this.labelPtsTargeta.Name = "labelPtsTargeta";
+            this.labelPtsTargeta.Size = new System.Drawing.Size(13, 13);
+            this.labelPtsTargeta.TabIndex = 70;
+            this.labelPtsTargeta.Text = "0";
+            this.labelPtsTargeta.Click += new System.EventHandler(this.labelPtsTargeta_Click);
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.ForeColor = System.Drawing.Color.Red;
+            this.label15.Location = new System.Drawing.Point(15, 531);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(87, 13);
+            this.label15.TabIndex = 68;
+            this.label15.Text = "Puntos targeta:";
+            this.label15.Click += new System.EventHandler(this.label15_Click);
+            // 
             // label21
             // 
             this.label21.AutoSize = true;
@@ -513,28 +537,14 @@
             this.tablaBeneficiosAplicables.AllowUserToAddRows = false;
             this.tablaBeneficiosAplicables.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.tablaBeneficiosAplicables.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.colIdBene,
             this.colNameBenefit,
             this.colPtsReq,
             this.colPorcenDescuento});
-            this.tablaBeneficiosAplicables.Location = new System.Drawing.Point(339, 301);
+            this.tablaBeneficiosAplicables.Location = new System.Drawing.Point(303, 301);
             this.tablaBeneficiosAplicables.Name = "tablaBeneficiosAplicables";
-            this.tablaBeneficiosAplicables.Size = new System.Drawing.Size(343, 243);
+            this.tablaBeneficiosAplicables.Size = new System.Drawing.Size(379, 243);
             this.tablaBeneficiosAplicables.TabIndex = 47;
-            // 
-            // colNameBenefit
-            // 
-            this.colNameBenefit.HeaderText = "Beneficio";
-            this.colNameBenefit.Name = "colNameBenefit";
-            // 
-            // colPtsReq
-            // 
-            this.colPtsReq.HeaderText = "Puntos Requeridos";
-            this.colPtsReq.Name = "colPtsReq";
-            // 
-            // colPorcenDescuento
-            // 
-            this.colPorcenDescuento.HeaderText = "Porcentaje de Descuento";
-            this.colPorcenDescuento.Name = "colPorcenDescuento";
             // 
             // label12
             // 
@@ -819,28 +829,25 @@
             this.labelDescuentoDinero.TabIndex = 62;
             this.labelDescuentoDinero.Text = "0";
             // 
-            // label15
+            // colIdBene
             // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.ForeColor = System.Drawing.Color.Red;
-            this.label15.Location = new System.Drawing.Point(15, 531);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(87, 13);
-            this.label15.TabIndex = 68;
-            this.label15.Text = "Puntos targeta:";
-            this.label15.Click += new System.EventHandler(this.label15_Click);
+            this.colIdBene.HeaderText = "id";
+            this.colIdBene.Name = "colIdBene";
             // 
-            // labelPtsTargeta
+            // colNameBenefit
             // 
-            this.labelPtsTargeta.AutoSize = true;
-            this.labelPtsTargeta.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelPtsTargeta.Location = new System.Drawing.Point(108, 531);
-            this.labelPtsTargeta.Name = "labelPtsTargeta";
-            this.labelPtsTargeta.Size = new System.Drawing.Size(13, 13);
-            this.labelPtsTargeta.TabIndex = 70;
-            this.labelPtsTargeta.Text = "0";
-            this.labelPtsTargeta.Click += new System.EventHandler(this.labelPtsTargeta_Click);
+            this.colNameBenefit.HeaderText = "Beneficio";
+            this.colNameBenefit.Name = "colNameBenefit";
+            // 
+            // colPtsReq
+            // 
+            this.colPtsReq.HeaderText = "Puntos Requeridos";
+            this.colPtsReq.Name = "colPtsReq";
+            // 
+            // colPorcenDescuento
+            // 
+            this.colPorcenDescuento.HeaderText = "Porcentaje de Descuento";
+            this.colPorcenDescuento.Name = "colPorcenDescuento";
             // 
             // viewRegistrarVentaCajero
             // 
@@ -930,9 +937,6 @@
         private System.Windows.Forms.DataGridView tablaBeneficiosAplicables;
         private System.Windows.Forms.TextBox inputTargetaCliente;
         private System.Windows.Forms.TextBox inputCodigoDescuento;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colNameBenefit;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colPtsReq;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colPorcenDescuento;
         private System.Windows.Forms.Button btnQuitarProductoLista;
         private System.Windows.Forms.TextBox inputCantidadRetirar;
         private System.Windows.Forms.Label label9;
@@ -958,5 +962,9 @@
         private System.Windows.Forms.Label labelDescuentoBeneficio;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label labelPtsTargeta;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colIdBene;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colNameBenefit;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colPtsReq;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colPorcenDescuento;
     }
 }

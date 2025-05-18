@@ -12,7 +12,7 @@ namespace InventoryWalmart.Database
     {
         public BenefitsDAO() { }
 
-        public List<Benefits> obtenerBeneficiosClientesDAO(string targetaCliente, string duiCliente)
+        public List<Benefits> obtenerBeneficiosClientesDAO(string duiCliente)
         {
             List<Benefits> benefits = new List<Benefits>();
 
@@ -63,14 +63,14 @@ namespace InventoryWalmart.Database
             }
         }
 
-        public Benefits obtenerBeneficioClienteDAO(string targetaCliente)
+        public Benefits obtenerBeneficio(int idBeneficio)
         {
             Benefits benefit = new Benefits();
 
             string query = "SELECT b.id_benefit, b.benefit_name, b.description, b.points_required, b.discount_percentage, b.start_date, b.end_date FROM BENEFITS as b";
                    query += " INNER JOIN CARD_BENEFITS as cb on b.id_benefit = cb.id_benefit";
                    query += " INNER JOIN CUSTOMER_CARD as cc on cb.id_card = cc.id_card";
-                   query += " WHERE cc.card_number = '"+targetaCliente+"'";
+                   query += " WHERE b.id_benefit = '"+ idBeneficio + "'";
 
             using (SqlConnection coon = Connection.ObtenerConexion())
             {

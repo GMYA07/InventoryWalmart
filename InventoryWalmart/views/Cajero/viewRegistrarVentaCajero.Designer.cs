@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(viewRegistrarVentaCajero));
             this.barAcciones = new System.Windows.Forms.Panel();
             this.btnOcultar = new System.Windows.Forms.PictureBox();
@@ -65,6 +66,10 @@
             this.inputCodigoDescuento = new System.Windows.Forms.TextBox();
             this.inputTargetaCliente = new System.Windows.Forms.TextBox();
             this.tablaBeneficiosAplicables = new System.Windows.Forms.DataGridView();
+            this.colIdBene = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colNameBenefit = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colPtsReq = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colPorcenDescuento = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -91,10 +96,10 @@
             this.label16 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.labelDescuentoDinero = new System.Windows.Forms.Label();
-            this.colIdBene = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colNameBenefit = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colPtsReq = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colPorcenDescuento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.inventoryWalmartDataSet = new InventoryWalmart.inventoryWalmartDataSet();
+            this.inventoryWalmartDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.pAYMENTMETHODBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.pAYMENT_METHODTableAdapter = new InventoryWalmart.inventoryWalmartDataSetTableAdapters.PAYMENT_METHODTableAdapter();
             this.barAcciones.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnOcultar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMaximizar)).BeginInit();
@@ -105,6 +110,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.tablaVenta)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tablaBeneficiosAplicables)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.inventoryWalmartDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.inventoryWalmartDataSetBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pAYMENTMETHODBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // barAcciones
@@ -411,7 +419,7 @@
             // 
             this.label20.AutoSize = true;
             this.label20.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.Location = new System.Drawing.Point(14, 352);
+            this.label20.Location = new System.Drawing.Point(15, 277);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(37, 21);
             this.label20.TabIndex = 67;
@@ -429,8 +437,7 @@
             // 
             // inputDui
             // 
-            this.inputDui.Enabled = false;
-            this.inputDui.Location = new System.Drawing.Point(17, 376);
+            this.inputDui.Location = new System.Drawing.Point(18, 301);
             this.inputDui.Name = "inputDui";
             this.inputDui.Size = new System.Drawing.Size(222, 20);
             this.inputDui.TabIndex = 66;
@@ -527,7 +534,7 @@
             // inputTargetaCliente
             // 
             this.inputTargetaCliente.Enabled = false;
-            this.inputTargetaCliente.Location = new System.Drawing.Point(16, 318);
+            this.inputTargetaCliente.Location = new System.Drawing.Point(18, 376);
             this.inputTargetaCliente.Name = "inputTargetaCliente";
             this.inputTargetaCliente.Size = new System.Drawing.Size(222, 20);
             this.inputTargetaCliente.TabIndex = 48;
@@ -545,6 +552,26 @@
             this.tablaBeneficiosAplicables.Name = "tablaBeneficiosAplicables";
             this.tablaBeneficiosAplicables.Size = new System.Drawing.Size(379, 243);
             this.tablaBeneficiosAplicables.TabIndex = 47;
+            // 
+            // colIdBene
+            // 
+            this.colIdBene.HeaderText = "id";
+            this.colIdBene.Name = "colIdBene";
+            // 
+            // colNameBenefit
+            // 
+            this.colNameBenefit.HeaderText = "Beneficio";
+            this.colNameBenefit.Name = "colNameBenefit";
+            // 
+            // colPtsReq
+            // 
+            this.colPtsReq.HeaderText = "Puntos Requeridos";
+            this.colPtsReq.Name = "colPtsReq";
+            // 
+            // colPorcenDescuento
+            // 
+            this.colPorcenDescuento.HeaderText = "Porcentaje de Descuento";
+            this.colPorcenDescuento.Name = "colPorcenDescuento";
             // 
             // label12
             // 
@@ -570,7 +597,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(252, 302);
+            this.label8.Location = new System.Drawing.Point(252, 360);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(45, 13);
             this.label8.TabIndex = 39;
@@ -580,7 +607,7 @@
             // 
             this.checkTieneTargeta.AutoSize = true;
             this.checkTieneTargeta.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.checkTieneTargeta.Location = new System.Drawing.Point(267, 318);
+            this.checkTieneTargeta.Location = new System.Drawing.Point(267, 376);
             this.checkTieneTargeta.Name = "checkTieneTargeta";
             this.checkTieneTargeta.Size = new System.Drawing.Size(15, 14);
             this.checkTieneTargeta.TabIndex = 38;
@@ -591,7 +618,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(14, 281);
+            this.label7.Location = new System.Drawing.Point(16, 339);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(125, 21);
             this.label7.TabIndex = 37;
@@ -610,11 +637,10 @@
             // selectMetodoPago
             // 
             this.selectMetodoPago.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.selectMetodoPago.DisplayMember = "id_payment_method";
+            this.selectMetodoPago.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.pAYMENTMETHODBindingSource, "id_payment_method", true));
+            this.selectMetodoPago.DataSource = this.pAYMENTMETHODBindingSource;
+            this.selectMetodoPago.DisplayMember = "method_name";
             this.selectMetodoPago.FormattingEnabled = true;
-            this.selectMetodoPago.Items.AddRange(new object[] {
-            "Efectivo",
-            "Targeta"});
             this.selectMetodoPago.Location = new System.Drawing.Point(17, 211);
             this.selectMetodoPago.Name = "selectMetodoPago";
             this.selectMetodoPago.Size = new System.Drawing.Size(265, 21);
@@ -829,25 +855,24 @@
             this.labelDescuentoDinero.TabIndex = 62;
             this.labelDescuentoDinero.Text = "0";
             // 
-            // colIdBene
+            // inventoryWalmartDataSet
             // 
-            this.colIdBene.HeaderText = "id";
-            this.colIdBene.Name = "colIdBene";
+            this.inventoryWalmartDataSet.DataSetName = "inventoryWalmartDataSet";
+            this.inventoryWalmartDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // colNameBenefit
+            // inventoryWalmartDataSetBindingSource
             // 
-            this.colNameBenefit.HeaderText = "Beneficio";
-            this.colNameBenefit.Name = "colNameBenefit";
+            this.inventoryWalmartDataSetBindingSource.DataSource = this.inventoryWalmartDataSet;
+            this.inventoryWalmartDataSetBindingSource.Position = 0;
             // 
-            // colPtsReq
+            // pAYMENTMETHODBindingSource
             // 
-            this.colPtsReq.HeaderText = "Puntos Requeridos";
-            this.colPtsReq.Name = "colPtsReq";
+            this.pAYMENTMETHODBindingSource.DataMember = "PAYMENT_METHOD";
+            this.pAYMENTMETHODBindingSource.DataSource = this.inventoryWalmartDataSetBindingSource;
             // 
-            // colPorcenDescuento
+            // pAYMENT_METHODTableAdapter
             // 
-            this.colPorcenDescuento.HeaderText = "Porcentaje de Descuento";
-            this.colPorcenDescuento.Name = "colPorcenDescuento";
+            this.pAYMENT_METHODTableAdapter.ClearBeforeFill = true;
             // 
             // viewRegistrarVentaCajero
             // 
@@ -893,6 +918,9 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tablaBeneficiosAplicables)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.inventoryWalmartDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.inventoryWalmartDataSetBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pAYMENTMETHODBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -966,5 +994,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colNameBenefit;
         private System.Windows.Forms.DataGridViewTextBoxColumn colPtsReq;
         private System.Windows.Forms.DataGridViewTextBoxColumn colPorcenDescuento;
+        private inventoryWalmartDataSet inventoryWalmartDataSet;
+        private System.Windows.Forms.BindingSource inventoryWalmartDataSetBindingSource;
+        private System.Windows.Forms.BindingSource pAYMENTMETHODBindingSource;
+        private inventoryWalmartDataSetTableAdapters.PAYMENT_METHODTableAdapter pAYMENT_METHODTableAdapter;
     }
 }

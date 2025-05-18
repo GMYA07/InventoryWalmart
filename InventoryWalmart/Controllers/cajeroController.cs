@@ -13,6 +13,34 @@ namespace InventoryWalmart.Controllers
     {
         public cajeroController() { }
 
+
+        public int registrarVenta(Sale nuevaVenta)
+        {
+            SaleDAO saleDAO = new SaleDAO();
+            int idGenerado = 0;
+
+            idGenerado = saleDAO.registrarVenta(nuevaVenta);
+
+            if (idGenerado > 0)
+            {
+                return idGenerado;
+            }
+
+            return 0;
+        }
+
+        public Boolean registrarListaVenta(List<Sale_Details> listProductos)
+        {
+            Sale_DetailsDAO sale_DetailsDAO = new Sale_DetailsDAO();
+
+            if (sale_DetailsDAO.RegistrarListaVentaDAO(listProductos))
+            {
+                return true;
+            }
+
+            return false;
+        }
+
         public Product encontrarProducto(int idProducto) {
             Product productObtenido = new Product();
 
@@ -76,6 +104,20 @@ namespace InventoryWalmart.Controllers
                 return null;
             }
             return customer_Card;
+        }
+
+        public Customer obtenerCustomerWithDUI(string dui)
+        {
+            Customer customer = new Customer();
+            CustomerDAO customerDAO = new CustomerDAO();
+
+            customer = customerDAO.obtenerCustomerWithDUI(dui);
+
+            if (customer == null)
+            {
+                return null;
+            }
+            return customer;
         }
 
         public string obtenerPtsCustomerCard(string targetaCliente)

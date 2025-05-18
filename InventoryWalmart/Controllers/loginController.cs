@@ -44,15 +44,15 @@ namespace InventoryWalmart.Controllers
                             dashboard dashboard = new dashboard();
                             dashboard.Show();
                             return true; //para cerrar la ventana anterior
-                            break;
+                            
                         case 2://cajero
                             indexCajero indexCajero = new indexCajero();
                             indexCajero.Show();
                             return true;
-                            break;
+                            
                         default:
                             return false; //para cerrar la ventana anterior
-                            break;
+                            
                     
                     }
 

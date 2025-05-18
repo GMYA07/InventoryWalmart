@@ -87,7 +87,6 @@ namespace InventoryWalmart.views.Cajero
             if (checkTieneTargeta.Checked )
             {
                 inputTargetaCliente.Enabled = true;
-                inputDui.Enabled = true;
 
             }
             
@@ -97,7 +96,6 @@ namespace InventoryWalmart.views.Cajero
                 inputDui.Enabled = false;
                 btnAplicarBeneficios.Enabled = false;
                 inputTargetaCliente.Text = "";
-                inputDui.Text = "";
                 labelPtsTargeta.Text = "0";
                 tablaBeneficiosAplicables.Rows.Clear();
                 beneficioAplicado = false;
@@ -106,6 +104,8 @@ namespace InventoryWalmart.views.Cajero
 
         private void viewRegistrarVentaCajero_Load(object sender, EventArgs e)
         {
+            // TODO: esta línea de código carga datos en la tabla 'inventoryWalmartDataSet.PAYMENT_METHOD' Puede moverla o quitarla según sea necesario.
+            this.pAYMENT_METHODTableAdapter.Fill(this.inventoryWalmartDataSet.PAYMENT_METHOD);
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
@@ -440,6 +440,8 @@ namespace InventoryWalmart.views.Cajero
                 labelMostrarTotal.Text = "0";
                 labelMostrarSubtotalCompra.Text = "0";
                 labelDescuentoDinero.Text = "0";
+                labelDescuentoBeneficio.Text = "0";
+                labelPtsTargeta.Text = "0";
                 totalVenta = 0;
                 subTotalVentaMostrar = 0;
                 totalDescuentoMostrar = 0;
@@ -467,7 +469,6 @@ namespace InventoryWalmart.views.Cajero
                 codigoDescuento = ""; //vaciamos el codigo de descuento
                 inputCodigoDescuento.Text = ""; //reiniciamos el input
                 codigoAplicado = false; // habilitamos la posibilidad para poner otro codigo
-
                 //Calculos y escondemos el descuento a la vista
                 totalVenta = cajeroController.aplicar_revertirDescuentoTotalVenta(totalVenta, discount.DiscountAmount, "revertir");
                 labelMostrarTotal.Text = totalVenta.ToString(); //aqui evidenciamos los cambios
@@ -609,7 +610,6 @@ namespace InventoryWalmart.views.Cajero
                 btnAplicarBeneficios.BackColor = Color.FromArgb(0, 114, 223);
                 btnAplicarBeneficios.Text = "Aplicar Beneficios de \r\nTargeta";
                 //Abilitamos de nuevo los inputs
-                inputDui.Enabled = true;
                 inputTargetaCliente.Enabled = true;
                 btnMostrarBeneficios.Enabled = true; //habilitamos el boton para q pueda filtrarlos otra vez
                 tablaBeneficiosAplicables.Enabled = true; //desbloqueamos la tabla para que pueda hacer seleccion de otro beneficio
@@ -648,7 +648,6 @@ namespace InventoryWalmart.views.Cajero
                             btnAplicarBeneficios.BackColor = Color.Red;
                             btnAplicarBeneficios.Text = "Desaplicar Beneficios de \r\nTargeta";
                             //Bloqueamos los inputs por cualquier cosa
-                            inputDui.Enabled = false;
                             inputTargetaCliente.Enabled = false;
                             btnMostrarBeneficios.Enabled = false; //bloqueamos el boton para que no pueda filtrar de nuevo y q se quite su seleccion
                             tablaBeneficiosAplicables.Enabled = false; //y bloqueamos la tabla para que no seleccione por error otro beneficio
@@ -696,17 +695,146 @@ namespace InventoryWalmart.views.Cajero
             }
         }
 
+        private void btnFinalizarVenta_Click(object sender, EventArgs e)
+        {
+            cajeroController cajeroController = new cajeroController();
+            Customer customer = new Customer();
+            Discount discount = new Discount();
+            int columnaPtsUsar = 2;
+            Customer_Card customer_Card = new Customer_Card();
+            int puntosGanados = 0;
+            DataGridViewRow filaBeneficio = null;
+
+            if (beneficioAplicado == true)
+            {
+                filaBeneficio = tablaBeneficiosAplicables.SelectedRows[0];
+            }
+
+            if (tablaVenta.Rows.Count != 0)
+            {
+                if (!Validar.validarInputVacio(inputDui.Text, "dui") && !Validar.validarDUI(inputDui.Text))
+                {
+                    if (Alertas.Confirmacion("Finalizando la compra", "¿Deseas finalizar la venta?"))
+                    {
+                        //Calcularemos pts
+                        if (codigoDescuento.Equals("") && idBeneficio == 0) // No ha usado pts
+                        {
+                            puntosGanados = 2 * Convert.ToInt32(totalVenta);
+
+                        }
+                        else // Ha usado pts
+                        {
+                            puntosGanados = 1 * Convert.ToInt32(totalVenta);
+
+                        }
+
+                        //settearemos el objeto de la venta para mandarlo a la bdd
+                        Sale nuevaVenta = new Sale();
+
+                        customer = cajeroController.obtenerCustomerWithDUI(inputDui.Text);
+                        discount = cajeroController.encontrarDescuento(codigoDescuento);
+                        customer_Card = cajeroController.obtenerCustomerCard(inputTargetaCliente.Text);
+
+                        if (customer_Card != null && filaBeneficio != null) //aqui validamos para saber q enviarle al momento de estar llenando el objeto
+                        {
+                            nuevaVenta.SetIdCard(customer_Card.IdCard);
+                            nuevaVenta.SetPointUsed(int.Parse(filaBeneficio.Cells[columnaPtsUsar].Value.ToString()));
+                        }
+                        else
+                        {
+                            nuevaVenta.SetIdCard(null);
+                            nuevaVenta.SetPointUsed(0);
+                        }
+
+                        if (discount != null) //aqui validamos para saber q enviarle al momento de estar llenando el objeto
+                        {
+                            nuevaVenta.SetIdDiscount(discount.IdDiscount);
+
+                        }
+                        else
+                        {
+                            nuevaVenta.SetIdDiscount(null);
+                        }
+
+                        nuevaVenta.SetIdCustomer(customer.IdCustomer);
+                        nuevaVenta.SetSaleDate(DateTime.Today);
+                        nuevaVenta.SetTotalAmount(totalVenta);
+                        nuevaVenta.SetIdPaymentMethod((int)selectMetodoPago.SelectedValue);
+                        nuevaVenta.SetPointEarned(puntosGanados);
+
+                        int idGenerado = cajeroController.registrarVenta(nuevaVenta);
+
+                        if (idGenerado > 0)
+                        {
+                            List<Sale_Details> listProductos = new List<Sale_Details>();
+
+                            foreach (DataGridViewRow filaProducto in tablaVenta.Rows)
+                            {
+                                Sale_Details producto = new Sale_Details();
+
+                                //asignando valores
+                                producto.IdSale = Convert.ToInt32(idGenerado);
+                                producto.IdProduct = Convert.ToInt32(filaProducto.Cells["colIdProducto"].Value);
+                                producto.Quantity = Convert.ToInt32(filaProducto.Cells["colCantidad"].Value.ToString());
+                                producto.Price = Convert.ToDecimal(filaProducto.Cells["colPrecio"].Value);
+
+                                listProductos.Add(producto);
+                            }
+
+                            if (cajeroController.registrarListaVenta(listProductos))
+                            {
+                                Alertas.AlertCorrect("Proceso de venta", "¡Se ha realizado la venta!");
+
+                                tablaBeneficiosAplicables.Rows.Clear();
+                                tablaVenta.Rows.Clear();
+                                totalVenta = 0;
+                                subTotalVentaMostrar = 0;
+                                totalDescuentoMostrar = 0;
+                                totalBeneficioMostrar = 0;
+                                codigoAplicado = false;
+                                beneficioAplicado = false;
+                                codigoDescuento = "";
+                                idBeneficio = 0;
+                                inputTargetaCliente.Enabled = false;
+                                inputDui.Enabled = false;
+                                btnAplicarBeneficios.Enabled = false;
+                                inputTargetaCliente.Text = "";
+                                inputDui.Text = "";
+                                labelPtsTargeta.Text = "0";
+
+                                return;
+                            }
+                            else
+                            {
+                                Alertas.AlertError("Error en el proceso de venta", "¡ Surgio un error en el proceso de venta :( ! 1");
+                                return;
+                            }
+
+
+                        }
+                        else
+                        {
+                            Alertas.AlertError("Error en el proceso de venta", "¡ Surgio un error en el proceso de venta :( ! 2");
+                        }
+                    }
+                }
+                else
+                {
+                    
+                }
+            }
+            else
+            {
+                Alertas.AlertError("Error finalizar venta", "¡No has agregado ningun producto a la venta! 3");
+            }
+        }
+
         private void inputCantidadRetirar_TextChanged(object sender, EventArgs e)
         {
 
         }
 
         private void label9_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnFinalizarVenta_Click(object sender, EventArgs e)
         {
 
         }

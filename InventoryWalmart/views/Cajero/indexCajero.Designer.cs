@@ -260,6 +260,7 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(279, 109);
             this.panel3.TabIndex = 16;
+            this.panel3.Click += new System.EventHandler(this.redireccionControlador2);
             // 
             // label4
             // 
@@ -271,6 +272,7 @@
             this.label4.Size = new System.Drawing.Size(163, 42);
             this.label4.TabIndex = 15;
             this.label4.Text = "Realizar Devolucion\r\nProducto\r\n";
+            this.label4.Click += new System.EventHandler(this.redireccionControlador2);
             // 
             // pictureBox5
             // 
@@ -281,6 +283,7 @@
             this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox5.TabIndex = 0;
             this.pictureBox5.TabStop = false;
+            this.pictureBox5.Click += new System.EventHandler(this.redireccionControlador2);
             // 
             // indexCajero
             // 

@@ -12,13 +12,13 @@ namespace InventoryWalmart.Model
         private string benefitName;
         private string description;
         private int points_requierd;
-        private int discount_percent;
+        private decimal discount_percent;
         private DateTime start_date;
         private DateTime end_date;
 
         public Benefits() { }
 
-        public Benefits(int id_benefit, string benefitName, string description, int points_requierd, int discount_percent, DateTime start_date, DateTime end_date)
+        public Benefits(int id_benefit, string benefitName, string description, int points_requierd, decimal discount_percent, DateTime start_date, DateTime end_date)
         {
             this.id_benefit = id_benefit;
             this.benefitName = benefitName;
@@ -54,7 +54,7 @@ namespace InventoryWalmart.Model
             set { points_requierd = value; }
         }
 
-        public int DiscountPercent
+        public decimal DiscountPercent
         {
             get { return discount_percent; }
             set { discount_percent = value; }

@@ -13,8 +13,8 @@ namespace InventoryWalmart.Model
         private DateTime sale_date;
         private decimal total_amount;
         private int id_payment_method;
-        private int id_discount;
-        private int id_card;
+        private int? id_discount;
+        private int? id_card;
         private int point_used;
         private int point_earned;
         public Sale() { }
@@ -83,22 +83,22 @@ namespace InventoryWalmart.Model
             id_payment_method = value;
         }
 
-        public int GetIdDiscount()
+        public int? GetIdDiscount()
         {
             return id_discount;
         }
 
-        public void SetIdDiscount(int value)
+        public void SetIdDiscount(int? value)
         {
             id_discount = value;
         }
 
-        public int GetIdCard()
+        public int? GetIdCard()
         {
             return id_card;
         }
 
-        public void SetIdCard(int value)
+        public void SetIdCard(int? value)
         {
             id_card = value;
         }

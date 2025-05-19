@@ -40,7 +40,7 @@ namespace InventoryWalmart.Validaciones
 
             if (inputInfo.Equals(""))
             {
-                Alertas.AlertError("Error al encontrar la targeta", "El campo "+input+" esta vacio");
+                Alertas.AlertError("Error al encontrar "+input, "El campo "+input+" esta vacio");
                 return true;
             }
 

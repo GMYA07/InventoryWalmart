@@ -69,6 +69,7 @@
     <Compile Include="Database\ProductDAO.cs" />
     <Compile Include="Database\RolesDAO.cs" />
     <Compile Include="Database\SaleDAO.cs" />
+    <Compile Include="Database\Sale_DetailsDAO.cs" />
     <Compile Include="Database\SupplierDAO_.cs" />
     <Compile Include="Database\UserDAO.cs" />
     <Compile Include="fomsRol.cs">
@@ -146,6 +147,7 @@
     <Compile Include="Model\Product.cs" />
     <Compile Include="Model\Roles.cs" />
     <Compile Include="Model\Sale.cs" />
+    <Compile Include="Model\Sale_Details.cs" />
     <Compile Include="Model\Supplier.cs" />
     <Compile Include="Model\User.cs" />
     <Compile Include="Utils\Alertas.cs" />
@@ -225,6 +227,12 @@
     </Compile>
     <Compile Include="views\Cajero\indexCajero.Designer.cs">
       <DependentUpon>indexCajero.cs</DependentUpon>
+    </Compile>
+    <Compile Include="views\Cajero\viewDevolucionesProductos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="views\Cajero\viewDevolucionesProductos.Designer.cs">
+      <DependentUpon>viewDevolucionesProductos.cs</DependentUpon>
     </Compile>
     <Compile Include="views\Cajero\viewRegistrarVentaCajero.cs">
       <SubType>Form</SubType>
@@ -311,6 +319,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="views\Cajero\indexCajero.resx">
       <DependentUpon>indexCajero.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="views\Cajero\viewDevolucionesProductos.resx">
+      <DependentUpon>viewDevolucionesProductos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="views\Cajero\viewRegistrarVentaCajero.resx">
       <DependentUpon>viewRegistrarVentaCajero.cs</DependentUpon>

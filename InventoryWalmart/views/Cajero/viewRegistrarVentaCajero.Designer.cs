@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(viewRegistrarVentaCajero));
             this.barAcciones = new System.Windows.Forms.Panel();
             this.btnOcultar = new System.Windows.Forms.PictureBox();
@@ -50,15 +51,22 @@
             this.label3 = new System.Windows.Forms.Label();
             this.labelMostrarTotal = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.labelPtsTargeta = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
+            this.labelDescuentoBeneficio = new System.Windows.Forms.Label();
+            this.inputDui = new System.Windows.Forms.TextBox();
             this.btnMostrarBeneficios = new System.Windows.Forms.Button();
             this.label19 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
+            this.labelPorcentajeBeneficio = new System.Windows.Forms.Label();
             this.btnAplicarBeneficios = new System.Windows.Forms.Button();
             this.label18 = new System.Windows.Forms.Label();
             this.btnAplicarCodDesc = new System.Windows.Forms.Button();
             this.inputCodigoDescuento = new System.Windows.Forms.TextBox();
             this.inputTargetaCliente = new System.Windows.Forms.TextBox();
             this.tablaBeneficiosAplicables = new System.Windows.Forms.DataGridView();
+            this.colIdBene = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colNameBenefit = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colPtsReq = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colPorcenDescuento = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -69,6 +77,9 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.selectMetodoPago = new System.Windows.Forms.ComboBox();
+            this.pAYMENTMETHODBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.inventoryWalmartDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.inventoryWalmartDataSet = new InventoryWalmart.inventoryWalmartDataSet();
             this.label5 = new System.Windows.Forms.Label();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.inputCantidadProducto = new System.Windows.Forms.TextBox();
@@ -88,8 +99,7 @@
             this.label16 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.labelDescuentoDinero = new System.Windows.Forms.Label();
-            this.inputDui = new System.Windows.Forms.TextBox();
-            this.label20 = new System.Windows.Forms.Label();
+            this.pAYMENT_METHODTableAdapter = new InventoryWalmart.inventoryWalmartDataSetTableAdapters.PAYMENT_METHODTableAdapter();
             this.barAcciones.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnOcultar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMaximizar)).BeginInit();
@@ -100,6 +110,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.tablaVenta)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tablaBeneficiosAplicables)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pAYMENTMETHODBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.inventoryWalmartDataSetBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.inventoryWalmartDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // barAcciones
@@ -199,6 +212,7 @@
             this.btnProductos.Text = "Productos";
             this.btnProductos.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnProductos.UseVisualStyleBackColor = false;
+            this.btnProductos.Click += new System.EventHandler(this.btnProductos_Click);
             // 
             // btnInicio
             // 
@@ -219,6 +233,7 @@
             this.btnInicio.Text = "Inicio";
             this.btnInicio.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnInicio.UseVisualStyleBackColor = false;
+            this.btnInicio.Click += new System.EventHandler(this.btnInicio_Click);
             // 
             // logo
             // 
@@ -334,11 +349,15 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.labelPtsTargeta);
+            this.groupBox1.Controls.Add(this.label15);
+            this.groupBox1.Controls.Add(this.label21);
             this.groupBox1.Controls.Add(this.label20);
+            this.groupBox1.Controls.Add(this.labelDescuentoBeneficio);
             this.groupBox1.Controls.Add(this.inputDui);
             this.groupBox1.Controls.Add(this.btnMostrarBeneficios);
             this.groupBox1.Controls.Add(this.label19);
-            this.groupBox1.Controls.Add(this.label15);
+            this.groupBox1.Controls.Add(this.labelPorcentajeBeneficio);
             this.groupBox1.Controls.Add(this.btnAplicarBeneficios);
             this.groupBox1.Controls.Add(this.label18);
             this.groupBox1.Controls.Add(this.btnAplicarCodDesc);
@@ -364,6 +383,66 @@
             this.groupBox1.TabIndex = 26;
             this.groupBox1.TabStop = false;
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+            // 
+            // labelPtsTargeta
+            // 
+            this.labelPtsTargeta.AutoSize = true;
+            this.labelPtsTargeta.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelPtsTargeta.Location = new System.Drawing.Point(108, 531);
+            this.labelPtsTargeta.Name = "labelPtsTargeta";
+            this.labelPtsTargeta.Size = new System.Drawing.Size(13, 13);
+            this.labelPtsTargeta.TabIndex = 70;
+            this.labelPtsTargeta.Text = "0";
+            this.labelPtsTargeta.Click += new System.EventHandler(this.labelPtsTargeta_Click);
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.ForeColor = System.Drawing.Color.Red;
+            this.label15.Location = new System.Drawing.Point(15, 531);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(87, 13);
+            this.label15.TabIndex = 68;
+            this.label15.Text = "Puntos targeta:";
+            this.label15.Click += new System.EventHandler(this.label15_Click);
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label21.Location = new System.Drawing.Point(212, 473);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(15, 17);
+            this.label21.TabIndex = 64;
+            this.label21.Text = "$";
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label20.Location = new System.Drawing.Point(15, 277);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(37, 21);
+            this.label20.TabIndex = 67;
+            this.label20.Text = "Dui";
+            // 
+            // labelDescuentoBeneficio
+            // 
+            this.labelDescuentoBeneficio.AutoSize = true;
+            this.labelDescuentoBeneficio.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelDescuentoBeneficio.Location = new System.Drawing.Point(231, 473);
+            this.labelDescuentoBeneficio.Name = "labelDescuentoBeneficio";
+            this.labelDescuentoBeneficio.Size = new System.Drawing.Size(15, 17);
+            this.labelDescuentoBeneficio.TabIndex = 63;
+            this.labelDescuentoBeneficio.Text = "0";
+            // 
+            // inputDui
+            // 
+            this.inputDui.Location = new System.Drawing.Point(18, 301);
+            this.inputDui.Name = "inputDui";
+            this.inputDui.Size = new System.Drawing.Size(222, 20);
+            this.inputDui.TabIndex = 66;
             // 
             // btnMostrarBeneficios
             // 
@@ -392,22 +471,22 @@
             this.label19.TabIndex = 63;
             this.label19.Text = "Descuento de compra (Beneficio): ";
             // 
-            // label15
+            // labelPorcentajeBeneficio
             // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(141, 513);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(13, 13);
-            this.label15.TabIndex = 64;
-            this.label15.Text = "0";
-            this.label15.Visible = false;
+            this.labelPorcentajeBeneficio.AutoSize = true;
+            this.labelPorcentajeBeneficio.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelPorcentajeBeneficio.Location = new System.Drawing.Point(141, 513);
+            this.labelPorcentajeBeneficio.Name = "labelPorcentajeBeneficio";
+            this.labelPorcentajeBeneficio.Size = new System.Drawing.Size(13, 13);
+            this.labelPorcentajeBeneficio.TabIndex = 64;
+            this.labelPorcentajeBeneficio.Text = "0";
             // 
             // btnAplicarBeneficios
             // 
             this.btnAplicarBeneficios.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(114)))), ((int)(((byte)(223)))));
             this.btnAplicarBeneficios.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btnAplicarBeneficios.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAplicarBeneficios.Enabled = false;
             this.btnAplicarBeneficios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAplicarBeneficios.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAplicarBeneficios.ForeColor = System.Drawing.Color.White;
@@ -417,6 +496,7 @@
             this.btnAplicarBeneficios.TabIndex = 52;
             this.btnAplicarBeneficios.Text = "Aplicar Beneficios de \r\nTargeta";
             this.btnAplicarBeneficios.UseVisualStyleBackColor = false;
+            this.btnAplicarBeneficios.Click += new System.EventHandler(this.btnAplicarBeneficios_Click);
             // 
             // label18
             // 
@@ -428,7 +508,7 @@
             this.label18.Size = new System.Drawing.Size(145, 26);
             this.label18.TabIndex = 63;
             this.label18.Text = "Se ha aplicado el beneficio\r\ncon un descuento del:";
-            this.label18.Visible = false;
+            this.label18.Click += new System.EventHandler(this.label18_Click);
             // 
             // btnAplicarCodDesc
             // 
@@ -456,22 +536,29 @@
             // inputTargetaCliente
             // 
             this.inputTargetaCliente.Enabled = false;
-            this.inputTargetaCliente.Location = new System.Drawing.Point(16, 318);
+            this.inputTargetaCliente.Location = new System.Drawing.Point(18, 376);
             this.inputTargetaCliente.Name = "inputTargetaCliente";
             this.inputTargetaCliente.Size = new System.Drawing.Size(222, 20);
             this.inputTargetaCliente.TabIndex = 48;
             // 
             // tablaBeneficiosAplicables
             // 
+            this.tablaBeneficiosAplicables.AllowUserToAddRows = false;
             this.tablaBeneficiosAplicables.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.tablaBeneficiosAplicables.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.colIdBene,
             this.colNameBenefit,
             this.colPtsReq,
             this.colPorcenDescuento});
-            this.tablaBeneficiosAplicables.Location = new System.Drawing.Point(339, 301);
+            this.tablaBeneficiosAplicables.Location = new System.Drawing.Point(303, 301);
             this.tablaBeneficiosAplicables.Name = "tablaBeneficiosAplicables";
-            this.tablaBeneficiosAplicables.Size = new System.Drawing.Size(343, 243);
+            this.tablaBeneficiosAplicables.Size = new System.Drawing.Size(379, 243);
             this.tablaBeneficiosAplicables.TabIndex = 47;
+            // 
+            // colIdBene
+            // 
+            this.colIdBene.HeaderText = "id";
+            this.colIdBene.Name = "colIdBene";
             // 
             // colNameBenefit
             // 
@@ -502,7 +589,7 @@
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(323, 263);
+            this.label11.Location = new System.Drawing.Point(335, 266);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(172, 21);
             this.label11.TabIndex = 44;
@@ -512,7 +599,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(252, 302);
+            this.label8.Location = new System.Drawing.Point(252, 360);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(45, 13);
             this.label8.TabIndex = 39;
@@ -522,7 +609,7 @@
             // 
             this.checkTieneTargeta.AutoSize = true;
             this.checkTieneTargeta.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.checkTieneTargeta.Location = new System.Drawing.Point(267, 318);
+            this.checkTieneTargeta.Location = new System.Drawing.Point(267, 376);
             this.checkTieneTargeta.Name = "checkTieneTargeta";
             this.checkTieneTargeta.Size = new System.Drawing.Size(15, 14);
             this.checkTieneTargeta.TabIndex = 38;
@@ -533,7 +620,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(14, 281);
+            this.label7.Location = new System.Drawing.Point(16, 339);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(125, 21);
             this.label7.TabIndex = 37;
@@ -552,16 +639,30 @@
             // selectMetodoPago
             // 
             this.selectMetodoPago.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.selectMetodoPago.DisplayMember = "id_payment_method";
+            this.selectMetodoPago.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.pAYMENTMETHODBindingSource, "id_payment_method", true));
+            this.selectMetodoPago.DataSource = this.pAYMENTMETHODBindingSource;
+            this.selectMetodoPago.DisplayMember = "method_name";
             this.selectMetodoPago.FormattingEnabled = true;
-            this.selectMetodoPago.Items.AddRange(new object[] {
-            "Efectivo",
-            "Targeta"});
             this.selectMetodoPago.Location = new System.Drawing.Point(17, 211);
             this.selectMetodoPago.Name = "selectMetodoPago";
             this.selectMetodoPago.Size = new System.Drawing.Size(265, 21);
             this.selectMetodoPago.TabIndex = 34;
             this.selectMetodoPago.ValueMember = "id_payment_method";
+            // 
+            // pAYMENTMETHODBindingSource
+            // 
+            this.pAYMENTMETHODBindingSource.DataMember = "PAYMENT_METHOD";
+            this.pAYMENTMETHODBindingSource.DataSource = this.inventoryWalmartDataSetBindingSource;
+            // 
+            // inventoryWalmartDataSetBindingSource
+            // 
+            this.inventoryWalmartDataSetBindingSource.DataSource = this.inventoryWalmartDataSet;
+            this.inventoryWalmartDataSetBindingSource.Position = 0;
+            // 
+            // inventoryWalmartDataSet
+            // 
+            this.inventoryWalmartDataSet.DataSetName = "inventoryWalmartDataSet";
+            this.inventoryWalmartDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // label5
             // 
@@ -771,23 +872,9 @@
             this.labelDescuentoDinero.TabIndex = 62;
             this.labelDescuentoDinero.Text = "0";
             // 
-            // inputDui
+            // pAYMENT_METHODTableAdapter
             // 
-            this.inputDui.Enabled = false;
-            this.inputDui.Location = new System.Drawing.Point(17, 376);
-            this.inputDui.Name = "inputDui";
-            this.inputDui.Size = new System.Drawing.Size(222, 20);
-            this.inputDui.TabIndex = 66;
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.Location = new System.Drawing.Point(14, 352);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(37, 21);
-            this.label20.TabIndex = 67;
-            this.label20.Text = "Dui";
+            this.pAYMENT_METHODTableAdapter.ClearBeforeFill = true;
             // 
             // viewRegistrarVentaCajero
             // 
@@ -833,6 +920,9 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tablaBeneficiosAplicables)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pAYMENTMETHODBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.inventoryWalmartDataSetBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.inventoryWalmartDataSet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -877,9 +967,6 @@
         private System.Windows.Forms.DataGridView tablaBeneficiosAplicables;
         private System.Windows.Forms.TextBox inputTargetaCliente;
         private System.Windows.Forms.TextBox inputCodigoDescuento;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colNameBenefit;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colPtsReq;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colPorcenDescuento;
         private System.Windows.Forms.Button btnQuitarProductoLista;
         private System.Windows.Forms.TextBox inputCantidadRetirar;
         private System.Windows.Forms.Label label9;
@@ -895,11 +982,23 @@
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label labelDescuentoDinero;
         private System.Windows.Forms.Button btnAplicarBeneficios;
-        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label labelPorcentajeBeneficio;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Button btnMostrarBeneficios;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.TextBox inputDui;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.Label labelDescuentoBeneficio;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label labelPtsTargeta;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colIdBene;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colNameBenefit;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colPtsReq;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colPorcenDescuento;
+        private inventoryWalmartDataSet inventoryWalmartDataSet;
+        private System.Windows.Forms.BindingSource inventoryWalmartDataSetBindingSource;
+        private System.Windows.Forms.BindingSource pAYMENTMETHODBindingSource;
+        private inventoryWalmartDataSetTableAdapters.PAYMENT_METHODTableAdapter pAYMENT_METHODTableAdapter;
     }
 }

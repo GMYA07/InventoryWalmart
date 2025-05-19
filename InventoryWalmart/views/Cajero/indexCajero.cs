@@ -76,5 +76,12 @@ namespace InventoryWalmart.views.Cajero
             view.Show();
             this.Close();
         }
+
+        public void redireccionControlador2(object sender, EventArgs e)
+        {
+            viewDevolucionesProductos view = new viewDevolucionesProductos();
+            view.Show();
+            this.Close();
+        }
     }
 }

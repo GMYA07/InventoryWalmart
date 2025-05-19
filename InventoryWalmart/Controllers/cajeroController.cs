@@ -3,6 +3,7 @@ using InventoryWalmart.Model;
 using InventoryWalmart.Utils;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -66,6 +67,7 @@ namespace InventoryWalmart.Controllers
             
             return discount;
         }
+
 
         public List<Benefits> obtenerBeneficiosClientes(string duiCliente)
         {
@@ -454,6 +456,47 @@ namespace InventoryWalmart.Controllers
             }
 
             return true;
+        }
+
+        public DataTable llenarTablaDevoluciones(int idVenta, string dui)
+        {
+            //creamos la tabla que le devolveremos al user
+            DataTable dt = new DataTable();
+            dt.Columns.Add("Id", typeof(int));
+            dt.Columns.Add("Producto", typeof(string));
+            dt.Columns.Add("Cantidad", typeof(int));
+            dt.Columns.Add("Precio Producto", typeof(decimal));
+
+           
+            Sale_DetailsDAO sale_DetailsDAO = new Sale_DetailsDAO();
+            List<Sale_Details> listaVentas = new List<Sale_Details>();
+
+            Customer cliente = obtenerCustomerWithDUI(dui);
+
+            if (cliente == null)
+            {
+                Alertas.AlertError("Error al mostrar las ventas", "No se pudieron filtrar los productos desde la bdd por q el dui no se encontro");
+                return null;
+            }
+
+            listaVentas = sale_DetailsDAO.obtenerListaDeDetallesVenta(idVenta,cliente.IdCustomer);
+
+            if (listaVentas != null)
+            {
+                Product product = new Product();
+
+                foreach ( Sale_Details ventaDetalle in listaVentas)
+                {
+                    product = encontrarProducto(ventaDetalle.IdProduct);
+                    dt.Rows.Add(ventaDetalle.IdProduct, product.GetNameProduct(), ventaDetalle.Quantity, product.GetPrice());
+                }
+                return dt;
+            }
+            else
+            {
+                return null;
+            }
+            
         }
 
     }

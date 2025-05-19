@@ -1,6 +1,7 @@
 ﻿using InventoryWalmart.Model;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -61,6 +62,34 @@ namespace InventoryWalmart.Database
                 }
             }
            
+        }
+
+        public int actualizarProductoStock(int idProducto, int nuevoStock) {
+
+            string query = "UPDATE PRODUCTS SET stock = @newStock WHERE id_product = @idProducto";
+
+            using (SqlConnection coon = Connection.ObtenerConexion())
+            {
+                using (SqlCommand command = new SqlCommand(query, coon))
+                {
+                    command.Parameters.Add("@newStock", SqlDbType.Int).Value = nuevoStock;
+                    command.Parameters.Add("@idProducto", SqlDbType.Int).Value = idProducto;
+                    try
+                    {
+                        coon.Open();
+                        int filasAfectadas = command.ExecuteNonQuery();
+
+                        return filasAfectadas;
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine("Error al actualizar el stock: " + ex.Message);
+                        return 0;
+                    }
+
+                }    
+            }
+               
         }
     }
 }

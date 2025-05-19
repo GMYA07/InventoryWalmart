@@ -77,6 +77,9 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.selectMetodoPago = new System.Windows.Forms.ComboBox();
+            this.pAYMENTMETHODBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.inventoryWalmartDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.inventoryWalmartDataSet = new InventoryWalmart.inventoryWalmartDataSet();
             this.label5 = new System.Windows.Forms.Label();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.inputCantidadProducto = new System.Windows.Forms.TextBox();
@@ -96,9 +99,6 @@
             this.label16 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.labelDescuentoDinero = new System.Windows.Forms.Label();
-            this.inventoryWalmartDataSet = new InventoryWalmart.inventoryWalmartDataSet();
-            this.inventoryWalmartDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.pAYMENTMETHODBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.pAYMENT_METHODTableAdapter = new InventoryWalmart.inventoryWalmartDataSetTableAdapters.PAYMENT_METHODTableAdapter();
             this.barAcciones.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnOcultar)).BeginInit();
@@ -110,9 +110,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.tablaVenta)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tablaBeneficiosAplicables)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.inventoryWalmartDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.inventoryWalmartDataSetBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pAYMENTMETHODBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.inventoryWalmartDataSetBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.inventoryWalmartDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // barAcciones
@@ -212,6 +212,7 @@
             this.btnProductos.Text = "Productos";
             this.btnProductos.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnProductos.UseVisualStyleBackColor = false;
+            this.btnProductos.Click += new System.EventHandler(this.btnProductos_Click);
             // 
             // btnInicio
             // 
@@ -232,6 +233,7 @@
             this.btnInicio.Text = "Inicio";
             this.btnInicio.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnInicio.UseVisualStyleBackColor = false;
+            this.btnInicio.Click += new System.EventHandler(this.btnInicio_Click);
             // 
             // logo
             // 
@@ -647,6 +649,21 @@
             this.selectMetodoPago.TabIndex = 34;
             this.selectMetodoPago.ValueMember = "id_payment_method";
             // 
+            // pAYMENTMETHODBindingSource
+            // 
+            this.pAYMENTMETHODBindingSource.DataMember = "PAYMENT_METHOD";
+            this.pAYMENTMETHODBindingSource.DataSource = this.inventoryWalmartDataSetBindingSource;
+            // 
+            // inventoryWalmartDataSetBindingSource
+            // 
+            this.inventoryWalmartDataSetBindingSource.DataSource = this.inventoryWalmartDataSet;
+            this.inventoryWalmartDataSetBindingSource.Position = 0;
+            // 
+            // inventoryWalmartDataSet
+            // 
+            this.inventoryWalmartDataSet.DataSetName = "inventoryWalmartDataSet";
+            this.inventoryWalmartDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -855,21 +872,6 @@
             this.labelDescuentoDinero.TabIndex = 62;
             this.labelDescuentoDinero.Text = "0";
             // 
-            // inventoryWalmartDataSet
-            // 
-            this.inventoryWalmartDataSet.DataSetName = "inventoryWalmartDataSet";
-            this.inventoryWalmartDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // inventoryWalmartDataSetBindingSource
-            // 
-            this.inventoryWalmartDataSetBindingSource.DataSource = this.inventoryWalmartDataSet;
-            this.inventoryWalmartDataSetBindingSource.Position = 0;
-            // 
-            // pAYMENTMETHODBindingSource
-            // 
-            this.pAYMENTMETHODBindingSource.DataMember = "PAYMENT_METHOD";
-            this.pAYMENTMETHODBindingSource.DataSource = this.inventoryWalmartDataSetBindingSource;
-            // 
             // pAYMENT_METHODTableAdapter
             // 
             this.pAYMENT_METHODTableAdapter.ClearBeforeFill = true;
@@ -918,9 +920,9 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tablaBeneficiosAplicables)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.inventoryWalmartDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.inventoryWalmartDataSetBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pAYMENTMETHODBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.inventoryWalmartDataSetBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.inventoryWalmartDataSet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace InventoryWalmart.Controllers
 {
@@ -377,6 +378,82 @@ namespace InventoryWalmart.Controllers
                     return false;
                 }
             }
+        }
+
+        public bool OperacionPuntosTargeta(string tipoBuscar, int puntos, string operacion)
+        {
+            Customer_CardDAO customer_CardDAO = new Customer_CardDAO();
+            Customer_Card customer_Card = new Customer_Card();
+
+            int operacionPuntos =0;
+
+            if (operacion.Equals("restar"))
+            {
+                customer_Card = customer_CardDAO.obtenerCustomer_CardWithCardNumber(tipoBuscar);
+
+                operacionPuntos = customer_Card.PointsBalance - puntos;
+            }
+            else
+            {
+                customer_Card = customer_CardDAO.obtenerCustomer_CardWithDUI(tipoBuscar);
+
+                operacionPuntos = customer_Card.PointsBalance + puntos;
+            }
+
+            if (customer_CardDAO.OperacionPuntosCustomer_CardDAO(customer_Card.CardNumber, operacionPuntos) > 0)
+            {
+                return true;
+            }
+
+            return false;
+        }
+
+        public bool revisarStockProductoSistema(DataGridViewRowCollection listaProductos)
+        {
+            ProductDAO productDAO = new ProductDAO();
+
+            foreach (DataGridViewRow filaProductoListaVenta in listaProductos)
+            {
+                Product product = new Product();
+                product = productDAO.obtenerProducto(Convert.ToInt32(filaProductoListaVenta.Cells["colIdProducto"].Value));
+
+                if (Convert.ToInt32(filaProductoListaVenta.Cells["colCantidad"].Value.ToString()) > product.GetStock())
+                {
+                    if (product.GetStock() == 0)
+                    {
+                        Alertas.AlertError("Error en el proceso de venta", "El stock del producto "+ filaProductoListaVenta.Cells["colProducto"].Value.ToString()+" es 0, Por favor retirarlo de la lista para proseguir con la venta");
+                    }
+                    else
+                    {
+                        Alertas.AlertError("Error en el proceso de venta", "El producto " + filaProductoListaVenta.Cells["colProducto"].Value.ToString() + " contiene mas de lo que hay en stock (" + product.GetStock() + "), Por favor reducir un total de: " + ((product.GetStock() - Convert.ToInt32(filaProductoListaVenta.Cells["colCantidad"].Value.ToString())) * -1) + " para poder continuar con la venta");
+                    }
+                    return false;
+                }
+            }
+
+            return true;
+        }
+
+        public bool reducirStockProductoSistema(DataGridViewRowCollection listaProductosReducirStock)
+        {
+            ProductDAO productDAO = new ProductDAO();
+            int stockActualizado = 0;
+
+            foreach (DataGridViewRow filaProductoListaVenta in listaProductosReducirStock)
+            {
+                Product product = new Product();
+                product = productDAO.obtenerProducto(Convert.ToInt32(filaProductoListaVenta.Cells["colIdProducto"].Value));
+                stockActualizado = product.GetStock() - Convert.ToInt32(filaProductoListaVenta.Cells["colCantidad"].Value.ToString());
+
+                if (productDAO.actualizarProductoStock(product.GetIdProduct(), stockActualizado) == 0)
+                {
+                    Alertas.AlertError("Error en el proceso de venta","Se fallo al actualizar el stock");
+                    return false;
+                }
+
+            }
+
+            return true;
         }
 
     }

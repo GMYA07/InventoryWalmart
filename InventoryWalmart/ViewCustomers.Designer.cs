@@ -37,6 +37,13 @@
             this.btnCerrar = new System.Windows.Forms.PictureBox();
             this.btnRestaurar = new System.Windows.Forms.PictureBox();
             this.Table_Customers = new System.Windows.Forms.DataGridView();
+            this.columnID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.columnDUI = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnApellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnFechaNacimiento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnEmail = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnTipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel3 = new System.Windows.Forms.Panel();
             this.btnModificar = new System.Windows.Forms.Button();
             this.btnAplicarBene = new System.Windows.Forms.Button();
@@ -66,13 +73,6 @@
             this.btnPromociones = new System.Windows.Forms.Button();
             this.btnInicio = new System.Windows.Forms.Button();
             this.logo = new System.Windows.Forms.PictureBox();
-            this.columnID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.columnDUI = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnApellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnFechaNacimiento = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnEmail = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnTipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.barAcciones.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnOcultar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMaximizar)).BeginInit();
@@ -154,7 +154,7 @@
             // 
             // Table_Customers
             // 
-            this.Table_Customers.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.Table_Customers.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.Table_Customers.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.Table_Customers.BackgroundColor = System.Drawing.Color.White;
             this.Table_Customers.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -178,7 +178,7 @@
             this.ColumnEmail,
             this.ColumnTipo});
             this.Table_Customers.EnableHeadersVisualStyles = false;
-            this.Table_Customers.Location = new System.Drawing.Point(380, 267);
+            this.Table_Customers.Location = new System.Drawing.Point(317, 267);
             this.Table_Customers.Name = "Table_Customers";
             this.Table_Customers.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
@@ -191,8 +191,49 @@
             this.Table_Customers.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.Table_Customers.RowHeadersVisible = false;
             this.Table_Customers.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.Table_Customers.Size = new System.Drawing.Size(788, 408);
+            this.Table_Customers.Size = new System.Drawing.Size(904, 408);
             this.Table_Customers.TabIndex = 17;
+            // 
+            // columnID
+            // 
+            this.columnID.DataPropertyName = "IdCustomer";
+            this.columnID.HeaderText = "ID";
+            this.columnID.Name = "columnID";
+            // 
+            // columnDUI
+            // 
+            this.columnDUI.DataPropertyName = "Dui";
+            this.columnDUI.HeaderText = "DUI";
+            this.columnDUI.Name = "columnDUI";
+            // 
+            // ColumnNombre
+            // 
+            this.ColumnNombre.DataPropertyName = "FirstName";
+            this.ColumnNombre.HeaderText = "Nombre";
+            this.ColumnNombre.Name = "ColumnNombre";
+            // 
+            // ColumnApellido
+            // 
+            this.ColumnApellido.DataPropertyName = "LastName";
+            this.ColumnApellido.HeaderText = "Apellido";
+            this.ColumnApellido.Name = "ColumnApellido";
+            // 
+            // ColumnFechaNacimiento
+            // 
+            this.ColumnFechaNacimiento.DataPropertyName = "DateOfBirth";
+            this.ColumnFechaNacimiento.HeaderText = "FechaNacimiento";
+            this.ColumnFechaNacimiento.Name = "ColumnFechaNacimiento";
+            // 
+            // ColumnEmail
+            // 
+            this.ColumnEmail.DataPropertyName = "Email";
+            this.ColumnEmail.HeaderText = "Email";
+            this.ColumnEmail.Name = "ColumnEmail";
+            // 
+            // ColumnTipo
+            // 
+            this.ColumnTipo.HeaderText = "Tipo";
+            this.ColumnTipo.Name = "ColumnTipo";
             // 
             // panel3
             // 
@@ -720,54 +761,6 @@
             this.logo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.logo.TabIndex = 0;
             this.logo.TabStop = false;
-            // 
-            // columnID
-            // 
-            this.columnID.DataPropertyName = "IdCustomer";
-            this.columnID.HeaderText = "ID";
-            this.columnID.Name = "columnID";
-            this.columnID.Width = 46;
-            // 
-            // columnDUI
-            // 
-            this.columnDUI.DataPropertyName = "Dui";
-            this.columnDUI.HeaderText = "DUI";
-            this.columnDUI.Name = "columnDUI";
-            this.columnDUI.Width = 55;
-            // 
-            // ColumnNombre
-            // 
-            this.ColumnNombre.DataPropertyName = "FirstName";
-            this.ColumnNombre.HeaderText = "Nombre";
-            this.ColumnNombre.Name = "ColumnNombre";
-            this.ColumnNombre.Width = 82;
-            // 
-            // ColumnApellido
-            // 
-            this.ColumnApellido.DataPropertyName = "LastName";
-            this.ColumnApellido.HeaderText = "Apellido";
-            this.ColumnApellido.Name = "ColumnApellido";
-            this.ColumnApellido.Width = 84;
-            // 
-            // ColumnFechaNacimiento
-            // 
-            this.ColumnFechaNacimiento.DataPropertyName = "DateOfBirth";
-            this.ColumnFechaNacimiento.HeaderText = "FechaNacimiento";
-            this.ColumnFechaNacimiento.Name = "ColumnFechaNacimiento";
-            this.ColumnFechaNacimiento.Width = 138;
-            // 
-            // ColumnEmail
-            // 
-            this.ColumnEmail.DataPropertyName = "Email";
-            this.ColumnEmail.HeaderText = "Email";
-            this.ColumnEmail.Name = "ColumnEmail";
-            this.ColumnEmail.Width = 66;
-            // 
-            // ColumnTipo
-            // 
-            this.ColumnTipo.HeaderText = "Tipo";
-            this.ColumnTipo.Name = "ColumnTipo";
-            this.ColumnTipo.Width = 60;
             // 
             // ViewCustomers
             // 

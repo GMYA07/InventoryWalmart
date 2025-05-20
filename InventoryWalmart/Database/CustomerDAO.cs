@@ -76,13 +76,88 @@ namespace InventoryWalmart.Database
 
                     connection.Open();
                     command.ExecuteNonQuery();
-
+                    connection.Close();
                     Alertas.AlertCorrect("Exito", "Cliente Agregado correctamente");
                 }
             }
             catch (SqlException ex) {
                 Alertas.AlertError("ERROR", $"No se ha podido registrar el cliente {ex.Message}");
             }
+            
+        }
+
+        public void UpdateCustomer(Customer customer)
+        {
+            try
+            {
+                using (SqlConnection connection = Connection.ObtenerConexion())
+                {
+                    SqlCommand command = new SqlCommand("update_Customer", connection);
+                    command.CommandType = CommandType.StoredProcedure;
+
+                    command.Parameters.AddWithValue("@first_name", customer.FirstName);
+                    command.Parameters.AddWithValue("@last_name", customer.LastName);
+                    command.Parameters.AddWithValue("@email", customer.Email);
+                    command.Parameters.AddWithValue("@phone", customer.Phone);
+                    command.Parameters.AddWithValue("@dui", customer.Dui);
+                    command.Parameters.AddWithValue("@date_of_birth", customer.DateOfBirth);
+
+                    connection.Open (); 
+                    command.ExecuteNonQuery();
+                    connection.Close();
+                }
+            }catch(SqlException ex)
+            {
+                MessageBox.Show("ERROR", $"No se pudo actualizar el cliente {ex.Message}");
+            }
+        }
+
+        public Customer GetInfoCustomer(int id) {
+            Customer customer=new Customer();
+
+            string query = $@"SELECT
+                            first_name,
+                            last_name,
+                            email
+                            phone,
+                            dui,
+                            date_of_birth
+                        FROM customers
+                        WHERE id_customer = {id}
+                        ;";
+            try
+            {
+                using (SqlConnection connection = Connection.ObtenerConexion())
+                {
+                    SqlCommand command = new SqlCommand(query, connection);
+                    connection.Open();
+
+                    SqlDataReader reader = command.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        Customer customers = new Customer();
+                        {
+                            customers.FirstName = reader.GetString(0);
+                            customers.LastName = reader.GetString(1);
+                            customers.Email = reader.GetString(2);
+                            customers.Phone = reader.GetString(3);
+                            customers.Dui = reader.GetString(4);
+                            customer.DateOfBirth = reader.GetDateTime(5);
+                        };
+                        customer = customers;
+                    }
+
+                    reader.Close();
+                    connection.Close();
+
+                    return customer;
+                }
+            }
+            catch (SqlException ex) {
+                MessageBox.Show("ERROR", "No se ha podido obtener los datos del cliente");
+            }
+            return null;
             
         }
 

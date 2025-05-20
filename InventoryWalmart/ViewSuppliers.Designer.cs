@@ -100,7 +100,7 @@
             this.ColumnTelefono,
             this.ColumnDepartamento});
             this.Table_Suppliers.EnableHeadersVisualStyles = false;
-            this.Table_Suppliers.Location = new System.Drawing.Point(424, 251);
+            this.Table_Suppliers.Location = new System.Drawing.Point(291, 251);
             this.Table_Suppliers.Name = "Table_Suppliers";
             this.Table_Suppliers.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
@@ -113,7 +113,7 @@
             this.Table_Suppliers.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.Table_Suppliers.RowHeadersVisible = false;
             this.Table_Suppliers.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.Table_Suppliers.Size = new System.Drawing.Size(680, 408);
+            this.Table_Suppliers.Size = new System.Drawing.Size(950, 408);
             this.Table_Suppliers.TabIndex = 23;
             // 
             // ColumnId

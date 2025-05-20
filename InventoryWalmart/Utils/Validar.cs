@@ -19,7 +19,7 @@ namespace InventoryWalmart.Validaciones
         }
 
         public static bool correo(TextBox text) {
-            bool valido = Regex.IsMatch(text, @"^$");
+            //bool valido = Regex.IsMatch(text, @"^$");
 
             return false;
         } 

@@ -28,8 +28,22 @@ namespace InventoryWalmart
                 LblTitulo.Text = "Editar cliente";
                 btnAgregar.Text = "Editar";
                 btnAgregar.BackColor = Color.Blue;
+                LoadCustomer();
             }
 
+        }
+
+        public void UpdateCustomer()
+        {
+            Customer customer = new Customer();
+            customer.FirstName = TxtNombre.Text;
+            customer.LastName = TxtApellido.Text;
+            customer.Email = TxtEmail.Text;
+            customer.Dui = TxtDUI.Text;
+            customer.Phone = TxtTelefono.Text;
+            customer.DateOfBirth = DtpNacimiento.Value;
+
+            customerDAO.UpdateCustomer(customer);
         }
 
         public void AddCustomer()
@@ -44,6 +58,19 @@ namespace InventoryWalmart
 
             customerDAO.INSERT_Customer(customer);
         }
+
+        public void LoadCustomer()
+        {
+            Customer customer = new Customer();
+            customer = customerDAO.GetInfoCustomer(1);
+            TxtNombre.Text = customer.FirstName;
+            TxtApellido.Text = customer.LastName;
+            TxtEmail.Text = customer.Email;
+            TxtDUI.Text = customer.Dui;
+            TxtTelefono.Text =customer.Phone;
+            DtpNacimiento.Value = customer.DateOfBirth;
+        }
+
 
         //Codigo q nos ayuda con la administrasion de la barra de arriba y mover la ventana.
         //Drag Form

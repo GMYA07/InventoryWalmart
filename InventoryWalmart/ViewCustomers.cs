@@ -1,4 +1,6 @@
 ﻿using InventoryWalmart.Database;
+using InventoryWalmart.Model;
+using InventoryWalmart.Utils;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -37,6 +39,27 @@ namespace InventoryWalmart
             }
         }
 
+        public bool ValidarSeleccion()
+        {
+            if (Table_Customers.SelectedRows.Count != 1)
+            {
+                MessageBox.Show("Por favor selecciona una sola fila antes de continuar.", "Selección requerida", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+
+            return true;
+        }
+
+        public bool ConfirmarSeleccion(string accion)
+        {
+            DataGridViewRow row = Table_Customers.SelectedRows[0];
+            Customer FilaSeleccionada = (Customer)row.DataBoundItem;
+
+            ValidarSeleccion();
+            bool confirmacion = Alertas.Confirmacion("¡Advetencia!", $"¿Seguro que quieres {accion} a {FilaSeleccionada.FirstName} {FilaSeleccionada.LastName}?");
+
+            return confirmacion;
+        }
 
         //Codigo q nos ayuda con la administrasion de la barra de arriba y mover la ventana.
         //Drag Form

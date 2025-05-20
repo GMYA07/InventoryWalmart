@@ -20,7 +20,7 @@ namespace InventoryWalmart.Database
             query += " INNER JOIN CUSTOMER_CARD as cd on c.id_customer = cd.id_customer";
             query += " INNER JOIN CARD_BENEFITS as cb on cd.id_card = cb.id_card";
             query += " INNER JOIN BENEFITS as b on cb.id_benefit = b.id_benefit";
-            query += " WHERE c.dui = '" + duiCliente + "'";
+            query += " WHERE c.dui = '" + duiCliente + "' AND cb.status_benefit = 'activo'";
 
             using (SqlConnection coon = Connection.ObtenerConexion())
             {

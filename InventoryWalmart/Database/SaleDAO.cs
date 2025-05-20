@@ -21,7 +21,7 @@ namespace InventoryWalmart.Database
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
 
-                    cmd.Parameters.Add("@id_customer", SqlDbType.Int).Value = nuevaVenta.GetIdCustomer();
+                    cmd.Parameters.Add("@id_customer", SqlDbType.Int).Value = (nuevaVenta.GetIdCustomer() != 0) ? (object)nuevaVenta.GetIdCustomer() : DBNull.Value;
                     cmd.Parameters.Add("@sale_date", SqlDbType.Date).Value = nuevaVenta.GetSaleDate();
                     cmd.Parameters.Add("@total_amount",SqlDbType.Decimal).Value = nuevaVenta.GetTotalAmount();
                     cmd.Parameters.Add("@id_payment_method", SqlDbType.Int).Value = nuevaVenta.GetIdPaymentMethod();
@@ -29,6 +29,7 @@ namespace InventoryWalmart.Database
                     cmd.Parameters.Add("@id_card", SqlDbType.Int).Value = (nuevaVenta.GetIdCard() != 0) ? (object)nuevaVenta.GetIdCard() : DBNull.Value;
                     cmd.Parameters.Add("@points_used",SqlDbType.Int).Value = nuevaVenta.GetPointUsed();
                     cmd.Parameters.Add("@points_earned", SqlDbType.Int).Value = nuevaVenta.GetPointEarned();
+                    cmd.Parameters.Add("@id_user",SqlDbType.Int).Value = nuevaVenta.GetIdUser();
 
                     try
                     {

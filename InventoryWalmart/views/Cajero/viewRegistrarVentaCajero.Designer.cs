@@ -76,7 +76,6 @@
             this.checkTieneTargeta = new System.Windows.Forms.CheckBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.selectMetodoPago = new System.Windows.Forms.ComboBox();
             this.pAYMENTMETHODBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.inventoryWalmartDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.inventoryWalmartDataSet = new InventoryWalmart.inventoryWalmartDataSet();
@@ -100,6 +99,8 @@
             this.label17 = new System.Windows.Forms.Label();
             this.labelDescuentoDinero = new System.Windows.Forms.Label();
             this.pAYMENT_METHODTableAdapter = new InventoryWalmart.inventoryWalmartDataSetTableAdapters.PAYMENT_METHODTableAdapter();
+            this.btnEfectivo = new System.Windows.Forms.Button();
+            this.btnTargeta = new System.Windows.Forms.Button();
             this.barAcciones.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnOcultar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMaximizar)).BeginInit();
@@ -349,7 +350,9 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnTargeta);
             this.groupBox1.Controls.Add(this.labelPtsTargeta);
+            this.groupBox1.Controls.Add(this.btnEfectivo);
             this.groupBox1.Controls.Add(this.label15);
             this.groupBox1.Controls.Add(this.label21);
             this.groupBox1.Controls.Add(this.label20);
@@ -370,7 +373,6 @@
             this.groupBox1.Controls.Add(this.checkTieneTargeta);
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Controls.Add(this.selectMetodoPago);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.btnAgregar);
             this.groupBox1.Controls.Add(this.inputCantidadProducto);
@@ -439,6 +441,7 @@
             // 
             // inputDui
             // 
+            this.inputDui.Enabled = false;
             this.inputDui.Location = new System.Drawing.Point(18, 301);
             this.inputDui.Name = "inputDui";
             this.inputDui.Size = new System.Drawing.Size(222, 20);
@@ -635,19 +638,6 @@
             this.label6.Size = new System.Drawing.Size(136, 21);
             this.label6.TabIndex = 35;
             this.label6.Text = "Metodo de Pago";
-            // 
-            // selectMetodoPago
-            // 
-            this.selectMetodoPago.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.selectMetodoPago.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.pAYMENTMETHODBindingSource, "id_payment_method", true));
-            this.selectMetodoPago.DataSource = this.pAYMENTMETHODBindingSource;
-            this.selectMetodoPago.DisplayMember = "method_name";
-            this.selectMetodoPago.FormattingEnabled = true;
-            this.selectMetodoPago.Location = new System.Drawing.Point(17, 211);
-            this.selectMetodoPago.Name = "selectMetodoPago";
-            this.selectMetodoPago.Size = new System.Drawing.Size(265, 21);
-            this.selectMetodoPago.TabIndex = 34;
-            this.selectMetodoPago.ValueMember = "id_payment_method";
             // 
             // pAYMENTMETHODBindingSource
             // 
@@ -876,6 +866,38 @@
             // 
             this.pAYMENT_METHODTableAdapter.ClearBeforeFill = true;
             // 
+            // btnEfectivo
+            // 
+            this.btnEfectivo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(114)))), ((int)(((byte)(223)))));
+            this.btnEfectivo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btnEfectivo.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnEfectivo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEfectivo.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEfectivo.ForeColor = System.Drawing.Color.White;
+            this.btnEfectivo.Location = new System.Drawing.Point(17, 206);
+            this.btnEfectivo.Name = "btnEfectivo";
+            this.btnEfectivo.Size = new System.Drawing.Size(69, 26);
+            this.btnEfectivo.TabIndex = 71;
+            this.btnEfectivo.Text = "Efectivo";
+            this.btnEfectivo.UseVisualStyleBackColor = false;
+            this.btnEfectivo.Click += new System.EventHandler(this.btnEfectivo_Click);
+            // 
+            // btnTargeta
+            // 
+            this.btnTargeta.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(114)))), ((int)(((byte)(223)))));
+            this.btnTargeta.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btnTargeta.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnTargeta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnTargeta.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTargeta.ForeColor = System.Drawing.Color.White;
+            this.btnTargeta.Location = new System.Drawing.Point(101, 206);
+            this.btnTargeta.Name = "btnTargeta";
+            this.btnTargeta.Size = new System.Drawing.Size(69, 26);
+            this.btnTargeta.TabIndex = 72;
+            this.btnTargeta.Text = "Targeta";
+            this.btnTargeta.UseVisualStyleBackColor = false;
+            this.btnTargeta.Click += new System.EventHandler(this.btnTargeta_Click);
+            // 
             // viewRegistrarVentaCajero
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -957,7 +979,6 @@
         private System.Windows.Forms.TextBox inputCantidadProducto;
         private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.ComboBox selectMetodoPago;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label11;
@@ -1000,5 +1021,7 @@
         private System.Windows.Forms.BindingSource inventoryWalmartDataSetBindingSource;
         private System.Windows.Forms.BindingSource pAYMENTMETHODBindingSource;
         private inventoryWalmartDataSetTableAdapters.PAYMENT_METHODTableAdapter pAYMENT_METHODTableAdapter;
+        private System.Windows.Forms.Button btnEfectivo;
+        private System.Windows.Forms.Button btnTargeta;
     }
 }

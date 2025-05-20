@@ -77,7 +77,7 @@
             this.barAcciones.Controls.Add(this.btnRestaurar);
             this.barAcciones.Dock = System.Windows.Forms.DockStyle.Top;
             this.barAcciones.Location = new System.Drawing.Point(0, 0);
-            this.barAcciones.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.barAcciones.Margin = new System.Windows.Forms.Padding(4);
             this.barAcciones.Name = "barAcciones";
             this.barAcciones.Size = new System.Drawing.Size(1707, 73);
             this.barAcciones.TabIndex = 6;
@@ -89,7 +89,7 @@
             this.btnOcultar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnOcultar.Image = global::InventoryWalmart.Properties.Resources.ocultar;
             this.btnOcultar.Location = new System.Drawing.Point(1517, 15);
-            this.btnOcultar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnOcultar.Margin = new System.Windows.Forms.Padding(4);
             this.btnOcultar.Name = "btnOcultar";
             this.btnOcultar.Size = new System.Drawing.Size(40, 37);
             this.btnOcultar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -103,7 +103,7 @@
             this.btnMaximizar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnMaximizar.Image = ((System.Drawing.Image)(resources.GetObject("btnMaximizar.Image")));
             this.btnMaximizar.Location = new System.Drawing.Point(1588, 15);
-            this.btnMaximizar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnMaximizar.Margin = new System.Windows.Forms.Padding(4);
             this.btnMaximizar.Name = "btnMaximizar";
             this.btnMaximizar.Size = new System.Drawing.Size(40, 37);
             this.btnMaximizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -117,7 +117,7 @@
             this.btnCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCerrar.Image = ((System.Drawing.Image)(resources.GetObject("btnCerrar.Image")));
             this.btnCerrar.Location = new System.Drawing.Point(1648, 15);
-            this.btnCerrar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCerrar.Margin = new System.Windows.Forms.Padding(4);
             this.btnCerrar.Name = "btnCerrar";
             this.btnCerrar.Size = new System.Drawing.Size(43, 39);
             this.btnCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -131,7 +131,7 @@
             this.btnRestaurar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnRestaurar.Image = ((System.Drawing.Image)(resources.GetObject("btnRestaurar.Image")));
             this.btnRestaurar.Location = new System.Drawing.Point(1588, 15);
-            this.btnRestaurar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnRestaurar.Margin = new System.Windows.Forms.Padding(4);
             this.btnRestaurar.Name = "btnRestaurar";
             this.btnRestaurar.Size = new System.Drawing.Size(40, 37);
             this.btnRestaurar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -154,7 +154,7 @@
             this.panel1.Controls.Add(this.logo);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 73);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(333, 813);
             this.panel1.TabIndex = 7;
@@ -171,7 +171,7 @@
             this.BtnVentas.Image = global::InventoryWalmart.Properties.Resources.IconoSales;
             this.BtnVentas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.BtnVentas.Location = new System.Drawing.Point(0, 550);
-            this.BtnVentas.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.BtnVentas.Margin = new System.Windows.Forms.Padding(4);
             this.BtnVentas.Name = "BtnVentas";
             this.BtnVentas.Padding = new System.Windows.Forms.Padding(0, 0, 133, 0);
             this.BtnVentas.Size = new System.Drawing.Size(333, 49);
@@ -193,7 +193,7 @@
             this.BtnPuntos.Image = global::InventoryWalmart.Properties.Resources.PointsIcon;
             this.BtnPuntos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.BtnPuntos.Location = new System.Drawing.Point(0, 501);
-            this.BtnPuntos.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.BtnPuntos.Margin = new System.Windows.Forms.Padding(4);
             this.BtnPuntos.Name = "BtnPuntos";
             this.BtnPuntos.Padding = new System.Windows.Forms.Padding(0, 0, 133, 0);
             this.BtnPuntos.Size = new System.Drawing.Size(333, 49);
@@ -215,7 +215,7 @@
             this.btnClientes.Image = global::InventoryWalmart.Properties.Resources.UsuariosIcon;
             this.btnClientes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnClientes.Location = new System.Drawing.Point(0, 452);
-            this.btnClientes.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnClientes.Margin = new System.Windows.Forms.Padding(4);
             this.btnClientes.Name = "btnClientes";
             this.btnClientes.Padding = new System.Windows.Forms.Padding(0, 0, 133, 0);
             this.btnClientes.Size = new System.Drawing.Size(333, 49);
@@ -237,7 +237,7 @@
             this.btnEmpleado.Image = global::InventoryWalmart.Properties.Resources.EmpleadosIcon;
             this.btnEmpleado.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnEmpleado.Location = new System.Drawing.Point(0, 403);
-            this.btnEmpleado.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnEmpleado.Margin = new System.Windows.Forms.Padding(4);
             this.btnEmpleado.Name = "btnEmpleado";
             this.btnEmpleado.Padding = new System.Windows.Forms.Padding(0, 0, 107, 0);
             this.btnEmpleado.Size = new System.Drawing.Size(333, 49);
@@ -259,7 +259,7 @@
             this.btnReportes.Image = global::InventoryWalmart.Properties.Resources.ReportesIcon;
             this.btnReportes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnReportes.Location = new System.Drawing.Point(0, 354);
-            this.btnReportes.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnReportes.Margin = new System.Windows.Forms.Padding(4);
             this.btnReportes.Name = "btnReportes";
             this.btnReportes.Padding = new System.Windows.Forms.Padding(0, 0, 120, 0);
             this.btnReportes.Size = new System.Drawing.Size(333, 49);
@@ -281,7 +281,7 @@
             this.btnDevoluciones.Image = global::InventoryWalmart.Properties.Resources.RenvolsosIcon;
             this.btnDevoluciones.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnDevoluciones.Location = new System.Drawing.Point(0, 305);
-            this.btnDevoluciones.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnDevoluciones.Margin = new System.Windows.Forms.Padding(4);
             this.btnDevoluciones.Name = "btnDevoluciones";
             this.btnDevoluciones.Padding = new System.Windows.Forms.Padding(0, 0, 67, 0);
             this.btnDevoluciones.Size = new System.Drawing.Size(333, 49);
@@ -303,7 +303,7 @@
             this.btnProductos.Image = global::InventoryWalmart.Properties.Resources.ProductosIcon;
             this.btnProductos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnProductos.Location = new System.Drawing.Point(0, 256);
-            this.btnProductos.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnProductos.Margin = new System.Windows.Forms.Padding(4);
             this.btnProductos.Name = "btnProductos";
             this.btnProductos.Padding = new System.Windows.Forms.Padding(0, 0, 100, 0);
             this.btnProductos.Size = new System.Drawing.Size(333, 49);
@@ -325,7 +325,7 @@
             this.btnPromociones.Image = ((System.Drawing.Image)(resources.GetObject("btnPromociones.Image")));
             this.btnPromociones.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnPromociones.Location = new System.Drawing.Point(0, 207);
-            this.btnPromociones.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnPromociones.Margin = new System.Windows.Forms.Padding(4);
             this.btnPromociones.Name = "btnPromociones";
             this.btnPromociones.Padding = new System.Windows.Forms.Padding(0, 0, 67, 0);
             this.btnPromociones.Size = new System.Drawing.Size(333, 49);
@@ -346,7 +346,7 @@
             this.btnInicio.Image = global::InventoryWalmart.Properties.Resources.DashboardIcon;
             this.btnInicio.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnInicio.Location = new System.Drawing.Point(0, 158);
-            this.btnInicio.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnInicio.Margin = new System.Windows.Forms.Padding(4);
             this.btnInicio.Name = "btnInicio";
             this.btnInicio.Padding = new System.Windows.Forms.Padding(0, 0, 160, 0);
             this.btnInicio.Size = new System.Drawing.Size(333, 49);
@@ -361,7 +361,7 @@
             this.logo.Dock = System.Windows.Forms.DockStyle.Top;
             this.logo.Image = global::InventoryWalmart.Properties.Resources.logo;
             this.logo.Location = new System.Drawing.Point(0, 0);
-            this.logo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.logo.Margin = new System.Windows.Forms.Padding(4);
             this.logo.Name = "logo";
             this.logo.Padding = new System.Windows.Forms.Padding(13, 12, 13, 12);
             this.logo.Size = new System.Drawing.Size(333, 158);
@@ -394,7 +394,7 @@
             this.ColumnGstados});
             this.Table_Customers.EnableHeadersVisualStyles = false;
             this.Table_Customers.Location = new System.Drawing.Point(523, 292);
-            this.Table_Customers.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Table_Customers.Margin = new System.Windows.Forms.Padding(4);
             this.Table_Customers.Name = "Table_Customers";
             this.Table_Customers.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
@@ -451,7 +451,7 @@
             this.panel2.Controls.Add(this.inputBuscar);
             this.panel2.Controls.Add(this.btnBuscar);
             this.panel2.Location = new System.Drawing.Point(353, 167);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(555, 65);
             this.panel2.TabIndex = 19;
@@ -459,7 +459,7 @@
             // inputBuscar
             // 
             this.inputBuscar.Location = new System.Drawing.Point(4, 10);
-            this.inputBuscar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.inputBuscar.Margin = new System.Windows.Forms.Padding(4);
             this.inputBuscar.Multiline = true;
             this.inputBuscar.Name = "inputBuscar";
             this.inputBuscar.Size = new System.Drawing.Size(492, 38);
@@ -475,12 +475,13 @@
             this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBuscar.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscar.Image")));
             this.btnBuscar.Location = new System.Drawing.Point(493, 10);
-            this.btnBuscar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnBuscar.Margin = new System.Windows.Forms.Padding(4);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Padding = new System.Windows.Forms.Padding(67, 62, 67, 62);
             this.btnBuscar.Size = new System.Drawing.Size(47, 39);
             this.btnBuscar.TabIndex = 7;
             this.btnBuscar.UseVisualStyleBackColor = false;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // Lbl_Title
             // 
@@ -505,7 +506,7 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.barAcciones);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "ViewPoints";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ViewPuntos";

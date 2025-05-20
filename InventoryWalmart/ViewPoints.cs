@@ -167,5 +167,36 @@ namespace InventoryWalmart
             }
 
         }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            if (!inputBuscar.Text.All(char.IsDigit))
+            {
+                MessageBox.Show("Ingrese una credencial o revise que no tenga espacios/letras");
+            }
+            else { 
+
+                var tarjeta = inputBuscar.Text;
+
+                var resultados = PointsDAO.ObtenerPuntosPorNumeroTarjeta(tarjeta);
+                Table_Customers.Rows.Clear();
+
+                foreach (var u in resultados)
+                {
+
+                    int index = Table_Customers.Rows.Add(
+                    u.CardNumber,
+                    u.Customer,
+                    u.Dui,
+                    u.PointsBalance,
+                    u.TotalPointsChange
+                );
+
+                    // Asignar el objeto User a la propiedad Tag de la fila
+                    Table_Customers.Rows[index].Tag = u;
+
+                }
+            }
+        }
     }
 }

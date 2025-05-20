@@ -137,7 +137,7 @@ namespace InventoryWalmart.Database
 
                     connection.Open();
 
-                    Alertas.AlertCorrect("Exito","Usuario Agregado correctamente");
+                    Alertas.AlertCorrect("Exito","Proveedor Agregado correctamente");
                 }
             }
             catch (Exception ex)

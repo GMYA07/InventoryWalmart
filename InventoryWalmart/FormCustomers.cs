@@ -1,4 +1,6 @@
-﻿using System;
+﻿using InventoryWalmart.Database;
+using InventoryWalmart.Model;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,22 +15,34 @@ namespace InventoryWalmart
 {
     public partial class FormCustomers : Form
     {
-        
-        string opcion1 = ViewCustomers.opcion;
+
+        CustomerDAO customerDAO = new CustomerDAO();
 
         public FormCustomers()
         {
             InitializeComponent();
-            if (opcion1 == "agregar"){
+            if (ViewCustomers.opcion == "agregar"){
 
             }
             else{
                 LblTitulo.Text = "Editar cliente";
                 btnAgregar.Text = "Editar";
                 btnAgregar.BackColor = Color.Blue;
-                //this
             }
 
+        }
+
+        public void AddCustomer()
+        {
+            Customer customer = new Customer();
+            customer.FirstName = TxtNombre.Text;
+            customer.LastName = TxtApellido.Text;
+            customer.Email = TxtEmail.Text;
+            customer.Dui = TxtDUI.Text;
+            customer.Phone = TxtTelefono.Text;
+            customer.DateOfBirth = DtpNacimiento.Value;
+
+            customerDAO.INSERT_Customer(customer);
         }
 
         //Codigo q nos ayuda con la administrasion de la barra de arriba y mover la ventana.
@@ -79,6 +93,20 @@ namespace InventoryWalmart
         private void button1_Click(object sender, EventArgs e)
         {
             ChangeView<ViewCustomers>();
+        }
+
+        private void btnAgregar_Click(object sender, EventArgs e)
+        {
+
+            if (ViewCustomers.opcion == "agregar")
+            {
+                AddCustomer();
+            }
+            else
+            {
+                //ActualizarSupplier();
+            }
+            
         }
     }
 }

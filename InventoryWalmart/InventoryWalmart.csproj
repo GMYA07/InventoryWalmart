@@ -66,6 +66,7 @@
     <Compile Include="Database\DepartmentDAO.cs" />
     <Compile Include="Database\DiscountDAO.cs" />
     <Compile Include="Database\DistrictDAO.cs" />
+    <Compile Include="Database\PointsDAO.cs" />
     <Compile Include="Database\ProductDAO.cs" />
     <Compile Include="Database\ReturnsDAO.cs" />
     <Compile Include="Database\RolesDAO.cs" />
@@ -145,6 +146,7 @@
     <Compile Include="Model\Department.cs" />
     <Compile Include="Model\Discount.cs" />
     <Compile Include="Model\District.cs" />
+    <Compile Include="Model\points.cs" />
     <Compile Include="Model\Product.cs" />
     <Compile Include="Model\Returns.cs" />
     <Compile Include="Model\Roles.cs" />

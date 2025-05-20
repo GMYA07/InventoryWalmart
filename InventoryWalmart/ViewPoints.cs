@@ -1,4 +1,5 @@
-﻿using System;
+﻿using InventoryWalmart.Database;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -8,6 +9,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace InventoryWalmart
 {
@@ -16,6 +18,7 @@ namespace InventoryWalmart
         public ViewPoints()
         {
             InitializeComponent();
+            llenarTabla();
         }
 
         //Codigo q nos ayuda con la administrasion de la barra de arriba y mover la ventana.
@@ -106,6 +109,94 @@ namespace InventoryWalmart
         private void BtnPuntos_Click(object sender, EventArgs e)
         {
             ChangeView<ViewPoints>();
+        }
+
+        //simular un placeholder
+        private void inputBuscar_Enter(object sender, EventArgs e)
+        {
+            if (inputBuscar.Text == "Buscar Membresia")
+            {
+                inputBuscar.Text = "";
+                inputBuscar.ForeColor = Color.Black;
+            }
+        }
+
+        private void inputBuscar_Leave(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(inputBuscar.Text))
+            {
+                inputBuscar.Text = "Buscar Membresia";
+                inputBuscar.ForeColor = Color.Gray;
+            }
+        }
+
+        private void ViewPoints_Load(object sender, EventArgs e)
+        {
+            inputBuscar.Text = "Buscar Membresia";
+            inputBuscar.ForeColor = Color.Gray;
+        }
+
+
+        private void llenarTabla()
+        {
+            Table_Customers.Rows.Clear();
+            Table_Customers.Columns.Clear();
+
+            // Definir las columnas si no se están definiendo desde el diseñador
+            Table_Customers.Columns.Add("card_number", "card_number");
+            Table_Customers.Columns.Add("customer", "customer");
+            Table_Customers.Columns.Add("DUI", "DUI");
+            Table_Customers.Columns.Add("points_balance", "points_balance");
+            Table_Customers.Columns.Add("total_points_change", "total_points_change");
+
+            var usuarios = PointsDAO.ObtenerPuntosClientes();
+
+            // Ahora agregamos las filas
+            foreach (var u in usuarios)
+            {
+                int index = Table_Customers.Rows.Add(
+                    u.CardNumber,
+                    u.Customer,
+                    u.Dui,
+                    u.PointsBalance,
+                    u.TotalPointsChange
+                );
+
+                // Asignar el objeto User a la propiedad Tag de la fila
+                Table_Customers.Rows[index].Tag = u;
+            }
+
+        }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            if (!inputBuscar.Text.All(char.IsDigit))
+            {
+                MessageBox.Show("Ingrese una credencial o revise que no tenga espacios/letras");
+            }
+            else { 
+
+                var tarjeta = inputBuscar.Text;
+
+                var resultados = PointsDAO.ObtenerPuntosPorNumeroTarjeta(tarjeta);
+                Table_Customers.Rows.Clear();
+
+                foreach (var u in resultados)
+                {
+
+                    int index = Table_Customers.Rows.Add(
+                    u.CardNumber,
+                    u.Customer,
+                    u.Dui,
+                    u.PointsBalance,
+                    u.TotalPointsChange
+                );
+
+                    // Asignar el objeto User a la propiedad Tag de la fila
+                    Table_Customers.Rows[index].Tag = u;
+
+                }
+            }
         }
     }
 }

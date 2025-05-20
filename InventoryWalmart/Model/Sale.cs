@@ -9,7 +9,7 @@ namespace InventoryWalmart.Model
     internal class Sale
     {
         private int idSale;
-        private int id_customer;
+        private int? id_customer;
         private DateTime sale_date;
         private decimal total_amount;
         private int id_payment_method;
@@ -17,9 +17,10 @@ namespace InventoryWalmart.Model
         private int? id_card;
         private int point_used;
         private int point_earned;
+        private int id_user;
         public Sale() { }
 
-        public Sale(int idSale, int id_customer, DateTime sale_date, decimal total_amount, int id_payment_method, int id_discount, int id_card, int point_used, int point_earned)
+        public Sale(int idSale, int? id_customer, DateTime sale_date, decimal total_amount, int id_payment_method, int? id_discount, int? id_card, int point_used, int point_earned, int id_user)
         {
             this.idSale = idSale;
             this.id_customer = id_customer;
@@ -30,6 +31,7 @@ namespace InventoryWalmart.Model
             this.id_card = id_card;
             this.point_used = point_used;
             this.point_earned = point_earned;
+            this.id_user = id_user;
         }
 
         //Genero Los Getters y Setters
@@ -43,12 +45,12 @@ namespace InventoryWalmart.Model
             idSale = value;
         }
 
-        public int GetIdCustomer()
+        public int? GetIdCustomer()
         {
             return id_customer;
         }
 
-        public void SetIdCustomer(int value)
+        public void SetIdCustomer(int? value)
         {
             id_customer = value;
         }
@@ -123,6 +125,14 @@ namespace InventoryWalmart.Model
             point_earned = value;
         }
 
+        public int GetIdUser()
+        {
+            return id_user;
+        }
 
+        public void SetIdUser(int value)
+        {
+            id_user = value;
+        }
     }
 }

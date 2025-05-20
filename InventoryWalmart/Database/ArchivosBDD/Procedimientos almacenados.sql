@@ -957,13 +957,13 @@ CREATE OR ALTER PROCEDURE insert_Sale
 @id_discount INT = NULL,
 @id_card INT = NULL,
 @points_used INT = NULL,
-@points_earned INT= NULL
+@points_earned INT= NULL,
+@id_user INT
 AS
 BEGIN
 -- Validación 1: Campos obligatorios
 IF (
-@id_customer IS NULL
-OR @sale_date IS NULL
+@sale_date IS NULL
 OR @total_amount IS NULL
 OR @total_amount <= 0
 )
@@ -972,13 +972,7 @@ RAISERROR('Los campos obligatorios no pueden estar vacíos y el monto total debe
 0.', 16, 1);
 RETURN;
 END
--- Validación 2: Existencia del cliente
-IF NOT EXISTS (SELECT * FROM CUSTOMERS WHERE id_customer = @id_customer)
-BEGIN
-RAISERROR('El cliente no está registrado.', 16, 1);
-RETURN;
-END
--- Validación 3: Fecha de venta no futura
+-- Validación 2: Fecha de venta no futura
 IF @sale_date > GETDATE()
 BEGIN
 RAISERROR('La fecha de venta no puede ser futura.', 16, 1);
@@ -994,7 +988,7 @@ BEGIN
 RAISERROR('El método de pago no está registrado.', 16, 1);
 RETURN;
 END
--- Validación 5: Existencia del descuento (si se proporciona)
+-- Validación 4: Existencia del descuento (si se proporciona)
 IF @id_discount IS NOT NULL AND NOT EXISTS (SELECT 1 FROM DISCOUNT WHERE
 id_discount = @id_discount)
 BEGIN
@@ -1010,7 +1004,8 @@ id_payment_method,
 id_discount,
 id_card,
 points_used,
-points_earned
+points_earned,
+id_user
 )
 VALUES (
 @id_customer,
@@ -1020,8 +1015,9 @@ VALUES (
 @id_discount,
 @id_card,
 @points_used,
-@points_earned
-);
+@points_earned,
+@id_user
+)
 
 -- Devuelve el último ID insertado en esta sesión/ámbito
     SELECT SCOPE_IDENTITY();

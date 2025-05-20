@@ -1,10 +1,12 @@
 ﻿using InventoryWalmart.Model;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace InventoryWalmart.Database
 {
@@ -12,6 +14,65 @@ namespace InventoryWalmart.Database
     {
 
         public CustomerDAO() { }
+
+        public static List<Customer> SelectCustomers()
+        {
+
+            List<Customer> customer = new List<Customer>();
+
+            string query = @"SELECT
+                    id_customer,
+                    first_name,
+                    last_name,
+                    email,
+                    phone,
+                    dui,
+                    date_of_birth
+                FROM customers;";
+
+            SqlConnection connection = Connection.ObtenerConexion();
+            SqlCommand command = new SqlCommand(query, connection);
+
+            connection.Open();
+            SqlDataReader reader = command.ExecuteReader();
+
+            while (reader.Read())
+            {
+                Customer customers = new Customer();
+
+                customers.IdCustomer = reader.GetInt32(0);      
+                customers.FirstName = reader.GetString(1);    
+                customers.LastName = reader.GetString(2);        
+                customers.Email = reader.GetString(3);          
+                customers.Phone = reader.GetString(4);           
+                customers.Dui = reader.GetString(5);            
+                customers.DateOfBirth = reader.GetDateTime(6);   
+
+                customer.Add(customers);
+            }
+            reader.Close();
+            connection.Close();
+
+            return customer;
+        }
+
+        public void INSERT_Customer(Customer customer)
+        {
+            using(SqlConnection connection = Connection.ObtenerConexion())
+            {
+                SqlCommand command = new SqlCommand("insert_Customer", connection);
+                command.CommandType = CommandType.StoredProcedure;
+
+                command.Parameters.AddWithValue("@first_name", customer.FirstName);
+                command.Parameters.AddWithValue("@last_name", customer.FirstName);
+                command.Parameters.AddWithValue("@email", customer.FirstName);
+                command.Parameters.AddWithValue("@dui", customer.FirstName);
+                command.Parameters.AddWithValue("@date_of_birth", customer.FirstName);
+
+                connection.Open();
+                command.ExecuteNonQuery();
+            }
+        }
 
         public Customer obtenerCustomerWithDUI(string dui)
         {

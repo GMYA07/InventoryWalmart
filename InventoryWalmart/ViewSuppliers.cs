@@ -194,7 +194,6 @@ namespace InventoryWalmart
                 SupplierDAO_.DeleteSupplier(id);
                 cargarTabla();
             }
-
         }
 
         public bool ConfirmarSeleccion(string accion)

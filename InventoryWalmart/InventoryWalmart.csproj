@@ -131,11 +131,6 @@
     <Compile Include="FormReturns.Designer.cs">
       <DependentUpon>FormReturns.cs</DependentUpon>
     </Compile>
-    <Compile Include="inventoryWalmartDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>inventoryWalmartDataSet.xsd</DependentUpon>
-    </Compile>
     <Compile Include="Model\Account.cs" />
     <Compile Include="Model\Benefits.cs" />
     <Compile Include="Model\Customer.cs" />
@@ -319,17 +314,6 @@
       <DependentUpon>ViewUser.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <None Include="inventoryWalmartDataSet.xsc">
-      <DependentUpon>inventoryWalmartDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="inventoryWalmartDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>inventoryWalmartDataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="inventoryWalmartDataSet.xss">
-      <DependentUpon>inventoryWalmartDataSet.xsd</DependentUpon>
-    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

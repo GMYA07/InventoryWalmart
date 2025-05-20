@@ -136,7 +136,6 @@ namespace InventoryWalmart.Database
                     command.Parameters.AddWithValue("@id_department", supplier.id_department);
 
                     connection.Open();
-                    int filasAfectadas = command.ExecuteNonQuery();
 
                     Alertas.AlertCorrect("Exito","Usuario Agregado correctamente");
                 }

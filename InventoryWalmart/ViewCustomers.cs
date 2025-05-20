@@ -1,4 +1,5 @@
-﻿using System;
+﻿using InventoryWalmart.Database;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,13 +14,29 @@ namespace InventoryWalmart
 {
     public partial class ViewCustomers : Form
     {
-
+        public static string email = "";
         public static string opcion = "";
 
         public ViewCustomers()
         {
             InitializeComponent();
+            cargarTabla();
         }
+
+        public void cargarTabla()
+        {
+            try
+            {
+                Table_Customers.AutoGenerateColumns = false;
+                var lista = CustomerDAO.SelectCustomers();
+                Table_Customers.DataSource = lista;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al cargar datos: " + ex.Message);
+            }
+        }
+
 
         //Codigo q nos ayuda con la administrasion de la barra de arriba y mover la ventana.
         //Drag Form

@@ -654,6 +654,21 @@
             this.inventoryWalmartDataSet.DataSetName = "inventoryWalmartDataSet";
             this.inventoryWalmartDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
+            // pAYMENTMETHODBindingSource
+            // 
+            this.pAYMENTMETHODBindingSource.DataMember = "PAYMENT_METHOD";
+            this.pAYMENTMETHODBindingSource.DataSource = this.inventoryWalmartDataSetBindingSource;
+            // 
+            // inventoryWalmartDataSetBindingSource
+            // 
+            this.inventoryWalmartDataSetBindingSource.DataSource = this.inventoryWalmartDataSet;
+            this.inventoryWalmartDataSetBindingSource.Position = 0;
+            // 
+            // inventoryWalmartDataSet
+            // 
+            this.inventoryWalmartDataSet.DataSetName = "inventoryWalmartDataSet";
+            this.inventoryWalmartDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // label5
             // 
             this.label5.AutoSize = true;

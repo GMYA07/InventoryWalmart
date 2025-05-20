@@ -184,7 +184,7 @@ namespace InventoryWalmart.Database
 
         }
 
-        public List<Sale_Details> obtenerListaDeDetallesVenta(int idVenta, int idCustomer)
+        public List<Sale_Details> obtenerListaDeDetallesVentaConTargeta(int idVenta, int idCustomer)
         {
             List<Sale_Details > lista_Detalles_Venta = new List<Sale_Details>();
             
@@ -197,6 +197,54 @@ namespace InventoryWalmart.Database
 
                     cmd.Parameters.Add("@idVenta", SqlDbType.Int).Value = idVenta;
                     cmd.Parameters.Add("@idCustomer", SqlDbType.Int).Value = idCustomer;
+                    coon.Open();
+
+                    try
+                    {
+                        using (SqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                Sale_Details sale_Detail = new Sale_Details();
+
+                                sale_Detail.IdSaleDetail = reader.GetInt32(0);
+                                sale_Detail.IdSale = reader.GetInt32(1);
+                                sale_Detail.IdProduct = reader.GetInt32(2);
+                                sale_Detail.Quantity = reader.GetInt32(3);
+                                sale_Detail.Price = reader.GetDecimal(4);
+
+                                lista_Detalles_Venta.Add(sale_Detail);
+                            }
+
+                        }
+
+                        return lista_Detalles_Venta;
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine("El error al traer la lista de los detalles de venta fue: " + ex.Message);
+                        return null;
+                    }
+
+                }
+
+            }
+
+        }
+
+        public List<Sale_Details> obtenerListaDeDetallesVentaSinTargeta(int idVenta)
+        {
+            List<Sale_Details> lista_Detalles_Venta = new List<Sale_Details>();
+
+            string query = "SELECT sd.id_sale_detail, sd.id_sale, sd.id_product, sd.quantity, sd.price FROM SALE_DETAILS as sd";
+            query += " INNER JOIN SALES as s on sd.id_sale = s.id_sale";
+            query += " WHERE sd.id_sale = @idVenta";
+            using (SqlConnection coon = Connection.ObtenerConexion())
+            {
+                using (SqlCommand cmd = new SqlCommand(query, coon))
+                {
+
+                    cmd.Parameters.Add("@idVenta", SqlDbType.Int).Value = idVenta;
                     coon.Open();
 
                     try

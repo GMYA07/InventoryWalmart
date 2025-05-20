@@ -866,31 +866,24 @@ END;
 go
 
 -- || RETURNS ||
-CREATE PROCEDURE insert_Return
- @id_customer INT,
+CREATE OR ALTER PROCEDURE insert_Return
+ @id_customer INT = NULL,
  @id_sale INT,
  @return_date DATE,
- @description VARCHAR(150) = NULL,
+ @description VARCHAR(250) = NULL,
  @status VARCHAR(25)
 AS
 BEGIN
  -- Validación 1: Campos obligatorios
  IF (
- @id_customer IS NULL
- OR @id_sale IS NULL
+ @id_sale IS NULL
  OR @return_date IS NULL
- OR @status IS NULL OR LTRIM(RTRIM(@status)) = ''
  )
  BEGIN
  RAISERROR('Los campos obligatorios no pueden estar vacíos.', 16, 1);
  RETURN;
  END
- -- Validación 2: Existencia del cliente
- IF NOT EXISTS (SELECT 1 FROM CUSTOMERS WHERE id_customer = @id_customer)
- BEGIN
- RAISERROR('El cliente no está registrado.', 16, 1);
- RETURN;
- END
+
  -- Validación 3: Existencia de la venta
  IF NOT EXISTS (SELECT 1 FROM SALES WHERE id_sale = @id_sale)
  BEGIN
@@ -916,7 +909,7 @@ BEGIN
  @id_sale,
  @return_date,
  @description,
- LTRIM(RTRIM(@status))
+ @status
  );
 END;
 go

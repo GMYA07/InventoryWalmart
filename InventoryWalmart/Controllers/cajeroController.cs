@@ -458,7 +458,23 @@ namespace InventoryWalmart.Controllers
             return true;
         }
 
-        public DataTable llenarTablaDevoluciones(int idVenta, string dui)
+        public int registrarDevolucion(Returns devolucion)
+        {
+            ReturnsDAO returnsDAO = new ReturnsDAO();
+
+            int numeroFilasInsertadas = returnsDAO.insertarNuevaDevolucion(devolucion);
+
+            if (numeroFilasInsertadas > 0)
+            {
+                return numeroFilasInsertadas;
+            }
+            else
+            {
+                return 0;
+            }
+        }
+
+        public DataTable llenarTablaDevolucionesConTargeta(int idVenta, string dui)
         {
             //creamos la tabla que le devolveremos al user
             DataTable dt = new DataTable();
@@ -479,7 +495,7 @@ namespace InventoryWalmart.Controllers
                 return null;
             }
 
-            listaVentas = sale_DetailsDAO.obtenerListaDeDetallesVenta(idVenta,cliente.IdCustomer);
+            listaVentas = sale_DetailsDAO.obtenerListaDeDetallesVentaConTargeta(idVenta,cliente.IdCustomer);
 
             if (listaVentas != null)
             {
@@ -497,6 +513,55 @@ namespace InventoryWalmart.Controllers
                 return null;
             }
             
+        }
+
+        public DataTable llenarTablaDevolucionesSinTargeta(int idVenta)
+        {
+            //creamos la tabla que le devolveremos al user
+            DataTable dt = new DataTable();
+            dt.Columns.Add("Id", typeof(int));
+            dt.Columns.Add("Producto", typeof(string));
+            dt.Columns.Add("Cantidad", typeof(int));
+            dt.Columns.Add("Precio Producto", typeof(decimal));
+
+
+            Sale_DetailsDAO sale_DetailsDAO = new Sale_DetailsDAO();
+            List<Sale_Details> listaVentas = new List<Sale_Details>();
+
+            listaVentas = sale_DetailsDAO.obtenerListaDeDetallesVentaSinTargeta(idVenta);
+
+            if (listaVentas != null)
+            {
+                Product product = new Product();
+
+                foreach (Sale_Details ventaDetalle in listaVentas)
+                {
+                    product = encontrarProducto(ventaDetalle.IdProduct);
+                    dt.Rows.Add(ventaDetalle.IdProduct, product.GetNameProduct(), ventaDetalle.Quantity, product.GetPrice());
+                }
+                return dt;
+            }
+            else
+            {
+                return null;
+            }
+
+        }
+
+        public int obtenerIdCustomerDevolucion(string dui)
+        {
+            Customer customer = new Customer();
+
+            customer = obtenerCustomerWithDUI(dui);
+            if (customer == null)
+            {
+                return 0;
+            }
+            else
+            {
+                return customer.IdCustomer;
+            }
+
         }
 
     }

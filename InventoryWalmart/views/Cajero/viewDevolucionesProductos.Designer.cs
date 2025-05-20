@@ -41,16 +41,18 @@
             this.tablaDetalleVenta = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.inputIdVenta = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.inputDui = new System.Windows.Forms.TextBox();
-            this.btnMostrarVenta = new System.Windows.Forms.Button();
-            this.label4 = new System.Windows.Forms.Label();
-            this.inputCantidadProducto = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.inputDescripcionDevo = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.checkUsoTargeta = new System.Windows.Forms.CheckBox();
             this.btnRealizarDevo = new System.Windows.Forms.Button();
+            this.inputDescripcionDevo = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.inputCantidadProducto = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.btnMostrarVenta = new System.Windows.Forms.Button();
+            this.inputDui = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.inputIdVenta = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.labelDinero = new System.Windows.Forms.Label();
             this.barAcciones.SuspendLayout();
@@ -214,6 +216,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label7);
+            this.groupBox1.Controls.Add(this.checkUsoTargeta);
             this.groupBox1.Controls.Add(this.btnRealizarDevo);
             this.groupBox1.Controls.Add(this.inputDescripcionDevo);
             this.groupBox1.Controls.Add(this.label5);
@@ -230,41 +234,78 @@
             this.groupBox1.TabIndex = 8;
             this.groupBox1.TabStop = false;
             // 
-            // label2
+            // label7
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(6, 28);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(209, 25);
-            this.label2.TabIndex = 9;
-            this.label2.Text = "Ingresar id de la venta";
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(272, 128);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(77, 13);
+            this.label7.TabIndex = 19;
+            this.label7.Text = "¿Uso targeta?";
             // 
-            // inputIdVenta
+            // checkUsoTargeta
             // 
-            this.inputIdVenta.Location = new System.Drawing.Point(11, 66);
-            this.inputIdVenta.Name = "inputIdVenta";
-            this.inputIdVenta.Size = new System.Drawing.Size(326, 20);
-            this.inputIdVenta.TabIndex = 10;
-            this.inputIdVenta.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.checkUsoTargeta.AutoSize = true;
+            this.checkUsoTargeta.Location = new System.Drawing.Point(307, 147);
+            this.checkUsoTargeta.Name = "checkUsoTargeta";
+            this.checkUsoTargeta.Size = new System.Drawing.Size(15, 14);
+            this.checkUsoTargeta.TabIndex = 18;
+            this.checkUsoTargeta.UseVisualStyleBackColor = true;
+            this.checkUsoTargeta.CheckedChanged += new System.EventHandler(this.checkUsoTargeta_CheckedChanged);
             // 
-            // label3
+            // btnRealizarDevo
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(6, 104);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(183, 25);
-            this.label3.TabIndex = 11;
-            this.label3.Text = "Ingresar dui cliente\r\n";
+            this.btnRealizarDevo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(114)))), ((int)(((byte)(223)))));
+            this.btnRealizarDevo.Enabled = false;
+            this.btnRealizarDevo.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnRealizarDevo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRealizarDevo.ForeColor = System.Drawing.Color.White;
+            this.btnRealizarDevo.Location = new System.Drawing.Point(11, 418);
+            this.btnRealizarDevo.Name = "btnRealizarDevo";
+            this.btnRealizarDevo.Size = new System.Drawing.Size(326, 26);
+            this.btnRealizarDevo.TabIndex = 17;
+            this.btnRealizarDevo.Text = "Realizar Devolucion Producto";
+            this.btnRealizarDevo.UseVisualStyleBackColor = false;
+            this.btnRealizarDevo.Click += new System.EventHandler(this.btnRealizarDevo_Click);
             // 
-            // inputDui
+            // inputDescripcionDevo
             // 
-            this.inputDui.Location = new System.Drawing.Point(11, 141);
-            this.inputDui.Name = "inputDui";
-            this.inputDui.Size = new System.Drawing.Size(326, 20);
-            this.inputDui.TabIndex = 12;
-            this.inputDui.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.inputDescripcionDevo.Enabled = false;
+            this.inputDescripcionDevo.Location = new System.Drawing.Point(6, 338);
+            this.inputDescripcionDevo.Multiline = true;
+            this.inputDescripcionDevo.Name = "inputDescripcionDevo";
+            this.inputDescripcionDevo.Size = new System.Drawing.Size(343, 63);
+            this.inputDescripcionDevo.TabIndex = 16;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(8, 309);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(88, 17);
+            this.label5.TabIndex = 15;
+            this.label5.Text = "Comentario :";
+            // 
+            // inputCantidadProducto
+            // 
+            this.inputCantidadProducto.Enabled = false;
+            this.inputCantidadProducto.Location = new System.Drawing.Point(11, 268);
+            this.inputCantidadProducto.Name = "inputCantidadProducto";
+            this.inputCantidadProducto.Size = new System.Drawing.Size(178, 20);
+            this.inputCantidadProducto.TabIndex = 14;
+            this.inputCantidadProducto.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(8, 236);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(187, 17);
+            this.label4.TabIndex = 13;
+            this.label4.Text = "Cantidad Producto Devuelto:";
             // 
             // btnMostrarVenta
             // 
@@ -280,57 +321,42 @@
             this.btnMostrarVenta.UseVisualStyleBackColor = false;
             this.btnMostrarVenta.Click += new System.EventHandler(this.btnMostrarVenta_Click);
             // 
-            // label4
+            // inputDui
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(8, 236);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(187, 17);
-            this.label4.TabIndex = 13;
-            this.label4.Text = "Cantidad Producto Devuelto:";
+            this.inputDui.Enabled = false;
+            this.inputDui.Location = new System.Drawing.Point(11, 141);
+            this.inputDui.Name = "inputDui";
+            this.inputDui.Size = new System.Drawing.Size(249, 20);
+            this.inputDui.TabIndex = 12;
+            this.inputDui.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // inputCantidadProducto
+            // label3
             // 
-            this.inputCantidadProducto.Enabled = false;
-            this.inputCantidadProducto.Location = new System.Drawing.Point(11, 268);
-            this.inputCantidadProducto.Name = "inputCantidadProducto";
-            this.inputCantidadProducto.Size = new System.Drawing.Size(178, 20);
-            this.inputCantidadProducto.TabIndex = 14;
-            this.inputCantidadProducto.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(6, 104);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(183, 25);
+            this.label3.TabIndex = 11;
+            this.label3.Text = "Ingresar dui cliente\r\n";
             // 
-            // label5
+            // inputIdVenta
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(8, 309);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(84, 17);
-            this.label5.TabIndex = 15;
-            this.label5.Text = "Descripcion:";
+            this.inputIdVenta.Location = new System.Drawing.Point(11, 66);
+            this.inputIdVenta.Name = "inputIdVenta";
+            this.inputIdVenta.Size = new System.Drawing.Size(326, 20);
+            this.inputIdVenta.TabIndex = 10;
+            this.inputIdVenta.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // inputDescripcionDevo
+            // label2
             // 
-            this.inputDescripcionDevo.Enabled = false;
-            this.inputDescripcionDevo.Location = new System.Drawing.Point(6, 338);
-            this.inputDescripcionDevo.Multiline = true;
-            this.inputDescripcionDevo.Name = "inputDescripcionDevo";
-            this.inputDescripcionDevo.Size = new System.Drawing.Size(343, 63);
-            this.inputDescripcionDevo.TabIndex = 16;
-            // 
-            // btnRealizarDevo
-            // 
-            this.btnRealizarDevo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(114)))), ((int)(((byte)(223)))));
-            this.btnRealizarDevo.Enabled = false;
-            this.btnRealizarDevo.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnRealizarDevo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRealizarDevo.ForeColor = System.Drawing.Color.White;
-            this.btnRealizarDevo.Location = new System.Drawing.Point(11, 418);
-            this.btnRealizarDevo.Name = "btnRealizarDevo";
-            this.btnRealizarDevo.Size = new System.Drawing.Size(326, 26);
-            this.btnRealizarDevo.TabIndex = 17;
-            this.btnRealizarDevo.Text = "Realizar Devolucion Producto";
-            this.btnRealizarDevo.UseVisualStyleBackColor = false;
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(6, 28);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(209, 25);
+            this.label2.TabIndex = 9;
+            this.label2.Text = "Ingresar id de la venta";
             // 
             // label6
             // 
@@ -410,5 +436,7 @@
         private System.Windows.Forms.Button btnRealizarDevo;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label labelDinero;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.CheckBox checkUsoTargeta;
     }
 }

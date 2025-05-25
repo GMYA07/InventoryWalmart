@@ -124,9 +124,7 @@ namespace InventoryWalmart
         //------------------------------------------------------------*---------------------------------------------------------
         private void FormGenerarReporte_Load(object sender, EventArgs e)
         {
-            // TODO: esta línea de código carga datos en la tabla 'inventoryWalmartDataSet.PAYMENT_METHOD' Puede moverla o quitarla según sea necesario.
-            this.pAYMENT_METHODTableAdapter.Fill(this.inventoryWalmartDataSet.PAYMENT_METHOD);
-
+            
         }
 
 
@@ -154,12 +152,6 @@ namespace InventoryWalmart
         private void button3_Click(object sender, EventArgs e)
         {
             tabControl1.SelectedTab = tabPage_comprasCliente;
-
-        }
-
-        private void label5_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

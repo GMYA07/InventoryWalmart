@@ -135,6 +135,44 @@ namespace InventoryWalmart.Database
             return lista;
         }
 
+        // - Historial de ventas
+
+        public List<HistorialVentas> ObtenerHistorialVentas(DateTime fechaInicio, string modo)
+        {
+            List<HistorialVentas> lista = new List<HistorialVentas>();
+
+            try
+            {
+                using (SqlConnection conn = Connection.ObtenerConexion())
+                {
+                    SqlCommand cmd = new SqlCommand("sp_historial_ventas", conn);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@fecha_inicio", fechaInicio);
+                    cmd.Parameters.AddWithValue("@modo", modo);
+
+                    conn.Open();
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        HistorialVentas hv = new HistorialVentas
+                        {
+                            periodo = reader.GetDateTime(0),
+                            cantidadVentas = reader.GetInt32(1),
+                            totalVendido = Convert.ToDouble(reader.GetDecimal(2)),
+                            totalInvertido = Convert.ToDouble(reader.GetDecimal(3)),
+                            ganancia = Convert.ToDouble(reader.GetDecimal(4)),
+                        };
+                        lista.Add(hv);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al cargar historial de ventas: " + ex.Message);
+            }
+
+            return lista;
+        }
 
 
 

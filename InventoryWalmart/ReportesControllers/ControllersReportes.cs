@@ -14,34 +14,30 @@ namespace InventoryWalmart.Controllers
     {
         private ReporteDAO dao = new ReporteDAO();
 
-        public void GenerarReporteVentasCategoria()
+        public void GenerarReporteVentasCategoria(DateTime fechaInicio, DateTime fechaFin, string ruta)
         {
-            DateTime fechaInicio = new DateTime(2025, 5, 10);
-            DateTime fechaFin = new DateTime(2025, 5, 20);
 
             var datos = dao.ventasTotalesCategorias(fechaInicio, fechaFin);
-            new ventasTotalCategoriaPDF().Exportar(datos, @"C:\Users\carlo\Documents\Reportes\ventas totales categoridadas.PDF");
+            new ventasTotalCategoriaPDF().Exportar(datos, @"C:\Users\carlo\Documents\Reportes\" + ruta + ".PDF");
         }
 
-        public void GenerarReporteVentasPorCajero()
+        public void GenerarReporteVentasPorCajero(DateTime fechaInicio, DateTime fechaFin, string ruta)
         {
-            DateTime fechaInicio = new DateTime(2025, 5, 10);
-            DateTime fechaFin = new DateTime(2025, 5, 20);
 
             var datos = dao.ventasPosCajeros(fechaInicio, fechaFin);
             if (datos == null)
             {
                 MessageBox.Show("los datos son nulos");
                 return;
-            } 
-            new ventasPorCajerosPDF().Exportar(datos, @"C:\Users\carlo\Documents\Reportes\ventas por cajero.PDF");
+            }
+            new ventasPorCajerosPDF().Exportar(datos, @"C:\Users\carlo\Documents\Reportes\" + ruta + ".PDF");
         }
 
 
-        public void GeneraraReportegastosClientesTarjeta()
+        public void GeneraraReportegastosClientesTarjeta(DateTime fechaInicio, DateTime fechaFin, string ruta)
         {
-            DateTime fechaInicio = new DateTime(2025, 5, 10);
-            DateTime fechaFin = new DateTime(2026, 5, 20);
+            //  DateTime fechaInicio = new DateTime(2025, 5, 10);
+            // DateTime fechaFin = new DateTime(2026, 5, 20);
 
             var datos = dao.gastosClientesTarjeta(fechaInicio, fechaFin);
             if (datos == null)
@@ -49,10 +45,22 @@ namespace InventoryWalmart.Controllers
                 MessageBox.Show("Los datos son nulos");
                 return;
             }
-            new gastosClientesTarjetaPDF().Exportar(datos, @"C:\Users\carlo\Documents\Reportes\gastos de Clientes con Tarjeta.PDF");
+            new gastosClientesTarjetaPDF().Exportar(datos, @"C:\Users\carlo\Documents\Reportes\" + ruta + ".PDF");
         }
 
+        public void GeneraraReporteHistorialVentas(DateTime fechaInicio, string modo, string ruta)
+        {
 
+            var datos = dao.ObtenerHistorialVentas(fechaInicio, modo);
+            if (datos == null)
+            {
+                MessageBox.Show("Los datos son nulos");
+                return;
+            }
+            new HistorialVentasPDF().Exportar(datos, @"C:\Users\carlo\Documents\Reportes\" + ruta + ".PDF");
 
+        }
     }
+
+
 }

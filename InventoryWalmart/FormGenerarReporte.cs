@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Runtime.InteropServices;
@@ -9,6 +10,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using InventoryWalmart.Controllers;
+using InventoryWalmart.Database;
+using InventoryWalmart.ModelRepors;
 
 namespace InventoryWalmart
 {
@@ -131,18 +134,76 @@ namespace InventoryWalmart
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            new ControllersReportes().GeneraraReportegastosClientesTarjeta();
+            // new ControllersReportes().GeneraraReportegastosClientesTarjeta();
+          //  MostrarVentasPorCategoria();
+
+            if(textBox1 == null || textBox1.Text == "")
+            {
+                MessageBox.Show("Pongale un nombre al archivo");
+
+                return;
+            }
+
+
+            if (tabControl1.SelectedTab == tabPage_ventaPorCategoria)
+            {
+                GenerarReporteGeneral(new ControllersReportes().GenerarReporteVentasCategoria);
+                return;
+            }
+
+            if (tabControl1.SelectedTab == tabPage_ventasPorCajero)
+            {
+                GenerarReporteGeneral(new ControllersReportes().GenerarReporteVentasPorCajero);
+                return;
+            }
+
+            if (tabControl1.SelectedTab == tabPage_comprasCliente)
+            {
+                GenerarReporteGeneral(new ControllersReportes().GeneraraReportegastosClientesTarjeta);
+                return;
+            }
+
+            if (tabControl1.SelectedTab == tabPage_historialVentas)
+            {
+                GenerarReporteHistorialVentas(new ControllersReportes().GeneraraReporteHistorialVentas);
+            }
+
+            
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             tabControl1.SelectedTab = tabPage_ventaPorCategoria;
+            opcionVisivilidad();
         }
+
+        public void GenerarReporteGeneral(Action<DateTime, DateTime, string> metodo)
+        {
+            DateTime fechaInicio = dateTimePicker1.Value;
+            DateTime fechaFin = dateTimePicker2.Value;
+            string ruta = textBox1.Text;
+
+            metodo(fechaInicio, fechaFin, ruta); 
+        }
+
+        public void GenerarReporteHistorialVentas(Action<DateTime, string, string> clase)
+        {
+            DateTime fechaInicio = dateTimePicker1.Value;
+            string ruta = textBox1.Text;
+            string metodo = "";
+
+            if (radioButton1.Checked) metodo = "dia";
+            if (radioButton2.Checked) metodo = "semana";
+            if (radioButton3.Checked) metodo = "mes";
+            MessageBox.Show(" " + metodo);
+            clase(fechaInicio, metodo, ruta);
+        }
+
 
         private void button2_Click(object sender, EventArgs e)
         {
             tabControl1.SelectedTab = tabPage_ventasPorCajero;
-
+            opcionVisivilidad();
         }
 
         private void tabPage_ventaPorCategoria_Click(object sender, EventArgs e)
@@ -152,6 +213,76 @@ namespace InventoryWalmart
         private void button3_Click(object sender, EventArgs e)
         {
             tabControl1.SelectedTab = tabPage_comprasCliente;
+            opcionVisivilidad();
+        }
+
+        private void dataGridView1_CellContentClick(object sender, EventArgs e)
+        {
+
+        }
+
+        private void MostrarVentasPorCategoria()
+        {
+            ReporteDAO dao = new ReporteDAO();
+            DateTime fechaInicio = new DateTime(2025, 5, 10);
+            DateTime fechaFin = new DateTime(2026, 5, 20);
+
+            var lista = dao.ventasTotalesCategorias(fechaInicio, fechaFin);
+
+            if (lista != null && lista.Count > 0)
+            {
+                bindingSource1.DataSource = lista;
+            }
+            else
+            {
+                MessageBox.Show("No se encontraron datos.");
+            }
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+         
+            tabControl1.SelectedTab = tabPage_historialVentas;
+            opcionVisivilidad();
+        }
+
+        private void opcionVisivilidad()
+        {
+            if (tabControl1.SelectedTab == tabPage_ventaPorCategoria)
+            {
+                label_fechaFIN.Visible = true;
+                dateTimePicker2.Visible = true;
+
+
+                return;
+            }
+
+            if (tabControl1.SelectedTab == tabPage_ventasPorCajero)
+            {
+                label_fechaFIN.Visible = true;
+                dateTimePicker2.Visible = true;
+
+
+                return;
+            }
+
+            if (tabControl1.SelectedTab == tabPage_comprasCliente)
+            {
+                label_fechaFIN.Visible = true;
+                dateTimePicker2.Visible = true;
+
+
+                return;
+            }
+
+            if (tabControl1.SelectedTab == tabPage_historialVentas)
+            {
+                label_fechaFIN.Visible = false;
+                dateTimePicker2.Visible = false;
+
+                return;
+            }
+
         }
     }
 }

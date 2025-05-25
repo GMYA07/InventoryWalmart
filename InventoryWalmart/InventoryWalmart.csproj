@@ -33,6 +33,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="BouncyCastle.Cryptography, Version=2.0.0.0, Culture=neutral, PublicKeyToken=072edcf4a5328938, processorArchitecture=MSIL">
+      <HintPath>..\packages\BouncyCastle.Cryptography.2.4.0\lib\net461\BouncyCastle.Cryptography.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp, Version=5.5.13.4, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\iTextSharp.5.5.13.4\lib\net461\itextsharp.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Windows.Forms.DataVisualization" />
@@ -48,6 +54,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\cajeroController.cs" />
+    <Compile Include="Exporters\gastosClientesTarjetaPDF.cs" />
+    <Compile Include="Exporters\ventasPorCajerosPDF.cs" />
+    <Compile Include="ModelRepors\gastosClientesTarjeta.cs" />
+    <Compile Include="ModelRepors\ventasPorCajero.cs" />
+    <Compile Include="ReportesControllers\ControllersReportes.cs" />
     <Compile Include="Controllers\loginController.cs" />
     <Compile Include="Controllers\RolesControllers.cs" />
     <Compile Include="Controllers\SupplierController.cs" />
@@ -68,12 +79,14 @@
     <Compile Include="Database\DistrictDAO.cs" />
     <Compile Include="Database\PointsDAO.cs" />
     <Compile Include="Database\ProductDAO.cs" />
+    <Compile Include="Database\ReporteDAO.cs" />
     <Compile Include="Database\ReturnsDAO.cs" />
     <Compile Include="Database\RolesDAO.cs" />
     <Compile Include="Database\SaleDAO.cs" />
     <Compile Include="Database\Sale_DetailsDAO.cs" />
     <Compile Include="Database\SupplierDAO_.cs" />
     <Compile Include="Database\UserDAO.cs" />
+    <Compile Include="Exporters\ventasTotalCategoriaPDF.cs" />
     <Compile Include="fomsRol.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -134,11 +147,13 @@
     <Compile Include="FormReturns.Designer.cs">
       <DependentUpon>FormReturns.cs</DependentUpon>
     </Compile>
+    <Compile Include="Interfaces\traerReportes.cs" />
     <Compile Include="inventoryWalmartDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>inventoryWalmartDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="ModelRepors\ventasTotalesCategorias.cs" />
     <Compile Include="Model\Account.cs" />
     <Compile Include="Model\Benefits.cs" />
     <Compile Include="Model\Customer.cs" />
@@ -345,6 +360,7 @@
     <None Include="inventoryWalmartDataSet.xss">
       <DependentUpon>inventoryWalmartDataSet.xsd</DependentUpon>
     </None>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

@@ -158,15 +158,35 @@ namespace InventoryWalmart
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
+            if (ConfirmarSeleccion("agregar"))
+            {
             opcion = "agregar";
             ChangeView<FormCustomers>();
+            }
         }
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
+            DataGridViewRow row = Table_Customers.SelectedRows[0];
+            Customer customer = (Customer)row.DataBoundItem;
+            if (ConfirmarSeleccion("editar"))
+            {
+                email = customer.Email;
             opcion = "editar";
             ChangeView<FormCustomers>();
+            }
         }
 
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            DataGridViewRow row = Table_Customers.SelectedRows[0];
+            Customer customer = (Customer)row.DataBoundItem;
+            if (ConfirmarSeleccion("Eliminar") == true)
+            {
+                
+                CustomerDAO.DeleteCustomer(customer.IdCustomer);
+                cargarTabla();
+            }
+        }
     }
 }

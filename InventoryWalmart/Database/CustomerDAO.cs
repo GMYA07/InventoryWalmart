@@ -17,6 +17,34 @@ namespace InventoryWalmart.Database
 
         public CustomerDAO() { }
 
+        public static int GetCustomerIdByEmail(string email)
+        {
+            try
+            {
+                using (SqlConnection connection = Connection.ObtenerConexion())
+                {
+                    string query = "SELECT id_customer FROM CUSTOMERS WHERE email = @Email";
+                    SqlCommand command = new SqlCommand(query, connection);
+                    command.Parameters.AddWithValue("@Email", email);
+
+                    connection.Open();
+                    object result = command.ExecuteScalar();
+
+                    if (result != null && result != DBNull.Value)
+                    {
+                        return Convert.ToInt32(result);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al obtener ID del cliente: " + ex.Message);
+            }
+
+            return 0;
+        }
+
+
         public static List<Customer> SelectCustomers()
         {
 
@@ -95,6 +123,7 @@ namespace InventoryWalmart.Database
                     SqlCommand command = new SqlCommand("update_Customer", connection);
                     command.CommandType = CommandType.StoredProcedure;
 
+                    command.Parameters.AddWithValue("@id_customer", customer.IdCustomer);
                     command.Parameters.AddWithValue("@first_name", customer.FirstName);
                     command.Parameters.AddWithValue("@last_name", customer.LastName);
                     command.Parameters.AddWithValue("@email", customer.Email);
@@ -105,10 +134,11 @@ namespace InventoryWalmart.Database
                     connection.Open (); 
                     command.ExecuteNonQuery();
                     connection.Close();
+                    Alertas.AlertInfo("EXITO", "Se actualizo al cliente correctamente");
                 }
             }catch(SqlException ex)
             {
-                MessageBox.Show("ERROR", $"No se pudo actualizar el cliente {ex.Message}");
+                MessageBox.Show($"No se pudo actualizar el cliente {ex.Message}", "ERROR");
             }
         }
 
@@ -118,10 +148,9 @@ namespace InventoryWalmart.Database
             string query = $@"SELECT
                             first_name,
                             last_name,
-                            email
+                            email,
                             phone,
-                            dui,
-                            date_of_birth
+                            dui
                         FROM customers
                         WHERE id_customer = {id}
                         ;";
@@ -143,7 +172,7 @@ namespace InventoryWalmart.Database
                             customers.Email = reader.GetString(2);
                             customers.Phone = reader.GetString(3);
                             customers.Dui = reader.GetString(4);
-                            customer.DateOfBirth = reader.GetDateTime(5);
+
                         };
                         customer = customers;
                     }
@@ -155,7 +184,7 @@ namespace InventoryWalmart.Database
                 }
             }
             catch (SqlException ex) {
-                MessageBox.Show("ERROR", "No se ha podido obtener los datos del cliente");
+                MessageBox.Show("ERROR", $"No se ha podido obtener los datos del cliente {ex.Message}");
             }
             return null;
             
@@ -203,5 +232,31 @@ namespace InventoryWalmart.Database
             }
             return customerEncontrado;
         }
+
+        public static void DeleteCustomer(int id)
+        {
+            try
+            {
+                using (SqlConnection connection = Connection.ObtenerConexion())
+                {
+                    SqlCommand command = new SqlCommand("delete_Customer", connection);
+                    command.CommandType = CommandType.StoredProcedure;
+
+                    command.Parameters.AddWithValue("@id_customer", id);
+
+                    connection.Open();
+                    command.ExecuteNonQuery();
+
+                    MessageBox.Show("Cliente eliminado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            catch (SqlException ex)
+            {
+
+                MessageBox.Show("Error al eliminar cliente: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+        }
+
     }
 }

@@ -28,6 +28,8 @@ namespace InventoryWalmart
                 LblTitulo.Text = "Editar cliente";
                 btnAgregar.Text = "Editar";
                 btnAgregar.BackColor = Color.Blue;
+                DtpNacimiento.Enabled = false;
+                TxtDUI.Enabled = false;
                 LoadCustomer();
             }
 
@@ -36,6 +38,7 @@ namespace InventoryWalmart
         public void UpdateCustomer()
         {
             Customer customer = new Customer();
+            customer.IdCustomer = CustomerDAO.GetCustomerIdByEmail(ViewCustomers.email);
             customer.FirstName = TxtNombre.Text;
             customer.LastName = TxtApellido.Text;
             customer.Email = TxtEmail.Text;
@@ -62,13 +65,13 @@ namespace InventoryWalmart
         public void LoadCustomer()
         {
             Customer customer = new Customer();
-            customer = customerDAO.GetInfoCustomer(1);
+            int id = CustomerDAO.GetCustomerIdByEmail(ViewCustomers.email);
+            customer = customerDAO.GetInfoCustomer(id);
             TxtNombre.Text = customer.FirstName;
             TxtApellido.Text = customer.LastName;
             TxtEmail.Text = customer.Email;
             TxtDUI.Text = customer.Dui;
             TxtTelefono.Text =customer.Phone;
-            DtpNacimiento.Value = customer.DateOfBirth;
         }
 
 
@@ -131,7 +134,7 @@ namespace InventoryWalmart
             }
             else
             {
-                //ActualizarSupplier();
+                UpdateCustomer();
             }
             
         }

@@ -832,8 +832,8 @@ namespace InventoryWalmart.views.Cajero
                                         cajeroController.OperacionPuntosTargeta(inputDui.Text, puntosGanados, "sumar");
                                     }
 
-                                    if (cajeroController.reducirStockProductoSistema(tablaVenta.Rows))
-                                    {
+                                    //if (cajeroController.reducirStockProductoSistema(tablaVenta.Rows))
+                                    //{
                                         Alertas.AlertCorrect("Proceso de venta", "¡Se ha realizado la venta!");
 
                                         tablaBeneficiosAplicables.Rows.Clear();
@@ -884,12 +884,12 @@ namespace InventoryWalmart.views.Cajero
                                         checkTieneTargeta.Checked = false;
 
                                         return;
-                                    }
+                                    //}
 
                                 }
                                 else
                                 {
-                                    Alertas.AlertError("Error en el proceso de venta", "¡ Surgio un error en el proceso de venta :( ! ");
+                                    Alertas.AlertError("Error en el proceso de venta", "¡ Surgio un error en el proceso de venta al momento de insertar la lista de productos :( ! ");
                                     return;
                                 }
 

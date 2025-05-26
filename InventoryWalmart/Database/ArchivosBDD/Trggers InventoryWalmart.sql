@@ -26,7 +26,7 @@ BEGIN
 	print 'Stock Actualizado Correctamente';
 	
 END;
-GO;
+go
 
 /*2- Crear una tabla que permita registrar las ganancias y reinversión, esta se debe
 llenar por medio de un triggers después de realizar una venta */

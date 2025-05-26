@@ -173,7 +173,7 @@ namespace InventoryWalmart.views.Cajero
                         nuevoCantidadProductos = Convert.ToInt32(filaProducto.Cells[columCantidad].Value.ToString()) - Convert.ToInt32(inputCantidadProducto.Text);
                         agregadoDescripcion += "Se ha devuelto la cantidad de " + inputCantidadProducto.Text + " productos "+ filaProducto.Cells[columProducto].Value.ToString();
                         agregadoDescripcion += " con el id " + filaProducto.Cells[columnaId].Value.ToString()+". Una vez exitosa la devolucion la nueva cantidad de productos de la compra serian: "+ nuevoCantidadProductos;
-                        agregadoDescripcion = " (Comentario cajero: " + inputDescripcionDevo.Text + ")";
+                        agregadoDescripcion += " (Comentario cajero: " + inputDescripcionDevo.Text + ")";
 
                         //aqui llenaremos el objeto return para poder mandarlo a la bdd
                         Returns devolucion = new Returns();

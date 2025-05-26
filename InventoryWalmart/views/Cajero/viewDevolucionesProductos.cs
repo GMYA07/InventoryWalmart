@@ -226,5 +226,10 @@ namespace InventoryWalmart.views.Cajero
                 Alertas.AlertError("Error al realizar la devolucion", "¡Debe seleccionar un tipo de producto para devolver!");
             }
         }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

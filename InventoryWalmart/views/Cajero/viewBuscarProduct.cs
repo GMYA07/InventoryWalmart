@@ -11,16 +11,11 @@ using System.Windows.Forms;
 
 namespace InventoryWalmart.views.Cajero
 {
-    public partial class indexCajero : Form
+    public partial class viewBuscarProduct : Form
     {
-        public indexCajero()
+        public viewBuscarProduct()
         {
             InitializeComponent();
-        }
-
-        private void labelVenta_Click(object sender, EventArgs e)
-        {
-
         }
 
         //Drag Form
@@ -60,38 +55,17 @@ namespace InventoryWalmart.views.Cajero
             SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
 
-        private void indexCajero_Load(object sender, EventArgs e)
+        private void barAcciones_Paint(object sender, PaintEventArgs e)
         {
 
         }
 
-        private void panelBeneficiosReco_Paint(object sender, PaintEventArgs e)
+        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
         {
-            
+
         }
 
-        public void redireccionControlador(object sender, EventArgs e)
-        {
-            viewRegistrarVentaCajero view = new viewRegistrarVentaCajero();
-            view.Show();
-            this.Close();
-        }
-
-        public void redireccionControlador2(object sender, EventArgs e)
-        {
-            viewDevolucionesProductos view = new viewDevolucionesProductos();
-            view.Show();
-            this.Close();
-        }
-
-        public void redireccionBuscador(object sender, EventArgs e)
-        {
-            viewBuscarProduct view = new viewBuscarProduct();
-            view.Show();
-            this.Close();
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
+        private void Table_Customers_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }

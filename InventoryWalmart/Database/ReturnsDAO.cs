@@ -14,6 +14,50 @@ namespace InventoryWalmart.Database
 
         public ReturnsDAO() { }
 
+        public List<Returns> obtenerDevoluciones(string estado)
+        {
+            List<Returns> listaDevoluciones = new List<Returns>();
+
+            string query = "SELECT id_return, id_customer, id_sale, return_date, description, status FROM RETURNS";
+                   query += " WHERE status = @estado";
+
+            using(SqlConnection conn = Connection.ObtenerConexion())
+            {
+                using (SqlCommand cmd = new SqlCommand(query, conn)) {
+                    cmd.Parameters.Add("@estado",SqlDbType.VarChar).Value = estado;
+
+                    conn.Open();
+
+                    try
+                    {
+                        using (SqlDataReader reader = cmd.ExecuteReader()) {
+
+                            while (reader.Read()) { 
+                                
+                                Returns devolucion = new Returns();
+
+                                devolucion.IdReturn = reader.GetInt32(0);
+                                devolucion.IdCustomer = reader.IsDBNull(1) ? (int?)null : reader.GetInt32(1);
+                                devolucion.IdSale = reader.GetInt32(2);
+                                devolucion.ReturnDate = reader.GetDateTime(3);
+                                devolucion.Description = reader.GetString(4);
+                                devolucion.Status = reader.GetString(5);
+                                
+                                listaDevoluciones.Add(devolucion);
+                            }
+
+                            return listaDevoluciones;
+                            
+                        }
+                    }
+                    catch (Exception ex) { 
+                        Console.WriteLine("Error al mostrar las devoluciones: " + ex.ToString());
+                        return null;
+                    }
+                }
+            }
+        }
+
         public int insertarNuevaDevolucion(Returns devolucion)
         {
             using (SqlConnection conn = Connection.ObtenerConexion())

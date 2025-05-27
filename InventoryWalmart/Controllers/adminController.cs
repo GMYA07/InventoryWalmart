@@ -15,6 +15,7 @@ namespace InventoryWalmart.Controllers
 
         //instancia de clase DAO
         DiscountDAO discountDAO = new DiscountDAO();
+        ReturnsDAO returnsDAO = new ReturnsDAO();
 
         public List<Discount> mostrarDescuentos(string estado)
         {
@@ -72,6 +73,21 @@ namespace InventoryWalmart.Controllers
             {
                 return 0;
             }
+        }
+
+        //PARTE DE DEVOLUCIONES
+
+        public List<Returns> mostrarDevoluciones(string estado)
+        {
+            List<Returns> listaDevoluciones = new List<Returns>();
+            listaDevoluciones = returnsDAO.obtenerDevoluciones(estado);
+
+            if (listaDevoluciones == null)
+            {
+                return null;
+            }
+
+            return listaDevoluciones;
         }
 
         public string codigoGenerado()

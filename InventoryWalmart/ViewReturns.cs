@@ -1,4 +1,7 @@
-﻿using System;
+﻿using InventoryWalmart.Controllers;
+using InventoryWalmart.Model;
+using InventoryWalmart.Utils;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -14,6 +17,8 @@ namespace InventoryWalmart
     public partial class ViewReturns : Form
     {
         public static string opcion = "";
+        List<Returns> listaDevoluciones = new List<Returns>();
+        adminController adminController = new adminController();
 
         public ViewReturns()
         {
@@ -26,6 +31,30 @@ namespace InventoryWalmart
         private extern static void ReleaseCapture();
         [DllImport("user32.DLL", EntryPoint = "SendMessage")]
         private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
+
+        private void ViewReturns_Load(object sender, EventArgs e)
+        {
+            listaDevoluciones = adminController.mostrarDevoluciones("en espera");
+
+            if (listaDevoluciones != null)
+            {
+                foreach (Returns devo in listaDevoluciones)
+                {
+                    if (devo.IdCustomer == null)
+                    {
+                        devo.IdCustomer = 0;
+                    }
+                    
+                    tablaDevoluciones.Rows.Add(devo.IdReturn,devo.IdCustomer,devo.IdSale,devo.ReturnDate,devo.Description,devo.Status);
+                }
+                tablaDevoluciones.ReadOnly = true;
+                tablaDevoluciones.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            }
+            else
+            {
+                Alertas.AlertError("Mostrando Devoluciones","No se ha podido mostrar las devoluciones");
+            }
+        }
 
         private void btnOcultar_Click(object sender, EventArgs e)
         {
@@ -120,6 +149,87 @@ namespace InventoryWalmart
         {
             opcion = "editar";
             ChangeView<FormReturns>();
+        }
+
+        private void btnMostrarDevEspera_Click(object sender, EventArgs e)
+        {
+            tablaDevoluciones.Rows.Clear();
+
+            listaDevoluciones = adminController.mostrarDevoluciones("en espera");
+
+            if (listaDevoluciones != null)
+            {
+                foreach (Returns devo in listaDevoluciones)
+                {
+                    if (devo.IdCustomer == null)
+                    {
+                        devo.IdCustomer = 0;
+                    }
+
+                    tablaDevoluciones.Rows.Add(devo.IdReturn, devo.IdCustomer, devo.IdSale, devo.ReturnDate, devo.Description, devo.Status);
+                }
+                tablaDevoluciones.ReadOnly = true;
+                tablaDevoluciones.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            }
+            else
+            {
+                Alertas.AlertError("Mostrando Devoluciones", "No se ha podido mostrar las devoluciones");
+            }
+        }
+
+        private void btnMostrarDevAceptadas_Click(object sender, EventArgs e)
+        {
+            tablaDevoluciones.Rows.Clear();
+
+            listaDevoluciones = adminController.mostrarDevoluciones("aceptada");
+
+            if (listaDevoluciones != null)
+            {
+                foreach (Returns devo in listaDevoluciones)
+                {
+                    if (devo.IdCustomer == null)
+                    {
+                        devo.IdCustomer = 0;
+                    }
+
+                    tablaDevoluciones.Rows.Add(devo.IdReturn, devo.IdCustomer, devo.IdSale, devo.ReturnDate, devo.Description, devo.Status);
+                }
+                tablaDevoluciones.ReadOnly = true;
+                tablaDevoluciones.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            }
+            else
+            {
+                Alertas.AlertError("Mostrando Devoluciones", "No se ha podido mostrar las devoluciones");
+            }
+        }
+
+        private void btnMostrarDevRechazadas_Click(object sender, EventArgs e)
+        {
+            listaDevoluciones = adminController.mostrarDevoluciones("rechazada");
+
+            if (listaDevoluciones != null)
+            {
+                foreach (Returns devo in listaDevoluciones)
+                {
+                    if (devo.IdCustomer == null)
+                    {
+                        devo.IdCustomer = 0;
+                    }
+
+                    tablaDevoluciones.Rows.Add(devo.IdReturn, devo.IdCustomer, devo.IdSale, devo.ReturnDate, devo.Description, devo.Status);
+                }
+                tablaDevoluciones.ReadOnly = true;
+                tablaDevoluciones.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            }
+            else
+            {
+                Alertas.AlertError("Mostrando Devoluciones", "No se ha podido mostrar las devoluciones");
+            }
+        }
+
+        private void btnMostrarVenta_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

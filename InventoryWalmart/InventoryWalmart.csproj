@@ -227,6 +227,12 @@
     <Compile Include="ViewSuppliers.Designer.cs">
       <DependentUpon>ViewSuppliers.cs</DependentUpon>
     </Compile>
+    <Compile Include="views\Administrador\viewMostrarEspecificacionesVentacs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="views\Administrador\viewMostrarEspecificacionesVentacs.Designer.cs">
+      <DependentUpon>viewMostrarEspecificacionesVentacs.cs</DependentUpon>
+    </Compile>
     <Compile Include="views\Cajero\indexCajero.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -321,6 +327,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ViewSuppliers.resx">
       <DependentUpon>ViewSuppliers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="views\Administrador\viewMostrarEspecificacionesVentacs.resx">
+      <DependentUpon>viewMostrarEspecificacionesVentacs.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="views\Cajero\indexCajero.resx">
       <DependentUpon>indexCajero.cs</DependentUpon>

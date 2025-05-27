@@ -1,4 +1,5 @@
-﻿using System;
+﻿using InventoryWalmart.Database;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -16,6 +17,7 @@ namespace InventoryWalmart.views.Cajero
         public viewBuscarProduct()
         {
             InitializeComponent();
+            llenarTabla();
         }
 
         //Drag Form
@@ -69,5 +71,75 @@ namespace InventoryWalmart.views.Cajero
         {
 
         }
+
+        private void llenarTabla()
+        {
+            Table_Customers.Rows.Clear();
+            Table_Customers.Columns.Clear();
+
+            Table_Customers.Columns.Add("NameProduct", "Producto");
+            Table_Customers.Columns.Add("Price", "Precio");
+            Table_Customers.Columns.Add("Categoria", "Categoría");
+            Table_Customers.Columns.Add("Stock", "Stock");
+
+            var productos = ProductDAO.ObtenerProductos();
+
+            foreach (var (prod, cat) in productos)
+            {
+                int index = Table_Customers.Rows.Add(
+                    prod.GetNameProduct(),
+                    prod.GetPrice(),
+                    cat.category_name,
+                    prod.GetStock()
+                );
+
+                Table_Customers.Rows[index].Tag = prod;
+            }
+        }
+
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrWhiteSpace(inputBuscar.Text) && inputBuscar.Text.All(char.IsLetter))
+            {
+               
+                var producto = inputBuscar.Text;
+                var resultados = ProductDAO.obtenerProductoPorNombre(producto); // Lista de tuplas (Product, Categoria)
+
+                if (resultados.Count == 0)
+                {
+                    MessageBox.Show("No se encontraron resultados.");
+                    return;
+                }
+
+                if (resultados != null)
+                {
+                    
+                    foreach (var (p, c) in resultados) // Desempaquetar tupla
+                    {
+                        Table_Customers.Rows.Clear();
+                        string categoriaNombre = c != null ? c.category_name : "Sin categoría";
+
+                        int index = Table_Customers.Rows.Add(
+                            p.GetNameProduct(),
+                            p.GetPrice(),
+                            categoriaNombre,
+                            p.GetStock()
+                        );
+
+                        Table_Customers.Rows[index].Tag = p;
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Producto no encontrado.");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Ingrese un nombre válido (sin números ni espacios).");
+            }
+        }
+
     }
 }

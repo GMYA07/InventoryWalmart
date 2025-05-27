@@ -229,6 +229,7 @@
             this.btnBuscar.Size = new System.Drawing.Size(47, 39);
             this.btnBuscar.TabIndex = 7;
             this.btnBuscar.UseVisualStyleBackColor = false;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // Table_Customers
             // 

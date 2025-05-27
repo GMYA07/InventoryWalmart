@@ -114,7 +114,7 @@ WHERE C.id_customer = @id_customer
 RETURN ISNULL(@discount, 0);
 END;
 go
-SELECT dbo.fn_GetCustomerDiscount(3) AS Descuento;
+
 
 
 

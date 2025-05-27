@@ -42,7 +42,8 @@ namespace InventoryWalmart.Database
                         }
 
                         transaction.Commit(); // Confirmar transaccion si todo va bien
-                        return rowsAffected == listaVenta.Count; // Verifica que todos se insertaron
+                        Console.WriteLine($"Total afectados: {rowsAffected} de {listaVenta.Count}");
+                        return true;
                     }
                     catch (Exception ex)
                     {

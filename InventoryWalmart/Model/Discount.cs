@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace InventoryWalmart.Model
 {
-    internal class Discount
+    public class Discount
     {
         private int id_discount;
         private string discount_code;

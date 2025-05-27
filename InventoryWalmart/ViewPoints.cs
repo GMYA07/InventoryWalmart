@@ -170,7 +170,7 @@ namespace InventoryWalmart
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            if (!inputBuscar.Text.All(char.IsDigit))
+            if(!inputBuscar.Text.All(char.IsDigit))
             {
                 MessageBox.Show("Ingrese una credencial o revise que no tenga espacios/letras");
             }

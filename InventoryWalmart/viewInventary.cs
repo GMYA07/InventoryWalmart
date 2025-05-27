@@ -133,6 +133,11 @@ namespace InventoryWalmart
             Database.Connection.prueba();
         }
 
+        private void Table_Customers_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
         //fin conexiones
     }
 }

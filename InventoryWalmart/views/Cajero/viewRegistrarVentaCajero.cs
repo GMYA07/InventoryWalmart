@@ -832,60 +832,58 @@ namespace InventoryWalmart.views.Cajero
                                         cajeroController.OperacionPuntosTargeta(inputDui.Text, puntosGanados, "sumar");
                                     }
 
-                                    //if (cajeroController.reducirStockProductoSistema(tablaVenta.Rows))
-                                    //{
-                                        Alertas.AlertCorrect("Proceso de venta", "¡Se ha realizado la venta!");
+                                    //La reduccion del stock se hace atraves de un trigger
 
-                                        tablaBeneficiosAplicables.Rows.Clear();
-                                        tablaBeneficiosAplicables.Enabled = true;
-                                        tablaVenta.Rows.Clear();
-                                        totalVenta = 0;
-                                        subTotalVentaMostrar = 0;
-                                        totalDescuentoMostrar = 0;
-                                        totalBeneficioMostrar = 0;
-                                        idBeneficio = 0;
-                                        codigoDescuento = "";
+                                    Alertas.AlertCorrect("Proceso de venta", "¡Se ha realizado la venta!");
 
-                                        inputTargetaCliente.Text = "";
-                                        inputDui.Text = "";
-                                        inputCodigoProducto.Text = "";
-                                        inputDui.Text = "";
-                                        inputCodigoDescuento.Text = "";
+                                    tablaBeneficiosAplicables.Rows.Clear();
+                                    tablaBeneficiosAplicables.Enabled = true;
+                                    tablaVenta.Rows.Clear();
+                                    totalVenta = 0;
+                                    subTotalVentaMostrar = 0;
+                                    totalDescuentoMostrar = 0;
+                                    totalBeneficioMostrar = 0;
+                                    idBeneficio = 0;
+                                    codigoDescuento = "";
 
-                                        labelPtsTargeta.Text = "0";
-                                        labelDescuentoBeneficio.Text = "0";
-                                        labelMostrarSubtotalCompra.Text = "0";
-                                        labelMostrarTotal.Text = "0";
-                                        labelDescuentoDinero.Text = "0";
+                                    inputTargetaCliente.Text = "";
+                                    inputDui.Text = "";
+                                    inputCodigoProducto.Text = "";
+                                    inputDui.Text = "";
+                                    inputCodigoDescuento.Text = "";
 
-                                        codigoAplicado = false;
-                                        beneficioAplicado = false;
-                                        metodoPagoEfectivo = false;
-                                        metodoPagoTargeta = false;
-                                        btnAplicarBeneficios.Enabled = false;
-                                        btnMostrarBeneficios.Enabled = true;
-                                        btnEfectivo.Enabled = true;
-                                        btnTargeta.Enabled = true;
-                                        inputTargetaCliente.Enabled = false;
-                                        inputDui.Enabled = false;
-                                        inputCodigoDescuento.Enabled = true;
+                                    labelPtsTargeta.Text = "0";
+                                    labelDescuentoBeneficio.Text = "0";
+                                    labelMostrarSubtotalCompra.Text = "0";
+                                    labelMostrarTotal.Text = "0";
+                                    labelDescuentoDinero.Text = "0";
+
+                                    codigoAplicado = false;
+                                    beneficioAplicado = false;
+                                    metodoPagoEfectivo = false;
+                                    metodoPagoTargeta = false;
+                                    btnAplicarBeneficios.Enabled = false;
+                                    btnMostrarBeneficios.Enabled = true;
+                                    btnEfectivo.Enabled = true;
+                                    btnTargeta.Enabled = true;
+                                    inputTargetaCliente.Enabled = false;
+                                    inputDui.Enabled = false;
+                                    inputCodigoDescuento.Enabled = true;
 
 
-                                        //Diseño Boton
-                                        btnAplicarCodDesc.BackColor = Color.FromArgb(0, 114, 223); //Cambiamos el color del boton a rojo para mejora visual
-                                        btnAplicarCodDesc.Text = "Aplicar Codigo de Descuento";//cambiamos el texto para q se entienda el contexto de lo q es
+                                    //Diseño Boton
+                                    btnAplicarCodDesc.BackColor = Color.FromArgb(0, 114, 223); //Cambiamos el color del boton a rojo para mejora visual
+                                    btnAplicarCodDesc.Text = "Aplicar Codigo de Descuento";//cambiamos el texto para q se entienda el contexto de lo q es
 
-                                        btnAplicarBeneficios.BackColor = Color.FromArgb(0, 114, 223);
-                                        btnAplicarBeneficios.Text = "Aplicar Beneficios de \r\nTargeta";
+                                    btnAplicarBeneficios.BackColor = Color.FromArgb(0, 114, 223);
+                                    btnAplicarBeneficios.Text = "Aplicar Beneficios de \r\nTargeta";
 
-                                        btnEfectivo.BackColor = Color.FromArgb(0, 114, 223);
-                                        btnTargeta.BackColor = Color.FromArgb(0, 114, 223);
+                                    btnEfectivo.BackColor = Color.FromArgb(0, 114, 223);
+                                    btnTargeta.BackColor = Color.FromArgb(0, 114, 223);
 
-                                        checkTieneTargeta.Checked = false;
+                                    checkTieneTargeta.Checked = false;
 
-                                        return;
-                                    //}
-
+                                    return;
                                 }
                                 else
                                 {

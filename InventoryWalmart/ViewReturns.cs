@@ -11,6 +11,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using InventoryWalmart.views.Administrador;
 
 namespace InventoryWalmart
 {
@@ -229,7 +230,15 @@ namespace InventoryWalmart
 
         private void btnMostrarVenta_Click(object sender, EventArgs e)
         {
-
+            if (tablaDevoluciones.SelectedRows.Count == 1)
+            {
+                viewMostrarEspecificacionesVentacs view = new viewMostrarEspecificacionesVentacs();
+                view.Show();
+            }
+            else
+            {
+                Alertas.AlertError("Mostrando Venta", "No se ha podido mostrar la venta");
+            }
         }
     }
 }

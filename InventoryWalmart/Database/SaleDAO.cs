@@ -13,6 +13,51 @@ namespace InventoryWalmart.Database
     {
         public SaleDAO() { }
 
+        public Sale obtenerVentaConId(int idventa)
+        {
+            Sale venta = new Sale();
+            string query = "SELECT id_sale, id_customer, sale_date, total_amount, id_payment_method, id_discount, id_card, id_user, points_used, points_earned ";
+                   query += " FROM SALES WHERE id_sale = @idSale";
+
+            using(SqlConnection con = Connection.ObtenerConexion())
+            {
+                using(SqlCommand cmd = new SqlCommand(query, con))
+                {
+                    cmd.Parameters.Add("@idSale",SqlDbType.Int).Value = idventa;
+
+                    con.Open();
+
+                        try
+                        {
+                            using (SqlDataReader reader = cmd.ExecuteReader())
+                            {
+                                if (reader.Read())
+                                {
+                                    venta.SetIdSale(idventa);
+                                    venta.SetIdCustomer(reader.IsDBNull(1) ? (int?)null : reader.GetInt32(1));
+                                    venta.SetSaleDate(reader.GetDateTime(2));
+                                    venta.SetTotalAmount(reader.GetDecimal(3));
+                                    venta.SetIdPaymentMethod(reader.GetInt32(4));
+                                    venta.SetIdDiscount(reader.IsDBNull(5) ? (int?)null : reader.GetInt32(5));
+                                    venta.SetIdCard(reader.IsDBNull(6) ? (int?)null : reader.GetInt32(6));
+                                    venta.SetPointUsed(reader.GetInt32(7));
+                                    venta.SetPointEarned(reader.GetInt32(8));
+
+                                }
+                            }
+                            
+
+                            return venta;
+                        }
+                        catch (Exception ex) { 
+                            Console.WriteLine("Error al obtener la venta: " + ex.ToString());
+                            return null;
+                        }
+                    
+                }
+            }
+        }
+
         public int registrarVenta(Sale nuevaVenta)
         {
             using (SqlConnection coon = Connection.ObtenerConexion())

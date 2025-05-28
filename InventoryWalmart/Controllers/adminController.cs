@@ -90,6 +90,47 @@ namespace InventoryWalmart.Controllers
             return listaDevoluciones;
         }
 
+        public Sale obtenerVenta(int idVenta)
+        {
+            Sale venta = new Sale();
+            SaleDAO saleDAO = new SaleDAO();
+            venta = saleDAO.obtenerVentaConId(idVenta);
+
+            if (venta == null)
+            {
+                return null ;
+            }
+            return venta;
+        }
+
+        public List<Sale_Details> listaDetallesVenta(int idVenta)
+        {
+            List<Sale_Details> sale_Details = new List<Sale_Details>();
+            Sale_DetailsDAO sale_detailsDAO = new Sale_DetailsDAO();
+
+            sale_Details = sale_detailsDAO.obtenerListaDeDetallesVentaSinTargeta(idVenta);
+
+            if (sale_Details == null)
+            {
+                return null;
+            }
+
+            return sale_Details;
+        }
+
+        public Customer obtenerCustomer(int idCustomer)
+        {
+            Customer customer = new Customer();
+            CustomerDAO customerDAO = new CustomerDAO();
+
+            customer = customerDAO.obtenerCustomerWithId(idCustomer);
+
+            if (customer == null) { 
+                return null ;
+            }
+            return customer;
+        }
+
         public string codigoGenerado()
         {
             Random rnd = new Random();

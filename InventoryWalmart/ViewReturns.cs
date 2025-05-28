@@ -232,7 +232,9 @@ namespace InventoryWalmart
         {
             if (tablaDevoluciones.SelectedRows.Count == 1)
             {
-                viewMostrarEspecificacionesVentacs view = new viewMostrarEspecificacionesVentacs();
+                DataGridViewRow filaDevo = tablaDevoluciones.SelectedRows[0];
+
+                viewMostrarEspecificacionesVentacs view = new viewMostrarEspecificacionesVentacs(Convert.ToInt32(filaDevo.Cells[2].Value.ToString()));
                 view.Show();
             }
             else

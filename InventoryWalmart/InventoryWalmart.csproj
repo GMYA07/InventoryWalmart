@@ -477,6 +477,8 @@
     <Content Include="Database\ArchivosBDD\CREACION DE FUNCIONES.sql" />
     <Content Include="Database\ArchivosBDD\CREACIONBDD.sql" />
     <Content Include="Database\ArchivosBDD\departments_district.sql" />
+    <Content Include="Database\ArchivosBDD\Procedimientos almacenados.sql" />
+    <Content Include="Database\ArchivosBDD\SQL_DATOS_BDD.sql" />
     <Content Include="Database\ArchivosBDD\Trggers InventoryWalmart.sql" />
     <Content Include="Resources\walmartTransparente.png" />
   </ItemGroup>

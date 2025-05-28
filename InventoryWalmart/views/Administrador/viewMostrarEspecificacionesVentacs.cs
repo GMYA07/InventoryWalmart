@@ -1,4 +1,7 @@
-﻿using System;
+﻿using InventoryWalmart.Controllers;
+using InventoryWalmart.Model;
+using InventoryWalmart.Utils;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,9 +16,49 @@ namespace InventoryWalmart.views.Administrador
 {
     public partial class viewMostrarEspecificacionesVentacs : Form
     {
-        public viewMostrarEspecificacionesVentacs()
+        adminController adminController = new adminController();
+        cajeroController cajeroController = new cajeroController(); 
+        //InformacionVenta
+        Sale venta = new Sale();
+        List<Sale_Details> listaDetallesVenta = new List<Sale_Details>();
+
+        public viewMostrarEspecificacionesVentacs(int idVenta)
         {
             InitializeComponent();
+
+            venta = adminController.obtenerVenta(idVenta);
+
+            listaDetallesVenta = adminController.listaDetallesVenta(idVenta);
+
+        }
+
+
+        private void viewMostrarEspecificacionesVentacs_Load(object sender, EventArgs e)
+        { 
+            
+            Customer customer = new Customer() ;
+
+            customer = adminController.obtenerCustomer(Convert.ToInt32(venta.GetIdCustomer()));
+
+            if (customer == null)
+            {
+                labelNombreCliente.Text = " - ";
+            }
+            else
+            {
+                labelNombreCliente.Text = customer.FirstName + " " + customer.LastName;
+            }
+
+            foreach (Sale_Details sale_Details in listaDetallesVenta)
+            {
+                Product product = new Product();
+                product = cajeroController.encontrarProducto(sale_Details.IdProduct);
+
+                tablaVenta.Rows.Add(sale_Details.IdProduct, product.GetNameProduct(), sale_Details.Quantity);
+            }
+            labelTotalVenta.Text = venta.GetTotalAmount().ToString();
+            tablaVenta.ReadOnly = true;
+            tablaVenta.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
         }
 
         //Codigo q nos ayuda con la administrasion de la barra de arriba y mover la ventana.
@@ -47,7 +90,7 @@ namespace InventoryWalmart.views.Administrador
 
         private void btnCerrar_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            this.Close();
         }
 
         private void barAcciones_MouseDown(object sender, MouseEventArgs e)
@@ -56,9 +99,5 @@ namespace InventoryWalmart.views.Administrador
             SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
 
-        private void viewMostrarEspecificacionesVentacs_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }

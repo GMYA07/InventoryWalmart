@@ -1,7 +1,6 @@
 ﻿using InventoryWalmart.Controllers;
 using InventoryWalmart.Model;
 using InventoryWalmart.Utils;
-using InventoryWalmart.Validaciones;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,33 +12,53 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace InventoryWalmart
+namespace InventoryWalmart.views.Administrador
 {
-    public partial class FormReturns : Form
+    public partial class viewMostrarEspecificacionesVentacs : Form
     {
-        Returns devo = new Returns();
         adminController adminController = new adminController();
+        cajeroController cajeroController = new cajeroController(); 
+        //InformacionVenta
+        Sale venta = new Sale();
+        List<Sale_Details> listaDetallesVenta = new List<Sale_Details>();
 
-        public FormReturns(string operacion, Returns devolucion)
+        public viewMostrarEspecificacionesVentacs(int idVenta)
         {
             InitializeComponent();
 
-            if (operacion.Equals("rechazar"))
+            venta = adminController.obtenerVenta(idVenta);
+
+            listaDetallesVenta = adminController.listaDetallesVenta(idVenta);
+
+        }
+
+
+        private void viewMostrarEspecificacionesVentacs_Load(object sender, EventArgs e)
+        { 
+            
+            Customer customer = new Customer() ;
+
+            customer = adminController.obtenerCustomer(Convert.ToInt32(venta.GetIdCustomer()));
+
+            if (customer == null)
             {
-                LblTitulo.Text = "Rechazar devolucion";
-                btnAceptar.Visible = false;
+                labelNombreCliente.Text = " - ";
             }
             else
             {
-                btnRechazar.Visible = false;
+                labelNombreCliente.Text = customer.FirstName + " " + customer.LastName;
             }
 
-            devo = devolucion;
-        }
+            foreach (Sale_Details sale_Details in listaDetallesVenta)
+            {
+                Product product = new Product();
+                product = cajeroController.encontrarProducto(sale_Details.IdProduct);
 
-        private void FormReturns_Load(object sender, EventArgs e)
-        {
-
+                tablaVenta.Rows.Add(sale_Details.IdProduct, product.GetNameProduct(), sale_Details.Quantity);
+            }
+            labelTotalVenta.Text = venta.GetTotalAmount().ToString();
+            tablaVenta.ReadOnly = true;
+            tablaVenta.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
         }
 
         //Codigo q nos ayuda con la administrasion de la barra de arriba y mover la ventana.
@@ -71,49 +90,13 @@ namespace InventoryWalmart
 
         private void btnCerrar_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            this.Close();
         }
 
         private void barAcciones_MouseDown(object sender, MouseEventArgs e)
         {
             ReleaseCapture();
             SendMessage(this.Handle, 0x112, 0xf012, 0);
-        }
-
-        private void ChangeView<T>() where T : Form, new()
-        {
-            T vista = new T();
-            this.Hide();
-            vista.Show();
-        }
-
-
-        private void btnAceptar_Click(object sender, EventArgs e)
-        {
-
-        }
-        private void btnRechazar_Click(object sender, EventArgs e)
-        {
-            if (!Validar.validarInputVacio(inputDescripcionRechazo.Text,"descripcion rechazo"))
-            {
-                if (devo.IdCustomer == 0)
-                {
-                    devo.IdCustomer = null;
-                }
-                Console.WriteLine("esto es: " + devo.IdCustomer);
-                devo.Description = inputDescripcionRechazo.Text;
-                devo.Status = "rechazada";
-
-                if (adminController.cambiarEstadoDevo(devo) > 0)
-                {
-                    Alertas.AlertCorrect("Rechazando Devolucion", "Se ha rechazado exitosamente la devolucion");
-                    this.Close();
-                }
-                else
-                {
-                    Alertas.AlertError("Rechazando Devolucion","Existen un error al momento de rechazar la devolucion");
-                }
-            }
         }
 
     }

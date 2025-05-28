@@ -228,6 +228,12 @@
     <Compile Include="ViewSuppliers.Designer.cs">
       <DependentUpon>ViewSuppliers.cs</DependentUpon>
     </Compile>
+    <Compile Include="views\Administrador\viewMostrarEspecificacionesVentacs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="views\Administrador\viewMostrarEspecificacionesVentacs.Designer.cs">
+      <DependentUpon>viewMostrarEspecificacionesVentacs.cs</DependentUpon>
+    </Compile>
     <Compile Include="views\Cajero\indexCajero.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -328,6 +334,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ViewSuppliers.resx">
       <DependentUpon>ViewSuppliers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="views\Administrador\viewMostrarEspecificacionesVentacs.resx">
+      <DependentUpon>viewMostrarEspecificacionesVentacs.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="views\Cajero\indexCajero.resx">
       <DependentUpon>indexCajero.cs</DependentUpon>
@@ -478,6 +487,8 @@
     <Content Include="Database\ArchivosBDD\CREACION DE FUNCIONES.sql" />
     <Content Include="Database\ArchivosBDD\CREACIONBDD.sql" />
     <Content Include="Database\ArchivosBDD\departments_district.sql" />
+    <Content Include="Database\ArchivosBDD\Procedimientos almacenados.sql" />
+    <Content Include="Database\ArchivosBDD\SQL_DATOS_BDD.sql" />
     <Content Include="Database\ArchivosBDD\Trggers InventoryWalmart.sql" />
     <Content Include="Resources\walmartTransparente.png" />
   </ItemGroup>

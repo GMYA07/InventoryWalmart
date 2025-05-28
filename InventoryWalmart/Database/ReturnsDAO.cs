@@ -58,6 +58,54 @@ namespace InventoryWalmart.Database
             }
         }
 
+        public List<Returns> obtenerDevolucionesEspecifica(int idVenta)
+        {
+            List<Returns> listaDevoluciones = new List<Returns>();
+
+            string query = "SELECT id_return, id_customer, id_sale, return_date, description, status FROM RETURNS";
+            query += " WHERE id_sale = @idVenta";
+
+            using (SqlConnection conn = Connection.ObtenerConexion())
+            {
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    cmd.Parameters.Add("@idVenta", SqlDbType.Int).Value = idVenta;
+
+                    conn.Open();
+
+                    try
+                    {
+                        using (SqlDataReader reader = cmd.ExecuteReader())
+                        {
+
+                            while (reader.Read())
+                            {
+
+                                Returns devolucion = new Returns();
+
+                                devolucion.IdReturn = reader.GetInt32(0);
+                                devolucion.IdCustomer = reader.IsDBNull(1) ? (int?)null : reader.GetInt32(1);
+                                devolucion.IdSale = reader.GetInt32(2);
+                                devolucion.ReturnDate = reader.GetDateTime(3);
+                                devolucion.Description = reader.GetString(4);
+                                devolucion.Status = reader.GetString(5);
+
+                                listaDevoluciones.Add(devolucion);
+                            }
+
+                            return listaDevoluciones;
+
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine("Error al mostrar las devoluciones: " + ex.ToString());
+                        return null;
+                    }
+                }
+            }
+        }
+
         public List<Returns> obtenerDevolucionesEspecificasDeUnaVenta_Aceptada(string estado, int id_sale)
         {
             List<Returns> listaDevoluciones = new List<Returns>();

@@ -12,6 +12,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using InventoryWalmart.views.Administrador;
+using InventoryWalmart.Validaciones;
 
 namespace InventoryWalmart
 {
@@ -220,20 +221,64 @@ namespace InventoryWalmart
             }
         }
 
+        private void btnDevolucionesEspecifica_Click(object sender, EventArgs e)
+        {
+            int varAyuda = 0;
+            if (!Validar.validarInputVacio(inputIdVenta.Text,"id de venta") && int.TryParse(inputIdVenta.Text, out varAyuda) && Convert.ToInt32(inputIdVenta.Text) > 0)
+            {
+                tablaDevoluciones.Rows.Clear();
+
+                listaDevoluciones = adminController.mostrarDevolucionesEspecificas(Convert.ToInt32(inputIdVenta.Text));
+
+                if (listaDevoluciones != null)
+                {
+                    foreach (Returns devo in listaDevoluciones)
+                    {
+                        if (devo.IdCustomer == null)
+                        {
+                            devo.IdCustomer = 0;
+                        }
+
+                        tablaDevoluciones.Rows.Add(devo.IdReturn, devo.IdCustomer, devo.IdSale, devo.ReturnDate, devo.Description, devo.Status);
+                    }
+                    tablaDevoluciones.ReadOnly = true;
+                    tablaDevoluciones.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+                }
+                else
+                {
+                    Alertas.AlertError("Mostrando Devoluciones", "No se ha podido mostrar las devoluciones");
+                }
+            }
+            else
+            {
+                Alertas.AlertError("Mostrando Devoluciones", "No se ha podido mostrar las devoluciones dado que el id no es numerico o es menor o igual a 0");
+            }
+        }
+
         private void btnMostrarVenta_Click(object sender, EventArgs e)
         {
             if (tablaDevoluciones.SelectedRows.Count == 1)
             {
                 DataGridViewRow filaDevo = tablaDevoluciones.SelectedRows[0];
 
-                viewMostrarEspecificacionesVentacs view = new viewMostrarEspecificacionesVentacs(Convert.ToInt32(filaDevo.Cells[2].Value.ToString()));
-                view.Show();
+                if (filaDevo.IsNewRow)
+                {
+                    Alertas.AlertError("Aceptando Devolucion", "No seleccionar Filas vacias");
+                    return;
+                }
+                else
+                {
+                    viewMostrarEspecificacionesVentacs view = new viewMostrarEspecificacionesVentacs(Convert.ToInt32(filaDevo.Cells[2].Value.ToString()));
+                    view.Show();
+                }
             }
             else
             {
                 Alertas.AlertError("Mostrando Venta", "No se ha podido mostrar la venta");
             }
         }
+
+        
 
         private void btnRechazarDevo_Click(object sender, EventArgs e)
         {
@@ -242,21 +287,29 @@ namespace InventoryWalmart
                 DataGridViewRow filaDevo = tablaDevoluciones.SelectedRows[0];
                 Returns devolucion = new Returns();
 
-                if (filaDevo.Cells[5].Value.ToString().Equals("en espera"))
+                if (filaDevo.IsNewRow)
                 {
-                    devolucion.IdReturn = Convert.ToInt32(filaDevo.Cells[0].Value.ToString());
-                    devolucion.IdCustomer = Convert.ToInt32(filaDevo.Cells[1].Value.ToString());
-                    devolucion.IdSale = Convert.ToInt32(filaDevo.Cells[2].Value.ToString());
-                    devolucion.ReturnDate = Convert.ToDateTime(filaDevo.Cells[3].Value.ToString());
-                    devolucion.Description = filaDevo.Cells[4].Value.ToString();
-                    devolucion.Status = "rechazada";
-
-                    FormReturns viewFormReturns = new FormReturns("rechazar", devolucion);
-                    viewFormReturns.Show();
+                    Alertas.AlertError("Aceptando Devolucion", "No seleccionar Filas vacias");
+                    return;
                 }
                 else
                 {
-                    Alertas.AlertError("Rechazando devo","Esta devolucion ya esta rechazada o aceptada");
+                    if (filaDevo.Cells[5].Value.ToString().Equals("en espera"))
+                    {
+                        devolucion.IdReturn = Convert.ToInt32(filaDevo.Cells[0].Value.ToString());
+                        devolucion.IdCustomer = Convert.ToInt32(filaDevo.Cells[1].Value.ToString());
+                        devolucion.IdSale = Convert.ToInt32(filaDevo.Cells[2].Value.ToString());
+                        devolucion.ReturnDate = Convert.ToDateTime(filaDevo.Cells[3].Value.ToString());
+                        devolucion.Description = filaDevo.Cells[4].Value.ToString();
+                        devolucion.Status = "rechazada";
+
+                        FormReturns viewFormReturns = new FormReturns("rechazar", devolucion);
+                        viewFormReturns.Show();
+                    }
+                    else
+                    {
+                        Alertas.AlertError("Rechazando devo", "Esta devolucion ya esta rechazada o aceptada");
+                    }
                 }
             }
             else
@@ -275,20 +328,36 @@ namespace InventoryWalmart
             {
                 DataGridViewRow filaDevo = tablaDevoluciones.SelectedRows[0];
                 Returns devolucion = new Returns();
-                //variables para hacer nuevo comentario y reducirStock
-                int cantidadDevolver = adminController.extraerInfoDevolverDeComentario(filaDevo.Cells[4].Value.ToString(), posicionCantidadDevolver);
-                int idProductoDevolver = adminController.extraerInfoDevolverDeComentario(filaDevo.Cells[4].Value.ToString(), posicionIdProducto);
-                int restanteProductosVenta = adminController.extraerInfoDevolverDeComentario(filaDevo.Cells[4].Value.ToString(), posicionRestante);
 
-                if (filaDevo.Cells[5].Value.ToString().Equals("en espera"))
+                if (filaDevo.IsNewRow)
                 {
+                    Alertas.AlertError("Aceptando Devolucion","No seleccionar Filas vacias");
+                    return;
+                }
+                else
+                {
+                    //variables para hacer nuevo comentario y reducirStock
+                    int cantidadDevolver = adminController.extraerInfoDevolverDeComentario(filaDevo.Cells[4].Value.ToString(), posicionCantidadDevolver);
+                    int idProductoDevolver = adminController.extraerInfoDevolverDeComentario(filaDevo.Cells[4].Value.ToString(), posicionIdProducto);
+                    int restanteProductosVenta = adminController.extraerInfoDevolverDeComentario(filaDevo.Cells[4].Value.ToString(), posicionRestante);
 
-                    if (adminController.existenciaDevolucionAceptada(idProductoDevolver, Convert.ToInt32(filaDevo.Cells[2].Value.ToString())) > 0)
+                    if (filaDevo.Cells[5].Value.ToString().Equals("en espera"))
                     {
-                        Alertas.AlertInfo("Aceptando Devolucion", "Ya se han devuelto productos de este tipo de esta venta");
-                    }
-                    else
-                    {
+
+                        if (adminController.existenciaDevolucionAceptada(idProductoDevolver, Convert.ToInt32(filaDevo.Cells[2].Value.ToString())) > 0)
+                        {
+                            devolucion.Description = adminController.validarAceptacionDevolucionCuandoExisteOtraDevo(idProductoDevolver, Convert.ToInt32(filaDevo.Cells[2].Value.ToString()), cantidadDevolver);
+
+                            if (devolucion.Description.Equals("error"))
+                            {
+                                return;
+                            }
+                        }
+                        else
+                        {
+                            devolucion.Description = filaDevo.Cells[4].Value.ToString();
+                        }
+
                         devolucion.IdReturn = Convert.ToInt32(filaDevo.Cells[0].Value.ToString());
 
                         if (Convert.ToInt32(filaDevo.Cells[1].Value.ToString()) == 0)
@@ -302,7 +371,7 @@ namespace InventoryWalmart
 
                         devolucion.IdSale = Convert.ToInt32(filaDevo.Cells[2].Value.ToString());
                         devolucion.ReturnDate = Convert.ToDateTime(filaDevo.Cells[3].Value.ToString());
-                        devolucion.Description = filaDevo.Cells[4].Value.ToString();
+
                         devolucion.Status = "aceptada";
 
                         if (adminController.cambiarEstadoDevo(devolucion) > 0)
@@ -315,13 +384,13 @@ namespace InventoryWalmart
                             Alertas.AlertError("Aceptando Devolucion", "No se ha actualizado el estado");
                         }
 
-
+                    }
+                    else
+                    {
+                        Alertas.AlertError("Rechazando devo", "Esta devolucion ya esta rechazada o aceptada");
                     }
                 }
-                else
-                {
-                    Alertas.AlertError("Rechazando devo", "Esta devolucion ya esta rechazada o aceptada");
-                }
+                
 
                 
             }

@@ -91,6 +91,20 @@ namespace InventoryWalmart.Controllers
             return listaDevoluciones;
         }
 
+        public List<Returns> mostrarDevolucionesEspecificas(int idVenta)
+        {
+            List<Returns> listaDevoluciones = new List<Returns>();
+            listaDevoluciones = returnsDAO.obtenerDevolucionesEspecifica(idVenta);
+
+            if (listaDevoluciones == null)
+            {
+                return null;
+            }
+
+            return listaDevoluciones;
+        }
+
+
         public Sale obtenerVenta(int idVenta)
         {
             Sale venta = new Sale();
@@ -156,13 +170,64 @@ namespace InventoryWalmart.Controllers
                 foreach (Returns devo in lista)
                 {
                     int idProductoDevoAceptada = extraerInfoDevolverDeComentario(devo.Description,1);
-                    Console.WriteLine("id del for:" + idProducto);
                     if (idProducto == idProductoDevoAceptada)
                     {
                         return 1;
                     }
                 }
                 return 0;
+            }
+        }
+
+        public string validarAceptacionDevolucionCuandoExisteOtraDevo(int idProducto, int idVenta, int cantidadRetornar)
+        {
+            string nuevaDescripcion = "";
+
+            List<Returns> lista = new List<Returns>();
+            Product producto = new Product();
+            ProductDAO productDAO = new ProductDAO();
+            producto = productDAO.obtenerProducto(idProducto);
+
+            lista = returnsDAO.obtenerDevolucionesEspecificasDeUnaVenta_Aceptada("aceptada", idVenta);
+
+            if (lista == null)
+            {
+                Alertas.AlertError("Aceptando Devolucion", "No se pudo encontrar la lista por q es nula");
+                return "error";
+            }
+            else
+            {
+                int nuevoRestanteProducto = 0;
+
+                foreach (Returns devo in lista)
+                {
+                    int idProductoDevoAceptada = extraerInfoDevolverDeComentario(devo.Description, 1);
+                    
+                    if (idProducto == idProductoDevoAceptada)
+                    {
+                        int restanteProductosComentDevo = extraerInfoDevolverDeComentario(devo.Description, 2);
+
+                        if (restanteProductosComentDevo == 0)
+                        {
+                            Alertas.AlertError("Aceptando Devolucion", "Ya no se puede devolver este tipo de producto de esta venta dado que ya se devolvio todo, por favor rechazar esta solicitud");
+                            return "error";
+                        }
+
+                        if (cantidadRetornar > restanteProductosComentDevo)
+                        {
+                            Alertas.AlertError("Aceptando Devolucion", "No se puede retornar este producto dado que es mas de lo que se puede devolver segun la venta o ya se devolvio todo el producto, por favor rechazar esta solicitud");
+                            return "error";
+                        }
+
+                        nuevoRestanteProducto = restanteProductosComentDevo - cantidadRetornar;
+
+                        nuevaDescripcion = "Se ha devuelto la cantidad de " + cantidadRetornar + " productos " + producto.GetNameProduct();
+                        nuevaDescripcion += " con el id " + idProducto + ". Una vez exitosa la devolucion la nueva cantidad de productos de la compra serian: " + nuevoRestanteProducto;
+
+                    }
+                }
+
+                return nuevaDescripcion;
             }
         }
 

@@ -35,6 +35,7 @@ namespace InventoryWalmart
 
         private void ViewReturns_Load(object sender, EventArgs e)
         {
+
             listaDevoluciones = adminController.mostrarDevoluciones("en espera");
 
             if (listaDevoluciones != null)
@@ -139,18 +140,7 @@ namespace InventoryWalmart
             this.Hide();
             vista.Show();
         }
-
-        private void btnAgregar_Click(object sender, EventArgs e)
-        {
-            opcion = "agregar";
-            ChangeView<FormReturns>();
-        }
-
-        private void btnModificar_Click(object sender, EventArgs e)
-        {
-            opcion = "editar";
-            ChangeView<FormReturns>();
-        }
+ 
 
         private void btnMostrarDevEspera_Click(object sender, EventArgs e)
         {
@@ -206,6 +196,8 @@ namespace InventoryWalmart
 
         private void btnMostrarDevRechazadas_Click(object sender, EventArgs e)
         {
+            tablaDevoluciones.Rows.Clear();
+
             listaDevoluciones = adminController.mostrarDevoluciones("rechazada");
 
             if (listaDevoluciones != null)
@@ -241,6 +233,104 @@ namespace InventoryWalmart
             {
                 Alertas.AlertError("Mostrando Venta", "No se ha podido mostrar la venta");
             }
+        }
+
+        private void btnRechazarDevo_Click(object sender, EventArgs e)
+        {
+            if (tablaDevoluciones.SelectedRows.Count == 1)
+            {
+                DataGridViewRow filaDevo = tablaDevoluciones.SelectedRows[0];
+                Returns devolucion = new Returns();
+
+                if (filaDevo.Cells[5].Value.ToString().Equals("en espera"))
+                {
+                    devolucion.IdReturn = Convert.ToInt32(filaDevo.Cells[0].Value.ToString());
+                    devolucion.IdCustomer = Convert.ToInt32(filaDevo.Cells[1].Value.ToString());
+                    devolucion.IdSale = Convert.ToInt32(filaDevo.Cells[2].Value.ToString());
+                    devolucion.ReturnDate = Convert.ToDateTime(filaDevo.Cells[3].Value.ToString());
+                    devolucion.Description = filaDevo.Cells[4].Value.ToString();
+                    devolucion.Status = "rechazada";
+
+                    FormReturns viewFormReturns = new FormReturns("rechazar", devolucion);
+                    viewFormReturns.Show();
+                }
+                else
+                {
+                    Alertas.AlertError("Rechazando devo","Esta devolucion ya esta rechazada o aceptada");
+                }
+            }
+            else
+            {
+                Alertas.AlertError("Rechazando Devolucion", "Debe seleccionar una devolucion");
+            }
+        }
+
+        private void btnAceptarDevo_Click(object sender, EventArgs e)
+        {
+            //Ayudaran para mandar la posicion donde extraeran del comentario
+            int posicionCantidadDevolver = 0;
+            int posicionIdProducto = 1;
+            int posicionRestante = 2;
+            if (tablaDevoluciones.SelectedRows.Count == 1)
+            {
+                DataGridViewRow filaDevo = tablaDevoluciones.SelectedRows[0];
+                Returns devolucion = new Returns();
+                //variables para hacer nuevo comentario y reducirStock
+                int cantidadDevolver = adminController.extraerInfoDevolverDeComentario(filaDevo.Cells[4].Value.ToString(), posicionCantidadDevolver);
+                int idProductoDevolver = adminController.extraerInfoDevolverDeComentario(filaDevo.Cells[4].Value.ToString(), posicionIdProducto);
+                int restanteProductosVenta = adminController.extraerInfoDevolverDeComentario(filaDevo.Cells[4].Value.ToString(), posicionRestante);
+
+                if (filaDevo.Cells[5].Value.ToString().Equals("en espera"))
+                {
+
+                    if (adminController.existenciaDevolucionAceptada(idProductoDevolver, Convert.ToInt32(filaDevo.Cells[2].Value.ToString())) > 0)
+                    {
+                        Alertas.AlertInfo("Aceptando Devolucion", "Ya se han devuelto productos de este tipo de esta venta");
+                    }
+                    else
+                    {
+                        devolucion.IdReturn = Convert.ToInt32(filaDevo.Cells[0].Value.ToString());
+
+                        if (Convert.ToInt32(filaDevo.Cells[1].Value.ToString()) == 0)
+                        {
+                            devolucion.IdCustomer = null;
+                        }
+                        else
+                        {
+                            devolucion.IdCustomer = Convert.ToInt32(filaDevo.Cells[1].Value.ToString());
+                        }
+
+                        devolucion.IdSale = Convert.ToInt32(filaDevo.Cells[2].Value.ToString());
+                        devolucion.ReturnDate = Convert.ToDateTime(filaDevo.Cells[3].Value.ToString());
+                        devolucion.Description = filaDevo.Cells[4].Value.ToString();
+                        devolucion.Status = "aceptada";
+
+                        if (adminController.cambiarEstadoDevo(devolucion) > 0)
+                        {
+                            Alertas.AlertCorrect("Aceptando Devolucion", "Se ha aceptado la devolucion");
+
+                        }
+                        else
+                        {
+                            Alertas.AlertError("Aceptando Devolucion", "No se ha actualizado el estado");
+                        }
+
+
+                    }
+                }
+                else
+                {
+                    Alertas.AlertError("Rechazando devo", "Esta devolucion ya esta rechazada o aceptada");
+                }
+
+                
+            }
+            else
+            {
+                Alertas.AlertError("Aceptando Devolucion", "Debe seleccionar una devolucion");
+            }
+
+
         }
     }
 }

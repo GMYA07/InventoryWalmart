@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace InventoryWalmart.Controllers
@@ -131,6 +132,40 @@ namespace InventoryWalmart.Controllers
             return customer;
         }
 
+        public int cambiarEstadoDevo(Returns devolucionActu)
+        {
+            if (returnsDAO.actualizarDevolucion(devolucionActu) > 0)
+            {
+                return 1;
+            }
+            return 0;
+        }
+
+        public int existenciaDevolucionAceptada(int idProducto, int idVenta)
+        {
+            List<Returns> lista = new List<Returns>();
+
+            lista = returnsDAO.obtenerDevolucionesEspecificasDeUnaVenta_Aceptada("aceptada", idVenta);
+
+            if (lista == null)
+            {
+                return 0;
+            }
+            else
+            {
+                foreach (Returns devo in lista)
+                {
+                    int idProductoDevoAceptada = extraerInfoDevolverDeComentario(devo.Description,1);
+                    Console.WriteLine("id del for:" + idProducto);
+                    if (idProducto == idProductoDevoAceptada)
+                    {
+                        return 1;
+                    }
+                }
+                return 0;
+            }
+        }
+
         public string codigoGenerado()
         {
             Random rnd = new Random();
@@ -144,6 +179,20 @@ namespace InventoryWalmart.Controllers
             }
 
             return codigoNuevoDescuento;
+        }
+        
+        public int extraerInfoDevolverDeComentario(string comentario, int valorExtraer)
+        {
+            int cantidadDevolver = 0;
+
+            MatchCollection matches = Regex.Matches(comentario, @"\d+");
+
+            if (matches.Count >= 3)
+            {
+                cantidadDevolver = int.Parse(matches[valorExtraer].Value);
+            }
+
+            return cantidadDevolver;
         }
     }
 }

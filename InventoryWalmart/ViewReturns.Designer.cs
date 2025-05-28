@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ViewReturns));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.BtnVentas = new System.Windows.Forms.Button();
             this.BtnPuntos = new System.Windows.Forms.Button();
@@ -48,20 +48,20 @@
             this.btnCerrar = new System.Windows.Forms.PictureBox();
             this.btnRestaurar = new System.Windows.Forms.PictureBox();
             this.tablaDevoluciones = new System.Windows.Forms.DataGridView();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.btnRechazarDevo = new System.Windows.Forms.Button();
-            this.btnAceptarDevo = new System.Windows.Forms.Button();
-            this.Lbl_Title = new System.Windows.Forms.Label();
-            this.btnMostrarVenta = new System.Windows.Forms.Button();
             this.ColumnId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnIdVenta = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnFechaDevolucion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnDescripción = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnEstado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.btnRechazarDevo = new System.Windows.Forms.Button();
+            this.btnMostrarVenta = new System.Windows.Forms.Button();
+            this.Lbl_Title = new System.Windows.Forms.Label();
             this.btnMostrarDevRechazadas = new System.Windows.Forms.Button();
             this.btnMostrarDevAceptadas = new System.Windows.Forms.Button();
             this.btnMostrarDevEspera = new System.Windows.Forms.Button();
+            this.btnAceptarDevo = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.logo)).BeginInit();
             this.barAcciones.SuspendLayout();
@@ -87,10 +87,9 @@
             this.panel1.Controls.Add(this.btnInicio);
             this.panel1.Controls.Add(this.logo);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel1.Location = new System.Drawing.Point(0, 73);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Location = new System.Drawing.Point(0, 59);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(333, 813);
+            this.panel1.Size = new System.Drawing.Size(250, 661);
             this.panel1.TabIndex = 21;
             // 
             // BtnVentas
@@ -104,11 +103,10 @@
             this.BtnVentas.ForeColor = System.Drawing.Color.White;
             this.BtnVentas.Image = global::InventoryWalmart.Properties.Resources.IconoSales;
             this.BtnVentas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnVentas.Location = new System.Drawing.Point(0, 550);
-            this.BtnVentas.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.BtnVentas.Location = new System.Drawing.Point(0, 448);
             this.BtnVentas.Name = "BtnVentas";
-            this.BtnVentas.Padding = new System.Windows.Forms.Padding(0, 0, 133, 0);
-            this.BtnVentas.Size = new System.Drawing.Size(333, 49);
+            this.BtnVentas.Padding = new System.Windows.Forms.Padding(0, 0, 100, 0);
+            this.BtnVentas.Size = new System.Drawing.Size(250, 40);
             this.BtnVentas.TabIndex = 10;
             this.BtnVentas.Text = "Ventas";
             this.BtnVentas.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -126,11 +124,10 @@
             this.BtnPuntos.ForeColor = System.Drawing.Color.White;
             this.BtnPuntos.Image = global::InventoryWalmart.Properties.Resources.PointsIcon;
             this.BtnPuntos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnPuntos.Location = new System.Drawing.Point(0, 501);
-            this.BtnPuntos.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.BtnPuntos.Location = new System.Drawing.Point(0, 408);
             this.BtnPuntos.Name = "BtnPuntos";
-            this.BtnPuntos.Padding = new System.Windows.Forms.Padding(0, 0, 133, 0);
-            this.BtnPuntos.Size = new System.Drawing.Size(333, 49);
+            this.BtnPuntos.Padding = new System.Windows.Forms.Padding(0, 0, 100, 0);
+            this.BtnPuntos.Size = new System.Drawing.Size(250, 40);
             this.BtnPuntos.TabIndex = 8;
             this.BtnPuntos.Text = "Puntos";
             this.BtnPuntos.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -148,11 +145,10 @@
             this.btnClientes.ForeColor = System.Drawing.Color.White;
             this.btnClientes.Image = global::InventoryWalmart.Properties.Resources.UsuariosIcon;
             this.btnClientes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnClientes.Location = new System.Drawing.Point(0, 452);
-            this.btnClientes.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnClientes.Location = new System.Drawing.Point(0, 368);
             this.btnClientes.Name = "btnClientes";
-            this.btnClientes.Padding = new System.Windows.Forms.Padding(0, 0, 133, 0);
-            this.btnClientes.Size = new System.Drawing.Size(333, 49);
+            this.btnClientes.Padding = new System.Windows.Forms.Padding(0, 0, 100, 0);
+            this.btnClientes.Size = new System.Drawing.Size(250, 40);
             this.btnClientes.TabIndex = 7;
             this.btnClientes.Text = "Clientes";
             this.btnClientes.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -170,11 +166,10 @@
             this.btnEmpleado.ForeColor = System.Drawing.Color.White;
             this.btnEmpleado.Image = global::InventoryWalmart.Properties.Resources.EmpleadosIcon;
             this.btnEmpleado.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEmpleado.Location = new System.Drawing.Point(0, 403);
-            this.btnEmpleado.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnEmpleado.Location = new System.Drawing.Point(0, 328);
             this.btnEmpleado.Name = "btnEmpleado";
-            this.btnEmpleado.Padding = new System.Windows.Forms.Padding(0, 0, 107, 0);
-            this.btnEmpleado.Size = new System.Drawing.Size(333, 49);
+            this.btnEmpleado.Padding = new System.Windows.Forms.Padding(0, 0, 80, 0);
+            this.btnEmpleado.Size = new System.Drawing.Size(250, 40);
             this.btnEmpleado.TabIndex = 6;
             this.btnEmpleado.Text = "Empleado";
             this.btnEmpleado.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -192,11 +187,10 @@
             this.btnReportes.ForeColor = System.Drawing.Color.White;
             this.btnReportes.Image = global::InventoryWalmart.Properties.Resources.ReportesIcon;
             this.btnReportes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnReportes.Location = new System.Drawing.Point(0, 354);
-            this.btnReportes.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnReportes.Location = new System.Drawing.Point(0, 288);
             this.btnReportes.Name = "btnReportes";
-            this.btnReportes.Padding = new System.Windows.Forms.Padding(0, 0, 120, 0);
-            this.btnReportes.Size = new System.Drawing.Size(333, 49);
+            this.btnReportes.Padding = new System.Windows.Forms.Padding(0, 0, 90, 0);
+            this.btnReportes.Size = new System.Drawing.Size(250, 40);
             this.btnReportes.TabIndex = 5;
             this.btnReportes.Text = "Reportes";
             this.btnReportes.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -214,11 +208,10 @@
             this.btnDevoluciones.ForeColor = System.Drawing.Color.White;
             this.btnDevoluciones.Image = global::InventoryWalmart.Properties.Resources.RenvolsosIcon;
             this.btnDevoluciones.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDevoluciones.Location = new System.Drawing.Point(0, 305);
-            this.btnDevoluciones.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnDevoluciones.Location = new System.Drawing.Point(0, 248);
             this.btnDevoluciones.Name = "btnDevoluciones";
-            this.btnDevoluciones.Padding = new System.Windows.Forms.Padding(0, 0, 67, 0);
-            this.btnDevoluciones.Size = new System.Drawing.Size(333, 49);
+            this.btnDevoluciones.Padding = new System.Windows.Forms.Padding(0, 0, 50, 0);
+            this.btnDevoluciones.Size = new System.Drawing.Size(250, 40);
             this.btnDevoluciones.TabIndex = 4;
             this.btnDevoluciones.Text = "Devoluciones";
             this.btnDevoluciones.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -236,11 +229,10 @@
             this.btnProductos.ForeColor = System.Drawing.Color.White;
             this.btnProductos.Image = global::InventoryWalmart.Properties.Resources.ProductosIcon;
             this.btnProductos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnProductos.Location = new System.Drawing.Point(0, 256);
-            this.btnProductos.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnProductos.Location = new System.Drawing.Point(0, 208);
             this.btnProductos.Name = "btnProductos";
-            this.btnProductos.Padding = new System.Windows.Forms.Padding(0, 0, 100, 0);
-            this.btnProductos.Size = new System.Drawing.Size(333, 49);
+            this.btnProductos.Padding = new System.Windows.Forms.Padding(0, 0, 75, 0);
+            this.btnProductos.Size = new System.Drawing.Size(250, 40);
             this.btnProductos.TabIndex = 3;
             this.btnProductos.Text = "Productos";
             this.btnProductos.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -258,11 +250,10 @@
             this.btnPromociones.ForeColor = System.Drawing.Color.White;
             this.btnPromociones.Image = ((System.Drawing.Image)(resources.GetObject("btnPromociones.Image")));
             this.btnPromociones.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnPromociones.Location = new System.Drawing.Point(0, 207);
-            this.btnPromociones.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnPromociones.Location = new System.Drawing.Point(0, 168);
             this.btnPromociones.Name = "btnPromociones";
-            this.btnPromociones.Padding = new System.Windows.Forms.Padding(0, 0, 67, 0);
-            this.btnPromociones.Size = new System.Drawing.Size(333, 49);
+            this.btnPromociones.Padding = new System.Windows.Forms.Padding(0, 0, 50, 0);
+            this.btnPromociones.Size = new System.Drawing.Size(250, 40);
             this.btnPromociones.TabIndex = 2;
             this.btnPromociones.Text = "       Beneficios";
             this.btnPromociones.UseVisualStyleBackColor = false;
@@ -279,11 +270,10 @@
             this.btnInicio.ForeColor = System.Drawing.Color.White;
             this.btnInicio.Image = global::InventoryWalmart.Properties.Resources.DashboardIcon;
             this.btnInicio.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnInicio.Location = new System.Drawing.Point(0, 158);
-            this.btnInicio.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnInicio.Location = new System.Drawing.Point(0, 128);
             this.btnInicio.Name = "btnInicio";
-            this.btnInicio.Padding = new System.Windows.Forms.Padding(0, 0, 160, 0);
-            this.btnInicio.Size = new System.Drawing.Size(333, 49);
+            this.btnInicio.Padding = new System.Windows.Forms.Padding(0, 0, 120, 0);
+            this.btnInicio.Size = new System.Drawing.Size(250, 40);
             this.btnInicio.TabIndex = 1;
             this.btnInicio.Text = "Inicio";
             this.btnInicio.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -295,10 +285,9 @@
             this.logo.Dock = System.Windows.Forms.DockStyle.Top;
             this.logo.Image = global::InventoryWalmart.Properties.Resources.logo;
             this.logo.Location = new System.Drawing.Point(0, 0);
-            this.logo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.logo.Name = "logo";
-            this.logo.Padding = new System.Windows.Forms.Padding(13, 12, 13, 12);
-            this.logo.Size = new System.Drawing.Size(333, 158);
+            this.logo.Padding = new System.Windows.Forms.Padding(10);
+            this.logo.Size = new System.Drawing.Size(250, 128);
             this.logo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.logo.TabIndex = 0;
             this.logo.TabStop = false;
@@ -312,9 +301,8 @@
             this.barAcciones.Controls.Add(this.btnRestaurar);
             this.barAcciones.Dock = System.Windows.Forms.DockStyle.Top;
             this.barAcciones.Location = new System.Drawing.Point(0, 0);
-            this.barAcciones.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.barAcciones.Name = "barAcciones";
-            this.barAcciones.Size = new System.Drawing.Size(1707, 73);
+            this.barAcciones.Size = new System.Drawing.Size(1280, 59);
             this.barAcciones.TabIndex = 20;
             this.barAcciones.MouseDown += new System.Windows.Forms.MouseEventHandler(this.barAcciones_MouseDown);
             // 
@@ -323,10 +311,9 @@
             this.btnOcultar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnOcultar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnOcultar.Image = global::InventoryWalmart.Properties.Resources.ocultar;
-            this.btnOcultar.Location = new System.Drawing.Point(1517, 15);
-            this.btnOcultar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnOcultar.Location = new System.Drawing.Point(1138, 12);
             this.btnOcultar.Name = "btnOcultar";
-            this.btnOcultar.Size = new System.Drawing.Size(40, 37);
+            this.btnOcultar.Size = new System.Drawing.Size(30, 30);
             this.btnOcultar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.btnOcultar.TabIndex = 4;
             this.btnOcultar.TabStop = false;
@@ -337,10 +324,9 @@
             this.btnMaximizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnMaximizar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnMaximizar.Image = ((System.Drawing.Image)(resources.GetObject("btnMaximizar.Image")));
-            this.btnMaximizar.Location = new System.Drawing.Point(1588, 15);
-            this.btnMaximizar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnMaximizar.Location = new System.Drawing.Point(1191, 12);
             this.btnMaximizar.Name = "btnMaximizar";
-            this.btnMaximizar.Size = new System.Drawing.Size(40, 37);
+            this.btnMaximizar.Size = new System.Drawing.Size(30, 30);
             this.btnMaximizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.btnMaximizar.TabIndex = 3;
             this.btnMaximizar.TabStop = false;
@@ -351,10 +337,9 @@
             this.btnCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCerrar.Image = ((System.Drawing.Image)(resources.GetObject("btnCerrar.Image")));
-            this.btnCerrar.Location = new System.Drawing.Point(1648, 15);
-            this.btnCerrar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCerrar.Location = new System.Drawing.Point(1236, 12);
             this.btnCerrar.Name = "btnCerrar";
-            this.btnCerrar.Size = new System.Drawing.Size(43, 39);
+            this.btnCerrar.Size = new System.Drawing.Size(32, 32);
             this.btnCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.btnCerrar.TabIndex = 2;
             this.btnCerrar.TabStop = false;
@@ -365,10 +350,9 @@
             this.btnRestaurar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnRestaurar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnRestaurar.Image = ((System.Drawing.Image)(resources.GetObject("btnRestaurar.Image")));
-            this.btnRestaurar.Location = new System.Drawing.Point(1588, 15);
-            this.btnRestaurar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnRestaurar.Location = new System.Drawing.Point(1191, 12);
             this.btnRestaurar.Name = "btnRestaurar";
-            this.btnRestaurar.Size = new System.Drawing.Size(40, 37);
+            this.btnRestaurar.Size = new System.Drawing.Size(30, 30);
             this.btnRestaurar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.btnRestaurar.TabIndex = 3;
             this.btnRestaurar.TabStop = false;
@@ -381,14 +365,14 @@
             this.tablaDevoluciones.BackgroundColor = System.Drawing.Color.White;
             this.tablaDevoluciones.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tablaDevoluciones.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(113)))), ((int)(((byte)(207)))));
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.tablaDevoluciones.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(113)))), ((int)(((byte)(207)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.tablaDevoluciones.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.tablaDevoluciones.ColumnHeadersHeight = 30;
             this.tablaDevoluciones.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.tablaDevoluciones.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -399,33 +383,77 @@
             this.ColumnDescripción,
             this.ColumnEstado});
             this.tablaDevoluciones.EnableHeadersVisualStyles = false;
-            this.tablaDevoluciones.Location = new System.Drawing.Point(456, 329);
-            this.tablaDevoluciones.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tablaDevoluciones.Location = new System.Drawing.Point(342, 267);
             this.tablaDevoluciones.Name = "tablaDevoluciones";
             this.tablaDevoluciones.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(113)))), ((int)(((byte)(207)))));
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.tablaDevoluciones.RowHeadersDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(113)))), ((int)(((byte)(207)))));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.tablaDevoluciones.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.tablaDevoluciones.RowHeadersVisible = false;
             this.tablaDevoluciones.RowHeadersWidth = 51;
             this.tablaDevoluciones.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.tablaDevoluciones.Size = new System.Drawing.Size(942, 496);
+            this.tablaDevoluciones.Size = new System.Drawing.Size(706, 403);
             this.tablaDevoluciones.TabIndex = 31;
+            // 
+            // ColumnId
+            // 
+            this.ColumnId.HeaderText = "ID";
+            this.ColumnId.MinimumWidth = 6;
+            this.ColumnId.Name = "ColumnId";
+            this.ColumnId.Width = 46;
+            // 
+            // ColumnCliente
+            // 
+            this.ColumnCliente.HeaderText = "Id cliente";
+            this.ColumnCliente.MinimumWidth = 6;
+            this.ColumnCliente.Name = "ColumnCliente";
+            this.ColumnCliente.ReadOnly = true;
+            this.ColumnCliente.Width = 89;
+            // 
+            // ColumnIdVenta
+            // 
+            this.ColumnIdVenta.HeaderText = "ID Venta";
+            this.ColumnIdVenta.MinimumWidth = 6;
+            this.ColumnIdVenta.Name = "ColumnIdVenta";
+            this.ColumnIdVenta.Width = 85;
+            // 
+            // ColumnFechaDevolucion
+            // 
+            this.ColumnFechaDevolucion.HeaderText = "Fecha de devolucion";
+            this.ColumnFechaDevolucion.MinimumWidth = 6;
+            this.ColumnFechaDevolucion.Name = "ColumnFechaDevolucion";
+            this.ColumnFechaDevolucion.ReadOnly = true;
+            this.ColumnFechaDevolucion.Width = 158;
+            // 
+            // ColumnDescripción
+            // 
+            this.ColumnDescripción.HeaderText = "Descripción";
+            this.ColumnDescripción.MinimumWidth = 6;
+            this.ColumnDescripción.Name = "ColumnDescripción";
+            this.ColumnDescripción.ReadOnly = true;
+            this.ColumnDescripción.Width = 104;
+            // 
+            // ColumnEstado
+            // 
+            this.ColumnEstado.HeaderText = "Estado";
+            this.ColumnEstado.MinimumWidth = 6;
+            this.ColumnEstado.Name = "ColumnEstado";
+            this.ColumnEstado.ReadOnly = true;
+            this.ColumnEstado.Width = 73;
             // 
             // panel3
             // 
-            this.panel3.Controls.Add(this.btnMostrarVenta);
-            this.panel3.Controls.Add(this.btnRechazarDevo);
             this.panel3.Controls.Add(this.btnAceptarDevo);
-            this.panel3.Location = new System.Drawing.Point(1068, 182);
-            this.panel3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel3.Controls.Add(this.btnRechazarDevo);
+            this.panel3.Controls.Add(this.btnMostrarVenta);
+            this.panel3.Location = new System.Drawing.Point(801, 148);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(560, 65);
+            this.panel3.Size = new System.Drawing.Size(440, 53);
             this.panel3.TabIndex = 30;
             // 
             // btnRechazarDevo
@@ -437,44 +465,13 @@
             this.btnRechazarDevo.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRechazarDevo.ForeColor = System.Drawing.Color.White;
             this.btnRechazarDevo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnRechazarDevo.Location = new System.Drawing.Point(192, 10);
-            this.btnRechazarDevo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnRechazarDevo.Location = new System.Drawing.Point(147, 8);
             this.btnRechazarDevo.Name = "btnRechazarDevo";
-            this.btnRechazarDevo.Size = new System.Drawing.Size(163, 49);
-            this.btnRechazarDevo.TabIndex = 13;
+            this.btnRechazarDevo.Size = new System.Drawing.Size(122, 40);
+            this.btnRechazarDevo.TabIndex = 36;
             this.btnRechazarDevo.Text = "Rechazar \r\nDevolucion\r\n";
             this.btnRechazarDevo.UseVisualStyleBackColor = false;
-            this.btnRechazarDevo.Click += new System.EventHandler(this.btnModificar_Click);
-            // 
-            // btnAceptarDevo
-            // 
-            this.btnAceptarDevo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(170)))), ((int)(((byte)(28)))));
-            this.btnAceptarDevo.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAceptarDevo.FlatAppearance.BorderSize = 0;
-            this.btnAceptarDevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAceptarDevo.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAceptarDevo.ForeColor = System.Drawing.Color.White;
-            this.btnAceptarDevo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAceptarDevo.Location = new System.Drawing.Point(9, 11);
-            this.btnAceptarDevo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.btnAceptarDevo.Name = "btnAceptarDevo";
-            this.btnAceptarDevo.Padding = new System.Windows.Forms.Padding(13, 0, 13, 0);
-            this.btnAceptarDevo.Size = new System.Drawing.Size(163, 49);
-            this.btnAceptarDevo.TabIndex = 11;
-            this.btnAceptarDevo.Text = "Aceptar\r\nDevolucion";
-            this.btnAceptarDevo.UseVisualStyleBackColor = false;
-            this.btnAceptarDevo.Click += new System.EventHandler(this.btnAgregar_Click);
-            // 
-            // Lbl_Title
-            // 
-            this.Lbl_Title.AutoSize = true;
-            this.Lbl_Title.Font = new System.Drawing.Font("Segoe UI Semibold", 27.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Lbl_Title.Location = new System.Drawing.Point(384, 112);
-            this.Lbl_Title.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.Lbl_Title.Name = "Lbl_Title";
-            this.Lbl_Title.Size = new System.Drawing.Size(308, 62);
-            this.Lbl_Title.TabIndex = 28;
-            this.Lbl_Title.Text = "Devoluciones";
+            this.btnRechazarDevo.Click += new System.EventHandler(this.btnRechazarDevo_Click);
             // 
             // btnMostrarVenta
             // 
@@ -485,60 +482,23 @@
             this.btnMostrarVenta.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMostrarVenta.ForeColor = System.Drawing.Color.White;
             this.btnMostrarVenta.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnMostrarVenta.Location = new System.Drawing.Point(378, 10);
-            this.btnMostrarVenta.Margin = new System.Windows.Forms.Padding(4);
+            this.btnMostrarVenta.Location = new System.Drawing.Point(284, 8);
             this.btnMostrarVenta.Name = "btnMostrarVenta";
-            this.btnMostrarVenta.Size = new System.Drawing.Size(163, 49);
+            this.btnMostrarVenta.Size = new System.Drawing.Size(136, 40);
             this.btnMostrarVenta.TabIndex = 14;
             this.btnMostrarVenta.Text = "Mostrar\r\nEspecificaciones Venta";
             this.btnMostrarVenta.UseVisualStyleBackColor = false;
             this.btnMostrarVenta.Click += new System.EventHandler(this.btnMostrarVenta_Click);
             // 
-            // ColumnId
+            // Lbl_Title
             // 
-            this.ColumnId.HeaderText = "ID";
-            this.ColumnId.MinimumWidth = 6;
-            this.ColumnId.Name = "ColumnId";
-            this.ColumnId.Width = 56;
-            // 
-            // ColumnCliente
-            // 
-            this.ColumnCliente.HeaderText = "Id cliente";
-            this.ColumnCliente.MinimumWidth = 6;
-            this.ColumnCliente.Name = "ColumnCliente";
-            this.ColumnCliente.ReadOnly = true;
-            this.ColumnCliente.Width = 112;
-            // 
-            // ColumnIdVenta
-            // 
-            this.ColumnIdVenta.HeaderText = "ID Venta";
-            this.ColumnIdVenta.MinimumWidth = 6;
-            this.ColumnIdVenta.Name = "ColumnIdVenta";
-            this.ColumnIdVenta.Width = 106;
-            // 
-            // ColumnFechaDevolucion
-            // 
-            this.ColumnFechaDevolucion.HeaderText = "Fecha de devolucion";
-            this.ColumnFechaDevolucion.MinimumWidth = 6;
-            this.ColumnFechaDevolucion.Name = "ColumnFechaDevolucion";
-            this.ColumnFechaDevolucion.ReadOnly = true;
-            this.ColumnFechaDevolucion.Width = 200;
-            // 
-            // ColumnDescripción
-            // 
-            this.ColumnDescripción.HeaderText = "Descripción";
-            this.ColumnDescripción.MinimumWidth = 6;
-            this.ColumnDescripción.Name = "ColumnDescripción";
-            this.ColumnDescripción.ReadOnly = true;
-            this.ColumnDescripción.Width = 131;
-            // 
-            // ColumnEstado
-            // 
-            this.ColumnEstado.HeaderText = "Estado";
-            this.ColumnEstado.MinimumWidth = 6;
-            this.ColumnEstado.Name = "ColumnEstado";
-            this.ColumnEstado.ReadOnly = true;
-            this.ColumnEstado.Width = 91;
+            this.Lbl_Title.AutoSize = true;
+            this.Lbl_Title.Font = new System.Drawing.Font("Segoe UI Semibold", 27.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Lbl_Title.Location = new System.Drawing.Point(288, 91);
+            this.Lbl_Title.Name = "Lbl_Title";
+            this.Lbl_Title.Size = new System.Drawing.Size(244, 50);
+            this.Lbl_Title.TabIndex = 28;
+            this.Lbl_Title.Text = "Devoluciones";
             // 
             // btnMostrarDevRechazadas
             // 
@@ -549,10 +509,9 @@
             this.btnMostrarDevRechazadas.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMostrarDevRechazadas.ForeColor = System.Drawing.Color.White;
             this.btnMostrarDevRechazadas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnMostrarDevRechazadas.Location = new System.Drawing.Point(836, 258);
-            this.btnMostrarDevRechazadas.Margin = new System.Windows.Forms.Padding(4);
+            this.btnMostrarDevRechazadas.Location = new System.Drawing.Point(627, 210);
             this.btnMostrarDevRechazadas.Name = "btnMostrarDevRechazadas";
-            this.btnMostrarDevRechazadas.Size = new System.Drawing.Size(188, 49);
+            this.btnMostrarDevRechazadas.Size = new System.Drawing.Size(141, 40);
             this.btnMostrarDevRechazadas.TabIndex = 33;
             this.btnMostrarDevRechazadas.Text = "Mostrar\r\nDevoluciones Rechazadas";
             this.btnMostrarDevRechazadas.UseVisualStyleBackColor = false;
@@ -567,10 +526,9 @@
             this.btnMostrarDevAceptadas.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMostrarDevAceptadas.ForeColor = System.Drawing.Color.White;
             this.btnMostrarDevAceptadas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnMostrarDevAceptadas.Location = new System.Drawing.Point(639, 258);
-            this.btnMostrarDevAceptadas.Margin = new System.Windows.Forms.Padding(4);
+            this.btnMostrarDevAceptadas.Location = new System.Drawing.Point(479, 210);
             this.btnMostrarDevAceptadas.Name = "btnMostrarDevAceptadas";
-            this.btnMostrarDevAceptadas.Size = new System.Drawing.Size(177, 49);
+            this.btnMostrarDevAceptadas.Size = new System.Drawing.Size(133, 40);
             this.btnMostrarDevAceptadas.TabIndex = 35;
             this.btnMostrarDevAceptadas.Text = "Mostrar\r\nDevoluciones Aceptadas";
             this.btnMostrarDevAceptadas.UseVisualStyleBackColor = false;
@@ -585,21 +543,38 @@
             this.btnMostrarDevEspera.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMostrarDevEspera.ForeColor = System.Drawing.Color.White;
             this.btnMostrarDevEspera.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnMostrarDevEspera.Location = new System.Drawing.Point(456, 258);
-            this.btnMostrarDevEspera.Margin = new System.Windows.Forms.Padding(4);
+            this.btnMostrarDevEspera.Location = new System.Drawing.Point(342, 210);
             this.btnMostrarDevEspera.Name = "btnMostrarDevEspera";
-            this.btnMostrarDevEspera.Size = new System.Drawing.Size(163, 49);
+            this.btnMostrarDevEspera.Size = new System.Drawing.Size(122, 40);
             this.btnMostrarDevEspera.TabIndex = 34;
             this.btnMostrarDevEspera.Text = "Mostrar\r\nDevoluciones En Espera";
             this.btnMostrarDevEspera.UseVisualStyleBackColor = false;
             this.btnMostrarDevEspera.Click += new System.EventHandler(this.btnMostrarDevEspera_Click);
             // 
+            // btnAceptarDevo
+            // 
+            this.btnAceptarDevo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(170)))), ((int)(((byte)(28)))));
+            this.btnAceptarDevo.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAceptarDevo.FlatAppearance.BorderSize = 0;
+            this.btnAceptarDevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAceptarDevo.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAceptarDevo.ForeColor = System.Drawing.Color.White;
+            this.btnAceptarDevo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAceptarDevo.Location = new System.Drawing.Point(3, 8);
+            this.btnAceptarDevo.Name = "btnAceptarDevo";
+            this.btnAceptarDevo.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
+            this.btnAceptarDevo.Size = new System.Drawing.Size(122, 40);
+            this.btnAceptarDevo.TabIndex = 36;
+            this.btnAceptarDevo.Text = "Aceptar\r\nDevolucion";
+            this.btnAceptarDevo.UseVisualStyleBackColor = false;
+            this.btnAceptarDevo.Click += new System.EventHandler(this.btnAceptarDevo_Click);
+            // 
             // ViewReturns
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1707, 886);
+            this.ClientSize = new System.Drawing.Size(1280, 720);
             this.Controls.Add(this.btnMostrarDevAceptadas);
             this.Controls.Add(this.btnMostrarDevEspera);
             this.Controls.Add(this.btnMostrarDevRechazadas);
@@ -609,7 +584,6 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.barAcciones);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "ViewReturns";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormReturns";
@@ -647,8 +621,6 @@
         private System.Windows.Forms.PictureBox btnRestaurar;
         private System.Windows.Forms.DataGridView tablaDevoluciones;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Button btnRechazarDevo;
-        private System.Windows.Forms.Button btnAceptarDevo;
         private System.Windows.Forms.Label Lbl_Title;
         private System.Windows.Forms.Button BtnVentas;
         private System.Windows.Forms.Button btnMostrarVenta;
@@ -661,5 +633,7 @@
         private System.Windows.Forms.Button btnMostrarDevRechazadas;
         private System.Windows.Forms.Button btnMostrarDevAceptadas;
         private System.Windows.Forms.Button btnMostrarDevEspera;
+        private System.Windows.Forms.Button btnRechazarDevo;
+        private System.Windows.Forms.Button btnAceptarDevo;
     }
 }

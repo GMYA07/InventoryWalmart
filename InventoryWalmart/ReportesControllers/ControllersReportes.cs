@@ -58,7 +58,20 @@ namespace InventoryWalmart.Controllers
                 return;
             }
             new HistorialVentasPDF().Exportar(datos, @"C:\Users\carlo\Documents\Reportes\" + ruta + ".PDF");
+        }
 
+        public void GeneraraReportePromociones(DateTime fechaInicio, DateTime fechaFin, string ruta)
+        {
+            //  DateTime fechaInicio = new DateTime(2025, 5, 10);
+            // DateTime fechaFin = new DateTime(2026, 5, 20);
+
+            var datos = dao.promociones();
+            if (datos == null)
+            {
+                MessageBox.Show("Los datos son nulos");
+                return;
+            }
+            new PromocionesPDF().Exportar(datos, @"C:\Users\carlo\Documents\Reportes\" + ruta + ".PDF");
         }
     }
 

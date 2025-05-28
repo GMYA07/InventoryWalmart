@@ -54,16 +54,27 @@
             this.label_fechaFIN = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage_ventaPorCategoria = new System.Windows.Forms.TabPage();
+            this.label5 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.categorynameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.totalventacategoriaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.totalventasDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.spreporteventasporcategoriaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.inventoryWalmartDataSet = new InventoryWalmart.InventoryWalmartDataSet();
             this.label4 = new System.Windows.Forms.Label();
             this.tabPage_ventasPorCajero = new System.Windows.Forms.TabPage();
+            this.label6 = new System.Windows.Forms.Label();
             this.tabPage_comprasCliente = new System.Windows.Forms.TabPage();
+            this.label7 = new System.Windows.Forms.Label();
             this.tabPage_historialVentas = new System.Windows.Forms.TabPage();
+            this.radioButton3 = new System.Windows.Forms.RadioButton();
+            this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label8 = new System.Windows.Forms.Label();
+            this.tabPage_promociones = new System.Windows.Forms.TabPage();
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
@@ -71,20 +82,33 @@
             this.bindingSource2 = new System.Windows.Forms.BindingSource(this.components);
             this.sp_reporte_ventas_por_categoriaTableAdapter = new InventoryWalmart.InventoryWalmartDataSetTableAdapters.sp_reporte_ventas_por_categoriaTableAdapter();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
             this.button4 = new System.Windows.Forms.Button();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.radioButton3 = new System.Windows.Forms.RadioButton();
+            this.button5 = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.dataGridView3 = new System.Windows.Forms.DataGridView();
+            this.dataGridView4 = new System.Windows.Forms.DataGridView();
+            this.label9 = new System.Windows.Forms.Label();
+            this.dataGridView5 = new System.Windows.Forms.DataGridView();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column20 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column21 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column22 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column23 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column24 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column25 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.barAcciones.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnOcultar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMaximizar)).BeginInit();
@@ -100,9 +124,13 @@
             this.tabPage_ventasPorCajero.SuspendLayout();
             this.tabPage_comprasCliente.SuspendLayout();
             this.tabPage_historialVentas.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            this.tabPage_promociones.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView5)).BeginInit();
             this.SuspendLayout();
             // 
             // barAcciones
@@ -438,18 +466,20 @@
             // 
             // dateTimePicker2
             // 
+            this.dateTimePicker2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTimePicker2.Location = new System.Drawing.Point(1265, 334);
             this.dateTimePicker2.Margin = new System.Windows.Forms.Padding(4);
             this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(265, 22);
+            this.dateTimePicker2.Size = new System.Drawing.Size(265, 30);
             this.dateTimePicker2.TabIndex = 23;
             // 
             // dateTimePicker1
             // 
+            this.dateTimePicker1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTimePicker1.Location = new System.Drawing.Point(1265, 247);
             this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(4);
             this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(265, 22);
+            this.dateTimePicker1.Size = new System.Drawing.Size(265, 30);
             this.dateTimePicker1.TabIndex = 24;
             // 
             // label2
@@ -481,8 +511,9 @@
             this.tabControl1.Controls.Add(this.tabPage_ventasPorCajero);
             this.tabControl1.Controls.Add(this.tabPage_comprasCliente);
             this.tabControl1.Controls.Add(this.tabPage_historialVentas);
+            this.tabControl1.Controls.Add(this.tabPage_promociones);
             this.tabControl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)), true);
-            this.tabControl1.ItemSize = new System.Drawing.Size(50, 30);
+            this.tabControl1.ItemSize = new System.Drawing.Size(0, 1);
             this.tabControl1.Location = new System.Drawing.Point(369, 156);
             this.tabControl1.Margin = new System.Windows.Forms.Padding(10);
             this.tabControl1.Multiline = true;
@@ -502,52 +533,37 @@
             this.tabPage_ventaPorCategoria.Controls.Add(this.label4);
             this.tabPage_ventaPorCategoria.Location = new System.Drawing.Point(4, 34);
             this.tabPage_ventaPorCategoria.Name = "tabPage_ventaPorCategoria";
-            this.tabPage_ventaPorCategoria.Size = new System.Drawing.Size(877, 345);
+            this.tabPage_ventaPorCategoria.Size = new System.Drawing.Size(877, 511);
             this.tabPage_ventaPorCategoria.TabIndex = 0;
             this.tabPage_ventaPorCategoria.Text = "tabPage3";
             this.tabPage_ventaPorCategoria.Click += new System.EventHandler(this.tabPage_ventaPorCategoria_Click);
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(323, 30);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(187, 23);
+            this.label5.TabIndex = 32;
+            this.label5.Text = "Ventas por categorias";
+            // 
             // dataGridView1
             // 
-            this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.categorynameDataGridViewTextBoxColumn,
-            this.totalventacategoriaDataGridViewTextBoxColumn,
-            this.totalventasDataGridViewTextBoxColumn});
-            this.dataGridView1.DataSource = this.spreporteventasporcategoriaBindingSource;
-            this.dataGridView1.Location = new System.Drawing.Point(83, 75);
+            this.Column21,
+            this.Column22,
+            this.Column23,
+            this.Column24,
+            this.Column25});
+            this.dataGridView1.Location = new System.Drawing.Point(3, 57);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(715, 150);
+            this.dataGridView1.Size = new System.Drawing.Size(871, 451);
             this.dataGridView1.TabIndex = 1;
-            // 
-            // categorynameDataGridViewTextBoxColumn
-            // 
-            this.categorynameDataGridViewTextBoxColumn.DataPropertyName = "category_name";
-            this.categorynameDataGridViewTextBoxColumn.HeaderText = "category_name";
-            this.categorynameDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.categorynameDataGridViewTextBoxColumn.Name = "categorynameDataGridViewTextBoxColumn";
-            this.categorynameDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // totalventacategoriaDataGridViewTextBoxColumn
-            // 
-            this.totalventacategoriaDataGridViewTextBoxColumn.DataPropertyName = "total_venta_categoria";
-            this.totalventacategoriaDataGridViewTextBoxColumn.HeaderText = "total_venta_categoria";
-            this.totalventacategoriaDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.totalventacategoriaDataGridViewTextBoxColumn.Name = "totalventacategoriaDataGridViewTextBoxColumn";
-            this.totalventacategoriaDataGridViewTextBoxColumn.ReadOnly = true;
-            this.totalventacategoriaDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // totalventasDataGridViewTextBoxColumn
-            // 
-            this.totalventasDataGridViewTextBoxColumn.DataPropertyName = "total_ventas";
-            this.totalventasDataGridViewTextBoxColumn.HeaderText = "total_ventas";
-            this.totalventasDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.totalventasDataGridViewTextBoxColumn.Name = "totalventasDataGridViewTextBoxColumn";
-            this.totalventasDataGridViewTextBoxColumn.ReadOnly = true;
-            this.totalventasDataGridViewTextBoxColumn.Width = 125;
             // 
             // spreporteventasporcategoriaBindingSource
             // 
@@ -569,23 +585,47 @@
             // 
             // tabPage_ventasPorCajero
             // 
+            this.tabPage_ventasPorCajero.Controls.Add(this.dataGridView3);
             this.tabPage_ventasPorCajero.Controls.Add(this.label6);
             this.tabPage_ventasPorCajero.Location = new System.Drawing.Point(4, 34);
             this.tabPage_ventasPorCajero.Name = "tabPage_ventasPorCajero";
-            this.tabPage_ventasPorCajero.Size = new System.Drawing.Size(877, 345);
+            this.tabPage_ventasPorCajero.Size = new System.Drawing.Size(877, 511);
             this.tabPage_ventasPorCajero.TabIndex = 1;
             this.tabPage_ventasPorCajero.Text = "tabPage3";
             this.tabPage_ventasPorCajero.UseVisualStyleBackColor = true;
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(352, 30);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(145, 23);
+            this.label6.TabIndex = 26;
+            this.label6.Text = "Venta por calero";
+            // 
             // tabPage_comprasCliente
             // 
+            this.tabPage_comprasCliente.Controls.Add(this.dataGridView4);
             this.tabPage_comprasCliente.Controls.Add(this.label7);
-            this.tabPage_comprasCliente.Location = new System.Drawing.Point(4, 34);
+            this.tabPage_comprasCliente.Location = new System.Drawing.Point(4, 5);
             this.tabPage_comprasCliente.Name = "tabPage_comprasCliente";
-            this.tabPage_comprasCliente.Size = new System.Drawing.Size(877, 345);
+            this.tabPage_comprasCliente.Size = new System.Drawing.Size(877, 540);
             this.tabPage_comprasCliente.TabIndex = 2;
             this.tabPage_comprasCliente.Text = "tabPage3";
             this.tabPage_comprasCliente.UseVisualStyleBackColor = true;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(262, 30);
+            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(236, 23);
+            this.label7.TabIndex = 26;
+            this.label7.Text = "ventas a clientes con terjeta\r\n";
             // 
             // tabPage_historialVentas
             // 
@@ -602,100 +642,37 @@
             this.tabPage_historialVentas.Text = "tabPage1";
             this.tabPage_historialVentas.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // radioButton3
             // 
-            this.button1.Location = new System.Drawing.Point(373, 718);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(141, 46);
-            this.button1.TabIndex = 28;
-            this.button1.Text = "Ventas categoria";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.radioButton3.AutoSize = true;
+            this.radioButton3.Location = new System.Drawing.Point(716, 199);
+            this.radioButton3.Name = "radioButton3";
+            this.radioButton3.Size = new System.Drawing.Size(74, 29);
+            this.radioButton3.TabIndex = 30;
+            this.radioButton3.Text = "Mes";
+            this.radioButton3.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // radioButton2
             // 
-            this.button2.Location = new System.Drawing.Point(546, 718);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(146, 46);
-            this.button2.TabIndex = 29;
-            this.button2.Text = "ventas cajero";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.radioButton2.AutoSize = true;
+            this.radioButton2.Location = new System.Drawing.Point(716, 150);
+            this.radioButton2.Name = "radioButton2";
+            this.radioButton2.Size = new System.Drawing.Size(113, 29);
+            this.radioButton2.TabIndex = 29;
+            this.radioButton2.Text = "Semana";
+            this.radioButton2.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // radioButton1
             // 
-            this.button3.Location = new System.Drawing.Point(716, 718);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(137, 46);
-            this.button3.TabIndex = 30;
-            this.button3.Text = "ventas a clientes";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
-            // sp_reporte_ventas_por_categoriaTableAdapter
-            // 
-            this.sp_reporte_ventas_por_categoriaTableAdapter.ClearBeforeFill = true;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(1272, 454);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(243, 22);
-            this.textBox1.TabIndex = 31;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(323, 30);
-            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(187, 23);
-            this.label5.TabIndex = 32;
-            this.label5.Text = "Ventas por categorias";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(352, 30);
-            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(145, 23);
-            this.label6.TabIndex = 26;
-            this.label6.Text = "Venta por calero";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(262, 30);
-            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(236, 23);
-            this.label7.TabIndex = 26;
-            this.label7.Text = "ventas a clientes con terjeta\r\n";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(205, 11);
-            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(239, 23);
-            this.label8.TabIndex = 26;
-            this.label8.Text = "Historial de ventas periodos";
-            // 
-            // button4
-            // 
-            this.button4.Location = new System.Drawing.Point(881, 718);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(137, 46);
-            this.button4.TabIndex = 32;
-            this.button4.Text = "Historial de ventas";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.radioButton1.AutoSize = true;
+            this.radioButton1.Checked = true;
+            this.radioButton1.Location = new System.Drawing.Point(716, 112);
+            this.radioButton1.Name = "radioButton1";
+            this.radioButton1.Size = new System.Drawing.Size(65, 29);
+            this.radioButton1.TabIndex = 28;
+            this.radioButton1.TabStop = true;
+            this.radioButton1.Text = "Día";
+            this.radioButton1.UseVisualStyleBackColor = true;
             // 
             // dataGridView2
             // 
@@ -748,37 +725,298 @@
             this.Column5.Name = "Column5";
             this.Column5.Width = 125;
             // 
-            // radioButton1
+            // label8
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Checked = true;
-            this.radioButton1.Location = new System.Drawing.Point(716, 112);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(65, 29);
-            this.radioButton1.TabIndex = 28;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Día";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(205, 11);
+            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(239, 23);
+            this.label8.TabIndex = 26;
+            this.label8.Text = "Historial de ventas periodos";
             // 
-            // radioButton2
+            // tabPage_promociones
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(716, 150);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(113, 29);
-            this.radioButton2.TabIndex = 29;
-            this.radioButton2.Text = "Semana";
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.tabPage_promociones.Controls.Add(this.dataGridView5);
+            this.tabPage_promociones.Controls.Add(this.label3);
+            this.tabPage_promociones.Location = new System.Drawing.Point(4, 34);
+            this.tabPage_promociones.Name = "tabPage_promociones";
+            this.tabPage_promociones.Size = new System.Drawing.Size(877, 511);
+            this.tabPage_promociones.TabIndex = 4;
+            this.tabPage_promociones.Text = "tabPage1";
+            this.tabPage_promociones.UseVisualStyleBackColor = true;
             // 
-            // radioButton3
+            // button1
             // 
-            this.radioButton3.AutoSize = true;
-            this.radioButton3.Location = new System.Drawing.Point(716, 199);
-            this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(74, 29);
-            this.radioButton3.TabIndex = 30;
-            this.radioButton3.Text = "Mes";
-            this.radioButton3.UseVisualStyleBackColor = true;
+            this.button1.BackColor = System.Drawing.Color.DarkTurquoise;
+            this.button1.Location = new System.Drawing.Point(373, 718);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(141, 46);
+            this.button1.TabIndex = 28;
+            this.button1.Text = "Ventas categoria";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(546, 718);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(146, 46);
+            this.button2.TabIndex = 29;
+            this.button2.Text = "ventas cajero";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(716, 718);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(137, 46);
+            this.button3.TabIndex = 30;
+            this.button3.Text = "ventas a clientes";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // sp_reporte_ventas_por_categoriaTableAdapter
+            // 
+            this.sp_reporte_ventas_por_categoriaTableAdapter.ClearBeforeFill = true;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.Location = new System.Drawing.Point(1272, 476);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(243, 30);
+            this.textBox1.TabIndex = 31;
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(881, 718);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(137, 46);
+            this.button4.TabIndex = 32;
+            this.button4.Text = "Historial de ventas";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(1034, 718);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(137, 46);
+            this.button5.TabIndex = 33;
+            this.button5.Text = "Promociones";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(338, 43);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(204, 25);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "Reportes de ventas ";
+            // 
+            // dataGridView3
+            // 
+            this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView3.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column16,
+            this.Column17,
+            this.Column18,
+            this.Column19,
+            this.Column20});
+            this.dataGridView3.Location = new System.Drawing.Point(3, 66);
+            this.dataGridView3.Name = "dataGridView3";
+            this.dataGridView3.RowHeadersWidth = 51;
+            this.dataGridView3.RowTemplate.Height = 24;
+            this.dataGridView3.Size = new System.Drawing.Size(871, 445);
+            this.dataGridView3.TabIndex = 27;
+            // 
+            // dataGridView4
+            // 
+            this.dataGridView4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView4.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column11,
+            this.Column12,
+            this.Column13,
+            this.Column14,
+            this.Column15});
+            this.dataGridView4.Location = new System.Drawing.Point(3, 33);
+            this.dataGridView4.Name = "dataGridView4";
+            this.dataGridView4.RowHeadersWidth = 51;
+            this.dataGridView4.RowTemplate.Height = 24;
+            this.dataGridView4.Size = new System.Drawing.Size(871, 445);
+            this.dataGridView4.TabIndex = 28;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(1268, 444);
+            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(173, 23);
+            this.label9.TabIndex = 34;
+            this.label9.Text = "Nombre del archivo";
+            // 
+            // dataGridView5
+            // 
+            this.dataGridView5.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView5.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column6,
+            this.Column7,
+            this.Column8,
+            this.Column9,
+            this.Column10});
+            this.dataGridView5.Location = new System.Drawing.Point(3, 90);
+            this.dataGridView5.Name = "dataGridView5";
+            this.dataGridView5.RowHeadersWidth = 51;
+            this.dataGridView5.RowTemplate.Height = 24;
+            this.dataGridView5.Size = new System.Drawing.Size(874, 418);
+            this.dataGridView5.TabIndex = 1;
+            // 
+            // Column6
+            // 
+            this.Column6.HeaderText = "Column6";
+            this.Column6.MinimumWidth = 6;
+            this.Column6.Name = "Column6";
+            this.Column6.Width = 125;
+            // 
+            // Column7
+            // 
+            this.Column7.HeaderText = "Column7";
+            this.Column7.MinimumWidth = 6;
+            this.Column7.Name = "Column7";
+            this.Column7.Width = 125;
+            // 
+            // Column8
+            // 
+            this.Column8.HeaderText = "Column8";
+            this.Column8.MinimumWidth = 6;
+            this.Column8.Name = "Column8";
+            this.Column8.Width = 125;
+            // 
+            // Column9
+            // 
+            this.Column9.HeaderText = "Column9";
+            this.Column9.MinimumWidth = 6;
+            this.Column9.Name = "Column9";
+            this.Column9.Width = 125;
+            // 
+            // Column10
+            // 
+            this.Column10.HeaderText = "Column10";
+            this.Column10.MinimumWidth = 6;
+            this.Column10.Name = "Column10";
+            this.Column10.Width = 125;
+            // 
+            // Column11
+            // 
+            this.Column11.HeaderText = "Column11";
+            this.Column11.MinimumWidth = 6;
+            this.Column11.Name = "Column11";
+            this.Column11.Width = 125;
+            // 
+            // Column12
+            // 
+            this.Column12.HeaderText = "Column12";
+            this.Column12.MinimumWidth = 6;
+            this.Column12.Name = "Column12";
+            this.Column12.Width = 125;
+            // 
+            // Column13
+            // 
+            this.Column13.HeaderText = "Column13";
+            this.Column13.MinimumWidth = 6;
+            this.Column13.Name = "Column13";
+            this.Column13.Width = 125;
+            // 
+            // Column14
+            // 
+            this.Column14.HeaderText = "Column14";
+            this.Column14.MinimumWidth = 6;
+            this.Column14.Name = "Column14";
+            this.Column14.Width = 125;
+            // 
+            // Column15
+            // 
+            this.Column15.HeaderText = "Column15";
+            this.Column15.MinimumWidth = 6;
+            this.Column15.Name = "Column15";
+            this.Column15.Width = 125;
+            // 
+            // Column16
+            // 
+            this.Column16.HeaderText = "Column16";
+            this.Column16.MinimumWidth = 6;
+            this.Column16.Name = "Column16";
+            this.Column16.Width = 125;
+            // 
+            // Column17
+            // 
+            this.Column17.HeaderText = "Column17";
+            this.Column17.MinimumWidth = 6;
+            this.Column17.Name = "Column17";
+            this.Column17.Width = 125;
+            // 
+            // Column18
+            // 
+            this.Column18.HeaderText = "Column18";
+            this.Column18.MinimumWidth = 6;
+            this.Column18.Name = "Column18";
+            this.Column18.Width = 125;
+            // 
+            // Column19
+            // 
+            this.Column19.HeaderText = "Column19";
+            this.Column19.MinimumWidth = 6;
+            this.Column19.Name = "Column19";
+            this.Column19.Width = 125;
+            // 
+            // Column20
+            // 
+            this.Column20.HeaderText = "Column20";
+            this.Column20.MinimumWidth = 6;
+            this.Column20.Name = "Column20";
+            this.Column20.Width = 125;
+            // 
+            // Column21
+            // 
+            this.Column21.HeaderText = "Column21";
+            this.Column21.MinimumWidth = 6;
+            this.Column21.Name = "Column21";
+            this.Column21.Width = 125;
+            // 
+            // Column22
+            // 
+            this.Column22.HeaderText = "Column22";
+            this.Column22.MinimumWidth = 6;
+            this.Column22.Name = "Column22";
+            this.Column22.Width = 125;
+            // 
+            // Column23
+            // 
+            this.Column23.HeaderText = "Column23";
+            this.Column23.MinimumWidth = 6;
+            this.Column23.Name = "Column23";
+            this.Column23.Width = 125;
+            // 
+            // Column24
+            // 
+            this.Column24.HeaderText = "Column24";
+            this.Column24.MinimumWidth = 6;
+            this.Column24.Name = "Column24";
+            this.Column24.Width = 125;
+            // 
+            // Column25
+            // 
+            this.Column25.HeaderText = "Column25";
+            this.Column25.MinimumWidth = 6;
+            this.Column25.Name = "Column25";
+            this.Column25.Width = 125;
             // 
             // FormGenerarReporte
             // 
@@ -786,6 +1024,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1546, 886);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.button5);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.button3);
@@ -826,9 +1066,14 @@
             this.tabPage_comprasCliente.PerformLayout();
             this.tabPage_historialVentas.ResumeLayout(false);
             this.tabPage_historialVentas.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            this.tabPage_promociones.ResumeLayout(false);
+            this.tabPage_promociones.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView5)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -872,9 +1117,6 @@
         private System.Windows.Forms.BindingSource spreporteventasporcategoriaBindingSource;
         private InventoryWalmartDataSet inventoryWalmartDataSet;
         private InventoryWalmartDataSetTableAdapters.sp_reporte_ventas_por_categoriaTableAdapter sp_reporte_ventas_por_categoriaTableAdapter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn categorynameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn totalventacategoriaDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn totalventasDataGridViewTextBoxColumn;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TabPage tabPage_historialVentas;
         private System.Windows.Forms.Label label5;
@@ -891,5 +1133,32 @@
         private System.Windows.Forms.RadioButton radioButton3;
         private System.Windows.Forms.RadioButton radioButton2;
         private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.TabPage tabPage_promociones;
+        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.DataGridView dataGridView3;
+        private System.Windows.Forms.DataGridView dataGridView4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column21;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column22;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column23;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column24;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column25;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column16;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column17;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column18;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column19;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column20;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column11;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column12;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column13;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column14;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column15;
+        private System.Windows.Forms.DataGridView dataGridView5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
+        private System.Windows.Forms.Label label9;
     }
 }

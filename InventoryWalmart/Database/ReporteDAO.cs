@@ -92,7 +92,7 @@ namespace InventoryWalmart.Database
         }
 
 
-
+        // compras de clientes 
         public List<gastosClientesTarjeta> gastosClientesTarjeta(DateTime fechaInicio, DateTime fechaFin)
         {
             List<gastosClientesTarjeta> lista = new List<gastosClientesTarjeta>();
@@ -147,6 +147,7 @@ namespace InventoryWalmart.Database
                 {
                     SqlCommand cmd = new SqlCommand("sp_historial_ventas", conn);
                     cmd.CommandType = CommandType.StoredProcedure;
+
                     cmd.Parameters.AddWithValue("@fecha_inicio", fechaInicio);
                     cmd.Parameters.AddWithValue("@modo", modo);
 
@@ -164,6 +165,7 @@ namespace InventoryWalmart.Database
                         };
                         lista.Add(hv);
                     }
+                    conn.Close();
                 }
             }
             catch (Exception ex)
@@ -174,7 +176,38 @@ namespace InventoryWalmart.Database
             return lista;
         }
 
+        // promociones
+        public List<Promociones> promociones()
+        {
+            List<Promociones> lista = new List<Promociones>();
 
+            try
+            {
+                SqlConnection conn = Connection.ObtenerConexion();
+                SqlCommand cmd = new SqlCommand("sp_promociones", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                conn.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    Promociones prom = new Promociones();
+
+                    prom.decripcion = reader.GetString(0);
+                    prom.noseCODE = reader.GetString(1);
+                    prom.noseTYPE = reader.GetString(2);
+                    prom.status = reader.GetString(3);
+                    lista.Add(prom);
+                }
+                conn.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show ("No se pudo traer los datos de promiciones" + ex.Message);
+            }
+
+            return lista;
+        }
 
 
 

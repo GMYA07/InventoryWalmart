@@ -168,6 +168,12 @@ namespace InventoryWalmart
                 GenerarReporteHistorialVentas(new ControllersReportes().GeneraraReporteHistorialVentas);
             }
 
+            if (tabControl1.SelectedTab == tabPage_promociones)
+            {
+                GenerarReporteGeneral(new ControllersReportes().GeneraraReportePromociones);
+                return;
+            }
+
             
         }
 
@@ -283,6 +289,11 @@ namespace InventoryWalmart
                 return;
             }
 
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            tabControl1.SelectedTab = tabPage_promociones;
         }
     }
 }

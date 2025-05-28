@@ -56,6 +56,7 @@
     <Compile Include="Controllers\cajeroController.cs" />
     <Compile Include="Exporters\gastosClientesTarjetaPDF.cs" />
     <Compile Include="Exporters\HistorialVentasPDF.cs" />
+    <Compile Include="Exporters\PromocionesPDF.cs" />
     <Compile Include="Exporters\ventasPorCajerosPDF.cs" />
     <Compile Include="InventoryWalmartDataSet1.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -64,6 +65,7 @@
     </Compile>
     <Compile Include="ModelRepors\gastosClientesTarjeta.cs" />
     <Compile Include="ModelRepors\HistorialVentas.cs" />
+    <Compile Include="ModelRepors\Promociones.cs" />
     <Compile Include="ModelRepors\ventasPorCajero.cs" />
     <Compile Include="ReportesControllers\ControllersReportes.cs" />
     <Compile Include="Controllers\loginController.cs" />

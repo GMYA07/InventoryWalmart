@@ -158,11 +158,10 @@ namespace InventoryWalmart
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            if (ConfirmarSeleccion("agregar"))
-            {
+
             opcion = "agregar";
             ChangeView<FormCustomers>();
-            }
+            
         }
 
         private void btnModificar_Click(object sender, EventArgs e)

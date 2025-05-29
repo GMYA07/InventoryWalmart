@@ -145,21 +145,18 @@ namespace InventoryWalmart.Database
         public Customer GetInfoCustomer(int id) {
             Customer customer=new Customer();
 
-            string query = $@"SELECT
-                            first_name,
-                            last_name,
-                            email,
-                            phone,
-                            dui
-                        FROM customers
-                        WHERE id_customer = {id}
-                        ;";
+            string query = @"SELECT first_name, last_name, email, phone, dui, date_of_birth 
+                FROM customers WHERE id_customer = @id";
+        
+            
             try
             {
                 using (SqlConnection connection = Connection.ObtenerConexion())
                 {
                     SqlCommand command = new SqlCommand(query, connection);
                     connection.Open();
+
+                    command.Parameters.AddWithValue("@id", id);
 
                     SqlDataReader reader = command.ExecuteReader();
 
@@ -172,6 +169,7 @@ namespace InventoryWalmart.Database
                             customers.Email = reader.GetString(2);
                             customers.Phone = reader.GetString(3);
                             customers.Dui = reader.GetString(4);
+                            customers.DateOfBirth = reader.GetDateTime(5);
 
                         };
                         customer = customers;

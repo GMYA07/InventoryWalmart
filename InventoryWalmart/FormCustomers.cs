@@ -72,6 +72,7 @@ namespace InventoryWalmart
             TxtEmail.Text = customer.Email;
             TxtDUI.Text = customer.Dui;
             TxtTelefono.Text =customer.Phone;
+            DtpNacimiento.Value = customer.DateOfBirth;
         }
 
 

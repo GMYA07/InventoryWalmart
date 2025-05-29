@@ -1,4 +1,7 @@
-﻿using System;
+﻿using InventoryWalmart.Database;
+using InventoryWalmart.Model;
+using InventoryWalmart.Utils;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,12 +16,49 @@ namespace InventoryWalmart
 {
     public partial class ViewCustomers : Form
     {
-
+        public static string email = "";
         public static string opcion = "";
 
         public ViewCustomers()
         {
             InitializeComponent();
+            cargarTabla();
+        }
+
+        public void cargarTabla()
+        {
+            try
+            {
+                Table_Customers.AutoGenerateColumns = false;
+                var lista = CustomerDAO.SelectCustomers();
+                Table_Customers.DataSource = lista;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al cargar datos: " + ex.Message);
+            }
+        }
+
+        public bool ValidarSeleccion()
+        {
+            if (Table_Customers.SelectedRows.Count != 1)
+            {
+                MessageBox.Show("Por favor selecciona una sola fila antes de continuar.", "Selección requerida", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+
+            return true;
+        }
+
+        public bool ConfirmarSeleccion(string accion)
+        {
+            DataGridViewRow row = Table_Customers.SelectedRows[0];
+            Customer FilaSeleccionada = (Customer)row.DataBoundItem;
+
+            ValidarSeleccion();
+            bool confirmacion = Alertas.Confirmacion("¡Advetencia!", $"¿Seguro que quieres {accion} a {FilaSeleccionada.FirstName} {FilaSeleccionada.LastName}?");
+
+            return confirmacion;
         }
 
         //Codigo q nos ayuda con la administrasion de la barra de arriba y mover la ventana.
@@ -118,15 +158,34 @@ namespace InventoryWalmart
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
+
             opcion = "agregar";
             ChangeView<FormCustomers>();
+            
         }
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
+            DataGridViewRow row = Table_Customers.SelectedRows[0];
+            Customer customer = (Customer)row.DataBoundItem;
+            if (ConfirmarSeleccion("editar"))
+            {
+                email = customer.Email;
             opcion = "editar";
             ChangeView<FormCustomers>();
+            }
         }
 
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            DataGridViewRow row = Table_Customers.SelectedRows[0];
+            Customer customer = (Customer)row.DataBoundItem;
+            if (ConfirmarSeleccion("Eliminar") == true)
+            {
+                
+                CustomerDAO.DeleteCustomer(customer.IdCustomer);
+                cargarTabla();
+            }
+        }
     }
 }

@@ -1,6 +1,4 @@
-﻿using InventoryWalmart.Database;
-using InventoryWalmart.Model;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,66 +13,23 @@ namespace InventoryWalmart
 {
     public partial class FormCustomers : Form
     {
-
-        CustomerDAO customerDAO = new CustomerDAO();
+        
+        string opcion1 = ViewCustomers.opcion;
 
         public FormCustomers()
         {
             InitializeComponent();
-            if (ViewCustomers.opcion == "agregar"){
+            if (opcion1 == "agregar"){
 
             }
             else{
                 LblTitulo.Text = "Editar cliente";
                 btnAgregar.Text = "Editar";
                 btnAgregar.BackColor = Color.Blue;
-                DtpNacimiento.Enabled = false;
-                TxtDUI.Enabled = false;
-                LoadCustomer();
+                //this
             }
 
         }
-
-        public void UpdateCustomer()
-        {
-            Customer customer = new Customer();
-            customer.IdCustomer = CustomerDAO.GetCustomerIdByEmail(ViewCustomers.email);
-            customer.FirstName = TxtNombre.Text;
-            customer.LastName = TxtApellido.Text;
-            customer.Email = TxtEmail.Text;
-            customer.Dui = TxtDUI.Text;
-            customer.Phone = TxtTelefono.Text;
-            customer.DateOfBirth = DtpNacimiento.Value;
-
-            customerDAO.UpdateCustomer(customer);
-        }
-
-        public void AddCustomer()
-        {
-            Customer customer = new Customer();
-            customer.FirstName = TxtNombre.Text;
-            customer.LastName = TxtApellido.Text;
-            customer.Email = TxtEmail.Text;
-            customer.Dui = TxtDUI.Text;
-            customer.Phone = TxtTelefono.Text;
-            customer.DateOfBirth = DtpNacimiento.Value;
-
-            customerDAO.INSERT_Customer(customer);
-        }
-
-        public void LoadCustomer()
-        {
-            Customer customer = new Customer();
-            int id = CustomerDAO.GetCustomerIdByEmail(ViewCustomers.email);
-            customer = customerDAO.GetInfoCustomer(id);
-            TxtNombre.Text = customer.FirstName;
-            TxtApellido.Text = customer.LastName;
-            TxtEmail.Text = customer.Email;
-            TxtDUI.Text = customer.Dui;
-            TxtTelefono.Text =customer.Phone;
-            DtpNacimiento.Value = customer.DateOfBirth;
-        }
-
 
         //Codigo q nos ayuda con la administrasion de la barra de arriba y mover la ventana.
         //Drag Form
@@ -124,20 +79,6 @@ namespace InventoryWalmart
         private void button1_Click(object sender, EventArgs e)
         {
             ChangeView<ViewCustomers>();
-        }
-
-        private void btnAgregar_Click(object sender, EventArgs e)
-        {
-
-            if (ViewCustomers.opcion == "agregar")
-            {
-                AddCustomer();
-            }
-            else
-            {
-                UpdateCustomer();
-            }
-            
         }
     }
 }

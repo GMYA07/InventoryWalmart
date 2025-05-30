@@ -40,6 +40,7 @@
             this.TxtNombre = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnAgregar = new System.Windows.Forms.Button();
+            this.btnModificar = new System.Windows.Forms.Button();
             this.DtpNacimiento = new System.Windows.Forms.DateTimePicker();
             this.LblNacimiento = new System.Windows.Forms.Label();
             this.TxtEmail = new System.Windows.Forms.TextBox();
@@ -168,6 +169,7 @@
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel1.Controls.Add(this.btnAgregar);
+            this.panel1.Controls.Add(this.btnModificar);
             this.panel1.Controls.Add(this.DtpNacimiento);
             this.panel1.Controls.Add(this.LblNacimiento);
             this.panel1.Controls.Add(this.TxtEmail);
@@ -195,7 +197,7 @@
             this.btnAgregar.ForeColor = System.Drawing.Color.White;
             this.btnAgregar.Image = global::InventoryWalmart.Properties.Resources.iconoAgregar;
             this.btnAgregar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAgregar.Location = new System.Drawing.Point(96, 351);
+            this.btnAgregar.Location = new System.Drawing.Point(96, 361);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Padding = new System.Windows.Forms.Padding(10, 0, 35, 0);
             this.btnAgregar.Size = new System.Drawing.Size(170, 45);
@@ -203,7 +205,25 @@
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnAgregar.UseVisualStyleBackColor = false;
-            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
+            // 
+            // btnModificar
+            // 
+            this.btnModificar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(114)))), ((int)(((byte)(223)))));
+            this.btnModificar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnModificar.FlatAppearance.BorderSize = 0;
+            this.btnModificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnModificar.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnModificar.ForeColor = System.Drawing.Color.White;
+            this.btnModificar.Image = global::InventoryWalmart.Properties.Resources.iconoModificar;
+            this.btnModificar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnModificar.Location = new System.Drawing.Point(96, 361);
+            this.btnModificar.Name = "btnModificar";
+            this.btnModificar.Padding = new System.Windows.Forms.Padding(0, 0, 40, 0);
+            this.btnModificar.Size = new System.Drawing.Size(170, 45);
+            this.btnModificar.TabIndex = 20;
+            this.btnModificar.Text = "Modificar";
+            this.btnModificar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnModificar.UseVisualStyleBackColor = false;
             // 
             // DtpNacimiento
             // 
@@ -336,6 +356,7 @@
         private System.Windows.Forms.TextBox TxtTelefono;
         private System.Windows.Forms.Label LblTelefono;
         private System.Windows.Forms.Button btnAgregar;
+        private System.Windows.Forms.Button btnModificar;
         private System.Windows.Forms.TextBox TxtApellido;
         private System.Windows.Forms.Label LblApellido;
     }

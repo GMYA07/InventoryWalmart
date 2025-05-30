@@ -18,12 +18,6 @@ namespace InventoryWalmart.Validaciones
             //}
         }
 
-        public static bool correo(TextBox text) {
-            //bool valido = Regex.IsMatch(text, @"^$");
-
-            return false;
-        } 
-
         public static Boolean validarDescuento(string discount_code)
         {
             if (discount_code.Equals(""))

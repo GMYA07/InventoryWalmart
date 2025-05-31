@@ -180,6 +180,7 @@ namespace InventoryWalmart
         private void button1_Click(object sender, EventArgs e)
         {
             tabControl1.SelectedTab = tabPage_ventaPorCategoria;
+            tabControl2.SelectedTab = tabPage_fechas;
             opcionVisivilidad();
         }
 
@@ -198,9 +199,6 @@ namespace InventoryWalmart
             string ruta = textBox1.Text;
             string metodo = "";
 
-            if (radioButton1.Checked) metodo = "dia";
-            if (radioButton2.Checked) metodo = "semana";
-            if (radioButton3.Checked) metodo = "mes";
             MessageBox.Show(" " + metodo);
             clase(fechaInicio, metodo, ruta);
         }
@@ -209,6 +207,8 @@ namespace InventoryWalmart
         private void button2_Click(object sender, EventArgs e)
         {
             tabControl1.SelectedTab = tabPage_ventasPorCajero;
+            tabControl2.SelectedTab = tabPage_fechas;
+
             opcionVisivilidad();
         }
 
@@ -219,6 +219,8 @@ namespace InventoryWalmart
         private void button3_Click(object sender, EventArgs e)
         {
             tabControl1.SelectedTab = tabPage_comprasCliente;
+            tabControl2.SelectedTab = tabPage_fechas;
+
             opcionVisivilidad();
         }
 
@@ -249,6 +251,9 @@ namespace InventoryWalmart
         {
          
             tabControl1.SelectedTab = tabPage_historialVentas;
+            tabControl2.SelectedTab = tabPage_botones;
+            button_dia.BackColor = Color.FromArgb(0, 192, 192);
+
             opcionVisivilidad();
         }
 
@@ -294,6 +299,46 @@ namespace InventoryWalmart
         private void button5_Click(object sender, EventArgs e)
         {
             tabControl1.SelectedTab = tabPage_promociones;
+            tabControl2.SelectedTab = tabPage_fechas;
+
+        }
+
+        private void tabPage1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            tabControl3.SelectedTab = tabPage_dias;
+            label_DSM.Text = "Diario";
+            button_semanual.BackColor = System.Drawing.ColorTranslator.FromHtml("#ffffff");
+            button_mensual.BackColor = System.Drawing.ColorTranslator.FromHtml("#ffffff");
+            button_dia.BackColor = Color.FromArgb(0, 192, 192);
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            tabControl3.SelectedTab = tabPage_semanual;
+            label_DSM.Text = "Semanual";
+            button_dia.BackColor = System.Drawing.ColorTranslator.FromHtml("#ffffff");
+            button_mensual.BackColor = System.Drawing.ColorTranslator.FromHtml("#ffffff");
+            button_semanual.BackColor = Color.FromArgb(0, 0, 244);
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            tabControl3.SelectedTab = tabPage_mensual;
+            label_DSM.Text = "Mensual";
+            button_semanual.BackColor = System.Drawing.ColorTranslator.FromHtml("#ffffff");
+            button_dia.BackColor = System.Drawing.ColorTranslator.FromHtml("#ffffff");
+            button_mensual.BackColor = Color.FromArgb(20, 244, 0);
+
+        }
+
+        private void tabPage_dias_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

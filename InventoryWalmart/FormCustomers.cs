@@ -10,7 +10,9 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using InventoryWalmart.Utils;
+using InventoryWalmart.Validaciones;
+using System.Windows.Forms.DataVisualization.Charting;
 namespace InventoryWalmart
 {
     public partial class FormCustomers : Form
@@ -130,16 +132,84 @@ namespace InventoryWalmart
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
+            var validarTel = Validar.ValidarTelefono(TxtTelefono.Text);
+            var validarDui = Validar.validarDUI(TxtDUI.Text);
+            var validarMail = Validar.ValidarEmail(TxtEmail.Text);
+            var validarEdad = Validar.EsMayorDeEdad(DtpNacimiento.Value);
 
             if (ViewCustomers.opcion == "agregar")
             {
-                AddCustomer();
+                if (!validarTel)
+                {
+                    MessageBox.Show("Teléfono inválido. Formato requerido: ####-####");
+                }
+                else
+                {
+                    if (validarDui)
+                    {
+                        MessageBox.Show("DUI inválido. Formato requerido: ########-#");
+                    }
+                    else
+                    {
+                        if (!validarMail)
+                        {
+                            MessageBox.Show("Correo inválido. Formato requerido: example@gmail.com");
+                        }
+                        else
+                        {
+                            if (!validarEdad)
+                            {
+                                MessageBox.Show("Debe ser mayor de 18 años.");
+                            }
+                            else
+                            {
+                                AddCustomer();
+                                limpiarForm();
+                            }
+                        }
+                    }
+                }
+
             }
             else
             {
-                UpdateCustomer();
+
+                if (!validarTel)
+                {
+                    MessageBox.Show("Teléfono inválido. Formato requerido: ####-####");
+                }
+                else
+                {
+                        if (!validarMail)
+                        {
+                            MessageBox.Show("Correo inválido. Formato requerido:  example@gmail.com");
+                        }
+                        else
+                        {
+
+                            UpdateCustomer();
+                            limpiarForm();
+                        }
+                    }
+                }
+
             }
 
+        
+
+        private void TxtTelefono_TextChanged(object sender, EventArgs e)
+        {
+           
+        }
+
+        public void limpiarForm()
+        {
+            TxtNombre.ResetText();
+            TxtApellido.ResetText();
+            TxtEmail.ResetText();
+            TxtTelefono.ResetText();
+            TxtDUI.ResetText();
+            DtpNacimiento.ResetText();
         }
 
     }

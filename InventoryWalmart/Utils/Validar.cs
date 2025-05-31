@@ -73,5 +73,37 @@ namespace InventoryWalmart.Validaciones
             
             return false;
         }
+
+        public static bool ValidarTelefono(string telefono)
+        {
+            // Usa expresión regular para validar el formato 4 dígitos, guion, 4 dígitos
+            return Regex.IsMatch(telefono, @"^\d{4}-\d{4}$");
+        }
+
+        public static bool ValidarEmail(string email)
+        {
+            // Expresión regular básica para validar correos comunes
+            return Regex.IsMatch(email, @"^[^@\s]+@[^@\s]+\.[^@\s]+$");
+        }
+
+        //validar fecha para que sea mayor de 18
+        public static bool EsMayorDeEdad(DateTime fechaNacimiento)
+        {
+            // Obtener la fecha actual
+            DateTime hoy = DateTime.Today;
+
+            // Calcular la edad
+            int edad = hoy.Year - fechaNacimiento.Year;
+
+            // Si todavía no ha cumplido años este año, restar uno
+            if (fechaNacimiento.Date > hoy.AddYears(-edad))
+            {
+                edad--;
+            }
+
+            // Retorna true si tiene al menos 18 años
+            return edad >= 18;
+        }
+
     }
 }

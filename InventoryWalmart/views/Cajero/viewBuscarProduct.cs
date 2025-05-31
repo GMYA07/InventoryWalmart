@@ -100,9 +100,10 @@ namespace InventoryWalmart.views.Cajero
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            if (!string.IsNullOrWhiteSpace(inputBuscar.Text) && inputBuscar.Text.All(char.IsLetter))
+            if (!string.IsNullOrWhiteSpace(inputBuscar.Text) && inputBuscar.Text.All(c => char.IsLetter(c) || char.IsWhiteSpace(c)))
+
             {
-               
+
                 var producto = inputBuscar.Text;
                 var resultados = ProductDAO.obtenerProductoPorNombre(producto); // Lista de tuplas (Product, Categoria)
 
@@ -152,6 +153,28 @@ namespace InventoryWalmart.views.Cajero
         private void btnInicio_Click(object sender, EventArgs e)
         {
             ChangeView<indexCajero>();
+        }
+
+      
+
+        private void inputBuscar_KeyDown_1(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true; // evita el sonido de "ding"
+                btnBuscar.PerformClick();  // simula clic en el botón
+            }
+
+        }
+
+        private void viewBuscarProduct_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.F2)
+            {
+                e.SuppressKeyPress = true; // evita sonidos o comportamientos no deseados
+                inputBuscar.ResetText();
+               llenarTabla(); // llamas a un método que actualice la tabla
+            }
         }
     }
 }

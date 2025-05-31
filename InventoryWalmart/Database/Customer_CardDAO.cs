@@ -1,4 +1,5 @@
 ﻿using InventoryWalmart.Model;
+using InventoryWalmart.Utils;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -183,6 +184,58 @@ namespace InventoryWalmart.Database
                 }
             }
             
+        }
+
+        public List<Customer_Card> GetCustomerCard()
+        {
+            List<Customer_Card> customer_Card = new List<Customer_Card>();
+
+            string query = $@"SELECT
+                            cc.id_card,
+                            cc.card_number,
+                            cc.issue_date,
+                            cc.expiration_date,
+                            cc.points_balance,
+                            cc.status,
+                            CONCAT(c.first_name, ' ', last_name) AS nombreC
+                        FROM CUSTOMER_CARD AS cc
+                        INNER JOIN CUSTOMERS AS c ON c.id_customer = cc.id_customer;";
+
+            try
+            {
+                using (SqlConnection connection = Connection.ObtenerConexion())
+                {
+                    SqlCommand command = new SqlCommand(query, connection);
+
+                    connection.Open();
+
+                    SqlDataReader reader = command.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        Customer_Card Customercard = new Customer_Card();
+
+                        Customercard.IdCard = reader.GetInt32(0);
+                        Customercard.CardNumber = reader.GetString(1);
+                        Customercard.IssueDate = reader.GetDateTime(2);
+                        Customercard.ExpirationDate = reader.GetDateTime(3);
+                        Customercard.PointsBalance = reader.GetInt32(4);
+                        Customercard.Status = reader.GetString(5);
+                        Customercard.CustomerName = reader.GetString(6);
+                        customer_Card.Add(Customercard);
+                    }
+                    reader.Close();
+                    connection.Close();
+
+                    return customer_Card;
+                }
+            }
+            catch (SqlException ex)
+            {
+                Alertas.AlertError("ERROR", "No se ha podido obtener los datos para membresia");
+            }
+
+            return null;
         }
     }
 }

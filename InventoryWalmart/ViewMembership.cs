@@ -1,4 +1,5 @@
-﻿using System;
+﻿using InventoryWalmart.Database;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,12 +16,26 @@ namespace InventoryWalmart
     {
 
         public static string opcion = "";
-
+        Customer_CardDAO Customer_CardDAO = new Customer_CardDAO();
         public ViewMembership()
         {
             InitializeComponent();
+            CargarTabla();
         }
 
+        private void CargarTabla()
+        {
+            try
+            {
+                Table_Membership.AutoGenerateColumns = false;
+                var lista = Customer_CardDAO.GetCustomerCard();
+                Table_Membership.DataSource = lista;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al cargar datos: " + ex.Message);
+            }
+        }
         //Codigo q nos ayuda con la administrasion de la barra de arriba y mover la ventana.
         //Drag Form
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]

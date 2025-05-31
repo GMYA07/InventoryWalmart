@@ -114,10 +114,11 @@ namespace InventoryWalmart.views.Cajero
 
                 if (resultados != null)
                 {
-                    
+                    Table_Customers.Rows.Clear();
+
                     foreach (var (p, c) in resultados) // Desempaquetar tupla
                     {
-                        Table_Customers.Rows.Clear();
+                       
                         string categoriaNombre = c != null ? c.category_name : "Sin categoría";
 
                         int index = Table_Customers.Rows.Add(
@@ -141,5 +142,16 @@ namespace InventoryWalmart.views.Cajero
             }
         }
 
+        private void ChangeView<T>() where T : Form, new()
+        {
+            T vista = new T();
+            this.Hide();
+            vista.Show();
+        }
+
+        private void btnInicio_Click(object sender, EventArgs e)
+        {
+            ChangeView<indexCajero>();
+        }
     }
 }

@@ -97,7 +97,7 @@ namespace InventoryWalmart.Database
         {
             var lista = new List<(Product, Categoria)>(); // lista de tuplas
 
-            string query = "SELECT * FROM BuscarProducto(@nombre);";
+            string query = "SELECT * FROM dbo.BuscarProducto(@nombre)";
 
             using (SqlConnection conn = Connection.ObtenerConexion())
             {
@@ -113,12 +113,6 @@ namespace InventoryWalmart.Database
                         {
                             while (reader.Read())
                             {
-                                // Producto
-                                Product p = new Product();
-                                p.SetNameProduct(reader["name_product"].ToString());
-                                p.SetPrice(Convert.ToDecimal(reader["price"]));
-                                p.SetStock(Convert.ToInt32(reader["stock"]));
-                                p.SetIdCategory(Convert.ToInt32(reader["id_category"]));
 
                                 // Categoría
                                 Categoria cat = new Categoria
@@ -128,6 +122,14 @@ namespace InventoryWalmart.Database
                                     description = reader["description"].ToString()
                                 };
 
+                                // Producto
+                                Product p = new Product();
+                                p.SetNameProduct(reader["name_product"].ToString());
+                                p.SetPrice(Convert.ToDecimal(reader["price"]));
+                                p.SetStock(Convert.ToInt32(reader["stock"]));
+                                p.SetIdCategory(Convert.ToInt32(reader["id_category"]));
+
+                              
                                 lista.Add((p, cat)); // Agregar ambos
                             }
                         }

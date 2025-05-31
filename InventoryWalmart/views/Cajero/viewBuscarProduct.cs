@@ -100,7 +100,7 @@ namespace InventoryWalmart.views.Cajero
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            if (!string.IsNullOrWhiteSpace(inputBuscar.Text) && inputBuscar.Text.All(c => char.IsLetter(c) || char.IsWhiteSpace(c)))
+            if (!string.IsNullOrWhiteSpace(inputBuscar.Text))
 
             {
 
@@ -139,7 +139,7 @@ namespace InventoryWalmart.views.Cajero
             }
             else
             {
-                MessageBox.Show("Ingrese un nombre válido (sin números ni espacios).");
+                MessageBox.Show("Ingrese un nombre o ID de producto válido.");
             }
         }
 

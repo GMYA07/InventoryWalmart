@@ -105,5 +105,22 @@ namespace InventoryWalmart.Validaciones
             return edad >= 18;
         }
 
+        //validar porcentaje de descuento que no sobre pase100
+        public static bool ValidarPorcentaje(string input)
+        {
+            if (int.TryParse(input, out int numero))
+            {
+                return numero <= 100;
+            }
+            return false;
+        }
+
+
+        //validar puntos requeridos que sean numeros
+        public static bool ValidarNumero(string input)
+        {
+            return int.TryParse(input, out _);
+        }
+
     }
 }

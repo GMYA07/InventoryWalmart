@@ -137,65 +137,47 @@ namespace InventoryWalmart
             var validarMail = Validar.ValidarEmail(TxtEmail.Text);
             var validarEdad = Validar.EsMayorDeEdad(DtpNacimiento.Value);
 
+            // Validaciones comunes
+            if (!validarTel)
+            {
+                MessageBox.Show("Teléfono inválido. Formato requerido: ####-####");
+                return;
+            }
+
+            if (!validarMail)
+            {
+                MessageBox.Show("Correo inválido. Formato requerido: example@gmail.com");
+                return;
+            }
+
+            // Validaciones exclusivas para agregar
             if (ViewCustomers.opcion == "agregar")
             {
-                if (!validarTel)
+                if (validarDui)
                 {
-                    MessageBox.Show("Teléfono inválido. Formato requerido: ####-####");
-                }
-                else
-                {
-                    if (validarDui)
-                    {
-                        MessageBox.Show("DUI inválido. Formato requerido: ########-#");
-                    }
-                    else
-                    {
-                        if (!validarMail)
-                        {
-                            MessageBox.Show("Correo inválido. Formato requerido: example@gmail.com");
-                        }
-                        else
-                        {
-                            if (!validarEdad)
-                            {
-                                MessageBox.Show("Debe ser mayor de 18 años.");
-                            }
-                            else
-                            {
-                                AddCustomer();
-                                limpiarForm();
-                            }
-                        }
-                    }
+                    MessageBox.Show("DUI inválido. Formato requerido: ########-#");
+                    return;
                 }
 
+                if (!validarEdad)
+                {
+                    MessageBox.Show("Debe ser mayor de 18 años.");
+                    return;
+                }
+
+                AddCustomer();
             }
             else
             {
-
-                if (!validarTel)
-                {
-                    MessageBox.Show("Teléfono inválido. Formato requerido: ####-####");
-                }
-                else
-                {
-                        if (!validarMail)
-                        {
-                            MessageBox.Show("Correo inválido. Formato requerido:  example@gmail.com");
-                        }
-                        else
-                        {
-
-                            UpdateCustomer();
-                            limpiarForm();
-                        }
-                    }
-                }
-
+                UpdateCustomer();
             }
 
-        
+            limpiarForm();
+
+
+        }
+
+
 
         private void TxtTelefono_TextChanged(object sender, EventArgs e)
         {

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using InventoryWalmart.Validaciones;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -78,5 +79,39 @@ namespace InventoryWalmart
 
         }
 
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+            var validarPorcentaje = Validar.ValidarPorcentaje(txtDescuento.Text);
+            var validarPuntos = Validar.ValidarNumero(txtPuntos.Text);
+
+            if (!validarPorcentaje)
+            {
+                MessageBox.Show("Descuento invalido! \nVerifique que el numero este en rango 1 - 100");
+                return;
+            }
+
+            if (!validarPuntos)
+            {
+                MessageBox.Show("Puntos invalidos! Verifique que sea tipo numerico");
+                return;
+            }
+
+            //aplicar logica luego de validaciones
+
+            limpiarForm();
+        }
+
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        public void limpiarForm()
+        {
+            txtBeneficio.ResetText();
+            txtDescrip.ResetText();
+            txtDescuento.ResetText();
+            txtPuntos.ResetText();
+        }
     }
 }

@@ -73,6 +73,54 @@ namespace InventoryWalmart.Controllers
             }
             new PromocionesPDF().Exportar(datos, @"C:\Users\carlo\Documents\Reportes\" + ruta + ".PDF");
         }
+
+        // repot
+        public void GeneraraReporteVentasDiarias(int id, DateTime fecha, string ruta)
+        {
+            var ventasDias = dao.ObtenerVentasDiarias(id);
+            var categoriasDias = dao.categoriasDIAs(fecha);
+
+            if (ventasDias == null && categoriasDias == null)
+            {
+                MessageBox.Show("Los datos son nulos");
+                return;
+            }
+
+            new VentasDiariasCPDF().Exportar(ventasDias, categoriasDias, @"C:\Users\carlo\Documents\Reportes\" + ruta + ".PDF");
+
+        }
+
+        public void GeneraraReporteVentasSemanuales(int id, DateTime incio, DateTime fin, string ruta)
+        {
+            var ventasSemanual = dao.ventaSamana(id);
+            var categoriasSemanual = dao.ObtenerReporteSemanalCategoria(incio, fin);
+
+
+
+
+
+
+
+            if (ValidarClasesNull(ventasSemanual, categoriasSemanual))
+            {
+                MessageBox.Show("Los datos son nulos =(");
+                return;
+            }
+
+            new VentasTotalesSmanaCategoPDF().Exportar(ventasSemanual, categoriasSemanual, @"C:\Users\carlo\Documents\Reportes\" + ruta + ".PDF");
+
+        }
+
+
+
+
+
+        public bool ValidarClasesNull<T1, T2>(T1 clase1, T2 clase2)
+        {
+            return clase1 == null || clase2 == null;
+        }
+
+
     }
 
 

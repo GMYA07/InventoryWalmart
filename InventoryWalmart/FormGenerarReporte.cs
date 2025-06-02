@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -11,15 +12,26 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using InventoryWalmart.Controllers;
 using InventoryWalmart.Database;
+using InventoryWalmart.Model;
 using InventoryWalmart.ModelRepors;
+using iTextSharp.text;
 
 namespace InventoryWalmart
 {
+
     public partial class FormGenerarReporte : Form
     {
+        static ReporteDAO dao = new ReporteDAO();
+
         public FormGenerarReporte()
         {
             InitializeComponent();
+            llenartablaDIA();
+            llenarTablaSamana();
+            LlenarTablaMensual();
+            llenarTableCategoria();
+            ventasPosCajeros();
+            gastosClientesTarjeta();
         }
 
         //Drag Form
@@ -90,7 +102,7 @@ namespace InventoryWalmart
         private void btnInicio_Click(object sender, EventArgs e)
         {
             ChangeView<dashboard>();
-        }       
+        }
 
 
         private void btnPromociones_Click(object sender, EventArgs e)
@@ -127,7 +139,7 @@ namespace InventoryWalmart
         //------------------------------------------------------------*---------------------------------------------------------
         private void FormGenerarReporte_Load(object sender, EventArgs e)
         {
-            
+
         }
 
 
@@ -135,9 +147,9 @@ namespace InventoryWalmart
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             // new ControllersReportes().GeneraraReportegastosClientesTarjeta();
-          //  MostrarVentasPorCategoria();
+            //  MostrarVentasPorCategoria();
 
-            if(textBox1 == null || textBox1.Text == "")
+            if (textBox1 == null || textBox1.Text == "")
             {
                 MessageBox.Show("Pongale un nombre al archivo");
 
@@ -163,18 +175,52 @@ namespace InventoryWalmart
                 return;
             }
 
-            if (tabControl1.SelectedTab == tabPage_historialVentas)
-            {
-                GenerarReporteHistorialVentas(new ControllersReportes().GeneraraReporteHistorialVentas);
-            }
+            //if (tabControl1.SelectedTab == tabPage_historialVentas)
+            //{
+            //    GenerarReporteHistorialVentas(new ControllersReportes().GeneraraReporteHistorialVentas);
+            //}
 
-            if (tabControl1.SelectedTab == tabPage_promociones)
+            //if (tabControl1.SelectedTab == tabPage_promociones)
+            //{
+            //    GenerarReporteGeneral(new ControllersReportes().GeneraraReportePromociones);
+            //    return;
+            //}
+
+            if (tabControl3.SelectedTab == tabPage_dias)
             {
-                GenerarReporteGeneral(new ControllersReportes().GeneraraReportePromociones);
+                VentasDiarias vtd = dataGridView_ventaDiaria.SelectedRows[0].Tag as VentasDiarias;
+
+                if (vtd != null)
+                {
+                    DateTime fechaSoloFecha = vtd.fecha_reporte.Date;
+                    string ruta = textBox1.Text;
+
+                    MessageBox.Show("Que si se pueda: " + fechaSoloFecha);
+
+                    new ControllersReportes().GeneraraReporteVentasDiarias(vtd.id_ventaDia, fechaSoloFecha, ruta);
+                }
                 return;
+
             }
 
-            
+            if (tabControl3.SelectedTab == tabPage_semanual)
+            {
+                VentasSemanuales vts = dataGri_semanual2.SelectedRows[0].Tag as VentasSemanuales;
+
+                if (vts != null)
+                {
+                    DateTime inicio = vts.inicio_semana.Date;
+                    DateTime fIn = vts.fin_semana.Date;
+                    string ruta = textBox1.Text;
+                    MessageBox.Show("Que si se pueda: " + vts.id_reporte + "  : fecha incio  " + inicio + " :  fecha fin  " + fIn);
+
+                    new ControllersReportes().GeneraraReporteVentasSemanuales(vts.id_reporte, inicio, fIn, ruta);
+                }
+                return;
+
+            }
+
+
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -190,7 +236,7 @@ namespace InventoryWalmart
             DateTime fechaFin = dateTimePicker2.Value;
             string ruta = textBox1.Text;
 
-            metodo(fechaInicio, fechaFin, ruta); 
+            metodo(fechaInicio, fechaFin, ruta);
         }
 
         public void GenerarReporteHistorialVentas(Action<DateTime, string, string> clase)
@@ -249,7 +295,7 @@ namespace InventoryWalmart
 
         private void button4_Click(object sender, EventArgs e)
         {
-         
+
             tabControl1.SelectedTab = tabPage_historialVentas;
             tabControl2.SelectedTab = tabPage_botones;
             button_dia.BackColor = Color.FromArgb(0, 192, 192);
@@ -340,5 +386,162 @@ namespace InventoryWalmart
         {
 
         }
+
+        public void llenartablaDIA()
+        {
+            try
+            {
+                List<VentasDiarias> reporte = dao.ObtenerVentasDiarias(-1);
+
+                dataGridView_ventaDiaria.Rows.Clear();
+
+                foreach (var ventas in reporte)
+                {
+                    int i = dataGridView_ventaDiaria.Rows.Add(
+                        ventas.fecha_reporte.ToString("dd/MM/yyyy"),
+                        ventas.total_productos,
+                        ventas.sup_total.ToString("C"),
+                        ventas.total_descuento.ToString("C"),
+                        ventas.total_venta.ToString("C")
+                    );
+
+                    // Asignas el objeto completo a la fila
+                    dataGridView_ventaDiaria.Rows[i].Tag = ventas;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al llenar la tabla de ventas diarias: " + ex.Message);
+            }
+        }
+
+
+        public void llenarTablaSamana()
+        {
+            try
+            {
+                List<VentasSemanuales> venta = dao.ventaSamana(-1);
+                dataGri_semanual2.Rows.Clear();
+
+                foreach (var lista in venta)
+                {
+                    int i = dataGri_semanual2.Rows.Add(
+                        lista.inicio_semana.ToString("dd/MM/yyyy"),
+                        lista.fin_semana.ToString("dd/MM/yyyy"),
+                        lista.cantidad_ventas,
+                        lista.inversion.ToString("C"),
+                        lista.subtotal.ToString("C"),
+                        lista.total.ToString("C")
+                       // lista.fecha_generacion.ToString("dd/MM/yyyy")
+                    );
+                    dataGri_semanual2.Rows[i].Tag = lista;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al llenar la tabla de ventas semanales: " + ex.Message);
+            }
+        }
+
+
+        public void LlenarTablaMensual()
+        {
+            try
+            {
+                List<VentaMensual> lista = dao.ObtenerVentasMensuales();
+                dataGrid_mensual.Rows.Clear();
+
+                foreach (var vm in lista)
+                {
+                    int i =  dataGrid_mensual.Rows.Add(
+                        vm.id_reporte_mes,
+                        vm.mes_anio,
+                        vm.cantidad_ventas,
+                        vm.subtotal.ToString("C"),
+                        vm.total_descuento.ToString("C"),
+                        vm.total_vendido.ToString("C"),
+                        vm.inversion_mes.ToString("C"),
+                        vm.ganancia_mes.ToString("C"),
+                        vm.reinversion_20.ToString("C")
+                    );
+
+                    dataGrid_mensual.Rows[i].Tag = vm;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al llenar la tabla de ventas mensuales: " + ex.Message);
+            }
+        }
+
+        public void llenarTableCategoria()
+        {
+            DateTime fechaInicio = DateTime.Parse("2020-01-01");
+            DateTime fecha = DateTime.Today;
+
+            List<ventasTotalesCategorias> lista = dao.ventasTotalesCategorias(fechaInicio, fecha);
+
+            Table_categoria.Rows.Clear();
+            foreach (var vm in lista)
+            {
+                int i = Table_categoria.Rows.Add(
+                    vm.nombreCategoria,
+                    vm.totalPrecioVenta.ToString("C"),
+                    vm.totalVentas
+
+                );
+
+                Table_categoria.Rows[i].Tag = vm;
+            }
+        }
+
+        public void ventasPosCajeros()
+        {
+            DateTime fechaInicio = DateTime.Parse("2020-01-01");
+            DateTime fecha = DateTime.Today;
+
+            List<ventasPorCajero> lsita = dao.ventasPosCajeros(fechaInicio, fecha);
+            foreach (var item in lsita)
+            {
+                int i = dataGrid_cajero.Rows.Add(
+                item.nombreCajero,
+                item.apellidoCajero ,
+                item.numeroTranscciones,
+                item.productosVendidos,
+                item.totalVendidos,
+                item.promedioVentas
+                );
+                dataGrid_cajero.Rows[i].Tag = item;
+            }
+        }
+
+        public void gastosClientesTarjeta()
+        {
+            DateTime fechaInicio = DateTime.Parse("2020-01-01");
+            DateTime fecha = DateTime.Today;
+
+            List<gastosClientesTarjeta> lista = dao.gastosClientesTarjeta(fechaInicio, fecha);
+
+            foreach(var item in lista)
+            {
+                int i = dataGrid_clientes.Rows.Add(
+                item.nombreCliente,
+                item.apellidoCliente,
+                item.CardNumber,
+
+                item.NumeroCompras,
+                item.ProductosComprados,
+                item.TotalGastado
+                );
+                dataGrid_clientes.Rows[i].Tag = item;
+            }
+
+
+        }
+
+
     }
 }
+
+

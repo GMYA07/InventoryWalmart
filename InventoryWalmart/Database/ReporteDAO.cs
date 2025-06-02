@@ -100,7 +100,7 @@ namespace InventoryWalmart.Database
             try
             {
                 SqlConnection conn = Connection.ObtenerConexion();
-                SqlCommand cmd = new SqlCommand("sp_reporte_gastos_clientes_tarjeta", conn);
+                SqlCommand cmd = new SqlCommand("sp_reporte_gastos_clientes_tarjetas", conn);
                 cmd.CommandType = CommandType.StoredProcedure;
 
                 cmd.Parameters.AddWithValue("@FechaInicio", fechaInicio);
@@ -209,8 +209,250 @@ namespace InventoryWalmart.Database
             return lista;
         }
 
+        // ter los reportes aumomatizados
+        // Reportes diarios
+
+        public List<VentasDiarias> ObtenerVentasDiarias(int id)
+        {
+            List<VentasDiarias> lista = new List<VentasDiarias>();
+
+            try
+            {
+                using (SqlConnection connection = Connection.ObtenerConexion())
+                {
+                    SqlCommand cmd = new SqlCommand("sp_ObtenerVentasDiarias", connection);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@id", id);
+
+                    connection.Open();
+                    SqlDataReader reader = cmd.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        VentasDiarias vd = new VentasDiarias
+                        {
+                            id_ventaDia = reader.GetInt32(0),
+                            fecha_reporte = reader.IsDBNull(1) ? DateTime.MinValue : reader.GetDateTime(1),
+                            total_productos = reader.IsDBNull(2) ? 0 : reader.GetInt32(2),
+                            sup_total = reader.IsDBNull(3) ? 0m : reader.GetDecimal(3),
+                            total_descuento = reader.IsDBNull(4) ? 0m : reader.GetDecimal(4),
+                            total_venta = reader.IsDBNull(5) ? 0m : reader.GetDecimal(5),
+                        };
+                        lista.Add(vd);
+                    }
+
+                    reader.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("No se pudo traer los datos de ventas diarias: " + ex.Message);
+            }
+
+            return lista;
+        }
 
 
+
+        // traer las categorias por dias
+        public List<CategoriasDIA> categoriasDIAs(DateTime fecha)
+        {
+            List<CategoriasDIA> lista = new List<CategoriasDIA>();
+
+            try
+            {
+                string sql = "select * from REPORTE_VENTAS_DIARIAS_CATEGORIAS where fecha = @fecha;";
+
+                using (SqlConnection conn = Connection.ObtenerConexion())
+                {
+                    SqlCommand cmd = new SqlCommand(sql, conn);
+                    cmd.CommandType = CommandType.Text;
+
+                    cmd.Parameters.AddWithValue("@fecha", fecha);
+
+                    conn.Open();
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            CategoriasDIA c = new CategoriasDIA
+                            {
+                                fecha = reader.GetDateTime(1),
+                                nombreCategoria = reader.GetString(2),
+                                dineroVentas = reader.GetDecimal(3),
+                                totalVentas = reader.GetInt32(4)
+                            };
+                            lista.Add(c);
+                        }
+
+                    }
+
+                    conn.Close();
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("No se pude taer los datos de categorias dias: " + ex.Message);
+            }
+
+            return lista;
+
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+        // reportes de ventas mensuales
+
+        public List<VentasSemanuales> ventaSamana(int id)
+        {
+            List<VentasSemanuales> lista = new List<VentasSemanuales>();
+
+            try
+            {
+                using (SqlConnection connection = Connection.ObtenerConexion())
+                {
+                    SqlCommand cmd = new SqlCommand("sp_ObtenerVentasSemanuales", connection);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@id", id);
+
+                    connection.Open();
+                    SqlDataReader reader = cmd.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        VentasSemanuales vs = new VentasSemanuales
+                        {
+                            id_reporte = reader.IsDBNull(0) ? 0 : reader.GetInt32(0),
+                            inicio_semana = reader.IsDBNull(1) ? DateTime.MinValue : reader.GetDateTime(1),
+                            fin_semana = reader.IsDBNull(2) ? DateTime.MinValue : reader.GetDateTime(2),
+                            cantidad_ventas = reader.IsDBNull(3) ? 0 : reader.GetInt32(3),
+                            inversion = reader.IsDBNull(4) ? 0m : reader.GetDecimal(4),
+                            subtotal = reader.IsDBNull(5) ? 0m : reader.GetDecimal(5),
+                            total = reader.IsDBNull(6) ? 0m : reader.GetDecimal(6),
+                            fecha_generacion = reader.IsDBNull(7) ? DateTime.MinValue : reader.GetDateTime(7),
+                        };
+
+                        lista.Add(vs);
+                    }
+
+                    reader.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("No se pudieron obtener las ventas semanales: " + ex.Message);
+            }
+
+            return lista;
+        }
+
+
+        // treer las ventas categorisadas semanuales
+
+        public List<CategoriasSemana> ObtenerReporteSemanalCategoria(DateTime inicio, DateTime fin)
+        {
+            List<CategoriasSemana> lista = new List<CategoriasSemana>();
+            try
+            {
+                string sql =@"SELECT id_report, report_date, category_name, total_venta_categoria, total_ventas
+                            from REPORT_WEEKLY_CATEGORY_SALES
+                            WHERE report_date BETWEEN @inicio AND @fin;";
+
+
+                using (SqlConnection connection = Connection.ObtenerConexion())
+                {
+                    SqlCommand cmd = new SqlCommand(sql, connection);
+                    cmd.CommandType = CommandType.Text;
+
+                    cmd.Parameters.AddWithValue("@inicio", inicio);
+                    cmd.Parameters.AddWithValue("@fin", fin);
+
+                    connection.Open();
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        CategoriasSemana reporte = new CategoriasSemana
+                        {
+                            IdReporte = reader.IsDBNull(0) ? 0 : reader.GetInt32(0),
+                            FechaReporte = reader.IsDBNull(1) ? DateTime.MinValue : reader.GetDateTime(1),
+                            NombreCategoria = reader.IsDBNull(2) ? "Sin categoría" : reader.GetString(2),
+                            TotalVentaCategoria = reader.IsDBNull(3) ? 0m : reader.GetDecimal(3),
+                            TotalVentas = reader.IsDBNull(4) ? 0 : reader.GetInt32(4)
+                        };
+
+                        lista.Add(reporte);
+                    }
+
+                    reader.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al obtener el reporte semanal por categoría: " + ex.Message);
+            }
+
+            return lista;
+        }
+
+
+
+
+        // tarer lo del mes-------------------------------------------------------------------------------------------------------
+
+        public List<VentaMensual> ObtenerVentasMensuales()
+        {
+            List<VentaMensual> lista = new List<VentaMensual>();
+
+            try
+            {
+                string sql = "SELECT * FROM REPORTE_VENTAS_MENSUALES;";
+                using (SqlConnection connection = Connection.ObtenerConexion())
+                {
+                    SqlCommand cmd = new SqlCommand(sql, connection);
+                    cmd.CommandType = CommandType.Text;
+                    connection.Open();
+
+                    SqlDataReader reader = cmd.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        VentaMensual vm = new VentaMensual
+                        {
+                            id_reporte_mes = reader.IsDBNull(0) ? 0 : reader.GetInt32(0),
+                            mes_anio = reader.IsDBNull(1) ? "" : reader.GetString(1),
+                            cantidad_ventas = reader.IsDBNull(2) ? 0 : reader.GetInt32(2),
+                            subtotal = reader.IsDBNull(3) ? 0m : reader.GetDecimal(3),
+                            total_descuento = reader.IsDBNull(4) ? 0m : reader.GetDecimal(4),
+                            total_vendido = reader.IsDBNull(5) ? 0m : reader.GetDecimal(5),
+                            inversion_mes = reader.IsDBNull(6) ? 0m : reader.GetDecimal(6),
+                            ganancia_mes = reader.IsDBNull(7) ? 0m : reader.GetDecimal(7),
+                            reinversion_20 = reader.IsDBNull(8) ? 0m : reader.GetDecimal(8),
+                        };
+
+                        lista.Add(vm);
+                    }
+
+                    reader.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al obtener los datos de ventas mensuales: " + ex.Message);
+            }
+
+            return lista;
+        }
 
 
 

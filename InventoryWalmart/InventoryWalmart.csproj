@@ -57,16 +57,25 @@
     <Compile Include="Exporters\gastosClientesTarjetaPDF.cs" />
     <Compile Include="Exporters\HistorialVentasPDF.cs" />
     <Compile Include="Exporters\PromocionesPDF.cs" />
+    <Compile Include="Exporters\VentasDiariasCPDF.cs" />
     <Compile Include="Exporters\ventasPorCajerosPDF.cs" />
+    <Compile Include="Exporters\VentasTotalesSmanaCategoPDF.cs" />
+    <Compile Include="Interfaces\ReportesVentasAutomaticos.cs" />
     <Compile Include="InventoryWalmartDataSet1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>InventoryWalmartDataSet1.xsd</DependentUpon>
     </Compile>
+    <Compile Include="ModelRepors\CategoriasDIA.cs" />
+    <Compile Include="ModelRepors\CategoriasSemana.cs" />
     <Compile Include="ModelRepors\gastosClientesTarjeta.cs" />
     <Compile Include="ModelRepors\HistorialVentas.cs" />
     <Compile Include="ModelRepors\Promociones.cs" />
+    <Compile Include="ModelRepors\VentaMensual.cs" />
+    <Compile Include="ModelRepors\VentasCategoriaMensual.cs" />
+    <Compile Include="ModelRepors\VentasDiarias.cs" />
     <Compile Include="ModelRepors\ventasPorCajero.cs" />
+    <Compile Include="ModelRepors\VentasSemanuales.cs" />
     <Compile Include="ReportesControllers\ControllersReportes.cs" />
     <Compile Include="Controllers\loginController.cs" />
     <Compile Include="Controllers\RolesControllers.cs" />

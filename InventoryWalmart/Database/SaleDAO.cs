@@ -3,9 +3,11 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace InventoryWalmart.Database
 {
@@ -94,6 +96,90 @@ namespace InventoryWalmart.Database
 
                 }
             }
+        }
+
+
+        public static List<(Sale, Customer, payment_method, string)> ObtenerVentasDetalladas()
+        {
+            var lista = new List<(Sale, Customer, payment_method, string)>();
+            string query = @"SELECT * FROM dbo.fn_verVentas();";
+
+            using (SqlConnection conn = Connection.ObtenerConexion())
+            {
+                if (conn == null)
+                {
+                    MessageBox.Show("No se pudo establecer conexión a la BD", "Error",
+                                  MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return lista;
+                }
+
+                try
+                {
+                    conn.Open();
+                    using (SqlCommand cmd = new SqlCommand(query, conn))
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        if (!reader.HasRows)
+                        {
+                            MessageBox.Show("La función fn_verVentas no devolvió registros", "Información",
+                                         MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+
+                        while (reader.Read())
+                        {
+                            try
+                            {
+                                // Depuración: muestra los valores crudos
+                                string debugInfo = $"id_venta: {reader["id_venta"]}, cliente: {reader["cliente"]}";
+                                Debug.WriteLine(debugInfo);
+
+                                // Mapeo de Sale
+                                Sale sale = new Sale();
+                                sale.SetIdSale(Convert.ToInt32(reader["id_venta"]));
+                                sale.SetSaleDate(Convert.ToDateTime(reader["dia"]));
+                                sale.SetTotalAmount(Convert.ToDecimal(reader["monto"]));
+
+                                // Mapeo de Customer
+                                Customer customer = new Customer();
+
+                                // Extraer nombres del campo concatenado
+                                string nombreCompleto = reader["cliente"].ToString();
+                                var nombres = nombreCompleto.Split(new[] { ' ' }, 2); // Dividir en máximo 2 partes
+
+                                customer.FirstName = nombres.Length > 0 ? nombres[0] : "";
+                                customer.LastName = nombres.Length > 1 ? nombres[1] : "";
+
+                                // Mapeo de payment_method
+                                payment_method pm = new payment_method();
+                                pm.SetMetodoPago(reader["metodo_pago"]?.ToString() ?? "Desconocido");
+
+                                // Estado
+                                string estado = reader["estado"]?.ToString() ?? "Pendiente";
+
+                                lista.Add((sale, customer, pm, estado));
+                            }
+                            catch (Exception ex)
+                            {
+                                MessageBox.Show($"Error mapeando fila: {ex.Message}", "Error",
+                                              MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                continue;
+                            }
+                        }
+                    }
+                }
+                catch (SqlException sqlEx)
+                {
+                    MessageBox.Show($"Error SQL: {sqlEx.Message}\nNúmero: {sqlEx.Number}", "Error SQL",
+                                   MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Error general: {ex.ToString()}", "Error",
+                                  MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+
+            return lista;
         }
 
 

@@ -148,6 +148,7 @@
     <Compile Include="Model\Department.cs" />
     <Compile Include="Model\Discount.cs" />
     <Compile Include="Model\District.cs" />
+    <Compile Include="Model\payment_method.cs" />
     <Compile Include="Model\points.cs" />
     <Compile Include="Model\Product.cs" />
     <Compile Include="Model\Returns.cs" />

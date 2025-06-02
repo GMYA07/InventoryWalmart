@@ -1,4 +1,6 @@
-﻿using System;
+﻿using InventoryWalmart.Database;
+using InventoryWalmart.Model;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,12 +15,15 @@ namespace InventoryWalmart
 {
     public partial class FormMembership : Form
     {
+        string opcion = ViewMembership.opcion;
+        Customer_CardDAO customer_CardDAO=new Customer_CardDAO();
+
         public FormMembership()
         {
-            string opcion1 = ViewMembership.opcion;
-
+        
             InitializeComponent();
-            if (opcion1 == "agregar")
+            TxtCard.Enabled = false;
+            if (opcion == "agregar")
             {
 
             }
@@ -27,8 +32,44 @@ namespace InventoryWalmart
                 LblTitulo.Text = "Editar membresia";
                 btnAgregar.Text = "Editar";
                 btnAgregar.BackColor = Color.Blue;
-                //this
             }
+        }
+
+        public void InsertarCustomerCard()
+        {
+            Customer_Card CC = new Customer_Card();
+            CC.IdCustomer = customer_CardDAO.GetidCustomerByDui(TxtDui.Text);
+            CC.CardNumber = TxtCard.Text; 
+            CC.IssueDate = DtpInicio.Value;
+            CC.ExpirationDate = DtpInicio.Value.AddYears(1);
+            CC.PointsBalance = 0;
+            CC.Status = RdoBton();
+            customer_CardDAO.INSERT_CustomerCard(CC);
+        }
+
+        public void LoadCusomerCard()
+        {
+
+        }
+
+        public string RdoBton()
+        {
+            if (RdoActivo.Checked)
+            {
+                return "active";
+            }
+            else
+            {
+                return "inactive";
+            }
+        }
+        public string GenerarNumeroCarta()
+        {
+            string fecha = DateTime.Now.ToString("yyyyMMdd"); 
+            int contador = customer_CardDAO.ObtenerContadorCartasDelDia(); 
+            string numeroCarta = $"CAR-{fecha}-{contador:D4}"; // Ej: CAR-20250525-0001
+
+            return numeroCarta;
         }
 
         //Codigo q nos ayuda con la administrasion de la barra de arriba y mover la ventana.
@@ -83,12 +124,19 @@ namespace InventoryWalmart
 
         private void BtnGenerar_Click(object sender, EventArgs e)
         {
-
+            TxtCard.Text = GenerarNumeroCarta();
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-
+            if(opcion == "agregar")
+            {
+                InsertarCustomerCard();
+            }
+            else
+            {
+                //UpdateCustomerCard();
+            }
         }
     }
 }

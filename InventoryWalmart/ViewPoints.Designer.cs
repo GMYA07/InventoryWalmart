@@ -464,6 +464,7 @@
             this.inputBuscar.Name = "inputBuscar";
             this.inputBuscar.Size = new System.Drawing.Size(492, 38);
             this.inputBuscar.TabIndex = 6;
+            this.inputBuscar.TextChanged += new System.EventHandler(this.inputBuscar_TextChanged);
             this.inputBuscar.Enter += new System.EventHandler(this.inputBuscar_Enter);
             this.inputBuscar.Leave += new System.EventHandler(this.inputBuscar_Leave);
             // 

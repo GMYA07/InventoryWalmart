@@ -198,5 +198,10 @@ namespace InventoryWalmart
                 }
             }
         }
+
+        private void inputBuscar_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

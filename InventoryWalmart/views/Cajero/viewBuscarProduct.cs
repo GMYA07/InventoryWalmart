@@ -176,5 +176,10 @@ namespace InventoryWalmart.views.Cajero
                llenarTabla(); // llamas a un método que actualice la tabla
             }
         }
+
+        private void inputBuscar_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

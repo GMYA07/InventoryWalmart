@@ -8,7 +8,7 @@ namespace InventoryWalmart.Model
 {
     public class Categoria
     {
-        public int id_category { get; set; }
+        public  int id_category { get; set; }
         public string category_name { get; set; }
         public string description { get; set; }
         public string image_category { get; set; }

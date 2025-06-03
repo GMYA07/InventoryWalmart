@@ -31,19 +31,24 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormAddProduct));
             this.LblTitulo = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.txtPrecioSub = new System.Windows.Forms.TextBox();
-            this.cb_proveedor = new System.Windows.Forms.ComboBox();
             this.txtStock = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.txtPrecio = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.cb_categoria = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.txtDescrip = new System.Windows.Forms.TextBox();
+            this.LblDescripcion = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.RdoInactivo = new System.Windows.Forms.RadioButton();
+            this.RdoActivo = new System.Windows.Forms.RadioButton();
             this.btnAgregar = new System.Windows.Forms.Button();
+            this.DtpInicio = new System.Windows.Forms.DateTimePicker();
             this.LblDevolucion = new System.Windows.Forms.Label();
             this.TxtNombreProduc = new System.Windows.Forms.TextBox();
             this.LblEmail = new System.Windows.Forms.Label();
+            this.TxtIdProduct = new System.Windows.Forms.TextBox();
+            this.LblIngresaDUI = new System.Windows.Forms.Label();
             this.barAcciones = new System.Windows.Forms.Panel();
             this.btnOcultar = new System.Windows.Forms.PictureBox();
             this.btnMaximizar = new System.Windows.Forms.PictureBox();
@@ -72,8 +77,6 @@
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Controls.Add(this.txtPrecioSub);
-            this.panel1.Controls.Add(this.cb_proveedor);
             this.panel1.Controls.Add(this.LblTitulo);
             this.panel1.Controls.Add(this.txtStock);
             this.panel1.Controls.Add(this.label4);
@@ -81,42 +84,27 @@
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.cb_categoria);
             this.panel1.Controls.Add(this.label2);
+            this.panel1.Controls.Add(this.txtDescrip);
+            this.panel1.Controls.Add(this.LblDescripcion);
             this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.RdoInactivo);
+            this.panel1.Controls.Add(this.RdoActivo);
             this.panel1.Controls.Add(this.btnAgregar);
+            this.panel1.Controls.Add(this.DtpInicio);
             this.panel1.Controls.Add(this.LblDevolucion);
             this.panel1.Controls.Add(this.TxtNombreProduc);
             this.panel1.Controls.Add(this.LblEmail);
+            this.panel1.Controls.Add(this.TxtIdProduct);
+            this.panel1.Controls.Add(this.LblIngresaDUI);
             this.panel1.Location = new System.Drawing.Point(21, 79);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(367, 573);
             this.panel1.TabIndex = 19;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
-            // txtPrecioSub
-            // 
-            this.txtPrecioSub.Location = new System.Drawing.Point(38, 284);
-            this.txtPrecioSub.Name = "txtPrecioSub";
-            this.txtPrecioSub.Size = new System.Drawing.Size(271, 20);
-            this.txtPrecioSub.TabIndex = 34;
-            this.txtPrecioSub.TextChanged += new System.EventHandler(this.txtPrecioSub_TextChanged);
-            // 
-            // cb_proveedor
-            // 
-            this.cb_proveedor.FormattingEnabled = true;
-            this.cb_proveedor.Items.AddRange(new object[] {
-            "Juan Pérez",
-            "Ana Gómez",
-            "Luis Fernández",
-            "María López"});
-            this.cb_proveedor.Location = new System.Drawing.Point(118, 406);
-            this.cb_proveedor.Name = "cb_proveedor";
-            this.cb_proveedor.Size = new System.Drawing.Size(191, 21);
-            this.cb_proveedor.TabIndex = 33;
-            this.cb_proveedor.SelectedIndexChanged += new System.EventHandler(this.cb_proveedor_SelectedIndexChanged);
-            // 
             // txtStock
             // 
-            this.txtStock.Location = new System.Drawing.Point(38, 346);
+            this.txtStock.Location = new System.Drawing.Point(38, 290);
             this.txtStock.Name = "txtStock";
             this.txtStock.Size = new System.Drawing.Size(271, 20);
             this.txtStock.TabIndex = 32;
@@ -126,7 +114,7 @@
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.WhiteSmoke;
             this.label4.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
-            this.label4.Location = new System.Drawing.Point(34, 324);
+            this.label4.Location = new System.Drawing.Point(34, 268);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(44, 19);
             this.label4.TabIndex = 31;
@@ -134,7 +122,7 @@
             // 
             // txtPrecio
             // 
-            this.txtPrecio.Location = new System.Drawing.Point(38, 218);
+            this.txtPrecio.Location = new System.Drawing.Point(38, 230);
             this.txtPrecio.Name = "txtPrecio";
             this.txtPrecio.Size = new System.Drawing.Size(271, 20);
             this.txtPrecio.TabIndex = 30;
@@ -144,7 +132,7 @@
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.WhiteSmoke;
             this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
-            this.label3.Location = new System.Drawing.Point(34, 196);
+            this.label3.Location = new System.Drawing.Point(34, 208);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(48, 19);
             this.label3.TabIndex = 29;
@@ -154,7 +142,13 @@
             // cb_categoria
             // 
             this.cb_categoria.FormattingEnabled = true;
-            this.cb_categoria.Location = new System.Drawing.Point(114, 152);
+            this.cb_categoria.Items.AddRange(new object[] {
+            "Electronicos",
+            "Electrodomesticos",
+            "Ropa",
+            "Juguetes",
+            "Comida"});
+            this.cb_categoria.Location = new System.Drawing.Point(111, 166);
             this.cb_categoria.Name = "cb_categoria";
             this.cb_categoria.Size = new System.Drawing.Size(191, 21);
             this.cb_categoria.TabIndex = 28;
@@ -163,23 +157,65 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
-            this.label2.Location = new System.Drawing.Point(37, 152);
+            this.label2.Location = new System.Drawing.Point(34, 166);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(69, 19);
             this.label2.TabIndex = 27;
             this.label2.Text = "Categoria";
             this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
+            // txtDescrip
+            // 
+            this.txtDescrip.Location = new System.Drawing.Point(52, 449);
+            this.txtDescrip.Multiline = true;
+            this.txtDescrip.Name = "txtDescrip";
+            this.txtDescrip.Size = new System.Drawing.Size(250, 49);
+            this.txtDescrip.TabIndex = 26;
+            // 
+            // LblDescripcion
+            // 
+            this.LblDescripcion.AutoSize = true;
+            this.LblDescripcion.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.LblDescripcion.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
+            this.LblDescripcion.Location = new System.Drawing.Point(34, 427);
+            this.LblDescripcion.Name = "LblDescripcion";
+            this.LblDescripcion.Size = new System.Drawing.Size(83, 19);
+            this.LblDescripcion.TabIndex = 17;
+            this.LblDescripcion.Text = "Descripcion";
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
-            this.label1.Location = new System.Drawing.Point(34, 262);
+            this.label1.Location = new System.Drawing.Point(34, 392);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(97, 19);
+            this.label1.Size = new System.Drawing.Size(50, 19);
             this.label1.TabIndex = 25;
-            this.label1.Text = "PrecioCompra";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
+            this.label1.Text = "Estado";
+            // 
+            // RdoInactivo
+            // 
+            this.RdoInactivo.AutoSize = true;
+            this.RdoInactivo.Location = new System.Drawing.Point(203, 393);
+            this.RdoInactivo.Name = "RdoInactivo";
+            this.RdoInactivo.Size = new System.Drawing.Size(63, 17);
+            this.RdoInactivo.TabIndex = 24;
+            this.RdoInactivo.TabStop = true;
+            this.RdoInactivo.Text = "Inactivo";
+            this.RdoInactivo.UseVisualStyleBackColor = true;
+            // 
+            // RdoActivo
+            // 
+            this.RdoActivo.AutoSize = true;
+            this.RdoActivo.Checked = true;
+            this.RdoActivo.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.RdoActivo.Location = new System.Drawing.Point(111, 393);
+            this.RdoActivo.Name = "RdoActivo";
+            this.RdoActivo.Size = new System.Drawing.Size(55, 17);
+            this.RdoActivo.TabIndex = 23;
+            this.RdoActivo.TabStop = true;
+            this.RdoActivo.Text = "Activo";
+            this.RdoActivo.UseVisualStyleBackColor = true;
             // 
             // btnAgregar
             // 
@@ -191,7 +227,7 @@
             this.btnAgregar.ForeColor = System.Drawing.Color.White;
             this.btnAgregar.Image = global::InventoryWalmart.Properties.Resources.iconoAgregar;
             this.btnAgregar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAgregar.Location = new System.Drawing.Point(96, 474);
+            this.btnAgregar.Location = new System.Drawing.Point(96, 515);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Padding = new System.Windows.Forms.Padding(10, 0, 35, 0);
             this.btnAgregar.Size = new System.Drawing.Size(170, 45);
@@ -199,22 +235,28 @@
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnAgregar.UseVisualStyleBackColor = false;
-            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
+            // 
+            // DtpInicio
+            // 
+            this.DtpInicio.Location = new System.Drawing.Point(38, 351);
+            this.DtpInicio.Name = "DtpInicio";
+            this.DtpInicio.Size = new System.Drawing.Size(200, 20);
+            this.DtpInicio.TabIndex = 18;
             // 
             // LblDevolucion
             // 
             this.LblDevolucion.AutoSize = true;
             this.LblDevolucion.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
-            this.LblDevolucion.Location = new System.Drawing.Point(34, 406);
+            this.LblDevolucion.Location = new System.Drawing.Point(34, 323);
             this.LblDevolucion.Name = "LblDevolucion";
-            this.LblDevolucion.Size = new System.Drawing.Size(72, 19);
+            this.LblDevolucion.Size = new System.Drawing.Size(45, 19);
             this.LblDevolucion.TabIndex = 17;
-            this.LblDevolucion.Text = "Proveedor";
+            this.LblDevolucion.Text = "Fecha";
             this.LblDevolucion.Click += new System.EventHandler(this.LblDevolucion_Click);
             // 
             // TxtNombreProduc
             // 
-            this.TxtNombreProduc.Location = new System.Drawing.Point(38, 98);
+            this.TxtNombreProduc.Location = new System.Drawing.Point(38, 125);
             this.TxtNombreProduc.Name = "TxtNombreProduc";
             this.TxtNombreProduc.Size = new System.Drawing.Size(271, 20);
             this.TxtNombreProduc.TabIndex = 16;
@@ -223,11 +265,30 @@
             // 
             this.LblEmail.AutoSize = true;
             this.LblEmail.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
-            this.LblEmail.Location = new System.Drawing.Point(34, 76);
+            this.LblEmail.Location = new System.Drawing.Point(34, 103);
             this.LblEmail.Name = "LblEmail";
             this.LblEmail.Size = new System.Drawing.Size(144, 19);
             this.LblEmail.TabIndex = 15;
             this.LblEmail.Text = "Nombre del producto";
+            // 
+            // TxtIdProduct
+            // 
+            this.TxtIdProduct.Location = new System.Drawing.Point(38, 72);
+            this.TxtIdProduct.Name = "TxtIdProduct";
+            this.TxtIdProduct.Size = new System.Drawing.Size(271, 20);
+            this.TxtIdProduct.TabIndex = 8;
+            // 
+            // LblIngresaDUI
+            // 
+            this.LblIngresaDUI.AutoSize = true;
+            this.LblIngresaDUI.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.LblIngresaDUI.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
+            this.LblIngresaDUI.Location = new System.Drawing.Point(34, 50);
+            this.LblIngresaDUI.Name = "LblIngresaDUI";
+            this.LblIngresaDUI.Size = new System.Drawing.Size(107, 19);
+            this.LblIngresaDUI.TabIndex = 7;
+            this.LblIngresaDUI.Text = "ID del producto";
+            this.LblIngresaDUI.Click += new System.EventHandler(this.LblIngresaDUI_Click);
             // 
             // barAcciones
             // 
@@ -242,7 +303,6 @@
             this.barAcciones.Name = "barAcciones";
             this.barAcciones.Size = new System.Drawing.Size(410, 59);
             this.barAcciones.TabIndex = 17;
-            this.barAcciones.MouseDown += new System.Windows.Forms.MouseEventHandler(this.barAcciones_MouseDown);
             // 
             // btnOcultar
             // 
@@ -255,7 +315,6 @@
             this.btnOcultar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.btnOcultar.TabIndex = 4;
             this.btnOcultar.TabStop = false;
-            this.btnOcultar.Click += new System.EventHandler(this.btnOcultar_Click);
             // 
             // btnMaximizar
             // 
@@ -268,7 +327,6 @@
             this.btnMaximizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.btnMaximizar.TabIndex = 3;
             this.btnMaximizar.TabStop = false;
-            this.btnMaximizar.Click += new System.EventHandler(this.btnMaximizar_Click);
             // 
             // btnCerrar
             // 
@@ -281,7 +339,6 @@
             this.btnCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.btnCerrar.TabIndex = 2;
             this.btnCerrar.TabStop = false;
-            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
             // 
             // btnRestaurar
             // 
@@ -294,7 +351,6 @@
             this.btnRestaurar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.btnRestaurar.TabIndex = 3;
             this.btnRestaurar.TabStop = false;
-            this.btnRestaurar.Click += new System.EventHandler(this.btnRestaurar_Click);
             // 
             // button1
             // 
@@ -306,7 +362,6 @@
             this.button1.Size = new System.Drawing.Size(35, 35);
             this.button1.TabIndex = 5;
             this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // FormAddProduct
             // 
@@ -335,10 +390,18 @@
 
         private System.Windows.Forms.Label LblTitulo;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.TextBox txtDescrip;
+        private System.Windows.Forms.Label LblDescripcion;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.RadioButton RdoInactivo;
+        private System.Windows.Forms.RadioButton RdoActivo;
         private System.Windows.Forms.Button btnAgregar;
+        private System.Windows.Forms.DateTimePicker DtpInicio;
+        private System.Windows.Forms.Label LblDevolucion;
         private System.Windows.Forms.TextBox TxtNombreProduc;
         private System.Windows.Forms.Label LblEmail;
+        private System.Windows.Forms.TextBox TxtIdProduct;
+        private System.Windows.Forms.Label LblIngresaDUI;
         private System.Windows.Forms.Panel barAcciones;
         private System.Windows.Forms.PictureBox btnOcultar;
         private System.Windows.Forms.PictureBox btnMaximizar;
@@ -351,8 +414,5 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtPrecio;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label LblDevolucion;
-        private System.Windows.Forms.ComboBox cb_proveedor;
-        private System.Windows.Forms.TextBox txtPrecioSub;
     }
 }

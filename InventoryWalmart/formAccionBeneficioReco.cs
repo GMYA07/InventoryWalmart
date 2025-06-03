@@ -14,19 +14,23 @@ namespace InventoryWalmart
 {
     public partial class formAccionBeneficioReco : Form
     {
+
+        public static string opcion = viewBenefitsRewards.opcion;
+        public static int Id_Benefit = viewBenefitsRewards.Id_Benefit;
+
         public formAccionBeneficioReco(int tipo)
         {
-            if (tipo == 0) {
-                InitializeComponent();
-                tituloForm.Text = "Modificar \r\nBeneficio o Recompensa\r\n";
-                btnModificar.Show();
+            InitializeComponent();
+
+
+            if (opcion == viewBenefitsRewards.opcion) {
+
+
                 btnAgregar.Hide();
             }
             else
             {
-                InitializeComponent();
-                btnAgregar.Show();
-                btnModificar.Hide();
+
             }
 
         }
@@ -81,22 +85,13 @@ namespace InventoryWalmart
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
-            var validarPorcentaje = Validar.ValidarPorcentaje(txtDescuento.Text);
-            var validarPuntos = Validar.ValidarNumero(txtPuntos.Text);
 
-            if (!validarPorcentaje)
-            {
-                MessageBox.Show("Descuento invalido! \nVerifique que el numero este en rango 1 - 100");
-                return;
+            if (Validacion())
+            {     
+
+
             }
-
-            if (!validarPuntos)
-            {
-                MessageBox.Show("Puntos invalidos! Verifique que sea tipo numerico");
-                return;
-            }
-
-            //aplicar logica luego de validaciones
+            
 
             limpiarForm();
         }
@@ -112,6 +107,33 @@ namespace InventoryWalmart
             txtDescrip.ResetText();
             txtDescuento.ResetText();
             txtPuntos.ResetText();
+        }
+
+        public bool Validacion()
+        {
+            var validarPorcentaje = Validar.ValidarPorcentaje(txtDescuento.Text);
+            var validarPuntos = Validar.ValidarNumero(txtPuntos.Text);
+
+            if (!validarPorcentaje)
+            {
+                MessageBox.Show("Descuento invalido! \nVerifique que el numero este en rango 1 - 100");
+                return false;
+            }
+
+            if (!validarPuntos)
+            {
+                MessageBox.Show("Puntos invalidos! Verifique que sea tipo numerico");
+                return false;
+            }
+
+            return true;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            viewBenefitsRewards view=new viewBenefitsRewards();
+            this.Hide();
+            view.Show();
         }
     }
 }

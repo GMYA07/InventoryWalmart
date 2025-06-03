@@ -24,7 +24,6 @@ namespace InventoryWalmart
         {
         
             InitializeComponent();
-            TxtCard.Enabled = false;
             
             if (opcion == "agregar")
             {
@@ -71,6 +70,22 @@ namespace InventoryWalmart
             CC.PointsBalance = PointsDAO.ObtenerPuntosPorDui(CC.Dui);
             CC.Status = RdoBton();
             customer_CardDAO.UpdateCustomerCard(CC);
+        }
+        private void btnAgregar_Click(object sender, EventArgs e)
+        {
+            if (opcion == "agregar")
+            {
+                InsertarCustomerCard();
+            }
+            else
+            {
+                UpdateCusomerCard();
+            }
+        }
+
+        private void BtnGenerar_Click(object sender, EventArgs e)
+        {
+            TxtCard.Text = GenerarNumeroCarta();
         }
 
         public string RdoBton()
@@ -143,21 +158,5 @@ namespace InventoryWalmart
             ChangeView<ViewMembership>();
         }
 
-        private void BtnGenerar_Click(object sender, EventArgs e)
-        {
-            TxtCard.Text = GenerarNumeroCarta();
-        }
-
-        private void btnAgregar_Click(object sender, EventArgs e)
-        {
-            if(opcion == "agregar")
-            {
-                InsertarCustomerCard();
-            }
-            else
-            {
-                UpdateCusomerCard();
-            }
-        }
     }
 }

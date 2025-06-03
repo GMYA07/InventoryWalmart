@@ -63,6 +63,25 @@ namespace InventoryWalmart
             return confirmacion;
         }
 
+        private void btnAgregar_Click(object sender, EventArgs e)
+        {
+            opcion = "agregar";
+            ChangeView<FormMembership>();
+        }
+
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+            DataGridViewRow row = Table_Membership.SelectedRows[0];
+            Customer_Card customer_Card = (Customer_Card)row.DataBoundItem;
+            if (ConfirmarSeleccion("editar"))
+            {
+                card = customer_Card.CardNumber;
+                idCard = customer_Card.IdCard;
+                opcion = "editar";
+                ChangeView<FormMembership>();
+            }
+        }
+
         //Codigo q nos ayuda con la administrasion de la barra de arriba y mover la ventana.
         //Drag Form
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
@@ -153,23 +172,6 @@ namespace InventoryWalmart
             vista.Show();
         }
 
-        private void btnAgregar_Click(object sender, EventArgs e)
-        {
-            opcion = "agregar";
-            ChangeView<FormMembership>();
-        }
-
-        private void btnModificar_Click(object sender, EventArgs e)
-        {
-            DataGridViewRow row = Table_Membership.SelectedRows[0];
-            Customer_Card customer_Card = (Customer_Card) row.DataBoundItem;
-            if (ConfirmarSeleccion("editar"))
-            {
-                card= customer_Card.CardNumber;
-                idCard = customer_Card.IdCard;
-                opcion = "editar";
-                ChangeView<FormMembership>();
-            }
-        }
+        
     }
 }

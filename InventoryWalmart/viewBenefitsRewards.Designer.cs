@@ -46,16 +46,8 @@
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.tableBenefitsRewards = new System.Windows.Forms.DataGridView();
-            this.columnID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.columnBenefits = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnDescripBene = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnPorcentajeDesc = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnDateStartD = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnDateEndD = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnPointsReq = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnStatu = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnAccion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.BtnVentas = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
@@ -65,7 +57,13 @@
             this.button7 = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.BtnVentas = new System.Windows.Forms.Button();
+            this.columnID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.columnBenefits = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnDescripBene = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnPorcentajeDesc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnDateStartD = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnDateEndD = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnPointsReq = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.barAcciones.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnOcultar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMaximizar)).BeginInit();
@@ -274,7 +272,7 @@
             // 
             // tableBenefitsRewards
             // 
-            this.tableBenefitsRewards.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.tableBenefitsRewards.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.tableBenefitsRewards.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.tableBenefitsRewards.BackgroundColor = System.Drawing.Color.White;
             this.tableBenefitsRewards.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -296,9 +294,7 @@
             this.ColumnPorcentajeDesc,
             this.ColumnDateStartD,
             this.ColumnDateEndD,
-            this.ColumnPointsReq,
-            this.ColumnStatu,
-            this.ColumnAccion});
+            this.ColumnPointsReq});
             this.tableBenefitsRewards.EnableHeadersVisualStyles = false;
             this.tableBenefitsRewards.Location = new System.Drawing.Point(343, 283);
             this.tableBenefitsRewards.Margin = new System.Windows.Forms.Padding(2);
@@ -319,68 +315,6 @@
             this.tableBenefitsRewards.TabIndex = 10;
             this.tableBenefitsRewards.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.tableBenefitsRewards_CellContentClick);
             // 
-            // columnID
-            // 
-            this.columnID.HeaderText = "ID";
-            this.columnID.MinimumWidth = 6;
-            this.columnID.Name = "columnID";
-            this.columnID.Width = 46;
-            // 
-            // columnBenefits
-            // 
-            this.columnBenefits.HeaderText = "Beneficio";
-            this.columnBenefits.MinimumWidth = 6;
-            this.columnBenefits.Name = "columnBenefits";
-            this.columnBenefits.Width = 89;
-            // 
-            // ColumnDescripBene
-            // 
-            this.ColumnDescripBene.HeaderText = "Descripcion Beneficio";
-            this.ColumnDescripBene.MinimumWidth = 6;
-            this.ColumnDescripBene.Name = "ColumnDescripBene";
-            this.ColumnDescripBene.Width = 150;
-            // 
-            // ColumnPorcentajeDesc
-            // 
-            this.ColumnPorcentajeDesc.HeaderText = "Porcentaje \nDescuento";
-            this.ColumnPorcentajeDesc.MinimumWidth = 6;
-            this.ColumnPorcentajeDesc.Name = "ColumnPorcentajeDesc";
-            this.ColumnPorcentajeDesc.Width = 101;
-            // 
-            // ColumnDateStartD
-            // 
-            this.ColumnDateStartD.HeaderText = "Fecha Inicio \nDescuento";
-            this.ColumnDateStartD.MinimumWidth = 6;
-            this.ColumnDateStartD.Name = "ColumnDateStartD";
-            // 
-            // ColumnDateEndD
-            // 
-            this.ColumnDateEndD.HeaderText = "Fecha Final \nDescuento";
-            this.ColumnDateEndD.MinimumWidth = 6;
-            this.ColumnDateEndD.Name = "ColumnDateEndD";
-            this.ColumnDateEndD.Width = 105;
-            // 
-            // ColumnPointsReq
-            // 
-            this.ColumnPointsReq.HeaderText = "Puntos\nRequeridos";
-            this.ColumnPointsReq.MinimumWidth = 6;
-            this.ColumnPointsReq.Name = "ColumnPointsReq";
-            this.ColumnPointsReq.Width = 101;
-            // 
-            // ColumnStatu
-            // 
-            this.ColumnStatu.HeaderText = "Estado";
-            this.ColumnStatu.MinimumWidth = 6;
-            this.ColumnStatu.Name = "ColumnStatu";
-            this.ColumnStatu.Width = 73;
-            // 
-            // ColumnAccion
-            // 
-            this.ColumnAccion.HeaderText = "Accion";
-            this.ColumnAccion.MinimumWidth = 6;
-            this.ColumnAccion.Name = "ColumnAccion";
-            this.ColumnAccion.Width = 73;
-            // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(114)))), ((int)(((byte)(223)))));
@@ -399,6 +333,27 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(250, 661);
             this.panel1.TabIndex = 26;
+            // 
+            // BtnVentas
+            // 
+            this.BtnVentas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(114)))), ((int)(((byte)(223)))));
+            this.BtnVentas.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnVentas.Dock = System.Windows.Forms.DockStyle.Top;
+            this.BtnVentas.FlatAppearance.BorderSize = 0;
+            this.BtnVentas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnVentas.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnVentas.ForeColor = System.Drawing.Color.White;
+            this.BtnVentas.Image = global::InventoryWalmart.Properties.Resources.IconoSales;
+            this.BtnVentas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnVentas.Location = new System.Drawing.Point(0, 448);
+            this.BtnVentas.Name = "BtnVentas";
+            this.BtnVentas.Padding = new System.Windows.Forms.Padding(0, 0, 100, 0);
+            this.BtnVentas.Size = new System.Drawing.Size(250, 40);
+            this.BtnVentas.TabIndex = 12;
+            this.BtnVentas.Text = "Ventas";
+            this.BtnVentas.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnVentas.UseVisualStyleBackColor = false;
+            this.BtnVentas.Click += new System.EventHandler(this.BtnVentas_Click);
             // 
             // button1
             // 
@@ -579,26 +534,54 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
-            // BtnVentas
+            // columnID
             // 
-            this.BtnVentas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(114)))), ((int)(((byte)(223)))));
-            this.BtnVentas.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnVentas.Dock = System.Windows.Forms.DockStyle.Top;
-            this.BtnVentas.FlatAppearance.BorderSize = 0;
-            this.BtnVentas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnVentas.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnVentas.ForeColor = System.Drawing.Color.White;
-            this.BtnVentas.Image = global::InventoryWalmart.Properties.Resources.IconoSales;
-            this.BtnVentas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnVentas.Location = new System.Drawing.Point(0, 448);
-            this.BtnVentas.Name = "BtnVentas";
-            this.BtnVentas.Padding = new System.Windows.Forms.Padding(0, 0, 100, 0);
-            this.BtnVentas.Size = new System.Drawing.Size(250, 40);
-            this.BtnVentas.TabIndex = 12;
-            this.BtnVentas.Text = "Ventas";
-            this.BtnVentas.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.BtnVentas.UseVisualStyleBackColor = false;
-            this.BtnVentas.Click += new System.EventHandler(this.BtnVentas_Click);
+            this.columnID.DataPropertyName = "IdBenefit";
+            this.columnID.HeaderText = "ID";
+            this.columnID.MinimumWidth = 6;
+            this.columnID.Name = "columnID";
+            // 
+            // columnBenefits
+            // 
+            this.columnBenefits.DataPropertyName = "benefitName";
+            this.columnBenefits.HeaderText = "Beneficio";
+            this.columnBenefits.MinimumWidth = 6;
+            this.columnBenefits.Name = "columnBenefits";
+            // 
+            // ColumnDescripBene
+            // 
+            this.ColumnDescripBene.DataPropertyName = "description";
+            this.ColumnDescripBene.HeaderText = "Descripcion Beneficio";
+            this.ColumnDescripBene.MinimumWidth = 6;
+            this.ColumnDescripBene.Name = "ColumnDescripBene";
+            // 
+            // ColumnPorcentajeDesc
+            // 
+            this.ColumnPorcentajeDesc.DataPropertyName = "DiscountPercent";
+            this.ColumnPorcentajeDesc.HeaderText = "Porcentaje \nDescuento";
+            this.ColumnPorcentajeDesc.MinimumWidth = 6;
+            this.ColumnPorcentajeDesc.Name = "ColumnPorcentajeDesc";
+            // 
+            // ColumnDateStartD
+            // 
+            this.ColumnDateStartD.DataPropertyName = "StartDate";
+            this.ColumnDateStartD.HeaderText = "Fecha Inicio \nDescuento";
+            this.ColumnDateStartD.MinimumWidth = 6;
+            this.ColumnDateStartD.Name = "ColumnDateStartD";
+            // 
+            // ColumnDateEndD
+            // 
+            this.ColumnDateEndD.DataPropertyName = "EndDate";
+            this.ColumnDateEndD.HeaderText = "Fecha Final \nDescuento";
+            this.ColumnDateEndD.MinimumWidth = 6;
+            this.ColumnDateEndD.Name = "ColumnDateEndD";
+            // 
+            // ColumnPointsReq
+            // 
+            this.ColumnPointsReq.DataPropertyName = "PointsRequierd";
+            this.ColumnPointsReq.HeaderText = "Puntos\nRequeridos";
+            this.ColumnPointsReq.MinimumWidth = 6;
+            this.ColumnPointsReq.Name = "ColumnPointsReq";
             // 
             // viewBenefitsRewards
             // 
@@ -650,15 +633,6 @@
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.Button btnModificar;
         private System.Windows.Forms.DataGridView tableBenefitsRewards;
-        private System.Windows.Forms.DataGridViewTextBoxColumn columnID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn columnBenefits;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnDescripBene;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnPorcentajeDesc;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnDateStartD;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnDateEndD;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnPointsReq;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnStatu;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnAccion;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
@@ -670,5 +644,12 @@
         private System.Windows.Forms.Button button8;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button BtnVentas;
+        private System.Windows.Forms.DataGridViewTextBoxColumn columnID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn columnBenefits;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnDescripBene;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnPorcentajeDesc;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnDateStartD;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnDateEndD;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnPointsReq;
     }
 }

@@ -111,103 +111,137 @@ namespace InventoryWalmart.Database
             }
         }
 
-        public static class BenefitDAO
+      
+        
+        public static List<Benefits> SelectBenefits()
         {
-            public static List<Benefits> SelectBenefits()
+            List<Benefits> benefitss = new List<Benefits>();
+
+            string query = @"SELECT
+                        id_benefit,
+                        benefit_name,
+                        description,
+                        points_required,
+                        discount_percentage,
+                        start_date,
+                        end_date
+                        FROM BENEFITS;";
+
+            using (SqlConnection connection = Connection.ObtenerConexion())
             {
-                List<Benefits> benefitss = new List<Benefits>();
+                SqlCommand command = new SqlCommand(query, connection);
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
 
-                string query = @"SELECT
-                            id_benefit,
-                            benefit_name,
-                            description,
-                            points_required,
-                            discount_percentage,
-                            start_date,
-                            end_date
-                         FROM BENEFITS;";
+                while (reader.Read())
+                {
+                    Benefits benefit = new Benefits
+                    {
+                        IdBenefit = reader.GetInt32(0),
+                        BenefitName = reader.GetString(1),
+                        Description = reader.GetString(2),
+                        PointsRequierd = reader.GetInt32(3),
+                        DiscountPercent = reader.GetDecimal(4),
+                        StartDate = reader.GetDateTime(5),
+                        EndDate = reader.GetDateTime(6)
+                    };
+                    benefitss.Add(benefit);
+                }
+                reader.Close();
+            }
 
+            return benefitss;
+        }
+
+        public static void InsertBenefit(Benefits benefit)
+        {
+            try
+            {
                 using (SqlConnection connection = Connection.ObtenerConexion())
                 {
-                    SqlCommand command = new SqlCommand(query, connection);
+                    SqlCommand command = new SqlCommand("insertBenefits", connection);
+                    command.CommandType = CommandType.StoredProcedure;
+
+                    command.Parameters.AddWithValue("@benefit_name", benefit.BenefitName);
+                    command.Parameters.AddWithValue("@description", benefit.Description);
+                    command.Parameters.AddWithValue("@points_percentage", benefit.PointsRequierd);
+                    command.Parameters.AddWithValue("@discount_percentage", benefit.DiscountPercent);
+                    command.Parameters.AddWithValue("@start_date", benefit.StartDate);
+                    command.Parameters.AddWithValue("@end_date", benefit.EndDate);
+
                     connection.Open();
-                    SqlDataReader reader = command.ExecuteReader();
-
-                    while (reader.Read())
-                    {
-                        Benefits benefit = new Benefits
-                        {
-                            IdBenefit = reader.GetInt32(0),
-                            BenefitName = reader.GetString(1),
-                            Description = reader.GetString(2),
-                            PointsRequierd = reader.GetInt32(3),
-                            DiscountPercent = reader.GetDecimal(4),
-                            StartDate = reader.GetDateTime(5),
-                            EndDate = reader.GetDateTime(6)
-                        };
-                        benefitss.Add(benefit);
-                    }
-                    reader.Close();
-                }
-
-                return benefitss;
-            }
-
-            public static void InsertBenefit(Benefits benefit)
-            {
-                try
-                {
-                    using (SqlConnection connection = Connection.ObtenerConexion())
-                    {
-                        SqlCommand command = new SqlCommand("insertBenefits", connection);
-                        command.CommandType = CommandType.StoredProcedure;
-
-                        command.Parameters.AddWithValue("@benefit_name", benefit.BenefitName);
-                        command.Parameters.AddWithValue("@description", benefit.Description);
-                        command.Parameters.AddWithValue("@points_percentage", benefit.PointsRequierd);
-                        command.Parameters.AddWithValue("@discount_percentage", benefit.DiscountPercent);
-                        command.Parameters.AddWithValue("@start_date", benefit.StartDate);
-                        command.Parameters.AddWithValue("@end_date", benefit.EndDate);
-
-                        connection.Open();
-                        command.ExecuteNonQuery();
-                        Alertas.AlertCorrect("Éxito", "Beneficio agregado correctamente.");
-                    }
-                }
-                catch (SqlException ex)
-                {
-                    Alertas.AlertError("ERROR", $"No se pudo registrar el beneficio: {ex.Message}");
+                    command.ExecuteNonQuery();
+                    Alertas.AlertCorrect("Éxito", "Beneficio agregado correctamente.");
                 }
             }
-
-            public static void UpdateBenefit(Benefits benefit)
+            catch (SqlException ex)
             {
-                try
-                {
-                    using (SqlConnection connection = Connection.ObtenerConexion())
-                    {
-                        SqlCommand command = new SqlCommand("update_Benefits", connection);
-                        command.CommandType = CommandType.StoredProcedure;
-
-                        command.Parameters.AddWithValue("@id_benefit", benefit.IdBenefit);
-                        command.Parameters.AddWithValue("@benefit_name", benefit.BenefitName);
-                        command.Parameters.AddWithValue("@description", benefit.Description);
-                        command.Parameters.AddWithValue("@points_percentage", benefit.PointsRequierd);
-                        command.Parameters.AddWithValue("@discount_percentage", benefit.DiscountPercent);
-                        command.Parameters.AddWithValue("@start_date", benefit.StartDate);
-                        command.Parameters.AddWithValue("@end_date", benefit.EndDate);
-
-                        connection.Open();
-                        command.ExecuteNonQuery();
-                        Alertas.AlertInfo("Éxito", "Se actualizó el beneficio correctamente.");
-                    }
-                }
-                catch (SqlException ex)
-                {
-                    Alertas.AlertError("ERROR", $"No se pudo actualizar el beneficio: {ex.Message}");
-                }
+                Alertas.AlertError("ERROR", $"No se pudo registrar el beneficio: {ex.Message}");
             }
         }
 
+        public static void UpdateBenefit(Benefits benefit)
+        {
+            try
+            {
+                using (SqlConnection connection = Connection.ObtenerConexion())
+                {
+                    SqlCommand command = new SqlCommand("update_Benefits", connection);
+                    command.CommandType = CommandType.StoredProcedure;
+
+                    command.Parameters.AddWithValue("@id_benefit", benefit.IdBenefit);
+                    command.Parameters.AddWithValue("@benefit_name", benefit.BenefitName);
+                    command.Parameters.AddWithValue("@description", benefit.Description);
+                    command.Parameters.AddWithValue("@points_percentage", benefit.PointsRequierd);
+                    command.Parameters.AddWithValue("@discount_percentage", benefit.DiscountPercent);
+                    command.Parameters.AddWithValue("@start_date", benefit.StartDate);
+                    command.Parameters.AddWithValue("@end_date", benefit.EndDate);
+
+                    connection.Open();
+                    command.ExecuteNonQuery();
+                    Alertas.AlertInfo("Éxito", "Se actualizó el beneficio correctamente.");
+                }
+            }
+            catch (SqlException ex)
+            {
+                Alertas.AlertError("ERROR", $"No se pudo actualizar el beneficio: {ex.Message}");
+            }
+        }
+
+        public static Benefits GetBenefitById(int id)
+        {
+            Benefits benefit = null;
+            try
+            {
+                SqlConnection connection = Connection.ObtenerConexion();
+
+                connection.Open();
+                SqlCommand cmd = new SqlCommand("SELECT * FROM BENEFITS WHERE id_benefit = @id", connection);
+                cmd.Parameters.AddWithValue("@id", id);
+
+                SqlDataReader reader = cmd.ExecuteReader();
+
+                if (reader.Read())
+                {
+                    benefit = new Benefits
+                    {
+                        IdBenefit = Convert.ToInt32(reader["id_benefit"]),
+                        BenefitName = reader["benefit_name"].ToString(),
+                        Description = reader["description"].ToString(),
+                        PointsRequierd = Convert.ToInt32(reader["points_required"]),
+                        DiscountPercent = Convert.ToDecimal(reader["discount_percentage"]),
+                        StartDate = Convert.ToDateTime(reader["start_date"]),
+                        EndDate = Convert.ToDateTime(reader["end_date"])
+                    };
+                }
+                connection.Close();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al obtener beneficio: " + ex.Message);
+            }
+
+            return benefit;
+        }
     }
 }

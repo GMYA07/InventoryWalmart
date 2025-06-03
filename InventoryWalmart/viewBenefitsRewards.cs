@@ -1,4 +1,5 @@
-﻿using InventoryWalmart.Model;
+﻿using InventoryWalmart.Database;
+using InventoryWalmart.Model;
 using InventoryWalmart.Utils;
 using System;
 using System.Collections.Generic;
@@ -36,7 +37,7 @@ namespace InventoryWalmart
             try
             {
                 tableBenefitsRewards.AutoGenerateColumns = false;
-                var lista = BenefitDAO.SelectBenefits();
+                var lista = BenefitsDAO.SelectBenefits();
                 tableBenefitsRewards.DataSource = lista;
             }
             catch (Exception ex)
@@ -114,11 +115,9 @@ namespace InventoryWalmart
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             opcion = "agregar";
-            formAccionBeneficioReco formAccionBeneficioReco = new formAccionBeneficioReco(1);
+            formAccionBeneficioReco formAccionBeneficioReco = new formAccionBeneficioReco();
             this.Hide();
             formAccionBeneficioReco.Show();
-
-
 
         }
 
@@ -130,12 +129,10 @@ namespace InventoryWalmart
             {
                 Id_Benefit = Benefits.IdBenefit;
                 opcion = "editar";
-                formAccionBeneficioReco formAccionBeneficioReco = new formAccionBeneficioReco(0);
+                formAccionBeneficioReco formAccionBeneficioReco = new formAccionBeneficioReco();
                 this.Hide();
                 formAccionBeneficioReco.Show();
             }
-            
-
         }
 
 

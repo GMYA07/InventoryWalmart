@@ -1,4 +1,6 @@
-﻿using InventoryWalmart.Validaciones;
+﻿using InventoryWalmart.Database;
+using InventoryWalmart.Model;
+using InventoryWalmart.Validaciones;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -9,28 +11,33 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static InventoryWalmart.Database.BenefitsDAO;
 
 namespace InventoryWalmart
 {
     public partial class formAccionBeneficioReco : Form
     {
 
-        public static string opcion = viewBenefitsRewards.opcion;
-        public static int Id_Benefit = viewBenefitsRewards.Id_Benefit;
+        public string opcion = viewBenefitsRewards.opcion;
+        public int Id_Benefit = viewBenefitsRewards.Id_Benefit;
 
-        public formAccionBeneficioReco(int tipo)
+        public formAccionBeneficioReco()
         {
             InitializeComponent();
 
-
-            if (opcion == viewBenefitsRewards.opcion) {
-
-
-                btnAgregar.Hide();
+            if (opcion == "agregar")
+            {
+                limpiarForm();
+                tituloForm.Text = "Agregar beneficio";
+                btnAgregar.Text = "Guardar";
+                btnAgregar.BackColor = Color.Green;
             }
             else
             {
-
+                CargarBenefit();
+                tituloForm.Text = "Editar beneficio";
+                btnAgregar.Text = "Actualizar";
+                btnAgregar.BackColor = Color.Blue;
             }
 
         }
@@ -83,19 +90,6 @@ namespace InventoryWalmart
 
         }
 
-        private void btnModificar_Click(object sender, EventArgs e)
-        {
-
-            if (Validacion())
-            {     
-
-
-            }
-            
-
-            limpiarForm();
-        }
-
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
 
@@ -134,6 +128,67 @@ namespace InventoryWalmart
             viewBenefitsRewards view=new viewBenefitsRewards();
             this.Hide();
             view.Show();
+        }
+
+        private void btnAgregar_Click(object sender, EventArgs e)
+        {
+            if (Validacion())
+            {
+                if (opcion == "agregar")
+                {
+                    InsertarBenefit();
+                }
+                else
+                {
+                    ActualizarBenefit();
+                }
+                
+            }
+        }
+
+        private void InsertarBenefit()
+        {
+            Benefits benefit = new Benefits
+            {
+                BenefitName = txtBeneficio.Text,
+                Description = txtDescrip.Text,
+                PointsRequierd = int.Parse(txtPuntos.Text),
+                DiscountPercent = decimal.Parse(txtDescuento.Text),
+                StartDate = DTPInicio.Value,
+                EndDate = DTPfin.Value
+            };
+
+            BenefitsDAO.InsertBenefit(benefit);
+
+        }
+
+        private void ActualizarBenefit()
+        {
+            Benefits benefit = new Benefits
+            {
+                IdBenefit = Id_Benefit,
+                BenefitName = txtBeneficio.Text,
+                Description = txtDescrip.Text,
+                PointsRequierd = int.Parse(txtPuntos.Text),
+                DiscountPercent = decimal.Parse(txtDescuento.Text),
+                StartDate = DTPInicio.Value,
+                EndDate = DTPfin.Value
+            };
+
+            BenefitsDAO.UpdateBenefit(benefit);
+
+        }
+
+        private void CargarBenefit()
+        {
+            Benefits benefit = BenefitsDAO.GetBenefitById(Id_Benefit);
+
+            txtBeneficio.Text = benefit.BenefitName;
+            txtDescrip.Text = benefit.Description;
+            txtPuntos.Text = benefit.PointsRequierd.ToString();
+            txtDescuento.Text = benefit.DiscountPercent.ToString("0.00");
+            DTPfin.Value = benefit.StartDate;
+            DTPfin.Value = benefit.EndDate;
         }
     }
 }

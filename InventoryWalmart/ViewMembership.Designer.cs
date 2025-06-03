@@ -29,14 +29,15 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ViewMembership));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.barAcciones = new System.Windows.Forms.Panel();
             this.btnOcultar = new System.Windows.Forms.PictureBox();
             this.btnMaximizar = new System.Windows.Forms.PictureBox();
             this.btnCerrar = new System.Windows.Forms.PictureBox();
             this.btnRestaurar = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.BtnVentas = new System.Windows.Forms.Button();
             this.BtnPuntos = new System.Windows.Forms.Button();
             this.btnClientes = new System.Windows.Forms.Button();
             this.btnEmpleado = new System.Windows.Forms.Button();
@@ -46,14 +47,7 @@
             this.btnPromociones = new System.Windows.Forms.Button();
             this.btnInicio = new System.Windows.Forms.Button();
             this.logo = new System.Windows.Forms.PictureBox();
-            this.Table_Customers = new System.Windows.Forms.DataGridView();
-            this.ColumnId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnNumeroCarta = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnInicio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnExpiracion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnBalance = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnEstado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Table_Membership = new System.Windows.Forms.DataGridView();
             this.panel3 = new System.Windows.Forms.Panel();
             this.btnModificar = new System.Windows.Forms.Button();
             this.btnAgregar = new System.Windows.Forms.Button();
@@ -61,7 +55,13 @@
             this.inputBuscar = new System.Windows.Forms.TextBox();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.Lbl_Title = new System.Windows.Forms.Label();
-            this.BtnVentas = new System.Windows.Forms.Button();
+            this.ColumnId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnNumeroCarta = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnInicio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnExpiracion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnBalance = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnEstado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.barAcciones.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnOcultar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMaximizar)).BeginInit();
@@ -69,7 +69,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnRestaurar)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.logo)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Table_Customers)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Table_Membership)).BeginInit();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -158,6 +158,27 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(250, 661);
             this.panel1.TabIndex = 19;
+            // 
+            // BtnVentas
+            // 
+            this.BtnVentas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(114)))), ((int)(((byte)(223)))));
+            this.BtnVentas.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnVentas.Dock = System.Windows.Forms.DockStyle.Top;
+            this.BtnVentas.FlatAppearance.BorderSize = 0;
+            this.BtnVentas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnVentas.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnVentas.ForeColor = System.Drawing.Color.White;
+            this.BtnVentas.Image = global::InventoryWalmart.Properties.Resources.IconoSales;
+            this.BtnVentas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnVentas.Location = new System.Drawing.Point(0, 448);
+            this.BtnVentas.Name = "BtnVentas";
+            this.BtnVentas.Padding = new System.Windows.Forms.Padding(0, 0, 100, 0);
+            this.BtnVentas.Size = new System.Drawing.Size(250, 40);
+            this.BtnVentas.TabIndex = 10;
+            this.BtnVentas.Text = "Ventas";
+            this.BtnVentas.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnVentas.UseVisualStyleBackColor = false;
+            this.BtnVentas.Click += new System.EventHandler(this.BtnVentas_Click);
             // 
             // BtnPuntos
             // 
@@ -338,24 +359,24 @@
             this.logo.TabIndex = 0;
             this.logo.TabStop = false;
             // 
-            // Table_Customers
+            // Table_Membership
             // 
-            this.Table_Customers.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.Table_Customers.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.Table_Customers.BackgroundColor = System.Drawing.Color.White;
-            this.Table_Customers.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.Table_Customers.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(113)))), ((int)(((byte)(207)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Table_Customers.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.Table_Customers.ColumnHeadersHeight = 30;
-            this.Table_Customers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.Table_Customers.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Table_Membership.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.Table_Membership.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.Table_Membership.BackgroundColor = System.Drawing.Color.White;
+            this.Table_Membership.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.Table_Membership.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(113)))), ((int)(((byte)(207)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Table_Membership.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.Table_Membership.ColumnHeadersHeight = 30;
+            this.Table_Membership.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.Table_Membership.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ColumnId,
             this.ColumnCliente,
             this.ColumnNumeroCarta,
@@ -363,70 +384,22 @@
             this.ColumnExpiracion,
             this.ColumnBalance,
             this.ColumnEstado});
-            this.Table_Customers.EnableHeadersVisualStyles = false;
-            this.Table_Customers.Location = new System.Drawing.Point(454, 267);
-            this.Table_Customers.Name = "Table_Customers";
-            this.Table_Customers.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(113)))), ((int)(((byte)(207)))));
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Table_Customers.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
-            this.Table_Customers.RowHeadersVisible = false;
-            this.Table_Customers.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.Table_Customers.Size = new System.Drawing.Size(572, 408);
-            this.Table_Customers.TabIndex = 27;
-            // 
-            // ColumnId
-            // 
-            this.ColumnId.HeaderText = "ID";
-            this.ColumnId.Name = "ColumnId";
-            this.ColumnId.Width = 46;
-            // 
-            // ColumnCliente
-            // 
-            this.ColumnCliente.HeaderText = "Cliente";
-            this.ColumnCliente.Name = "ColumnCliente";
-            this.ColumnCliente.ReadOnly = true;
-            this.ColumnCliente.Width = 75;
-            // 
-            // ColumnNumeroCarta
-            // 
-            this.ColumnNumeroCarta.HeaderText = "numero de Carta";
-            this.ColumnNumeroCarta.Name = "ColumnNumeroCarta";
-            this.ColumnNumeroCarta.ReadOnly = true;
-            this.ColumnNumeroCarta.Width = 135;
-            // 
-            // ColumnInicio
-            // 
-            this.ColumnInicio.HeaderText = "Inicio";
-            this.ColumnInicio.Name = "ColumnInicio";
-            this.ColumnInicio.ReadOnly = true;
-            this.ColumnInicio.Width = 66;
-            // 
-            // ColumnExpiracion
-            // 
-            this.ColumnExpiracion.HeaderText = "Expiracion";
-            this.ColumnExpiracion.Name = "ColumnExpiracion";
-            this.ColumnExpiracion.ReadOnly = true;
-            this.ColumnExpiracion.Width = 96;
-            // 
-            // ColumnBalance
-            // 
-            this.ColumnBalance.HeaderText = "Balance";
-            this.ColumnBalance.Name = "ColumnBalance";
-            this.ColumnBalance.ReadOnly = true;
-            this.ColumnBalance.Width = 79;
-            // 
-            // ColumnEstado
-            // 
-            this.ColumnEstado.HeaderText = "Estado";
-            this.ColumnEstado.Name = "ColumnEstado";
-            this.ColumnEstado.ReadOnly = true;
-            this.ColumnEstado.Width = 73;
+            this.Table_Membership.EnableHeadersVisualStyles = false;
+            this.Table_Membership.Location = new System.Drawing.Point(295, 267);
+            this.Table_Membership.Name = "Table_Membership";
+            this.Table_Membership.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(113)))), ((int)(((byte)(207)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Table_Membership.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.Table_Membership.RowHeadersVisible = false;
+            this.Table_Membership.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.Table_Membership.Size = new System.Drawing.Size(944, 408);
+            this.Table_Membership.TabIndex = 27;
             // 
             // panel3
             // 
@@ -518,26 +491,53 @@
             this.Lbl_Title.TabIndex = 24;
             this.Lbl_Title.Text = "Membresia";
             // 
-            // BtnVentas
+            // ColumnId
             // 
-            this.BtnVentas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(114)))), ((int)(((byte)(223)))));
-            this.BtnVentas.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnVentas.Dock = System.Windows.Forms.DockStyle.Top;
-            this.BtnVentas.FlatAppearance.BorderSize = 0;
-            this.BtnVentas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnVentas.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnVentas.ForeColor = System.Drawing.Color.White;
-            this.BtnVentas.Image = global::InventoryWalmart.Properties.Resources.IconoSales;
-            this.BtnVentas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnVentas.Location = new System.Drawing.Point(0, 448);
-            this.BtnVentas.Name = "BtnVentas";
-            this.BtnVentas.Padding = new System.Windows.Forms.Padding(0, 0, 100, 0);
-            this.BtnVentas.Size = new System.Drawing.Size(250, 40);
-            this.BtnVentas.TabIndex = 10;
-            this.BtnVentas.Text = "Ventas";
-            this.BtnVentas.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.BtnVentas.UseVisualStyleBackColor = false;
-            this.BtnVentas.Click += new System.EventHandler(this.BtnVentas_Click);
+            this.ColumnId.DataPropertyName = "IdCard";
+            this.ColumnId.HeaderText = "ID";
+            this.ColumnId.Name = "ColumnId";
+            // 
+            // ColumnCliente
+            // 
+            this.ColumnCliente.DataPropertyName = "CustomerName";
+            this.ColumnCliente.HeaderText = "Cliente";
+            this.ColumnCliente.Name = "ColumnCliente";
+            this.ColumnCliente.ReadOnly = true;
+            // 
+            // ColumnNumeroCarta
+            // 
+            this.ColumnNumeroCarta.DataPropertyName = "CardNumber";
+            this.ColumnNumeroCarta.HeaderText = "numero de Carta";
+            this.ColumnNumeroCarta.Name = "ColumnNumeroCarta";
+            this.ColumnNumeroCarta.ReadOnly = true;
+            // 
+            // ColumnInicio
+            // 
+            this.ColumnInicio.DataPropertyName = "IssueDate";
+            this.ColumnInicio.HeaderText = "Inicio";
+            this.ColumnInicio.Name = "ColumnInicio";
+            this.ColumnInicio.ReadOnly = true;
+            // 
+            // ColumnExpiracion
+            // 
+            this.ColumnExpiracion.DataPropertyName = "ExpirationDate";
+            this.ColumnExpiracion.HeaderText = "Expiracion";
+            this.ColumnExpiracion.Name = "ColumnExpiracion";
+            this.ColumnExpiracion.ReadOnly = true;
+            // 
+            // ColumnBalance
+            // 
+            this.ColumnBalance.DataPropertyName = "PointsBalance";
+            this.ColumnBalance.HeaderText = "Balance";
+            this.ColumnBalance.Name = "ColumnBalance";
+            this.ColumnBalance.ReadOnly = true;
+            // 
+            // ColumnEstado
+            // 
+            this.ColumnEstado.DataPropertyName = "Status";
+            this.ColumnEstado.HeaderText = "Estado";
+            this.ColumnEstado.Name = "ColumnEstado";
+            this.ColumnEstado.ReadOnly = true;
             // 
             // ViewMembership
             // 
@@ -545,7 +545,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1280, 720);
-            this.Controls.Add(this.Table_Customers);
+            this.Controls.Add(this.Table_Membership);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.Lbl_Title);
@@ -562,7 +562,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnRestaurar)).EndInit();
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.logo)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Table_Customers)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Table_Membership)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
@@ -588,7 +588,7 @@
         private System.Windows.Forms.Button btnPromociones;
         private System.Windows.Forms.Button btnInicio;
         private System.Windows.Forms.PictureBox logo;
-        private System.Windows.Forms.DataGridView Table_Customers;
+        private System.Windows.Forms.DataGridView Table_Membership;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Button btnModificar;
         private System.Windows.Forms.Button btnAgregar;
@@ -596,6 +596,7 @@
         private System.Windows.Forms.TextBox inputBuscar;
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.Label Lbl_Title;
+        private System.Windows.Forms.Button BtnVentas;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnId;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnCliente;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnNumeroCarta;
@@ -603,6 +604,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnExpiracion;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnBalance;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnEstado;
-        private System.Windows.Forms.Button BtnVentas;
     }
 }

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using InventoryWalmart.Database;
+using InventoryWalmart.Model;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -16,6 +18,7 @@ namespace InventoryWalmart
         public viewGestionVentas()
         {
             InitializeComponent();
+            llenarTabla();
         }
 
         private void viewGestionVentas_Load(object sender, EventArgs e)
@@ -124,6 +127,73 @@ namespace InventoryWalmart
             
         }
 
-        
+        private void llenarTabla()
+        {
+            try
+            {
+                tbl_ventas.Rows.Clear();
+                tbl_ventas.Columns.Clear();
+
+                // Configuración inicial del DataGridView
+                tbl_ventas.AutoGenerateColumns = false;
+                tbl_ventas.AllowUserToAddRows = false;
+
+                // Definir columnas
+                var columns = new[]
+                {
+            new DataGridViewTextBoxColumn { Name = "id", HeaderText = "ID DE VENTA" },
+            new DataGridViewTextBoxColumn { Name = "fecha", HeaderText = "FECHA" },
+            new DataGridViewTextBoxColumn { Name = "cliente", HeaderText = "CLIENTE" },
+            new DataGridViewTextBoxColumn { Name = "total", HeaderText = "TOTAL" },
+            new DataGridViewTextBoxColumn { Name = "pago", HeaderText = "METODO DE PAGO" },
+            new DataGridViewTextBoxColumn { Name = "estado", HeaderText = "ESTADO" }
+        };
+
+                tbl_ventas.Columns.AddRange(columns);
+
+                // Obtener datos
+                var ventas = SaleDAO.ObtenerVentasDetalladas();
+
+                if (ventas == null || ventas.Count == 0)
+                {
+                    MessageBox.Show("No se encontraron ventas", "Información",
+                                  MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
+
+                // Llenar tabla
+                foreach (var (venta, cliente, metodoPago, estado) in ventas)
+                {
+                    // Validar datos
+                    if (venta == null || cliente == null || metodoPago == null)
+                        continue;
+
+                    string nombreCliente = $"{cliente.FirstName?.Trim()} {cliente.LastName?.Trim()}".Trim();
+                    if (string.IsNullOrEmpty(nombreCliente))
+                        nombreCliente = "CLIENTE NO ESPECIFICADO";
+
+                    // Agregar fila
+                    tbl_ventas.Rows.Add(
+                        venta.IdSale,
+                        venta.SaleDate.ToShortDateString(),
+                        nombreCliente,
+                        venta.TotalAmount.ToString("C2"),
+                        metodoPago.GetMetodoPago() ?? "NO ESPECIFICADO",
+                        estado ?? "PENDIENTE"
+                    );
+                }
+
+                // Ajustar columnas
+                tbl_ventas.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al cargar la tabla: {ex.Message}", "Error",
+                              MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+
+
     }
 }

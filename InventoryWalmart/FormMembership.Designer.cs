@@ -38,17 +38,17 @@
             this.button1 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.RdoInactivo = new System.Windows.Forms.RadioButton();
             this.RdoActivo = new System.Windows.Forms.RadioButton();
             this.BtnGenerar = new System.Windows.Forms.Button();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.btnModificar = new System.Windows.Forms.Button();
             this.DtpInicio = new System.Windows.Forms.DateTimePicker();
             this.LblInicio = new System.Windows.Forms.Label();
-            this.TxtEmail = new System.Windows.Forms.TextBox();
+            this.TxtCard = new System.Windows.Forms.TextBox();
             this.LblEmail = new System.Windows.Forms.Label();
-            this.TxtNombre = new System.Windows.Forms.TextBox();
             this.LblIngresaDUI = new System.Windows.Forms.Label();
+            this.RdoInactivo = new System.Windows.Forms.RadioButton();
+            this.TxtDui = new System.Windows.Forms.TextBox();
             this.barAcciones.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnOcultar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMaximizar)).BeginInit();
@@ -156,9 +156,9 @@
             this.panel1.Controls.Add(this.btnModificar);
             this.panel1.Controls.Add(this.DtpInicio);
             this.panel1.Controls.Add(this.LblInicio);
-            this.panel1.Controls.Add(this.TxtEmail);
+            this.panel1.Controls.Add(this.TxtCard);
             this.panel1.Controls.Add(this.LblEmail);
-            this.panel1.Controls.Add(this.TxtNombre);
+            this.panel1.Controls.Add(this.TxtDui);
             this.panel1.Controls.Add(this.LblIngresaDUI);
             this.panel1.Location = new System.Drawing.Point(49, 131);
             this.panel1.Name = "panel1";
@@ -174,17 +174,6 @@
             this.label1.Size = new System.Drawing.Size(50, 19);
             this.label1.TabIndex = 25;
             this.label1.Text = "Estado";
-            // 
-            // RdoInactivo
-            // 
-            this.RdoInactivo.AutoSize = true;
-            this.RdoInactivo.Location = new System.Drawing.Point(203, 300);
-            this.RdoInactivo.Name = "RdoInactivo";
-            this.RdoInactivo.Size = new System.Drawing.Size(63, 17);
-            this.RdoInactivo.TabIndex = 24;
-            this.RdoInactivo.TabStop = true;
-            this.RdoInactivo.Text = "Inactivo";
-            this.RdoInactivo.UseVisualStyleBackColor = true;
             // 
             // RdoActivo
             // 
@@ -265,12 +254,12 @@
             this.LblInicio.TabIndex = 17;
             this.LblInicio.Text = "Fecha inicio";
             // 
-            // TxtEmail
+            // TxtCard
             // 
-            this.TxtEmail.Location = new System.Drawing.Point(38, 115);
-            this.TxtEmail.Name = "TxtEmail";
-            this.TxtEmail.Size = new System.Drawing.Size(271, 20);
-            this.TxtEmail.TabIndex = 16;
+            this.TxtCard.Location = new System.Drawing.Point(38, 115);
+            this.TxtCard.Name = "TxtCard";
+            this.TxtCard.Size = new System.Drawing.Size(271, 20);
+            this.TxtCard.TabIndex = 16;
             // 
             // LblEmail
             // 
@@ -282,13 +271,6 @@
             this.LblEmail.TabIndex = 15;
             this.LblEmail.Text = "Numero de Carta";
             // 
-            // TxtNombre
-            // 
-            this.TxtNombre.Location = new System.Drawing.Point(38, 45);
-            this.TxtNombre.Name = "TxtNombre";
-            this.TxtNombre.Size = new System.Drawing.Size(271, 20);
-            this.TxtNombre.TabIndex = 8;
-            // 
             // LblIngresaDUI
             // 
             this.LblIngresaDUI.AutoSize = true;
@@ -299,6 +281,24 @@
             this.LblIngresaDUI.Size = new System.Drawing.Size(87, 19);
             this.LblIngresaDUI.TabIndex = 7;
             this.LblIngresaDUI.Text = "Ingresar DUI";
+            // 
+            // RdoInactivo
+            // 
+            this.RdoInactivo.AutoSize = true;
+            this.RdoInactivo.Location = new System.Drawing.Point(203, 300);
+            this.RdoInactivo.Name = "RdoInactivo";
+            this.RdoInactivo.Size = new System.Drawing.Size(63, 17);
+            this.RdoInactivo.TabIndex = 24;
+            this.RdoInactivo.TabStop = true;
+            this.RdoInactivo.Text = "Inactivo";
+            this.RdoInactivo.UseVisualStyleBackColor = true;
+            // 
+            // TxtDui
+            // 
+            this.TxtDui.Location = new System.Drawing.Point(38, 45);
+            this.TxtDui.Name = "TxtDui";
+            this.TxtDui.Size = new System.Drawing.Size(271, 20);
+            this.TxtDui.TabIndex = 8;
             // 
             // FormMembership
             // 
@@ -339,13 +339,13 @@
         private System.Windows.Forms.Button btnModificar;
         private System.Windows.Forms.DateTimePicker DtpInicio;
         private System.Windows.Forms.Label LblInicio;
-        private System.Windows.Forms.TextBox TxtEmail;
+        private System.Windows.Forms.TextBox TxtCard;
         private System.Windows.Forms.Label LblEmail;
-        private System.Windows.Forms.TextBox TxtNombre;
         private System.Windows.Forms.Label LblIngresaDUI;
         private System.Windows.Forms.Button BtnGenerar;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.RadioButton RdoInactivo;
         private System.Windows.Forms.RadioButton RdoActivo;
+        private System.Windows.Forms.RadioButton RdoInactivo;
+        private System.Windows.Forms.TextBox TxtDui;
     }
 }

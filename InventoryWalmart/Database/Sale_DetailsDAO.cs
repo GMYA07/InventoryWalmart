@@ -42,7 +42,8 @@ namespace InventoryWalmart.Database
                         }
 
                         transaction.Commit(); // Confirmar transaccion si todo va bien
-                        return rowsAffected == listaVenta.Count; // Verifica que todos se insertaron
+                        Console.WriteLine($"Total afectados: {rowsAffected} de {listaVenta.Count}");
+                        return true;
                     }
                     catch (Exception ex)
                     {
@@ -132,56 +133,6 @@ namespace InventoryWalmart.Database
                     }
                 }
             }
-        }
-        public Sale_Details obtenerSaleDetails(int idVenta)
-        {
-
-            Sale_Details sale_Detail = new Sale_Details();
-
-            string query = "SELECT id_sale_detail, id_sale, id_product, quantity, price FROM SALE_DETAILS WHERE id_sale = @idVenta";
-
-            using (SqlConnection coon = Connection.ObtenerConexion())
-            {
-                using (SqlCommand cmd = new SqlCommand(query, coon))
-                {
-                    cmd.Parameters.Add("@idVenta", SqlDbType.Int).Value = idVenta;
-
-                    try
-                    {
-                        coon.Open();
-
-                        using (SqlDataReader reader = cmd.ExecuteReader())
-                        {
-
-                            if (reader.Read())
-                            {
-
-                                sale_Detail.IdSaleDetail = reader.GetInt32(0);
-                                sale_Detail.IdSale = reader.GetInt32(1);
-                                sale_Detail.IdProduct = reader.GetInt32(2);
-                                sale_Detail.Quantity = reader.GetInt32(3);
-                                sale_Detail.Price = reader.GetDecimal(4);
-
-                                return sale_Detail;
-                            }
-                            else
-                            {
-                                Console.WriteLine("El error al seleccionar la sale de la bdd");
-                                return null;
-                            }
-
-                        }
-
-                    }
-                    catch (Exception ex)
-                    {
-                        Console.WriteLine("El error al seleccionar la sale de la bdd fue: " + ex);
-                        return null;
-                    }
-                }
-            }
-
-
         }
 
         public List<Sale_Details> obtenerListaDeDetallesVentaConTargeta(int idVenta, int idCustomer)

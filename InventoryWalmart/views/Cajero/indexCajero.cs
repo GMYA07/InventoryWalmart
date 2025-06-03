@@ -83,5 +83,17 @@ namespace InventoryWalmart.views.Cajero
             view.Show();
             this.Close();
         }
+
+        public void redireccionBuscador(object sender, EventArgs e)
+        {
+            viewBuscarProduct view = new viewBuscarProduct();
+            view.Show();
+            this.Close();
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

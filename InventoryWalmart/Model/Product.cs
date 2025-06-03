@@ -33,6 +33,8 @@ namespace InventoryWalmart.Model
 
         //Getters y Setters
 
+
+
         public int GetIdProduct()
         {
             return id_product;
@@ -113,5 +115,9 @@ namespace InventoryWalmart.Model
             image_product = value;
         }
 
+
+
     }
+
+
 }

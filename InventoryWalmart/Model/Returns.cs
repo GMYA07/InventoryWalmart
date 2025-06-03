@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace InventoryWalmart.Model
 {
-    internal class Returns
+    public class Returns
     {
         private int id_return;
         private int? id_customer;

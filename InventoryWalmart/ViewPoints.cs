@@ -203,5 +203,24 @@ namespace InventoryWalmart
         {
 
         }
+
+        private void inputBuscar_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true; // evita el sonido de "ding"
+                btnBuscar.PerformClick();  // simula clic en el botón
+            }
+        }
+
+        private void ViewPoints_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.F2)
+            {
+                e.SuppressKeyPress = true; // evita sonidos o comportamientos no deseados
+                inputBuscar.ResetText();
+                llenarTabla(); // llamas a un método que actualice la tabla
+            }
+        }
     }
 }

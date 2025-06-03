@@ -17,7 +17,8 @@ namespace InventoryWalmart
 {
     public partial class ViewMembership : Form
     {
-
+        public static string card = "";
+        public static int idCard = 0;
         public static string opcion = "";
         Customer_CardDAO Customer_CardDAO = new Customer_CardDAO();
         public ViewMembership()
@@ -164,6 +165,8 @@ namespace InventoryWalmart
             Customer_Card customer_Card = (Customer_Card) row.DataBoundItem;
             if (ConfirmarSeleccion("editar"))
             {
+                card= customer_Card.CardNumber;
+                idCard = customer_Card.IdCard;
                 opcion = "editar";
                 ChangeView<FormMembership>();
             }

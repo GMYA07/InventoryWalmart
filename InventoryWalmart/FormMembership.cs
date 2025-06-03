@@ -15,6 +15,8 @@ namespace InventoryWalmart
 {
     public partial class FormMembership : Form
     {
+        string Card = ViewMembership.card;
+        int IdCard = ViewMembership.idCard; 
         string opcion = ViewMembership.opcion;
         Customer_CardDAO customer_CardDAO=new Customer_CardDAO();
 
@@ -23,12 +25,14 @@ namespace InventoryWalmart
         
             InitializeComponent();
             TxtCard.Enabled = false;
+            
             if (opcion == "agregar")
             {
 
             }
             else
             {
+                LoadCusomerCard();
                 LblTitulo.Text = "Editar membresia";
                 btnAgregar.Text = "Editar";
                 btnAgregar.BackColor = Color.Blue;
@@ -49,7 +53,24 @@ namespace InventoryWalmart
 
         public void LoadCusomerCard()
         {
+            Customer_Card customer_Card = new Customer_Card();
+            customer_Card = customer_CardDAO.GetCustomerCardById(IdCard);
 
+            TxtDui.Text = customer_CardDAO.GetDUIByCardNumber(Card);
+            TxtCard.Text = customer_Card.CardNumber;
+            DtpInicio.Value = customer_Card.IssueDate;
+        }
+
+        public void UpdateCusomerCard() {
+            Customer_Card CC = new Customer_Card();
+            CC.IdCard = IdCard;
+            CC.IdCustomer = customer_CardDAO.GetidCustomerByDui(TxtDui.Text);
+            CC.CardNumber = TxtCard.Text;
+            CC.IssueDate = DtpInicio.Value;
+            CC.ExpirationDate = DtpInicio.Value.AddYears(1);
+            CC.PointsBalance = PointsDAO.ObtenerPuntosPorDui(CC.Dui);
+            CC.Status = RdoBton();
+            customer_CardDAO.UpdateCustomerCard(CC);
         }
 
         public string RdoBton()
@@ -135,7 +156,7 @@ namespace InventoryWalmart
             }
             else
             {
-                //UpdateCustomerCard();
+                UpdateCusomerCard();
             }
         }
     }

@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -302,6 +303,46 @@ namespace InventoryWalmart.Database
             return 0;
         }
 
+        public string GetDUIByCardNumber(string CardNumber)
+        {
+            string dui = "";
+
+            string query = @"SELECT
+                                c.dui
+                            FROM CUSTOMER_CARD AS cc
+                            INNER JOIN CUSTOMERS AS c ON c.id_customer = cc.id_customer
+                            WHERE cc.card_number = @CardNumber;";
+
+            try
+            {
+                using (SqlConnection connection = Connection.ObtenerConexion())
+                {
+                    connection.Open();
+
+                    SqlCommand command = new SqlCommand(query, connection);
+
+                    command.Parameters.AddWithValue("@CardNumber", CardNumber);
+                    SqlDataReader reader = command.ExecuteReader();
+
+                    if (reader.Read())
+                    {
+                        dui = reader.GetString(0);
+                    }
+                    else
+                    {
+                        Alertas.AlertError("ERROR", $"No se ha encontrado un DUI de cliente con esta carta");
+                    }
+
+                    return dui;
+                }
+            }
+            catch (SqlException ex)
+            {
+                Alertas.AlertError("ERROR", $"No se ha encontrado un ID de cliente con este DUI: {ex.Message}");
+            }
+            return "";
+        }
+
         public void UpdateCustomerCard(Customer_Card customerCard)
         {
             try
@@ -331,9 +372,9 @@ namespace InventoryWalmart.Database
             }
         }
 
-        public List<Customer_Card> GetCustomerCardById(int idCard)
+        public Customer_Card GetCustomerCardById(int idCard)
         {
-            List<Customer_Card> customer_Card = new List<Customer_Card>();
+           Customer_Card customer_Card = new Customer_Card();
 
                     string query = @"SELECT
                                         cc.id_card,
@@ -371,7 +412,7 @@ namespace InventoryWalmart.Database
                             CustomerName = reader.GetString(6)
                         };
 
-                        customer_Card.Add(customercard);
+                        customer_Card = customercard;
                     }
 
                     reader.Close();

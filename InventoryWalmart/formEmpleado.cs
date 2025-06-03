@@ -12,6 +12,7 @@ using InventoryWalmart.Controllers;
 using InventoryWalmart.Database;
 using InventoryWalmart.Model;
 using InventoryWalmart.Utils;
+using InventoryWalmart.Validaciones;
 
 namespace InventoryWalmart
 {
@@ -147,6 +148,29 @@ namespace InventoryWalmart
             Department departmentSelec = comb_departemeto.SelectedItem as Department;
             District districtSelec = comb_distritos.SelectedItem as District;
             Roles rolSect = comb_cargo.SelectedItem as Roles;
+
+
+            var validarTel = Validar.ValidarTelefono(tex_telefono.Text);
+            var validarDui = Validar.validarDUI(tex_dui.Text);
+            var validarEdad = Validar.EsMayorDeEdad(DtpNacimiento.Value);
+
+            if (!validarTel)
+            {
+                MessageBox.Show("Teléfono inválido. Formato requerido: ####-####");
+                return;
+            }
+
+            if (validarDui)
+            {
+                MessageBox.Show("DUI inválido. Formato requerido: ########-#");
+                return;
+            }
+
+            if (!validarEdad)
+            {
+                MessageBox.Show("Debe ser mayor de 18 años.");
+                return;
+            }
 
 
             // valida que no se actualize la contra al no querer

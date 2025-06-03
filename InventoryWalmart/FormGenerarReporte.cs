@@ -331,7 +331,7 @@ namespace InventoryWalmart
             tabControl2.SelectedTab = tabPage_botones;
             button_dia.BackColor = Color.FromArgb(0, 192, 192);
 
-            opcionVisivilidad();
+       
         }
 
         private void opcionVisivilidad()

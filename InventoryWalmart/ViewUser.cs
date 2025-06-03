@@ -22,7 +22,7 @@ namespace InventoryWalmart
         public ViewUser()
         {
             InitializeComponent();
-            llenarTabla();
+            llenarTabla(-1);
         }
 
         //Drag Form
@@ -144,7 +144,7 @@ namespace InventoryWalmart
 
 
 
-        private void llenarTabla()
+        private void llenarTabla(int id)
         {
             Table_user.Rows.Clear();
             Table_user.Columns.Clear();
@@ -163,7 +163,7 @@ namespace InventoryWalmart
 
 
 
-            var usuarios = UserDAO.TraerUsuarios();
+            var usuarios = UserDAO.TraerUsuarios(id);
 
             // Ahora agregamos las filas
             foreach (var u in usuarios)
@@ -217,6 +217,30 @@ namespace InventoryWalmart
             }
         }
 
-       
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+
+            String textoBusqueda = tex_buscarUser.Text;
+            UserDAO usuarioDAO = new UserDAO();
+
+            int id = usuarioDAO.BuscarUsuarioId(textoBusqueda);
+
+            if (textoBusqueda == "")
+            {
+                llenarTabla(-1);
+                return;
+            }
+
+
+            if (id != -1)
+            {
+               llenarTabla(id);
+
+            }
+            else
+            {
+                MessageBox.Show("No se encontraron usuarios.");
+            }
+        }
     }
 }

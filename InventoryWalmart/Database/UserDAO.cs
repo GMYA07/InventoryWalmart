@@ -130,40 +130,49 @@ namespace InventoryWalmart.Database
         }
 
 
+        // se buca user
+
+        public int BuscarUsuarioId(string textoBusqueda)
+        {
+            int idUser = -1; // Valor por defecto si no encuentra nada
+
+            using (SqlConnection con = Connection.ObtenerConexion())
+            {
+                SqlCommand cmd = new SqlCommand("SearchUsers", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@search", textoBusqueda);
+
+                con.Open();
+
+                SqlDataReader reader = cmd.ExecuteReader();
+                if (reader.Read())
+                {
+                    idUser = reader.GetInt32(0); // Primer columna: IdUser
+                }
+
+                reader.Close();
+            }
+
+            return idUser;
+        }
 
 
-        public static List<User> TraerUsuarios()
+
+
+
+
+        // tear usuario
+        public static List<User> TraerUsuarios(int idUser)
         {
             List<User> listaUsuarios = new List<User>();
 
-            string query = @"
-	SELECT u.id_user, 
-       u.first_name, 
-       u.last_name, 
-       u.date_of_birth, 
-       u.hire_date, 
-       u.cellphone, 
-       u.dui, 
-       d.department_name,  
-       dis.district_name,  
-       r.role_name,        
-	   a.status_account,
-	   a.username,
-       u.id_department,    
-       u.id_district,      
-       u.id_role,
-	   a.id_account
-FROM USERS u	
-JOIN DEPARTMENT d ON u.id_department = d.id_department
-JOIN DISTRICT dis ON u.id_district = dis.id_district
-JOIN ROLES r ON u.id_role = r.id_role
-JOIN ACCOUNT a On a.id_user = u.id_user;
-";
-
             using (SqlConnection conn = Connection.ObtenerConexion())
             {
-                using (SqlCommand cmd = new SqlCommand(query, conn))
+                using (SqlCommand cmd = new SqlCommand("sp_ObtenerUsuarios", conn))
                 {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@id_user", idUser);
+
                     try
                     {
                         conn.Open();
@@ -172,22 +181,21 @@ JOIN ACCOUNT a On a.id_user = u.id_user;
                         {
                             while (reader.Read())
                             {
-
                                 User user = new User();
                                 user.SetIdUser(reader.GetInt32(0));
                                 user.SetFirst_name(reader.GetString(1));
                                 user.SetLast_name(reader.GetString(2));
                                 user.SetDate_of_birth(reader.GetDateTime(3));
                                 user.SetHire_date(reader.GetDateTime(4));
-                                user.SetCellphone(reader.GetString(5));
-                                user.SetDui(reader.GetString(6));
+                                user.SetCellphone(reader.IsDBNull(5) ? "" : reader.GetString(5));
+                                user.SetDui(reader.IsDBNull(6) ? "" : reader.GetString(6));
 
-                                user.DepartmentName = reader.GetString(7); 
-                                user.DistrictName = reader.GetString(8);   
-                                user.RoleName = reader.GetString(9);       
+                                user.DepartmentName = reader.GetString(7);
+                                user.DistrictName = reader.GetString(8);
+                                user.RoleName = reader.GetString(9);
                                 user.status = reader.GetBoolean(10);
                                 user.nameUsuario = reader.GetString(11);
-                                // Asignar los ID (si los necesitas)
+
                                 user.SetIdDepartment(reader.GetInt32(12));
                                 user.SetIdDistrict(reader.GetInt32(13));
                                 user.SetIdRole(reader.GetInt32(14));
@@ -200,14 +208,13 @@ JOIN ACCOUNT a On a.id_user = u.id_user;
                     catch (Exception ex)
                     {
                         Console.WriteLine("Error: " + ex.ToString());
-                        return new List<User>(); 
+                        return new List<User>();
                     }
                 }
             }
 
             return listaUsuarios;
         }
-
 
 
 

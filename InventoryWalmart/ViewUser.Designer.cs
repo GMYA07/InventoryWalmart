@@ -38,7 +38,7 @@
             this.btnRestaurar = new System.Windows.Forms.PictureBox();
             this.Table_user = new System.Windows.Forms.DataGridView();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.tex_buscarUser = new System.Windows.Forms.TextBox();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.btnModificar = new System.Windows.Forms.Button();
@@ -80,7 +80,6 @@
             this.barAcciones.Name = "barAcciones";
             this.barAcciones.Size = new System.Drawing.Size(1685, 73);
             this.barAcciones.TabIndex = 3;
-           // this.barAcciones.Paint += new System.Windows.Forms.PaintEventHandler(this.barAcciones_Paint);
             this.barAcciones.MouseDown += new System.Windows.Forms.MouseEventHandler(this.barAcciones_MouseDown);
             // 
             // btnOcultar
@@ -178,7 +177,7 @@
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.textBox1);
+            this.panel2.Controls.Add(this.tex_buscarUser);
             this.panel2.Controls.Add(this.btnBuscar);
             this.panel2.Location = new System.Drawing.Point(392, 165);
             this.panel2.Margin = new System.Windows.Forms.Padding(4);
@@ -186,14 +185,14 @@
             this.panel2.Size = new System.Drawing.Size(575, 65);
             this.panel2.TabIndex = 20;
             // 
-            // textBox1
+            // tex_buscarUser
             // 
-            this.textBox1.Location = new System.Drawing.Point(4, 10);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(481, 38);
-            this.textBox1.TabIndex = 6;
+            this.tex_buscarUser.Location = new System.Drawing.Point(4, 10);
+            this.tex_buscarUser.Margin = new System.Windows.Forms.Padding(4);
+            this.tex_buscarUser.Multiline = true;
+            this.tex_buscarUser.Name = "tex_buscarUser";
+            this.tex_buscarUser.Size = new System.Drawing.Size(481, 38);
+            this.tex_buscarUser.TabIndex = 6;
             // 
             // btnBuscar
             // 
@@ -209,6 +208,7 @@
             this.btnBuscar.Size = new System.Drawing.Size(47, 39);
             this.btnBuscar.TabIndex = 7;
             this.btnBuscar.UseVisualStyleBackColor = false;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // panel3
             // 
@@ -544,7 +544,7 @@
         private System.Windows.Forms.PictureBox btnRestaurar;
         private System.Windows.Forms.DataGridView Table_user;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox tex_buscarUser;
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Button btnModificar;

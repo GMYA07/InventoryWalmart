@@ -95,5 +95,14 @@ namespace InventoryWalmart.views.Cajero
         {
 
         }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+            viewCliente_membresia view = new viewCliente_membresia();
+            view.Show();
+            this.Close();
+
+        }
     }
 }

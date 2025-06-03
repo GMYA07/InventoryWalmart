@@ -1,4 +1,5 @@
-﻿using System;
+﻿using InventoryWalmart.Database;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -16,6 +17,7 @@ namespace InventoryWalmart.views.Cajero
         public viewCliente_membresia()
         {
             InitializeComponent();
+            llenarTabla();
         }
 
         //Drag Form
@@ -51,7 +53,110 @@ namespace InventoryWalmart.views.Cajero
 
         private void btnInicio_Click(object sender, EventArgs e)
         {
-
+            ChangeView<indexCajero>();
         }
+
+        private void ChangeView<T>() where T : Form, new()
+        {
+            T vista = new T();
+            this.Hide();
+            vista.Show();
+        }
+        private void llenarTabla()
+        {
+            Table_Customers.Rows.Clear();
+            Table_Customers.Columns.Clear();
+
+            // Agregar columnas según los datos que quieres mostrar
+            Table_Customers.Columns.Add("FirstName", "Nombre");
+            Table_Customers.Columns.Add("LastName", "Apellido");
+            Table_Customers.Columns.Add("CardNumber", "Número de Tarjeta");
+            Table_Customers.Columns.Add("ExpirationDate", "Fecha de Expiración");
+            Table_Customers.Columns.Add("Benefit", "Beneficio");
+
+            var clientes = CustomerDAO.ObtenerClientesMembresia(); // Asegúrate que el método esté en esta clase
+
+            foreach (var (customer, card, benefit) in clientes)
+            {
+                int index = Table_Customers.Rows.Add(
+                    customer.FirstName,
+                    customer.LastName,
+                    card.CardNumber,
+                    card.ExpirationDate.ToShortDateString(),
+                    benefit.Description
+                );
+
+                Table_Customers.Rows[index].Tag = customer; // O puedes guardar la tupla si prefieres
+            }
+        }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrWhiteSpace(inputBuscar.Text))
+            {
+                var filtro = inputBuscar.Text.Trim();
+                var resultados = CustomerDAO.BuscarClientesMembresiaPorNombre(filtro); // Lista de tuplas (Customer, Customer_Card, Benefits)
+                
+                if (resultados.Count == 0)
+                {
+                    MessageBox.Show("No se encontraron resultados.");
+                    return;
+                }
+
+                Table_Customers.Rows.Clear();
+                Table_Customers.Columns.Clear();
+
+                // Definir columnas: nombre y apellido por separado
+                Table_Customers.Columns.Add("FirstName", "Nombre");
+                Table_Customers.Columns.Add("LastName", "Apellido");
+                Table_Customers.Columns.Add("CardNumber", "Número de Tarjeta");
+                Table_Customers.Columns.Add("ExpDate", "Expiración");
+                Table_Customers.Columns.Add("Beneficio", "Beneficio");
+
+                foreach (var (cliente, tarjeta, beneficio) in resultados)
+                {
+                    string cardNumber = tarjeta?.CardNumber ?? "N/A";
+                    string fechaExp = tarjeta != null ? tarjeta.ExpirationDate.ToShortDateString() : "N/A";
+                    string descBeneficio = beneficio?.Description ?? "Sin beneficio";
+
+                    int index = Table_Customers.Rows.Add(
+                        cliente.FirstName,
+                        cliente.LastName,
+                        cardNumber,
+                        fechaExp,
+                        descBeneficio
+                    );
+
+                    Table_Customers.Rows[index].Tag = cliente;
+                }
+            }
+            else
+            {
+                MessageBox.Show("Ingrese el nombre o apellido del cliente.");
+            }
+        }
+
+        private void inputBuscar_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true; // evita el sonido de "ding"
+                btnBuscar.PerformClick();  // simula clic en el botón
+            }
+        }
+
+       
+
+        private void viewCliente_membresia_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.F2)
+            {
+                e.SuppressKeyPress = true; // evita sonidos o comportamientos no deseados
+                inputBuscar.ResetText();
+                llenarTabla(); // llamas a un método que actualice la tabla
+            }
+        }
+
+       
     }
 }

@@ -181,5 +181,10 @@ namespace InventoryWalmart.views.Cajero
         {
 
         }
+
+        private void btnVentas_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -286,6 +286,12 @@
     <Compile Include="views\Cajero\viewBuscarProduct.Designer.cs">
       <DependentUpon>viewBuscarProduct.cs</DependentUpon>
     </Compile>
+    <Compile Include="views\Cajero\viewCliente_membresia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="views\Cajero\viewCliente_membresia.Designer.cs">
+      <DependentUpon>viewCliente_membresia.cs</DependentUpon>
+    </Compile>
     <Compile Include="views\Cajero\viewDevolucionesProductos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -383,6 +389,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="views\Cajero\viewBuscarProduct.resx">
       <DependentUpon>viewBuscarProduct.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="views\Cajero\viewCliente_membresia.resx">
+      <DependentUpon>viewCliente_membresia.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="views\Cajero\viewDevolucionesProductos.resx">
       <DependentUpon>viewDevolucionesProductos.cs</DependentUpon>

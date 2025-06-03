@@ -311,5 +311,129 @@ namespace InventoryWalmart.Database
             }
 
         }
+
+
+        public static List<(Customer, Customer_Card, Benefits)> ObtenerClientesMembresia()
+        {
+            var lista = new List<(Customer, Customer_Card, Benefits)>();
+
+            string query = @"
+        SELECT 
+            c.first_name,
+            c.last_name,
+            cc.card_number,
+            cc.expiration_date,
+            b.description
+        FROM CUSTOMERS c
+        JOIN CUSTOMER_CARD cc ON c.id_customer = cc.id_customer
+        JOIN CARD_BENEFITS cb ON cb.id_card = cc.id_card
+        JOIN BENEFITS b ON b.id_benefit = cb.id_benefit;";
+
+            using (SqlConnection conn = Connection.ObtenerConexion())
+            {
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    try
+                    {
+                        conn.Open();
+                        using (SqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                var customer = new Customer
+                                {
+                                    FirstName = reader["first_name"].ToString(),
+                                    LastName = reader["last_name"].ToString()
+                                };
+
+                                var card = new Customer_Card
+                                {
+                                    CardNumber = reader["card_number"].ToString(),
+                                    ExpirationDate = Convert.ToDateTime(reader["expiration_date"])
+                                };
+
+                                var benefit = new Benefits
+                                {
+                                    Description = reader["description"].ToString()
+                                };
+
+                                lista.Add((customer, card, benefit));
+                            }
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine("Error: " + ex.Message);
+                    }
+                }
+            }
+
+            return lista;
+        }
+
+
+        public static List<(Customer, Customer_Card, Benefits)> BuscarClientesMembresiaPorNombre(string filtro)
+        {
+            var lista = new List<(Customer, Customer_Card, Benefits)>();
+
+            string query = @"
+        SELECT 
+            c.first_name,
+            c.last_name,
+            cc.card_number,
+            cc.expiration_date,
+            b.description
+        FROM CUSTOMERS c
+        JOIN CUSTOMER_CARD cc ON c.id_customer = cc.id_customer
+        JOIN CARD_BENEFITS cb ON cb.id_card = cc.id_card
+        JOIN BENEFITS b ON b.id_benefit = cb.id_benefit
+        WHERE c.first_name LIKE @filtro OR c.last_name LIKE @filtro;";
+
+            using (SqlConnection conn = Connection.ObtenerConexion())
+            {
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@filtro", "%" + filtro + "%");
+
+                    try
+                    {
+                        conn.Open();
+                        using (SqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                var customer = new Customer
+                                {
+                                    FirstName = reader["first_name"].ToString(),
+                                    LastName = reader["last_name"].ToString()
+                                };
+
+                                var card = new Customer_Card
+                                {
+                                    CardNumber = reader["card_number"].ToString(),
+                                    ExpirationDate = Convert.ToDateTime(reader["expiration_date"])
+                                };
+
+                                var benefit = new Benefits
+                                {
+                                    Description = reader["description"].ToString()
+                                };
+
+                                lista.Add((customer, card, benefit));
+                            }
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine("Error: " + ex.Message);
+                    }
+                }
+            }
+
+            return lista;
+        }
+
+
+
     }
 }

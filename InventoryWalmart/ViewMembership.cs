@@ -172,6 +172,13 @@ namespace InventoryWalmart
             vista.Show();
         }
 
-        
+        private void btn_beneficios_Click(object sender, EventArgs e)
+        {
+            DataGridViewRow row = Table_Membership.SelectedRows[0];
+            Customer_Card customer_Card = (Customer_Card)row.DataBoundItem;
+            card = customer_Card.CardNumber;
+            ModalBenefitsByClient modal =new ModalBenefitsByClient();
+            modal.Show();
+        }
     }
 }

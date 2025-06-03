@@ -30,17 +30,17 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormApplyBenefit));
             this.barAcciones = new System.Windows.Forms.Panel();
+            this.TxtIdBeneficio = new System.Windows.Forms.TextBox();
+            this.LblEmail = new System.Windows.Forms.Label();
+            this.TxtCard = new System.Windows.Forms.TextBox();
+            this.LblIngresaDUI = new System.Windows.Forms.Label();
+            this.LblTitulo = new System.Windows.Forms.Label();
+            this.btnAgregar = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.btnOcultar = new System.Windows.Forms.PictureBox();
             this.btnMaximizar = new System.Windows.Forms.PictureBox();
             this.btnCerrar = new System.Windows.Forms.PictureBox();
             this.btnRestaurar = new System.Windows.Forms.PictureBox();
-            this.TxtIdBeneficio = new System.Windows.Forms.TextBox();
-            this.LblEmail = new System.Windows.Forms.Label();
-            this.TxtCard = new System.Windows.Forms.TextBox();
-            this.LblIngresaDUI = new System.Windows.Forms.Label();
-            this.btnAgregar = new System.Windows.Forms.Button();
-            this.LblTitulo = new System.Windows.Forms.Label();
             this.barAcciones.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnOcultar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMaximizar)).BeginInit();
@@ -61,6 +61,72 @@
             this.barAcciones.Name = "barAcciones";
             this.barAcciones.Size = new System.Drawing.Size(436, 59);
             this.barAcciones.TabIndex = 5;
+            this.barAcciones.MouseDown += new System.Windows.Forms.MouseEventHandler(this.barAcciones_MouseDown);
+            // 
+            // TxtIdBeneficio
+            // 
+            this.TxtIdBeneficio.Location = new System.Drawing.Point(77, 271);
+            this.TxtIdBeneficio.Name = "TxtIdBeneficio";
+            this.TxtIdBeneficio.Size = new System.Drawing.Size(271, 20);
+            this.TxtIdBeneficio.TabIndex = 26;
+            // 
+            // LblEmail
+            // 
+            this.LblEmail.AutoSize = true;
+            this.LblEmail.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
+            this.LblEmail.Location = new System.Drawing.Point(73, 249);
+            this.LblEmail.Name = "LblEmail";
+            this.LblEmail.Size = new System.Drawing.Size(170, 19);
+            this.LblEmail.TabIndex = 25;
+            this.LblEmail.Text = "Ingresa el Id del beneficio";
+            // 
+            // TxtCard
+            // 
+            this.TxtCard.Location = new System.Drawing.Point(77, 182);
+            this.TxtCard.Name = "TxtCard";
+            this.TxtCard.Size = new System.Drawing.Size(271, 20);
+            this.TxtCard.TabIndex = 24;
+            // 
+            // LblIngresaDUI
+            // 
+            this.LblIngresaDUI.AutoSize = true;
+            this.LblIngresaDUI.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.LblIngresaDUI.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
+            this.LblIngresaDUI.Location = new System.Drawing.Point(73, 160);
+            this.LblIngresaDUI.Name = "LblIngresaDUI";
+            this.LblIngresaDUI.Size = new System.Drawing.Size(187, 19);
+            this.LblIngresaDUI.TabIndex = 23;
+            this.LblIngresaDUI.Text = "Ingresar Carta de membresia";
+            // 
+            // LblTitulo
+            // 
+            this.LblTitulo.AutoSize = true;
+            this.LblTitulo.Font = new System.Drawing.Font("Segoe UI Semibold", 18.75F, System.Drawing.FontStyle.Bold);
+            this.LblTitulo.Location = new System.Drawing.Point(109, 86);
+            this.LblTitulo.Name = "LblTitulo";
+            this.LblTitulo.Size = new System.Drawing.Size(215, 35);
+            this.LblTitulo.TabIndex = 29;
+            this.LblTitulo.Text = "Asignar Beneficio";
+            // 
+            // btnAgregar
+            // 
+            this.btnAgregar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(170)))), ((int)(((byte)(28)))));
+            this.btnAgregar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAgregar.FlatAppearance.BorderSize = 0;
+            this.btnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAgregar.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAgregar.ForeColor = System.Drawing.Color.White;
+            this.btnAgregar.Image = global::InventoryWalmart.Properties.Resources.iconoAgregar;
+            this.btnAgregar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAgregar.Location = new System.Drawing.Point(115, 341);
+            this.btnAgregar.Name = "btnAgregar";
+            this.btnAgregar.Padding = new System.Windows.Forms.Padding(10, 0, 35, 0);
+            this.btnAgregar.Size = new System.Drawing.Size(170, 45);
+            this.btnAgregar.TabIndex = 28;
+            this.btnAgregar.Text = "Agregar";
+            this.btnAgregar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnAgregar.UseVisualStyleBackColor = false;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // button1
             // 
@@ -126,77 +192,13 @@
             this.btnRestaurar.TabStop = false;
             this.btnRestaurar.Click += new System.EventHandler(this.btnRestaurar_Click);
             // 
-            // TxtIdBeneficio
-            // 
-            this.TxtIdBeneficio.Location = new System.Drawing.Point(77, 271);
-            this.TxtIdBeneficio.Name = "TxtIdBeneficio";
-            this.TxtIdBeneficio.Size = new System.Drawing.Size(271, 20);
-            this.TxtIdBeneficio.TabIndex = 26;
-            // 
-            // LblEmail
-            // 
-            this.LblEmail.AutoSize = true;
-            this.LblEmail.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
-            this.LblEmail.Location = new System.Drawing.Point(73, 249);
-            this.LblEmail.Name = "LblEmail";
-            this.LblEmail.Size = new System.Drawing.Size(170, 19);
-            this.LblEmail.TabIndex = 25;
-            this.LblEmail.Text = "Ingresa el Id del beneficio";
-            // 
-            // TxtCard
-            // 
-            this.TxtCard.Location = new System.Drawing.Point(77, 182);
-            this.TxtCard.Name = "TxtCard";
-            this.TxtCard.Size = new System.Drawing.Size(271, 20);
-            this.TxtCard.TabIndex = 24;
-            // 
-            // LblIngresaDUI
-            // 
-            this.LblIngresaDUI.AutoSize = true;
-            this.LblIngresaDUI.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.LblIngresaDUI.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
-            this.LblIngresaDUI.Location = new System.Drawing.Point(73, 160);
-            this.LblIngresaDUI.Name = "LblIngresaDUI";
-            this.LblIngresaDUI.Size = new System.Drawing.Size(187, 19);
-            this.LblIngresaDUI.TabIndex = 23;
-            this.LblIngresaDUI.Text = "Ingresar Carta de membresia";
-            // 
-            // btnAgregar
-            // 
-            this.btnAgregar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(170)))), ((int)(((byte)(28)))));
-            this.btnAgregar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAgregar.FlatAppearance.BorderSize = 0;
-            this.btnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAgregar.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAgregar.ForeColor = System.Drawing.Color.White;
-            this.btnAgregar.Image = global::InventoryWalmart.Properties.Resources.iconoAgregar;
-            this.btnAgregar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAgregar.Location = new System.Drawing.Point(115, 341);
-            this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Padding = new System.Windows.Forms.Padding(10, 0, 35, 0);
-            this.btnAgregar.Size = new System.Drawing.Size(170, 45);
-            this.btnAgregar.TabIndex = 28;
-            this.btnAgregar.Text = "Agregar";
-            this.btnAgregar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnAgregar.UseVisualStyleBackColor = false;
-            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
-            // 
-            // LblTitulo
-            // 
-            this.LblTitulo.AutoSize = true;
-            this.LblTitulo.Font = new System.Drawing.Font("Segoe UI Semibold", 18.75F, System.Drawing.FontStyle.Bold);
-            this.LblTitulo.Location = new System.Drawing.Point(109, 86);
-            this.LblTitulo.Name = "LblTitulo";
-            this.LblTitulo.Size = new System.Drawing.Size(215, 35);
-            this.LblTitulo.TabIndex = 29;
-            this.LblTitulo.Text = "Asignar Beneficio";
-            // 
             // FormApplyBenefit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(436, 427);
+            this.ControlBox = false;
             this.Controls.Add(this.LblTitulo);
             this.Controls.Add(this.btnAgregar);
             this.Controls.Add(this.TxtIdBeneficio);
@@ -204,6 +206,7 @@
             this.Controls.Add(this.TxtCard);
             this.Controls.Add(this.LblIngresaDUI);
             this.Controls.Add(this.barAcciones);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormApplyBenefit";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormApplyBenefit";

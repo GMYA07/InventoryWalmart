@@ -487,5 +487,52 @@ namespace InventoryWalmart.Database
             }
         }
 
+        public static List<Benefits> GetBenefitsByCardNumber(string cardNumber)
+        {
+            List<Benefits> benefits = new List<Benefits>();
+
+            string query = @"
+        SELECT 
+            b.id_benefit,
+            b.benefit_name,
+            b.description,
+            b.points_required,
+            b.discount_percentage,
+            b.start_date,
+            b.end_date
+        FROM CUSTOMER_CARD cc
+        INNER JOIN CARD_BENEFITS cb ON cc.id_card = cb.id_card
+        INNER JOIN BENEFITS b ON cb.id_benefit = b.id_benefit
+        WHERE cc.card_number = @cardNumber;";
+
+            using (SqlConnection conn = Connection.ObtenerConexion())
+            using (SqlCommand cmd = new SqlCommand(query, conn))
+            {
+                cmd.Parameters.AddWithValue("@cardNumber", cardNumber);
+                conn.Open();
+
+                using (SqlDataReader reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        Benefits b = new Benefits
+                        {
+                            IdBenefit = reader.GetInt32(0),
+                            BenefitName = reader.GetString(1),
+                            Description = reader.GetString(2),
+                            PointsRequierd = reader.GetInt32(3),
+                            DiscountPercent = reader.GetDecimal(4),
+                            StartDate = reader.GetDateTime(5),
+                            EndDate = reader.GetDateTime(6)
+                        };
+                        benefits.Add(b);
+                    }
+                }
+            }
+
+            return benefits;
+        }
+
+
     }
 }

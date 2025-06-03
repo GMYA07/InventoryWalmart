@@ -48,13 +48,6 @@
             this.btnInicio = new System.Windows.Forms.Button();
             this.logo = new System.Windows.Forms.PictureBox();
             this.Table_Membership = new System.Windows.Forms.DataGridView();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.btnModificar = new System.Windows.Forms.Button();
-            this.btnAgregar = new System.Windows.Forms.Button();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.inputBuscar = new System.Windows.Forms.TextBox();
-            this.btnBuscar = new System.Windows.Forms.Button();
-            this.Lbl_Title = new System.Windows.Forms.Label();
             this.ColumnId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnNumeroCarta = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -62,6 +55,14 @@
             this.ColumnExpiracion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnBalance = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnEstado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.btnModificar = new System.Windows.Forms.Button();
+            this.btnAgregar = new System.Windows.Forms.Button();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.inputBuscar = new System.Windows.Forms.TextBox();
+            this.btnBuscar = new System.Windows.Forms.Button();
+            this.Lbl_Title = new System.Windows.Forms.Label();
+            this.btn_beneficios = new System.Windows.Forms.Button();
             this.barAcciones.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnOcultar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMaximizar)).BeginInit();
@@ -401,13 +402,62 @@
             this.Table_Membership.Size = new System.Drawing.Size(944, 408);
             this.Table_Membership.TabIndex = 27;
             // 
+            // ColumnId
+            // 
+            this.ColumnId.DataPropertyName = "IdCard";
+            this.ColumnId.HeaderText = "ID";
+            this.ColumnId.Name = "ColumnId";
+            // 
+            // ColumnCliente
+            // 
+            this.ColumnCliente.DataPropertyName = "CustomerName";
+            this.ColumnCliente.HeaderText = "Cliente";
+            this.ColumnCliente.Name = "ColumnCliente";
+            this.ColumnCliente.ReadOnly = true;
+            // 
+            // ColumnNumeroCarta
+            // 
+            this.ColumnNumeroCarta.DataPropertyName = "CardNumber";
+            this.ColumnNumeroCarta.HeaderText = "numero de Carta";
+            this.ColumnNumeroCarta.Name = "ColumnNumeroCarta";
+            this.ColumnNumeroCarta.ReadOnly = true;
+            // 
+            // ColumnInicio
+            // 
+            this.ColumnInicio.DataPropertyName = "IssueDate";
+            this.ColumnInicio.HeaderText = "Inicio";
+            this.ColumnInicio.Name = "ColumnInicio";
+            this.ColumnInicio.ReadOnly = true;
+            // 
+            // ColumnExpiracion
+            // 
+            this.ColumnExpiracion.DataPropertyName = "ExpirationDate";
+            this.ColumnExpiracion.HeaderText = "Expiracion";
+            this.ColumnExpiracion.Name = "ColumnExpiracion";
+            this.ColumnExpiracion.ReadOnly = true;
+            // 
+            // ColumnBalance
+            // 
+            this.ColumnBalance.DataPropertyName = "PointsBalance";
+            this.ColumnBalance.HeaderText = "Balance";
+            this.ColumnBalance.Name = "ColumnBalance";
+            this.ColumnBalance.ReadOnly = true;
+            // 
+            // ColumnEstado
+            // 
+            this.ColumnEstado.DataPropertyName = "Status";
+            this.ColumnEstado.HeaderText = "Estado";
+            this.ColumnEstado.Name = "ColumnEstado";
+            this.ColumnEstado.ReadOnly = true;
+            // 
             // panel3
             // 
+            this.panel3.Controls.Add(this.btn_beneficios);
             this.panel3.Controls.Add(this.btnModificar);
             this.panel3.Controls.Add(this.btnAgregar);
-            this.panel3.Location = new System.Drawing.Point(958, 175);
+            this.panel3.Location = new System.Drawing.Point(787, 175);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(281, 53);
+            this.panel3.Size = new System.Drawing.Size(452, 53);
             this.panel3.TabIndex = 26;
             // 
             // btnModificar
@@ -491,53 +541,25 @@
             this.Lbl_Title.TabIndex = 24;
             this.Lbl_Title.Text = "Membresia";
             // 
-            // ColumnId
+            // btn_beneficios
             // 
-            this.ColumnId.DataPropertyName = "IdCard";
-            this.ColumnId.HeaderText = "ID";
-            this.ColumnId.Name = "ColumnId";
-            // 
-            // ColumnCliente
-            // 
-            this.ColumnCliente.DataPropertyName = "CustomerName";
-            this.ColumnCliente.HeaderText = "Cliente";
-            this.ColumnCliente.Name = "ColumnCliente";
-            this.ColumnCliente.ReadOnly = true;
-            // 
-            // ColumnNumeroCarta
-            // 
-            this.ColumnNumeroCarta.DataPropertyName = "CardNumber";
-            this.ColumnNumeroCarta.HeaderText = "numero de Carta";
-            this.ColumnNumeroCarta.Name = "ColumnNumeroCarta";
-            this.ColumnNumeroCarta.ReadOnly = true;
-            // 
-            // ColumnInicio
-            // 
-            this.ColumnInicio.DataPropertyName = "IssueDate";
-            this.ColumnInicio.HeaderText = "Inicio";
-            this.ColumnInicio.Name = "ColumnInicio";
-            this.ColumnInicio.ReadOnly = true;
-            // 
-            // ColumnExpiracion
-            // 
-            this.ColumnExpiracion.DataPropertyName = "ExpirationDate";
-            this.ColumnExpiracion.HeaderText = "Expiracion";
-            this.ColumnExpiracion.Name = "ColumnExpiracion";
-            this.ColumnExpiracion.ReadOnly = true;
-            // 
-            // ColumnBalance
-            // 
-            this.ColumnBalance.DataPropertyName = "PointsBalance";
-            this.ColumnBalance.HeaderText = "Balance";
-            this.ColumnBalance.Name = "ColumnBalance";
-            this.ColumnBalance.ReadOnly = true;
-            // 
-            // ColumnEstado
-            // 
-            this.ColumnEstado.DataPropertyName = "Status";
-            this.ColumnEstado.HeaderText = "Estado";
-            this.ColumnEstado.Name = "ColumnEstado";
-            this.ColumnEstado.ReadOnly = true;
+            this.btn_beneficios.BackColor = System.Drawing.Color.Tan;
+            this.btn_beneficios.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_beneficios.FlatAppearance.BorderSize = 0;
+            this.btn_beneficios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_beneficios.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_beneficios.ForeColor = System.Drawing.Color.White;
+            this.btn_beneficios.Image = global::InventoryWalmart.Properties.Resources.iconoAgregar;
+            this.btn_beneficios.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_beneficios.Location = new System.Drawing.Point(285, 8);
+            this.btn_beneficios.Name = "btn_beneficios";
+            this.btn_beneficios.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
+            this.btn_beneficios.Size = new System.Drawing.Size(149, 40);
+            this.btn_beneficios.TabIndex = 28;
+            this.btn_beneficios.Text = "Ver beneficio";
+            this.btn_beneficios.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btn_beneficios.UseVisualStyleBackColor = false;
+            this.btn_beneficios.Click += new System.EventHandler(this.btn_beneficios_Click);
             // 
             // ViewMembership
             // 
@@ -604,5 +626,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnExpiracion;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnBalance;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnEstado;
+        private System.Windows.Forms.Button btn_beneficios;
     }
 }

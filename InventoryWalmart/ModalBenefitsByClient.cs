@@ -12,15 +12,30 @@ using System.Windows.Forms;
 
 namespace InventoryWalmart
 {
-    public partial class FormApplyBenefit : Form
+    public partial class ModalBenefitsByClient : Form
     {
-        public FormApplyBenefit()
+        public string card = ViewMembership.card;
+
+        public ModalBenefitsByClient()
         {
             InitializeComponent();
+            CargarTabla();
         }
 
-
-
+        public void CargarTabla()
+        {
+            try
+            {
+                lblCard.Text = card;
+                tableBenefitsRewards.AutoGenerateColumns = false;
+                var lista = Customer_CardDAO.GetBenefitsByCardNumber(card);
+                tableBenefitsRewards.DataSource = lista;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al cargar datos: " + ex.Message);
+            }
+        }
 
         //Codigo q nos ayuda con la administrasion de la barra de arriba y mover la ventana.
         //Drag Form
@@ -58,39 +73,6 @@ namespace InventoryWalmart
         {
             ReleaseCapture();
             SendMessage(this.Handle, 0x112, 0xf012, 0);
-        }
-
-        private void ChangeView<T>() where T : Form, new()
-        {
-            T vista = new T();
-            this.Hide();
-            vista.Show();
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            ChangeView<viewBenefitsRewards>();
-        }
-
-        private void btnAgregar_Click(object sender, EventArgs e)
-        {
-
-            CardBenefits cardBenefits = new CardBenefits();
-
-            try
-            {
-                cardBenefits.id_card = Customer_CardDAO.ObtenerIdCardPorCardNumber(TxtCard.Text);
-                cardBenefits.id_benefit = int.Parse(TxtIdBeneficio.Text);
-                cardBenefits.data_acquired = DateTime.Today;
-
-                BenefitsDAO.InsertCardBenefit(cardBenefits);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error: " + ex.Message);
-            }
-
-
         }
     }
 }

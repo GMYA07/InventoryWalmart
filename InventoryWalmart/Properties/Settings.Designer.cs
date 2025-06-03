@@ -33,5 +33,16 @@ namespace InventoryWalmart.Properties {
                 return ((string)(this["inventoryWalmartConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=JAVI;Initial Catalog=InventoryWalmart;Integrated Security=True;TrustS" +
+            "erverCertificate=True")]
+        public string InventoryWalmartConnectionString1 {
+            get {
+                return ((string)(this["InventoryWalmartConnectionString1"]));
+            }
+        }
     }
 }

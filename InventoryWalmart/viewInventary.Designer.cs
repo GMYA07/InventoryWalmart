@@ -50,13 +50,13 @@
             this.Table_Customers = new System.Windows.Forms.DataGridView();
             this.columnID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.categoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.preciosub = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.stock = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.categoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.supplier = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.btnModificar = new System.Windows.Forms.Button();
+            this.btnAgregarCategoria = new System.Windows.Forms.Button();
             this.btnAplicarBene = new System.Windows.Forms.Button();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -65,6 +65,7 @@
             this.Lbl_Title = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnEliminar = new System.Windows.Forms.Button();
             this.barAcciones.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnOcultar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMaximizar)).BeginInit();
@@ -399,15 +400,15 @@
             this.Table_Customers.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.columnID,
             this.ColumnNombre,
-            this.categoria,
             this.precio,
+            this.preciosub,
             this.stock,
-            this.fecha,
-            this.estado});
+            this.categoria,
+            this.supplier});
             this.Table_Customers.EnableHeadersVisualStyles = false;
-            this.Table_Customers.Location = new System.Drawing.Point(592, 321);
-            this.Table_Customers.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Table_Customers.Location = new System.Drawing.Point(454, 280);
             this.Table_Customers.Name = "Table_Customers";
+            this.Table_Customers.ReadOnly = true;
             this.Table_Customers.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(113)))), ((int)(((byte)(207)))));
@@ -420,7 +421,7 @@
             this.Table_Customers.RowHeadersVisible = false;
             this.Table_Customers.RowHeadersWidth = 51;
             this.Table_Customers.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.Table_Customers.Size = new System.Drawing.Size(657, 502);
+            this.Table_Customers.Size = new System.Drawing.Size(588, 408);
             this.Table_Customers.TabIndex = 22;
             this.Table_Customers.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Table_Customers_CellContentClick);
             // 
@@ -429,53 +430,60 @@
             this.columnID.HeaderText = "ID";
             this.columnID.MinimumWidth = 6;
             this.columnID.Name = "columnID";
-            this.columnID.Width = 56;
+            this.columnID.ReadOnly = true;
+            this.columnID.Width = 46;
             // 
             // ColumnNombre
             // 
             this.ColumnNombre.HeaderText = "Nombre";
             this.ColumnNombre.MinimumWidth = 6;
             this.ColumnNombre.Name = "ColumnNombre";
-            this.ColumnNombre.Width = 104;
-            // 
-            // categoria
-            // 
-            this.categoria.HeaderText = "Categoria";
-            this.categoria.MinimumWidth = 6;
-            this.categoria.Name = "categoria";
-            this.categoria.Width = 116;
+            this.ColumnNombre.ReadOnly = true;
+            this.ColumnNombre.Width = 82;
             // 
             // precio
             // 
             this.precio.HeaderText = "Precio";
             this.precio.MinimumWidth = 6;
             this.precio.Name = "precio";
-            this.precio.Width = 87;
+            this.precio.ReadOnly = true;
+            this.precio.Width = 70;
+            // 
+            // preciosub
+            // 
+            this.preciosub.HeaderText = "PrecioProveedor";
+            this.preciosub.MinimumWidth = 6;
+            this.preciosub.Name = "preciosub";
+            this.preciosub.ReadOnly = true;
+            this.preciosub.Width = 133;
             // 
             // stock
             // 
             this.stock.HeaderText = "Stock";
             this.stock.MinimumWidth = 6;
             this.stock.Name = "stock";
-            this.stock.Width = 83;
+            this.stock.ReadOnly = true;
+            this.stock.Width = 65;
             // 
-            // fecha
+            // categoria
             // 
-            this.fecha.HeaderText = "Fecha";
-            this.fecha.MinimumWidth = 6;
-            this.fecha.Name = "fecha";
-            this.fecha.Width = 83;
+            this.categoria.HeaderText = "Categoria";
+            this.categoria.MinimumWidth = 6;
+            this.categoria.Name = "categoria";
+            this.categoria.ReadOnly = true;
+            this.categoria.Width = 91;
             // 
-            // estado
+            // supplier
             // 
-            this.estado.HeaderText = "Estado";
-            this.estado.MinimumWidth = 6;
-            this.estado.Name = "estado";
-            this.estado.Width = 91;
+            this.supplier.HeaderText = "Proveedor";
+            this.supplier.Name = "supplier";
+            this.supplier.ReadOnly = true;
+            this.supplier.Width = 95;
             // 
             // panel3
             // 
-            this.panel3.Controls.Add(this.btnModificar);
+            this.panel3.Controls.Add(this.btnEliminar);
+            this.panel3.Controls.Add(this.btnAgregarCategoria);
             this.panel3.Controls.Add(this.btnAplicarBene);
             this.panel3.Controls.Add(this.btnAgregar);
             this.panel3.Location = new System.Drawing.Point(961, 208);
@@ -484,25 +492,25 @@
             this.panel3.Size = new System.Drawing.Size(727, 65);
             this.panel3.TabIndex = 21;
             // 
-            // btnModificar
+            // btnAgregarCategoria
             // 
-            this.btnModificar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(114)))), ((int)(((byte)(223)))));
-            this.btnModificar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnModificar.FlatAppearance.BorderSize = 0;
-            this.btnModificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnModificar.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnModificar.ForeColor = System.Drawing.Color.White;
-            this.btnModificar.Image = global::InventoryWalmart.Properties.Resources.iconoModificar;
-            this.btnModificar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnModificar.Location = new System.Drawing.Point(509, 5);
-            this.btnModificar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.btnModificar.Name = "btnModificar";
-            this.btnModificar.Padding = new System.Windows.Forms.Padding(0, 0, 13, 0);
-            this.btnModificar.Size = new System.Drawing.Size(203, 49);
-            this.btnModificar.TabIndex = 13;
-            this.btnModificar.Text = "Actualizar Stock";
-            this.btnModificar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnModificar.UseVisualStyleBackColor = false;
+            this.btnAgregarCategoria.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(114)))), ((int)(((byte)(223)))));
+            this.btnAgregarCategoria.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAgregarCategoria.FlatAppearance.BorderSize = 0;
+            this.btnAgregarCategoria.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAgregarCategoria.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAgregarCategoria.ForeColor = System.Drawing.Color.White;
+            this.btnAgregarCategoria.Image = global::InventoryWalmart.Properties.Resources.iconoAgregarUserBenefits;
+            this.btnAgregarCategoria.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAgregarCategoria.Location = new System.Drawing.Point(384, 4);
+            this.btnAgregarCategoria.Name = "btnAgregarCategoria";
+            this.btnAgregarCategoria.Padding = new System.Windows.Forms.Padding(0, 0, 10, 0);
+            this.btnAgregarCategoria.Size = new System.Drawing.Size(158, 40);
+            this.btnAgregarCategoria.TabIndex = 13;
+            this.btnAgregarCategoria.Text = "  Agregar Categoria";
+            this.btnAgregarCategoria.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnAgregarCategoria.UseVisualStyleBackColor = false;
+            this.btnAgregarCategoria.Click += new System.EventHandler(this.btnAgregarCategoria_Click);
             // 
             // btnAplicarBene
             // 
@@ -511,10 +519,10 @@
             this.btnAplicarBene.FlatAppearance.BorderSize = 0;
             this.btnAplicarBene.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAplicarBene.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold);
-            this.btnAplicarBene.Image = ((System.Drawing.Image)(resources.GetObject("btnAplicarBene.Image")));
+            this.btnAplicarBene.ForeColor = System.Drawing.Color.White;
+            this.btnAplicarBene.Image = global::InventoryWalmart.Properties.Resources.iconoModificar;
             this.btnAplicarBene.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAplicarBene.Location = new System.Drawing.Point(339, 5);
-            this.btnAplicarBene.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAplicarBene.Location = new System.Drawing.Point(131, 4);
             this.btnAplicarBene.Name = "btnAplicarBene";
             this.btnAplicarBene.Size = new System.Drawing.Size(163, 49);
             this.btnAplicarBene.TabIndex = 10;
@@ -533,8 +541,7 @@
             this.btnAgregar.ForeColor = System.Drawing.Color.White;
             this.btnAgregar.Image = global::InventoryWalmart.Properties.Resources.iconoAgregar;
             this.btnAgregar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAgregar.Location = new System.Drawing.Point(161, 4);
-            this.btnAgregar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAgregar.Location = new System.Drawing.Point(3, 4);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Padding = new System.Windows.Forms.Padding(13, 0, 13, 0);
             this.btnAgregar.Size = new System.Drawing.Size(163, 49);
@@ -562,6 +569,7 @@
             this.inputBuscar.Name = "inputBuscar";
             this.inputBuscar.Size = new System.Drawing.Size(492, 38);
             this.inputBuscar.TabIndex = 6;
+            this.inputBuscar.TextChanged += new System.EventHandler(this.inputBuscar_TextChanged);
             // 
             // btnBuscar
             // 
@@ -593,21 +601,36 @@
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(720, 278);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.comboBox1.Location = new System.Drawing.Point(700, 234);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(160, 24);
             this.comboBox1.TabIndex = 24;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(588, 288);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(641, 242);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(66, 16);
             this.label1.TabIndex = 25;
             this.label1.Text = "Categoria";
+            // 
+            // btnEliminar
+            // 
+            this.btnEliminar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(13)))), ((int)(((byte)(13)))));
+            this.btnEliminar.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold);
+            this.btnEliminar.ForeColor = System.Drawing.Color.White;
+            this.btnEliminar.Image = global::InventoryWalmart.Properties.Resources.iconoEliminar;
+            this.btnEliminar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEliminar.Location = new System.Drawing.Point(259, 0);
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Size = new System.Drawing.Size(119, 50);
+            this.btnEliminar.TabIndex = 14;
+            this.btnEliminar.Text = "Borrar";
+            this.btnEliminar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnEliminar.UseVisualStyleBackColor = false;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // viewInventary
             // 
@@ -663,22 +686,23 @@
         private System.Windows.Forms.PictureBox logo;
         private System.Windows.Forms.DataGridView Table_Customers;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Button btnModificar;
+        private System.Windows.Forms.Button btnAgregarCategoria;
         private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.TextBox inputBuscar;
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.Label Lbl_Title;
         private System.Windows.Forms.Button btnAplicarBene;
-        private System.Windows.Forms.DataGridViewTextBoxColumn columnID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnNombre;
-        private System.Windows.Forms.DataGridViewTextBoxColumn categoria;
-        private System.Windows.Forms.DataGridViewTextBoxColumn precio;
-        private System.Windows.Forms.DataGridViewTextBoxColumn stock;
-        private System.Windows.Forms.DataGridViewTextBoxColumn fecha;
-        private System.Windows.Forms.DataGridViewTextBoxColumn estado;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button BtnVentas;
+        private System.Windows.Forms.DataGridViewTextBoxColumn columnID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnNombre;
+        private System.Windows.Forms.DataGridViewTextBoxColumn precio;
+        private System.Windows.Forms.DataGridViewTextBoxColumn preciosub;
+        private System.Windows.Forms.DataGridViewTextBoxColumn stock;
+        private System.Windows.Forms.DataGridViewTextBoxColumn categoria;
+        private System.Windows.Forms.DataGridViewTextBoxColumn supplier;
+        private System.Windows.Forms.Button btnEliminar;
     }
 }

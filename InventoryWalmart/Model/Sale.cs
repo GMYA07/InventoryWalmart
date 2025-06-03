@@ -134,5 +134,10 @@ namespace InventoryWalmart.Model
         {
             id_user = value;
         }
+
+        public int IdSale => idSale;
+        public DateTime SaleDate => sale_date;
+        public decimal TotalAmount => total_amount;
+
     }
 }

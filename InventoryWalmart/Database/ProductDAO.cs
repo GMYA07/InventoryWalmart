@@ -1,5 +1,6 @@
 ﻿using InventoryWalmart.Model;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -91,5 +92,115 @@ namespace InventoryWalmart.Database
             }
                
         }
+
+        public static List<(Product, Categoria)> obtenerProductoPorNombre(string nombreProducto)
+        {
+            var lista = new List<(Product, Categoria)>(); // lista de tuplas
+
+            string query = "SELECT * FROM dbo.BuscarProducto(@nombre)";
+
+            using (SqlConnection conn = Connection.ObtenerConexion())
+            {
+                using (SqlCommand command = new SqlCommand(query, conn))
+                {
+                    command.Parameters.AddWithValue("@nombre", nombreProducto);
+
+                    try
+                    {
+                        conn.Open();
+
+                        using (SqlDataReader reader = command.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+
+                                // Categoría
+                                Categoria cat = new Categoria
+                                {
+                                    id_category = Convert.ToInt32(reader["id_category"]),
+                                    category_name = reader["category_name"].ToString(),
+                                    description = reader["description"].ToString()
+                                };
+
+                                // Producto
+                                Product p = new Product();
+                                p.SetNameProduct(reader["name_product"].ToString());
+                                p.SetPrice(Convert.ToDecimal(reader["price"]));
+                                p.SetStock(Convert.ToInt32(reader["stock"]));
+                                p.SetIdCategory(Convert.ToInt32(reader["id_category"]));
+
+                              
+                                lista.Add((p, cat)); // Agregar ambos
+                            }
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine("ERROR: " + ex.Message);
+                    }
+                }
+            }
+
+            return lista;
+        }
+
+
+        public static List<(Product, Categoria)> ObtenerProductos()
+        {
+            var lista = new List<(Product, Categoria)>();
+
+            string query = @"
+        SELECT 
+            p.name_product,
+            p.price,
+            c.id_category,
+            c.category_name,
+            c.description,
+            p.stock
+        FROM PRODUCTS p
+        INNER JOIN CATEGORY c ON c.id_category = p.id_category;";
+
+            using (SqlConnection conn = Connection.ObtenerConexion())
+            {
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    try
+                    {
+                        conn.Open();
+                        using (SqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                // Crear la categoría asociada
+                                Categoria categoria = new Categoria
+                                {
+                                    id_category = Convert.ToInt32(reader["id_category"]),
+                                    category_name = reader["category_name"].ToString(),
+                                    description = reader["description"].ToString()
+                                };
+
+                                // Crear el producto
+                                Product p = new Product();
+                                p.SetNameProduct(reader["name_product"].ToString());
+                                p.SetPrice(Convert.ToDecimal(reader["price"]));
+                                p.SetStock(Convert.ToInt32(reader["stock"]));
+                                p.SetIdCategory(Convert.ToInt32(reader["id_category"]));
+
+                                // Agregar como tupla
+                                lista.Add((p, categoria));
+                            }
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine("Error: " + ex.Message);
+                    }
+                }
+            }
+
+            return lista;
+        }
+
+
     }
 }

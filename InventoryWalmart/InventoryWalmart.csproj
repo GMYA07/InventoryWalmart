@@ -53,6 +53,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\adminController.cs" />
     <Compile Include="Controllers\cajeroController.cs" />
     <Compile Include="Exporters\gastosClientesTarjetaPDF.cs" />
     <Compile Include="Exporters\HistorialVentasPDF.cs" />
@@ -79,7 +80,9 @@
     <Compile Include="ModelRepors\ventasPorCajero.cs" />
     <Compile Include="ModelRepors\VentasSemanuales.cs" />
     <Compile Include="ReportesControllers\ControllersReportes.cs" />
+    <Compile Include="Controllers\CategoriaController.cs" />
     <Compile Include="Controllers\loginController.cs" />
+    <Compile Include="Controllers\ProductoController.cs" />
     <Compile Include="Controllers\RolesControllers.cs" />
     <Compile Include="Controllers\SupplierController.cs" />
     <Compile Include="Controllers\UserController.cs" />
@@ -176,11 +179,13 @@
     <Compile Include="ModelRepors\ventasTotalesCategorias.cs" />
     <Compile Include="Model\Account.cs" />
     <Compile Include="Model\Benefits.cs" />
+    <Compile Include="Model\Categoria.cs" />
     <Compile Include="Model\Customer.cs" />
     <Compile Include="Model\Customer_Card.cs" />
     <Compile Include="Model\Department.cs" />
     <Compile Include="Model\Discount.cs" />
     <Compile Include="Model\District.cs" />
+    <Compile Include="Model\payment_method.cs" />
     <Compile Include="Model\points.cs" />
     <Compile Include="Model\Product.cs" />
     <Compile Include="Model\Returns.cs" />
@@ -261,11 +266,23 @@
     <Compile Include="ViewSuppliers.Designer.cs">
       <DependentUpon>ViewSuppliers.cs</DependentUpon>
     </Compile>
+    <Compile Include="views\Administrador\viewMostrarEspecificacionesVentacs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="views\Administrador\viewMostrarEspecificacionesVentacs.Designer.cs">
+      <DependentUpon>viewMostrarEspecificacionesVentacs.cs</DependentUpon>
+    </Compile>
     <Compile Include="views\Cajero\indexCajero.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="views\Cajero\indexCajero.Designer.cs">
       <DependentUpon>indexCajero.cs</DependentUpon>
+    </Compile>
+    <Compile Include="views\Cajero\viewBuscarProduct.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="views\Cajero\viewBuscarProduct.Designer.cs">
+      <DependentUpon>viewBuscarProduct.cs</DependentUpon>
     </Compile>
     <Compile Include="views\Cajero\viewDevolucionesProductos.cs">
       <SubType>Form</SubType>
@@ -356,8 +373,14 @@
     <EmbeddedResource Include="ViewSuppliers.resx">
       <DependentUpon>ViewSuppliers.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="views\Administrador\viewMostrarEspecificacionesVentacs.resx">
+      <DependentUpon>viewMostrarEspecificacionesVentacs.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="views\Cajero\indexCajero.resx">
       <DependentUpon>indexCajero.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="views\Cajero\viewBuscarProduct.resx">
+      <DependentUpon>viewBuscarProduct.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="views\Cajero\viewDevolucionesProductos.resx">
       <DependentUpon>viewDevolucionesProductos.cs</DependentUpon>
@@ -514,6 +537,8 @@
     <Content Include="Database\ArchivosBDD\CREACION DE FUNCIONES.sql" />
     <Content Include="Database\ArchivosBDD\CREACIONBDD.sql" />
     <Content Include="Database\ArchivosBDD\departments_district.sql" />
+    <Content Include="Database\ArchivosBDD\Procedimientos almacenados.sql" />
+    <Content Include="Database\ArchivosBDD\SQL_DATOS_BDD.sql" />
     <Content Include="Database\ArchivosBDD\Trggers InventoryWalmart.sql" />
     <Content Include="Resources\walmartTransparente.png" />
   </ItemGroup>

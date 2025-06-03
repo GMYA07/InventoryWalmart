@@ -70,5 +70,6 @@ namespace InventoryWalmart.Model
             get { return date_of_birth; }
             set { date_of_birth = value; }
         }
+
     }
 }

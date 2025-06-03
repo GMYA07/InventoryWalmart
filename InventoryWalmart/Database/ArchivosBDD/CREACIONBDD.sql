@@ -24,9 +24,9 @@ CREATE TABLE PRODUCTS (
     price DECIMAL(10, 2) NOT NULL,
 	priceSup decimal(10,2) not null,
     stock INT NOT NULL,
+	image_product TEXT,
     id_category INT,
     id_supplier INT,
-    image_product TEXT
 );
 
 CREATE TABLE PAYMENT_METHOD (
@@ -99,9 +99,11 @@ CREATE TABLE SALES (
     id_payment_method INT,
     id_discount INT,
 	id_card INT,
+    id_user int,
     points_used INT DEFAULT 0,  -- Puntos usados en la venta
     points_earned INT DEFAULT 0  -- Puntos ganados en la venta
 );
+
 
 CREATE TABLE SALE_DETAILS (
     id_sale_detail INT IDENTITY(1,1) PRIMARY KEY,
@@ -131,12 +133,12 @@ CREATE TABLE RETURNS (
 
 CREATE TABLE CUSTOMER_CARD (
     id_card INT IDENTITY(1,1) PRIMARY KEY,
-    id_customer INT UNIQUE,  -- Relaci�n uno a uno con el cliente
     card_number VARCHAR(20) UNIQUE NOT NULL,  
     issue_date DATE NOT NULL,  -- Fecha de emisi�n
     expiration_date DATE NOT NULL,  -- Fecha de expiraci�n
     points_balance INT DEFAULT 0,  
-    status VARCHAR(10) DEFAULT 'active' CHECK (status IN ('active', 'inactive', 'expired'))
+    status VARCHAR(10) DEFAULT 'active' CHECK (status IN ('active', 'inactive', 'expired')),
+	id_customer INT FOREIGN KEY REFERENCES CUSTOMERS (id_customer)-- Relaci�n uno a uno con el cliente
 );
 
 CREATE TABLE BENEFITS (
@@ -153,7 +155,8 @@ CREATE TABLE CARD_BENEFITS (
     id_card_benefit INT IDENTITY(1,1)PRIMARY KEY,
     id_card INT,
     id_benefit INT,
-    date_acquired DATE  -- Fecha en que el cliente adquiri� el beneficio
+    date_acquired DATE,  -- Fecha en que el cliente adquiri� el beneficio
+    status_benefit varchar(15) --
 );
 
 CREATE TABLE POINTS_HISTORY (
@@ -220,6 +223,9 @@ CREATE TABLE ACCOUNT (
 
 ALTER TABLE SALES
 ADD FOREIGN KEY (id_card) REFERENCES CUSTOMER_CARD(id_card);
+
+ALTER TABLE SALES
+ADD FOREIGN KEY (id_user) REFERENCES USERS(id_user);
 go
 --Relation
 --products
@@ -289,9 +295,4 @@ Go
 ALTER TABLE ACCOUNT
 ADD CONSTRAINT FK_AccountUser
 FOREIGN KEY (id_user) REFERENCES USERS(id_user);
-
-
-
-
-	
-
+GO

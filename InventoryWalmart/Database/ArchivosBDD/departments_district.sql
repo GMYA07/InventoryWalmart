@@ -7,7 +7,7 @@ CREATE TYPE DepartmentTableType AS TABLE (
 );
 
 
-GO;
+go
 CREATE PROCEDURE register_departments
     @departments DepartmentTableType READONLY
 AS
@@ -16,7 +16,7 @@ BEGIN
     SELECT department_name FROM @departments;
 END
 
-go;
+go
 
 
 -- Declarar la tabla con los valores
@@ -53,7 +53,8 @@ CREATE TYPE DistrictTableType AS TABLE (
 );
 
 
-GO;
+go
+
 CREATE PROCEDURE register_district
     @district DistrictTableType READONLY,
     @department INT
@@ -62,7 +63,7 @@ BEGIN
     INSERT INTO DISTRICT (district_name, id_department)
     SELECT district_name, @department FROM @district;
 END
-GO;
+go
 
 -- ingresar distritos por departamentos
 -- Sonsonate
@@ -458,4 +459,3 @@ VALUES
 	('San Cayetano lstepeque');
 
 EXEC register_district @district = @districtSanVicente, @department = 14;
-

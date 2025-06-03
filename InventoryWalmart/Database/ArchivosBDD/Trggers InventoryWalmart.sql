@@ -1,10 +1,8 @@
-use InventoryWalmart;
-GO
 
 --1. Realizar un triggers que permita actualizar el inventario tras una venta, debe
---disminuir el stoks tras registrar un mensaje, además debe enviar un mensaje si
+--disminuir el stoks tras registrar un mensaje, ademï¿½s debe enviar un mensaje si
 --en dado caso la cantidad de producto a comprar es mayor a la existente.
-CREATE TRIGGER trg_updateInventory
+CREATE TRIGGER trg_updateInventory2
 ON dbo.SALE_DETAILS
 INSTEAD OF INSERT
 AS
@@ -26,10 +24,10 @@ BEGIN
 	print 'Stock Actualizado Correctamente';
 	
 END;
-GO;
+GO
 
-/*2- Crear una tabla que permita registrar las ganancias y reinversión, esta se debe
-llenar por medio de un triggers después de realizar una venta */
+/*2- Crear una tabla que permita registrar las ganancias y reinversiï¿½n, esta se debe
+llenar por medio de un triggers despuï¿½s de realizar una venta */
 CREATE TRIGGER trg_proftisReinvestment
 ON dbo.SALE_DETAILS
 after INSERT
@@ -56,11 +54,11 @@ BEGIN
 		INNER JOIN inserted AS i ON p.id_product = i.id_product;
 	END
 END;
-GO;
+GO
 
 /*
 	3- Crear una tabla la cual permita almacenar reportes de ventas semanales, esta
-	se debe llenar a través de una triggers
+	se debe llenar a travï¿½s de una triggers
 */
 CREATE TRIGGER trg_reportSaleWeek
 ON dbo.SALE_DETAILS
@@ -73,7 +71,7 @@ BEGIN
 
 	 -- Calcula el lunes de la semana actual
 	SET @startDayWeek = DATEADD(DAY, 1 - DATEPART(WEEKDAY, GETDATE()), GETDATE());
-	-- Calcula el domingo sumando 6 días al lunes
+	-- Calcula el domingo sumando 6 dï¿½as al lunes
 	SET @lastDayWeek = DATEADD(DAY, 6, @startDayWeek);
 	--Calcular la cantidad de ventas
 	SET @quantitySales = (SELECT COUNT(sale_date) FROM SALES WHERE  GETDATE() < @lastDayWeek);
@@ -119,9 +117,9 @@ BEGIN
 			WHERE GETDATE() >= startDayWeek AND GETDATE() < lastDayWeek
 	END;
 END
-GO;
+GO
 
--- 4- Crear una tabla que se complemente automáticamente registrando todas las 
+-- 4- Crear una tabla que se complemente automï¿½ticamente registrando todas las 
 --operaciones hechas en ventas. 
 CREATE TRIGGER trg_InsertSalesRecord
 ON dbo.SALES
@@ -134,9 +132,9 @@ BEGIN
 
     PRINT 'Venta registrada en recordSales correctamente';
 END
-GO;
+GO
 
--- 5.Crear un trigger que no me permita la eliminación de productos con ventas de socios 
+-- 5.Crear un trigger que no me permita la eliminaciï¿½n de productos con ventas de socios 
 CREATE TRIGGER trg_PreventDeleteProductWithSales
 ON dbo.PRODUCTS
 INSTEAD OF DELETE
@@ -150,21 +148,20 @@ BEGIN
         INNER JOIN ventas_socios vs ON v.id_venta = vs.id_venta
     )
     BEGIN
-        -- Evitar la eliminación del producto y mostrar un mensaje de error
+        -- Evitar la eliminaciï¿½n del producto y mostrar un mensaje de error
         RAISERROR ('No se puede eliminar el producto porque tiene ventas asociadas a socios.', 16, 1);
         RETURN;
     END
 
-    -- Si el producto no tiene ventas de socios, permitir la eliminación
+    -- Si el producto no tiene ventas de socios, permitir la eliminaciï¿½n
     DELETE FROM productos WHERE id_product IN (SELECT id_product FROM deleted);
     
     PRINT 'Producto eliminado correctamente.';
 END
-GO;
+GO
 
 --6- Crear una tabla que me permita registrar los intentos fallidos de inicio de 
---sesión que se complete por medio de un trigger 
-
+--sesiï¿½n que se complete por medio de un trigger
 CREATE TRIGGER trg_LoginFailed
 ON dbo.ErrorsLogs
 AFTER INSERT
@@ -174,13 +171,12 @@ BEGIN
     SELECT i.nameuser, GETDATE(), CONVERT(TIME, GETDATE())
     FROM inserted i
 
-    PRINT 'Intento de inicio de sesión fallido registrado en ErrorsLogs';
+    PRINT 'Intento de inicio de sesiï¿½n fallido registrado en ErrorsLogs';
 END
-GO;
+GO
 
 /* 7- Crear una tabla que me permita registrar los cambios de los precios de
-productos y se complemente a través de un trigger */
-
+productos y se complemente a travï¿½s de un trigger */
 Create trigger TRG_UPDATE_PRICE
 On Products
 After update
@@ -199,9 +195,9 @@ Begin
 	Where i.price <> d.price; -- Ver si el precio cambio	
 	End
 End;
-Go;
+Go
 
-/* 8- una función que me permita obtener el total de ventas realizadas por
+/* 8- una funciï¿½n que me permita obtener el total de ventas realizadas por
 clientes */
 Go;
 Create function dbo.GetTotalSalesByCustomer
@@ -222,16 +218,16 @@ Begin
 			Set @total_sales = 0;
 		End
 	Return @total_sales; -- devuelve el total de ventas
-End;
-GO;
+End
+GO
 
 
-/* 9- Realizar una función que me permita realizar descuentos en una venta */
+/* 9- Realizar una funciï¿½n que me permita realizar descuentos en una venta */
 Go;
 CREATE PROCEDURE dbo.ApplyPercentageDiscountToSales
 (
-    @id_sale INT,          -- Parámetro de entrada: ID de la venta
-    @discount_percentage DECIMAL(5, 2)  -- Parámetro de entrada: Porcentaje de descuento
+    @id_sale INT,          -- Parï¿½metro de entrada: ID de la venta
+    @discount_percentage DECIMAL(5, 2)  -- Parï¿½metro de entrada: Porcentaje de descuento
 )
 AS
 BEGIN
@@ -253,9 +249,9 @@ BEGIN
 
     -- Devolver el nuevo total de la venta
     SELECT @new_total AS NewTotal;
-END;
-GO;
--- 10.  Generar una función que me permita verificar el stock disponible de un producto en específico. 
+END
+GO
+-- 10.  Generar una funciï¿½n que me permita verificar el stock disponible de un producto en especï¿½fico. 
 CREATE FUNCTION check_product_stock(@id_product INT)
 RETURNS INT
 AS
@@ -265,11 +261,11 @@ BEGIN
     FROM PRODUCTS
     WHERE id_product = @id_product;
 
-RETURN ISNULL(@stock, 0);
-END;
-GO;
+RETURN ISNULL(@stock,0);
+END
+GO
 
--- 11. Realizar una función que me permita generar un reporte de ventas hecha por categoría 
+-- 11. Realizar una funciï¿½n que me permita generar un reporte de ventas hecha por categorï¿½a 
 CREATE FUNCTION sales_by_category(@start_date DATE, @end_date DATE)
 RETURNS TABLE
 AS
@@ -288,9 +284,9 @@ RETURN
 	S.sale_date BETWEEN @start_date AND @end_date
     GROUP BY C.category_name, S.sale_date
 );
-GO;
+GO
 
--- 12. Realizar una función que me permita verifica los permisos de usuario  
+-- 12. Realizar una funciï¿½n que me permita verifica los permisos de usuario  
 CREATE FUNCTION check_user_permissions(@id_user INT)
 RETURNS TABLE
 AS
@@ -302,11 +298,11 @@ SELECT
     FROM 
         USERS U
     JOIN ROLES R ON U.id_role = R.id_role
-    WHERE U.id_user = @id_user
+    WHERE U.id_user =@id_user
 );
-GO;
+GO
 
--- 13. Crear una función de los 10 productos mas vendidos  
+-- 13. Crear una funciï¿½n de los 10 productos mas vendidos  
 CREATE FUNCTION fn_Top10ProductosMasVendidos()
 RETURNS TABLE
 AS
@@ -321,9 +317,9 @@ RETURN
     GROUP BY P.id_product, P.name_product
     ORDER BY SUM(SD.quantity) DESC
 );
-GO;
+GO
 
--- 14. Crear una función que me permita validad la existencia de un cliente asociado. 
+-- 14. Crear una funciï¿½n que me permita validad la existencia de un cliente asociado. 
 CREATE FUNCTION fn_ValidarClienteAsociado(@id_customer INT)
 RETURNS BIT
 AS
@@ -332,18 +328,18 @@ BEGIN
 
     IF EXISTS (SELECT 1 FROM CUSTOMER_CARD WHERE id_customer = @id_customer)
     BEGIN
-        SET @Existe = 1;  -- El cliente está asociado
+        SET @Existe = 1;  -- El cliente estï¿½ asociado
     END
     ELSE
     BEGIN
-        SET @Existe = 0;  -- El cliente no está asociado
+        SET @Existe = 0;  -- El cliente no estï¿½ asociado
     END
     RETURN @Existe;
 END;
-GO;
+GO
 
 
--- 15. Función para obtener el total de devoluciones por cliente. 
+-- 15. Funciï¿½n para obtener el total de devoluciones por cliente. 
 CREATE FUNCTION fn_TotalDevolucionesPorCliente(@id_customer INT)
 RETURNS INT
 AS
@@ -355,4 +351,4 @@ BEGIN
     WHERE R.id_customer = @id_customer;
     RETURN ISNULL(@TotalDevoluciones, 0);  -- Si no hay devoluciones, retorna 0
 END;
-GO;
+GO

@@ -1,4 +1,6 @@
-﻿using InventoryWalmart.Validaciones;
+﻿using InventoryWalmart.Database;
+using InventoryWalmart.Model;
+using InventoryWalmart.Validaciones;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -9,24 +11,33 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static InventoryWalmart.Database.BenefitsDAO;
 
 namespace InventoryWalmart
 {
     public partial class formAccionBeneficioReco : Form
     {
-        public formAccionBeneficioReco(int tipo)
+
+        public string opcion = viewBenefitsRewards.opcion;
+        public int Id_Benefit = viewBenefitsRewards.Id_Benefit;
+
+        public formAccionBeneficioReco()
         {
-            if (tipo == 0) {
-                InitializeComponent();
-                tituloForm.Text = "Modificar \r\nBeneficio o Recompensa\r\n";
-                btnModificar.Show();
-                btnAgregar.Hide();
+            InitializeComponent();
+
+            if (opcion == "agregar")
+            {
+                limpiarForm();
+                tituloForm.Text = "Agregar beneficio";
+                btnAgregar.Text = "Guardar";
+                btnAgregar.BackColor = Color.Green;
             }
             else
             {
-                InitializeComponent();
-                btnAgregar.Show();
-                btnModificar.Hide();
+                CargarBenefit();
+                tituloForm.Text = "Editar beneficio";
+                btnAgregar.Text = "Actualizar";
+                btnAgregar.BackColor = Color.Blue;
             }
 
         }
@@ -79,28 +90,6 @@ namespace InventoryWalmart
 
         }
 
-        private void btnModificar_Click(object sender, EventArgs e)
-        {
-            var validarPorcentaje = Validar.ValidarPorcentaje(txtDescuento.Text);
-            var validarPuntos = Validar.ValidarNumero(txtPuntos.Text);
-
-            if (!validarPorcentaje)
-            {
-                MessageBox.Show("Descuento invalido! \nVerifique que el numero este en rango 1 - 100");
-                return;
-            }
-
-            if (!validarPuntos)
-            {
-                MessageBox.Show("Puntos invalidos! Verifique que sea tipo numerico");
-                return;
-            }
-
-            //aplicar logica luego de validaciones
-
-            limpiarForm();
-        }
-
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
 
@@ -112,6 +101,94 @@ namespace InventoryWalmart
             txtDescrip.ResetText();
             txtDescuento.ResetText();
             txtPuntos.ResetText();
+        }
+
+        public bool Validacion()
+        {
+            var validarPorcentaje = Validar.ValidarPorcentaje(txtDescuento.Text);
+            var validarPuntos = Validar.ValidarNumero(txtPuntos.Text);
+
+            if (!validarPorcentaje)
+            {
+                MessageBox.Show("Descuento invalido! \nVerifique que el numero este en rango 1 - 100");
+                return false;
+            }
+
+            if (!validarPuntos)
+            {
+                MessageBox.Show("Puntos invalidos! Verifique que sea tipo numerico");
+                return false;
+            }
+
+            return true;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            viewBenefitsRewards view=new viewBenefitsRewards();
+            this.Hide();
+            view.Show();
+        }
+
+        private void btnAgregar_Click(object sender, EventArgs e)
+        {
+            if (Validacion())
+            {
+                if (opcion == "agregar")
+                {
+                    InsertarBenefit();
+                }
+                else
+                {
+                    ActualizarBenefit();
+                }
+                
+            }
+        }
+
+        private void InsertarBenefit()
+        {
+            Benefits benefit = new Benefits
+            {
+                BenefitName = txtBeneficio.Text,
+                Description = txtDescrip.Text,
+                PointsRequierd = int.Parse(txtPuntos.Text),
+                DiscountPercent = decimal.Parse(txtDescuento.Text),
+                StartDate = DTPInicio.Value,
+                EndDate = DTPfin.Value
+            };
+
+            BenefitsDAO.InsertBenefit(benefit);
+
+        }
+
+        private void ActualizarBenefit()
+        {
+            Benefits benefit = new Benefits
+            {
+                IdBenefit = Id_Benefit,
+                BenefitName = txtBeneficio.Text,
+                Description = txtDescrip.Text,
+                PointsRequierd = int.Parse(txtPuntos.Text),
+                DiscountPercent = decimal.Parse(txtDescuento.Text),
+                StartDate = DTPInicio.Value,
+                EndDate = DTPfin.Value
+            };
+
+            BenefitsDAO.UpdateBenefit(benefit);
+
+        }
+
+        private void CargarBenefit()
+        {
+            Benefits benefit = BenefitsDAO.GetBenefitById(Id_Benefit);
+
+            txtBeneficio.Text = benefit.BenefitName;
+            txtDescrip.Text = benefit.Description;
+            txtPuntos.Text = benefit.PointsRequierd.ToString();
+            txtDescuento.Text = benefit.DiscountPercent.ToString("0.00");
+            DTPfin.Value = benefit.StartDate;
+            DTPfin.Value = benefit.EndDate;
         }
     }
 }

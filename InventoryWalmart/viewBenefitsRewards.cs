@@ -1,4 +1,7 @@
-﻿using System;
+﻿using InventoryWalmart.Database;
+using InventoryWalmart.Model;
+using InventoryWalmart.Utils;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -8,14 +11,20 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static InventoryWalmart.Database.BenefitsDAO;
 
 namespace InventoryWalmart
 {
     public partial class viewBenefitsRewards : Form
     {
+
+        public static string opcion = "";
+        public static int Id_Benefit = 0;
+
         public viewBenefitsRewards()
         {
             InitializeComponent();
+            CargarTabla();
         }
 
         private void viewBenefitsRewards_Load(object sender, EventArgs e)
@@ -23,6 +32,41 @@ namespace InventoryWalmart
 
         }
 
+        private void CargarTabla()
+        {
+            try
+            {
+                tableBenefitsRewards.AutoGenerateColumns = false;
+                var lista = BenefitsDAO.SelectBenefits();
+                tableBenefitsRewards.DataSource = lista;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al cargar beneficios: " + ex.Message);
+            }
+        }
+
+        public bool ValidarSeleccion()
+        {
+            if (tableBenefitsRewards.SelectedRows.Count != 1)
+            {
+                MessageBox.Show("Por favor selecciona una sola fila.", "Selección requerida", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+            return true;
+        }
+
+        public bool ConfirmarSeleccion(string accion)
+        {
+            if (!ValidarSeleccion())
+                return false;
+
+            DataGridViewRow row = tableBenefitsRewards.SelectedRows[0];
+            Benefits seleccionado = (Benefits)row.DataBoundItem;
+
+            bool confirmacion = Alertas.Confirmacion("¡Advertencia!", $"¿Seguro que deseas {accion} el beneficio '{seleccionado.BenefitName}'?");
+            return confirmacion;
+        }
 
         //Codigo q nos ayuda con la administrasion de la barra de arriba y mover la ventana.
         //Drag Form
@@ -70,15 +114,25 @@ namespace InventoryWalmart
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            formAccionBeneficioReco formAccionBeneficioReco = new formAccionBeneficioReco(1);
+            opcion = "agregar";
+            formAccionBeneficioReco formAccionBeneficioReco = new formAccionBeneficioReco();
+            this.Hide();
             formAccionBeneficioReco.Show();
+
         }
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
-            formAccionBeneficioReco formAccionBeneficioReco = new formAccionBeneficioReco(0);
-            formAccionBeneficioReco.Show();
-
+            DataGridViewRow row = tableBenefitsRewards.SelectedRows[0];
+            Benefits Benefits = (Benefits)row.DataBoundItem;
+            if (ConfirmarSeleccion("editar"))
+            {
+                Id_Benefit = Benefits.IdBenefit;
+                opcion = "editar";
+                formAccionBeneficioReco formAccionBeneficioReco = new formAccionBeneficioReco();
+                this.Hide();
+                formAccionBeneficioReco.Show();
+            }
         }
 
 
@@ -141,6 +195,13 @@ namespace InventoryWalmart
             viewGestionVentas vista=new viewGestionVentas();
             this.Hide();
             vista.Show();
+        }
+
+        private void btnAplicarBene_Click(object sender, EventArgs e)
+        {
+            FormApplyBenefit view=new FormApplyBenefit();
+            this.Hide();
+            view.Show();
         }
     }
 }

@@ -96,6 +96,13 @@
     </Compile>
     <Compile Include="Database\AccountDAO.cs" />
     <Compile Include="Database\BenefitsDAO.cs" />
+    <Compile Include="ModalBenefitsByClient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ModalBenefitsByClient.Designer.cs">
+      <DependentUpon>ModalBenefitsByClient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\CardBenefits.cs" />
     <Compile Include="Database\Connection.cs" />
     <Compile Include="Database\CustomerDAO.cs" />
     <Compile Include="Database\Customer_CardDAO.cs" />
@@ -141,6 +148,12 @@
     </Compile>
     <Compile Include="FormAddProduct.Designer.cs">
       <DependentUpon>FormAddProduct.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormApplyBenefit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormApplyBenefit.Designer.cs">
+      <DependentUpon>FormApplyBenefit.cs</DependentUpon>
     </Compile>
     <Compile Include="FormCustomers.cs">
       <SubType>Form</SubType>
@@ -328,6 +341,9 @@
     <EmbeddedResource Include="FormAddProduct.resx">
       <DependentUpon>FormAddProduct.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormApplyBenefit.resx">
+      <DependentUpon>FormApplyBenefit.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormCustomers.resx">
       <DependentUpon>FormCustomers.cs</DependentUpon>
     </EmbeddedResource>
@@ -348,6 +364,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="login.resx">
       <DependentUpon>login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ModalBenefitsByClient.resx">
+      <DependentUpon>ModalBenefitsByClient.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

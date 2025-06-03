@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace InventoryWalmart.Model
 {
-    internal class Categoria
+    public class Categoria
     {
         public int id_category { get; set; }
         public string category_name { get; set; }

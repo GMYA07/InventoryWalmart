@@ -12,9 +12,9 @@ namespace InventoryWalmart.Controllers
     {
         private string connectionString = "Server=localhost; Database=InventoryWalmart; User Id=sa; Password=1234;";
 
-        public List<Category> ObtenerCategorias()
+        public List<Categoria> ObtenerCategorias()
         {
-            List<Category> categorias = new List<Category>();
+            List<Categoria> categorias = new List<Categoria>();
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -25,11 +25,11 @@ namespace InventoryWalmart.Controllers
                 {
                     while (reader.Read())
                     {
-                        Category categoria = new Category
+                        Categoria categoria = new Categoria
                         {
-                            IdCategory = (int)reader["id_category"], // Usar 'IdCategory'
-                            CategoryName = (string)reader["category_name"], // Usar 'CategoryName'
-                            Description = reader["description"] != DBNull.Value ? (string)reader["description"] : null
+                            id_category = (int)reader["id_category"], // Usar 'IdCategory'
+                            category_name = (string)reader["category_name"], // Usar 'CategoryName'
+                            description = reader["description"] != DBNull.Value ? (string)reader["description"] : null
                         };
 
                         categorias.Add(categoria);

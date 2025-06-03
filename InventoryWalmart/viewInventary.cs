@@ -35,10 +35,10 @@ namespace InventoryWalmart
 
         private void CargarCategorias()
         {
-            var categorias = categoriaController.ObtenerCategorias(); // Suponiendo que tienes este método
+            var categorias = categoriaController.ObtenerCategorias();
             comboBox1.DataSource = categorias;
-            comboBox1.DisplayMember = "CategoryName"; // Ajusta esto según tu modelo
-            comboBox1.ValueMember = "IdCategory"; // Ajusta esto según tu modelo
+            comboBox1.DisplayMember = "category_name"; // Ajusta esto según tu modelo
+            comboBox1.ValueMember = "id_category"; // Ajusta esto según tu modelo
         }
 
         // Método para cargar productos en el DataGridView

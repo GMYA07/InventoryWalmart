@@ -34,8 +34,8 @@ namespace InventoryWalmart
             {
                 var categorias = categoriaController.ObtenerCategorias();
                 cb_categoria.DataSource = categorias;
-                cb_categoria.DisplayMember = "CategoryName"; // Debe coincidir con la propiedad en Category
-                cb_categoria.ValueMember = "IdCategory"; // Debe coincidir con la propiedad en Category
+                cb_categoria.DisplayMember = "category_name";
+                cb_categoria.ValueMember = "id_category";
             }
             catch (Exception ex)
             {

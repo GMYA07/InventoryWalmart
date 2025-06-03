@@ -243,5 +243,33 @@ namespace InventoryWalmart.Database
 
             return benefit;
         }
+
+        public static void InsertCardBenefit(CardBenefits cardBenefits)
+        {
+            using (SqlConnection conn = Connection.ObtenerConexion())
+            {
+                using (SqlCommand cmd = new SqlCommand("insert_CardBenefit", conn))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    cmd.Parameters.AddWithValue("@id_card", cardBenefits.id_card);
+                    cmd.Parameters.AddWithValue("@id_benefit", cardBenefits.id_benefit);
+                    cmd.Parameters.AddWithValue("@date_acquired", cardBenefits.data_acquired);
+
+                    try
+                    {
+                        conn.Open();
+                        cmd.ExecuteNonQuery();
+                        conn.Close();
+
+                        Alertas.AlertInfo("EXITO!","Se agrego correctamente");
+                    }
+                    catch (SqlException ex)
+                    {
+                        throw new Exception("Error al insertar CardBenefit: " + ex.Message);
+                    }
+                }
+            }
+        }
     }
 }

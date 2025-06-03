@@ -454,5 +454,38 @@ namespace InventoryWalmart.Database
             return contador;
         }
 
+        public static int ObtenerIdCardPorCardNumber(string cardNumber)
+        {
+            string query = "SELECT id_card FROM CUSTOMER_CARD WHERE card_number = @cardNumber";
+
+            using (SqlConnection conn = Connection.ObtenerConexion())
+            using (SqlCommand cmd = new SqlCommand(query, conn))
+            {
+                cmd.Parameters.AddWithValue("@cardNumber", cardNumber);
+
+                try
+                {
+                    conn.Open();
+                    object result = cmd.ExecuteScalar(); 
+
+                    if (result != null && result != DBNull.Value)
+                    {
+                        return Convert.ToInt32(result);
+                    }
+                    else
+                    {
+                        Console.WriteLine("No se encontró la tarjeta con ese número.");
+                        return 0;
+                    }
+
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Error al buscar id_card: " + ex.Message);
+                    return 0;
+                }
+            }
+        }
+
     }
 }

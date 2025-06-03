@@ -196,5 +196,12 @@ namespace InventoryWalmart
             this.Hide();
             vista.Show();
         }
+
+        private void btnAplicarBene_Click(object sender, EventArgs e)
+        {
+            FormApplyBenefit view=new FormApplyBenefit();
+            this.Hide();
+            view.Show();
+        }
     }
 }

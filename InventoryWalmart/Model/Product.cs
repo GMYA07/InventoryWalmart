@@ -11,6 +11,7 @@ namespace InventoryWalmart.Model
         private int id_product;
         private string name_product;
         private decimal price;
+        private decimal priceSup;
         private int stock;
         private int id_category;
         private int id_supplier;
@@ -18,11 +19,12 @@ namespace InventoryWalmart.Model
 
         public Product() { }
 
-        public Product(int id_product, string name_product, decimal price, int stock, int id_category, int id_supplier, string image_product)
+        public Product(int id_product, string name_product, decimal price, decimal priceSup, int stock, int id_category, int id_supplier, string image_product)
         {
             this.id_product = id_product;
             this.name_product = name_product;
             this.price = price;
+            this.priceSup = priceSup;
             this.stock = stock;
             this.id_category = id_category;
             this.id_supplier = id_supplier;
@@ -30,6 +32,8 @@ namespace InventoryWalmart.Model
         }
 
         //Getters y Setters
+
+
 
         public int GetIdProduct()
         {
@@ -59,6 +63,16 @@ namespace InventoryWalmart.Model
         public void SetPrice(decimal value)
         {
             price = value;
+        }
+
+        public decimal GetPriceSup()
+        {
+            return priceSup;
+        }
+
+        public void SetPriceSup(decimal value)
+        {
+            priceSup = value;
         }
 
         public int GetStock()
@@ -101,5 +115,9 @@ namespace InventoryWalmart.Model
             image_product = value;
         }
 
+
+
     }
+
+
 }

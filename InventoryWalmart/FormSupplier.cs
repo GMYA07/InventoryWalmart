@@ -1,5 +1,7 @@
 ﻿using InventoryWalmart.Database;
 using InventoryWalmart.Model;
+using InventoryWalmart.Utils;
+using InventoryWalmart.Validaciones;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -86,15 +88,41 @@ namespace InventoryWalmart
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
+            var validarTel = Validar.ValidarTelefono(TxtTelefono.Text);
+            var validarMail = Validar.ValidarEmail(TxtEmail.Text);
+
+            // Validaciones primero
+            if (!validarMail)
+            {
+                MessageBox.Show("Correo inválido. Formato requerido: example@gmail.com");
+                return;
+            }
+
+            if (!validarTel)
+            {
+                MessageBox.Show("Teléfono inválido. Formato requerido: ####-####");
+                return;
+            }
+
+            // Lógica según la opción
             if (ViewSuppliers.opcion == "agregar")
             {
                 InsertarSupplier();
+                limpiarTexts();
             }
             else
             {
                 ActualizarSupplier();
             }
 
+        }
+
+        public void limpiarTexts()
+        {
+            TxtNombre.ResetText();
+            Txtcompañia.ResetText();
+            TxtEmail.ResetText();
+            TxtTelefono.ResetText();
 
         }
 
@@ -135,6 +163,7 @@ namespace InventoryWalmart
             supp.id_department = CboDepartamento.SelectedIndex + 1;
 
             SupplierDAO_.UpdateSupplier(supp);
+            ChangeView<ViewSuppliers>();
         }
 
         public void ActualizarCombo()

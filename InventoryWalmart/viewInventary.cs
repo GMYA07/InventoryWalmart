@@ -8,17 +8,59 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using InventoryWalmart.Controllers;
+using InventoryWalmart.Model;
 
 namespace InventoryWalmart
 {
     public partial class viewInventary : Form
     {
+
+        private ProductoController productoController;
+
+
+        private CategoriaController categoriaController = new CategoriaController();
+
         public viewInventary()
         {
             InitializeComponent();
+            productoController = new ProductoController();
+            categoriaController = new CategoriaController();
+            CargarCategorias();
+            CargarProductos();
+            inputBuscar.TextChanged += inputBuscar_TextChanged;
+            comboBox1.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
+            btnEliminar.Click += btnEliminar_Click;
         }
 
-     
+        private void CargarCategorias()
+        {
+            var categorias = categoriaController.ObtenerCategorias();
+            comboBox1.DataSource = categorias;
+            comboBox1.DisplayMember = "category_name"; // Ajusta esto según tu modelo
+            comboBox1.ValueMember = "id_category"; // Ajusta esto según tu modelo
+        }
+
+        // Método para cargar productos en el DataGridView
+        private void CargarProductos()
+        {
+            List<Product> productos = productoController.ObtenerProductos();
+            Table_Customers.Rows.Clear();
+
+            foreach (var producto in productos)
+            {
+                Table_Customers.Rows.Add(
+                    producto.GetIdProduct(),
+                    producto.GetNameProduct(),
+                    producto.GetPrice(),
+                    producto.GetPriceSup(),
+                    producto.GetStock(),
+                    producto.GetIdCategory(),
+                    producto.GetIdSupplier()
+                );
+            }
+        }
+
 
         //Codigo q nos ayuda con la administrasion de la barra de arriba y mover la ventana.
         //Drag Form
@@ -69,7 +111,30 @@ namespace InventoryWalmart
 
         private void btnAplicarBene_Click(object sender, EventArgs e)
         {
-            ChangeView<ViewMembership>();
+            MessageBox.Show("Botón de editar presionado."); // Mensaje de depuración
+            if (Table_Customers.SelectedRows.Count <= 0)
+            {
+                MessageBox.Show("Por favor, selecciona un producto para editar.");
+            }
+            else
+            {
+                var selectedRow = Table_Customers.SelectedRows[0];
+                var productoId = (int)selectedRow.Cells["Id"].Value; // Asegúrate de que "Id" sea el nombre correcto
+                var producto = productoController.ObtenerProductoPorId(productoId); // Llama al método
+
+                if (producto != null)
+                {
+                    FormAddProduct formAddProduct = new FormAddProduct();
+                    formAddProduct.CargarProducto(producto); // Carga el producto seleccionado
+                    formAddProduct.ShowDialog();
+                }
+                else
+                {
+                    MessageBox.Show("No se encontró el producto seleccionado.");
+                }
+
+                CargarProductos(); // Recarga la lista de productos después de editar
+            }
         }
 
   
@@ -130,8 +195,125 @@ namespace InventoryWalmart
 
         private void btnAplicarBene_Click_1(object sender, EventArgs e)
         {
-            Database.Connection.prueba();
+            if (Table_Customers.SelectedRows.Count <= 0)
+            {
+                MessageBox.Show("Por favor, selecciona un producto para editar.");
+            }
+            else
+            {
+                var selectedRow = Table_Customers.SelectedRows[0];
+                var productoId = (int)selectedRow.Cells["columnID"].Value;
+                var producto = productoController.ObtenerProductoPorId(productoId);
+
+                if (producto != null)
+                {
+                    this.Hide();
+                    FormAddProduct formAddProduct = new FormAddProduct();
+                    formAddProduct.CargarProducto(producto); // Carga el producto seleccionado
+                    formAddProduct.ShowDialog();
+                }
+                else
+                {
+                    MessageBox.Show("No se encontró el producto seleccionado.");
+                }
+
+                CargarProductos(); // Recarga la lista de productos después de editar
+            }
         }
+
+        private void inputBuscar_TextChanged(object sender, EventArgs e)
+        {
+            FiltrarProductos(inputBuscar.Text);
+        }
+
+        private void FiltrarProductos(string searchTerm)
+        {
+            // Obtiene la lista de productos desde el controlador
+            List<Product> productos = productoController.ObtenerProductos();
+
+            // Filtra los productos que contengan el término de búsqueda
+            var productosFiltrados = productos
+                .Where(p => p.GetNameProduct().ToLower().Contains(searchTerm.ToLower()))
+                .ToList();
+
+            // Actualiza el DataGridView con los productos filtrados
+            Table_Customers.Rows.Clear(); // Limpia el DataGridView antes de llenarlo
+
+            foreach (var producto in productosFiltrados)
+            {
+                Table_Customers.Rows.Add(
+                    producto.GetIdProduct(),
+                    producto.GetNameProduct(),
+                    producto.GetPrice(),
+                    producto.GetPriceSup(),
+                    producto.GetStock(),
+                    producto.GetIdCategory(),
+                    producto.GetIdSupplier()
+                );
+            }
+        }
+
+        private void btnAgregarCategoria_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            FiltrarProductosPorCategoria((int)comboBox1.SelectedValue);
+        }
+
+        private void FiltrarProductosPorCategoria(int categoriaId)
+        {
+            List<Product> productos = productoController.ObtenerProductos(); // Obtén todos los productos
+            var productosFiltrados = productos.Where(p => p.GetIdCategory() == categoriaId).ToList(); // Filtra por categoría
+
+            // Actualiza el DataGridView
+            Table_Customers.Rows.Clear(); // Limpia el DataGridView antes de llenarlo
+            foreach (var producto in productosFiltrados)
+            {
+                Table_Customers.Rows.Add(
+                    producto.GetIdProduct(),
+                    producto.GetNameProduct(),
+                    producto.GetPrice(),
+                    producto.GetPriceSup(),
+                    producto.GetStock(),
+                    producto.GetIdCategory(),
+                    producto.GetIdSupplier()
+                );
+            }
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            if (Table_Customers.SelectedRows.Count <= 0)
+            {
+                MessageBox.Show("Por favor, selecciona un producto para eliminar.");
+                return;
+            }
+
+            var selectedRow = Table_Customers.SelectedRows[0];
+            var productoId = (int)selectedRow.Cells["columnID"].Value;
+
+            // Confirmar eliminación
+            var confirmResult = MessageBox.Show("¿Estás seguro de que deseas eliminar este producto?",
+                                                 "Confirmar eliminación",
+                                                 MessageBoxButtons.YesNo);
+            if (confirmResult == DialogResult.Yes)
+            {
+                // Llama al método en el controlador para eliminar el producto
+                productoController.EliminarProducto(productoId);
+
+                // Recargar productos
+                CargarProductos();
+                MessageBox.Show("Producto eliminado exitosamente.");
+
+                // Desactivar la selección automática
+                Table_Customers.ClearSelection();
+            }
+        }
+
+
 
         //fin conexiones
     }

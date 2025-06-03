@@ -28,6 +28,19 @@ BEGIN
     SELECT @new_total AS NewTotal;
 END;
 
+CREATE OR ALTER PROCEDURE obtenerAccount
+(
+    @userName varchar(30),
+    @pass varchar(250)
+)
+AS
+BEGIN
+    IF EXISTS(SELECT id_account,id_user FROM ACCOUNT WHERE username = @userName and pass = @pass and status_account = 1)
+        BEGIN
+            SELECT id_account,id_user,username,pass,status_account FROM ACCOUNT WHERE username = @userName and pass = @pass; --Existe
+        END;
+END
+
 -- Aplicar un descuento del 10% a la venta con id_sale = 1
 EXEC dbo.ApplyPercentageDiscountToSale @id_sale = 1, @discount_percentage = 10.00;
 go
@@ -529,12 +542,14 @@ BEGIN
  INSERT INTO CARD_BENEFITS (
  id_card,
  id_benefit,
- date_acquired
+ date_acquired,
+ status_benefit
  )
  VALUES (
  @id_card,
  @id_benefit,
- @date_acquired
+ @date_acquired,
+ 'activo'
  );
 END;
 go
@@ -827,9 +842,10 @@ go
 
 
 -- Procedimiento almacenado para insertar un Product
-CREATE PROCEDURE insert_Product
+CREATE OR ALTER PROCEDURE insert_Product
  @name_product VARCHAR(100),
  @price DECIMAL(10,2),
+ @priceSup DECIMAL(10,2),
  @stock INT,
  @id_category INT = NULL,
  @id_supplier INT = NULL,
@@ -859,9 +875,9 @@ WHERE id_supplier = @id_supplier)
  RETURN;
  END
 
- INSERT INTO PRODUCTS (name_product, price, stock, id_category, id_supplier,
+ INSERT INTO PRODUCTS (name_product, price,priceSup, stock, id_category, id_supplier,
 image_product)
- VALUES (@name_product, @price, @stock, @id_category, @id_supplier, @image_product);
+ VALUES (@name_product, @price,@priceSup, @stock, @id_category, @id_supplier, @image_product);
 END;
 go
 
@@ -1128,6 +1144,38 @@ id_department, id_district, id_role)
  PRINT 'Usuario insertado correctamente.';
 END;
 go
+
+CREATE OR ALTER PROCEDURE insert_account
+    @id_user INT,
+    @username VARCHAR(50),
+    @pass VARCHAR(250),  
+    @status_account BIT = 1        
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    -- Validar campos obligatorios
+    IF (
+        @username IS NULL OR LTRIM(RTRIM(@username)) = '' OR
+        @pass IS NULL OR LTRIM(RTRIM(@pass)) = ''
+    )
+    BEGIN
+        RAISERROR('Los campos @username y @pass son obligatorios.', 16, 1);
+        RETURN;
+    END
+
+    -- Validar unicidad del username
+    IF EXISTS (SELECT 1 FROM ACCOUNT WHERE username = @username)
+    BEGIN
+        RAISERROR('El nombre de usuario ya existe.', 16, 1);
+        RETURN;
+    END
+    INSERT INTO ACCOUNT (id_user, username, pass, status_account)
+    VALUES (@id_user, @username,@pass, @status_account);
+
+    SELECT SCOPE_IDENTITY() AS NewAccountId;
+END;
+GO
 
 CREATE PROCEDURE update_Benefits
 @id_benefit int,

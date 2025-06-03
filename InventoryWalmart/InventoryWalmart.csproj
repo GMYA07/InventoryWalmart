@@ -82,7 +82,6 @@
     <Compile Include="ReportesControllers\ControllersReportes.cs" />
     <Compile Include="Controllers\CategoriaController.cs" />
     <Compile Include="Controllers\loginController.cs" />
-    <Compile Include="Controllers\ProductoController.cs" />
     <Compile Include="Controllers\RolesControllers.cs" />
     <Compile Include="Controllers\SupplierController.cs" />
     <Compile Include="Controllers\UserController.cs" />

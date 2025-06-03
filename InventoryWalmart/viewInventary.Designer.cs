@@ -423,7 +423,7 @@
             this.Table_Customers.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.Table_Customers.Size = new System.Drawing.Size(588, 408);
             this.Table_Customers.TabIndex = 22;
-            this.Table_Customers.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Table_Customers_CellContentClick);
+            //this.Table_Customers.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Table_Customers_CellContentClick);
             // 
             // columnID
             // 

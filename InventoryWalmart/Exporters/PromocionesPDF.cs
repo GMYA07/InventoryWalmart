@@ -55,14 +55,14 @@ namespace InventoryWalmart.Exporters
                 doc.Add(Chunk.NEWLINE);
 
                 // Tabla
-                PdfPTable tabla = new PdfPTable(4)
+                PdfPTable tabla = new PdfPTable(5)
                 {
                     WidthPercentage = 100
                 };
-                tabla.SetWidths(new float[] { 35f, 20f, 25f, 20f });
+                tabla.SetWidths(new float[] { 35f, 15f, 20, 15f, 15f });
 
                 // Encabezados
-                string[] headers = { "Descripción", "Código Descuento", "Tipo de Descuento", "Estado" };
+                string[] headers = { "Descripción", "monto de descuento", "Código Descuento", "Tipo de Descuento", "Estado" };
                 foreach (string header in headers)
                 {
                     PdfPCell celda = new PdfPCell(new Phrase(header, fuenteEncabezado))
@@ -80,6 +80,7 @@ namespace InventoryWalmart.Exporters
                     if (item == null) continue;
 
                     tabla.AddCell(new Phrase(item.decripcion ?? "N/A", fuenteCelda));
+                    tabla.AddCell(new Phrase($"${item.discount_amount:N2}"));
                     tabla.AddCell(new Phrase(item.codigoDescuento?.ToString() ?? "N/A", fuenteCelda));
                     tabla.AddCell(new Phrase(item.tipodescuento ?? "N/A", fuenteCelda));
                     tabla.AddCell(new Phrase(item.status ?? "N/A", fuenteCelda));

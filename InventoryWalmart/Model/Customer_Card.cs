@@ -15,10 +15,12 @@ namespace InventoryWalmart.Model
         private DateTime expiration_date;
         private int points_balance;
         private string status;
+        private string customer_name;
+        private string dui;
 
         public Customer_Card() { }
 
-        public Customer_Card(int id_card, int id_customer, string card_number, DateTime issue_date, DateTime expiration_date, int points_balance, string status)
+        public Customer_Card(int id_card, int id_customer, string card_number, DateTime issue_date, DateTime expiration_date, int points_balance, string status, string customer_name, string dui)
         {
             this.id_card = id_card;
             this.id_customer = id_customer;
@@ -27,6 +29,8 @@ namespace InventoryWalmart.Model
             this.expiration_date = expiration_date;
             this.points_balance = points_balance;
             this.status = status;
+            this.customer_name = customer_name;
+            this.dui = dui;
         }
 
         public int IdCard
@@ -69,6 +73,17 @@ namespace InventoryWalmart.Model
         {
             get { return status; }
             set { status = value; }
+        }
+
+        public string CustomerName
+        {
+            get { return customer_name; }
+            set { customer_name = value; }
+        }
+        public string Dui
+        { 
+            get { return dui; }
+            set { dui = value; } 
         }
     }
 }

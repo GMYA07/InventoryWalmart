@@ -1,4 +1,7 @@
-﻿using System;
+﻿using InventoryWalmart.Database;
+using InventoryWalmart.Model;
+using InventoryWalmart.Utils;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -8,17 +11,56 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace InventoryWalmart
 {
     public partial class ViewMembership : Form
     {
-
+        public static string card = "";
+        public static int idCard = 0;
         public static string opcion = "";
-
+        Customer_CardDAO Customer_CardDAO = new Customer_CardDAO();
         public ViewMembership()
         {
             InitializeComponent();
+            CargarTabla();
+        }
+
+        private void CargarTabla()
+        {
+            try
+            {
+                Table_Membership.AutoGenerateColumns = false;
+                var lista = Customer_CardDAO.GetCustomerCard();
+                Table_Membership.DataSource = lista;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al cargar datos: " + ex.Message);
+            }
+        }
+
+        public bool ValidarSeleccion()
+        {
+            if (Table_Membership.SelectedRows.Count != 1)
+            {
+                MessageBox.Show("Por favor selecciona una sola fila antes de continuar.", "Selección requerida", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+
+            return true;
+        }
+
+        public bool ConfirmarSeleccion(string accion)
+        {
+            DataGridViewRow row = Table_Membership.SelectedRows[0];
+            Customer_Card FilaSeleccionada = (Customer_Card)row.DataBoundItem;
+
+            ValidarSeleccion();
+            bool confirmacion = Alertas.Confirmacion("¡Advetencia!", $"¿Seguro que quieres {accion} a {FilaSeleccionada.CustomerName}?");
+
+            return confirmacion;
         }
 
         //Codigo q nos ayuda con la administrasion de la barra de arriba y mover la ventana.
@@ -119,8 +161,15 @@ namespace InventoryWalmart
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
-            opcion = "editar";
-            ChangeView<FormMembership>();
+            DataGridViewRow row = Table_Membership.SelectedRows[0];
+            Customer_Card customer_Card = (Customer_Card) row.DataBoundItem;
+            if (ConfirmarSeleccion("editar"))
+            {
+                card= customer_Card.CardNumber;
+                idCard = customer_Card.IdCard;
+                opcion = "editar";
+                ChangeView<FormMembership>();
+            }
         }
     }
 }

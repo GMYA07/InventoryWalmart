@@ -1,4 +1,8 @@
-﻿using System;
+﻿using InventoryWalmart.Controllers;
+using InventoryWalmart.Model;
+using InventoryWalmart.Utils;
+using InventoryWalmart.Validaciones;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,23 +17,29 @@ namespace InventoryWalmart
 {
     public partial class FormReturns : Form
     {
-        public FormReturns()
+        Returns devo = new Returns();
+        adminController adminController = new adminController();
+
+        public FormReturns(string operacion, Returns devolucion)
         {
-
-            string opcion1 = ViewReturns.opcion;
-
             InitializeComponent();
-            if (opcion1 == "agregar")
-            {
 
+            if (operacion.Equals("rechazar"))
+            {
+                LblTitulo.Text = "Rechazar devolucion";
+                btnAceptar.Visible = false;
             }
             else
             {
-                LblTitulo.Text = "Editar Devolucion";
-                btnAgregar.Text = "Editar";
-                btnAgregar.BackColor = Color.Blue;
-                //this
+                btnRechazar.Visible = false;
             }
+
+            devo = devolucion;
+        }
+
+        private void FormReturns_Load(object sender, EventArgs e)
+        {
+
         }
 
         //Codigo q nos ayuda con la administrasion de la barra de arriba y mover la ventana.
@@ -61,7 +71,7 @@ namespace InventoryWalmart
 
         private void btnCerrar_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            this.Hide();
         }
 
         private void barAcciones_MouseDown(object sender, MouseEventArgs e)
@@ -77,14 +87,34 @@ namespace InventoryWalmart
             vista.Show();
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            ChangeView<ViewReturns>();
-        }
 
-        private void btnAgregar_Click(object sender, EventArgs e)
+        private void btnAceptar_Click(object sender, EventArgs e)
         {
 
         }
+        private void btnRechazar_Click(object sender, EventArgs e)
+        {
+            if (!Validar.validarInputVacio(inputDescripcionRechazo.Text,"descripcion rechazo"))
+            {
+                if (devo.IdCustomer == 0)
+                {
+                    devo.IdCustomer = null;
+                }
+                Console.WriteLine("esto es: " + devo.IdCustomer);
+                devo.Description = inputDescripcionRechazo.Text;
+                devo.Status = "rechazada";
+
+                if (adminController.cambiarEstadoDevo(devo) > 0)
+                {
+                    Alertas.AlertCorrect("Rechazando Devolucion", "Se ha rechazado exitosamente la devolucion");
+                    this.Close();
+                }
+                else
+                {
+                    Alertas.AlertError("Rechazando Devolucion","Existen un error al momento de rechazar la devolucion");
+                }
+            }
+        }
+
     }
 }

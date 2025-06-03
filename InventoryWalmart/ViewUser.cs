@@ -216,5 +216,7 @@ namespace InventoryWalmart
                 MessageBox.Show("Seleccione una fila.");
             }
         }
+
+       
     }
 }

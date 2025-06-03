@@ -32,6 +32,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.BtnVentas = new System.Windows.Forms.Button();
             this.BtnPuntos = new System.Windows.Forms.Button();
             this.btnClientes = new System.Windows.Forms.Button();
             this.btnEmpleado = new System.Windows.Forms.Button();
@@ -46,22 +47,23 @@
             this.btnMaximizar = new System.Windows.Forms.PictureBox();
             this.btnCerrar = new System.Windows.Forms.PictureBox();
             this.btnRestaurar = new System.Windows.Forms.PictureBox();
-            this.Table_Customers = new System.Windows.Forms.DataGridView();
+            this.tablaDevoluciones = new System.Windows.Forms.DataGridView();
             this.ColumnId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnIdVenta = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnFechaDevolucion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnDescripción = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnEstado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.btnModificar = new System.Windows.Forms.Button();
-            this.btnAgregar = new System.Windows.Forms.Button();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.inputBuscar = new System.Windows.Forms.TextBox();
-            this.btnBuscar = new System.Windows.Forms.Button();
+            this.btnAceptarDevo = new System.Windows.Forms.Button();
+            this.btnRechazarDevo = new System.Windows.Forms.Button();
+            this.btnMostrarVenta = new System.Windows.Forms.Button();
             this.Lbl_Title = new System.Windows.Forms.Label();
-            this.BtnVentas = new System.Windows.Forms.Button();
+            this.btnMostrarDevRechazadas = new System.Windows.Forms.Button();
+            this.btnMostrarDevAceptadas = new System.Windows.Forms.Button();
+            this.btnMostrarDevEspera = new System.Windows.Forms.Button();
+            this.btnDevolucionesEspecifica = new System.Windows.Forms.Button();
+            this.inputIdVenta = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.logo)).BeginInit();
             this.barAcciones.SuspendLayout();
@@ -69,9 +71,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnMaximizar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnRestaurar)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Table_Customers)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tablaDevoluciones)).BeginInit();
             this.panel3.SuspendLayout();
-            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -92,6 +93,27 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(250, 661);
             this.panel1.TabIndex = 21;
+            // 
+            // BtnVentas
+            // 
+            this.BtnVentas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(114)))), ((int)(((byte)(223)))));
+            this.BtnVentas.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnVentas.Dock = System.Windows.Forms.DockStyle.Top;
+            this.BtnVentas.FlatAppearance.BorderSize = 0;
+            this.BtnVentas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnVentas.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnVentas.ForeColor = System.Drawing.Color.White;
+            this.BtnVentas.Image = global::InventoryWalmart.Properties.Resources.IconoSales;
+            this.BtnVentas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnVentas.Location = new System.Drawing.Point(0, 448);
+            this.BtnVentas.Name = "BtnVentas";
+            this.BtnVentas.Padding = new System.Windows.Forms.Padding(0, 0, 100, 0);
+            this.BtnVentas.Size = new System.Drawing.Size(250, 40);
+            this.BtnVentas.TabIndex = 10;
+            this.BtnVentas.Text = "Ventas";
+            this.BtnVentas.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnVentas.UseVisualStyleBackColor = false;
+            this.BtnVentas.Click += new System.EventHandler(this.BtnVentas_Click);
             // 
             // BtnPuntos
             // 
@@ -338,13 +360,13 @@
             this.btnRestaurar.TabStop = false;
             this.btnRestaurar.Click += new System.EventHandler(this.btnRestaurar_Click);
             // 
-            // Table_Customers
+            // tablaDevoluciones
             // 
-            this.Table_Customers.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.Table_Customers.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.Table_Customers.BackgroundColor = System.Drawing.Color.White;
-            this.Table_Customers.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.Table_Customers.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.tablaDevoluciones.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.tablaDevoluciones.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.tablaDevoluciones.BackgroundColor = System.Drawing.Color.White;
+            this.tablaDevoluciones.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tablaDevoluciones.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(113)))), ((int)(((byte)(207)))));
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -352,21 +374,20 @@
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Table_Customers.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.Table_Customers.ColumnHeadersHeight = 30;
-            this.Table_Customers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.Table_Customers.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.tablaDevoluciones.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.tablaDevoluciones.ColumnHeadersHeight = 30;
+            this.tablaDevoluciones.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.tablaDevoluciones.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ColumnId,
             this.ColumnCliente,
             this.ColumnIdVenta,
-            this.ColumnProducto,
             this.ColumnFechaDevolucion,
             this.ColumnDescripción,
             this.ColumnEstado});
-            this.Table_Customers.EnableHeadersVisualStyles = false;
-            this.Table_Customers.Location = new System.Drawing.Point(428, 254);
-            this.Table_Customers.Name = "Table_Customers";
-            this.Table_Customers.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.tablaDevoluciones.EnableHeadersVisualStyles = false;
+            this.tablaDevoluciones.Location = new System.Drawing.Point(297, 307);
+            this.tablaDevoluciones.Name = "tablaDevoluciones";
+            this.tablaDevoluciones.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
             dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(113)))), ((int)(((byte)(207)))));
             dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -374,41 +395,39 @@
             dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.GradientActiveCaption;
             dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Table_Customers.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
-            this.Table_Customers.RowHeadersVisible = false;
-            this.Table_Customers.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.Table_Customers.Size = new System.Drawing.Size(633, 408);
-            this.Table_Customers.TabIndex = 31;
+            this.tablaDevoluciones.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            this.tablaDevoluciones.RowHeadersVisible = false;
+            this.tablaDevoluciones.RowHeadersWidth = 51;
+            this.tablaDevoluciones.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.tablaDevoluciones.Size = new System.Drawing.Size(944, 223);
+            this.tablaDevoluciones.TabIndex = 31;
             // 
             // ColumnId
             // 
             this.ColumnId.HeaderText = "ID";
+            this.ColumnId.MinimumWidth = 6;
             this.ColumnId.Name = "ColumnId";
             this.ColumnId.Width = 46;
             // 
             // ColumnCliente
             // 
-            this.ColumnCliente.HeaderText = "Cliente";
+            this.ColumnCliente.HeaderText = "Id cliente";
+            this.ColumnCliente.MinimumWidth = 6;
             this.ColumnCliente.Name = "ColumnCliente";
             this.ColumnCliente.ReadOnly = true;
-            this.ColumnCliente.Width = 75;
+            this.ColumnCliente.Width = 89;
             // 
             // ColumnIdVenta
             // 
             this.ColumnIdVenta.HeaderText = "ID Venta";
+            this.ColumnIdVenta.MinimumWidth = 6;
             this.ColumnIdVenta.Name = "ColumnIdVenta";
             this.ColumnIdVenta.Width = 85;
-            // 
-            // ColumnProducto
-            // 
-            this.ColumnProducto.HeaderText = "Producto";
-            this.ColumnProducto.Name = "ColumnProducto";
-            this.ColumnProducto.ReadOnly = true;
-            this.ColumnProducto.Width = 88;
             // 
             // ColumnFechaDevolucion
             // 
             this.ColumnFechaDevolucion.HeaderText = "Fecha de devolucion";
+            this.ColumnFechaDevolucion.MinimumWidth = 6;
             this.ColumnFechaDevolucion.Name = "ColumnFechaDevolucion";
             this.ColumnFechaDevolucion.ReadOnly = true;
             this.ColumnFechaDevolucion.Width = 158;
@@ -416,6 +435,7 @@
             // ColumnDescripción
             // 
             this.ColumnDescripción.HeaderText = "Descripción";
+            this.ColumnDescripción.MinimumWidth = 6;
             this.ColumnDescripción.Name = "ColumnDescripción";
             this.ColumnDescripción.ReadOnly = true;
             this.ColumnDescripción.Width = 104;
@@ -423,89 +443,72 @@
             // ColumnEstado
             // 
             this.ColumnEstado.HeaderText = "Estado";
+            this.ColumnEstado.MinimumWidth = 6;
             this.ColumnEstado.Name = "ColumnEstado";
             this.ColumnEstado.ReadOnly = true;
             this.ColumnEstado.Width = 73;
             // 
             // panel3
             // 
-            this.panel3.Controls.Add(this.btnModificar);
-            this.panel3.Controls.Add(this.btnAgregar);
-            this.panel3.Location = new System.Drawing.Point(976, 149);
+            this.panel3.Controls.Add(this.btnAceptarDevo);
+            this.panel3.Controls.Add(this.btnRechazarDevo);
+            this.panel3.Controls.Add(this.btnMostrarVenta);
+            this.panel3.Location = new System.Drawing.Point(297, 227);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(281, 53);
+            this.panel3.Size = new System.Drawing.Size(440, 53);
             this.panel3.TabIndex = 30;
             // 
-            // btnModificar
+            // btnAceptarDevo
             // 
-            this.btnModificar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(114)))), ((int)(((byte)(223)))));
-            this.btnModificar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnModificar.FlatAppearance.BorderSize = 0;
-            this.btnModificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnModificar.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnModificar.ForeColor = System.Drawing.Color.White;
-            this.btnModificar.Image = global::InventoryWalmart.Properties.Resources.iconoModificar;
-            this.btnModificar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnModificar.Location = new System.Drawing.Point(144, 8);
-            this.btnModificar.Name = "btnModificar";
-            this.btnModificar.Padding = new System.Windows.Forms.Padding(0, 0, 10, 0);
-            this.btnModificar.Size = new System.Drawing.Size(122, 40);
-            this.btnModificar.TabIndex = 13;
-            this.btnModificar.Text = "Modificar";
-            this.btnModificar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnModificar.UseVisualStyleBackColor = false;
-            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
+            this.btnAceptarDevo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(170)))), ((int)(((byte)(28)))));
+            this.btnAceptarDevo.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAceptarDevo.FlatAppearance.BorderSize = 0;
+            this.btnAceptarDevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAceptarDevo.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAceptarDevo.ForeColor = System.Drawing.Color.White;
+            this.btnAceptarDevo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAceptarDevo.Location = new System.Drawing.Point(3, 8);
+            this.btnAceptarDevo.Name = "btnAceptarDevo";
+            this.btnAceptarDevo.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
+            this.btnAceptarDevo.Size = new System.Drawing.Size(122, 40);
+            this.btnAceptarDevo.TabIndex = 36;
+            this.btnAceptarDevo.Text = "Aceptar\r\nDevolucion";
+            this.btnAceptarDevo.UseVisualStyleBackColor = false;
+            this.btnAceptarDevo.Click += new System.EventHandler(this.btnAceptarDevo_Click);
             // 
-            // btnAgregar
+            // btnRechazarDevo
             // 
-            this.btnAgregar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(170)))), ((int)(((byte)(28)))));
-            this.btnAgregar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAgregar.FlatAppearance.BorderSize = 0;
-            this.btnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAgregar.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAgregar.ForeColor = System.Drawing.Color.White;
-            this.btnAgregar.Image = global::InventoryWalmart.Properties.Resources.iconoAgregar;
-            this.btnAgregar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAgregar.Location = new System.Drawing.Point(7, 9);
-            this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
-            this.btnAgregar.Size = new System.Drawing.Size(122, 40);
-            this.btnAgregar.TabIndex = 11;
-            this.btnAgregar.Text = "Agregar";
-            this.btnAgregar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnAgregar.UseVisualStyleBackColor = false;
-            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
+            this.btnRechazarDevo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(13)))), ((int)(((byte)(13)))));
+            this.btnRechazarDevo.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnRechazarDevo.FlatAppearance.BorderSize = 0;
+            this.btnRechazarDevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRechazarDevo.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRechazarDevo.ForeColor = System.Drawing.Color.White;
+            this.btnRechazarDevo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnRechazarDevo.Location = new System.Drawing.Point(147, 8);
+            this.btnRechazarDevo.Name = "btnRechazarDevo";
+            this.btnRechazarDevo.Size = new System.Drawing.Size(122, 40);
+            this.btnRechazarDevo.TabIndex = 36;
+            this.btnRechazarDevo.Text = "Rechazar \r\nDevolucion\r\n";
+            this.btnRechazarDevo.UseVisualStyleBackColor = false;
+            this.btnRechazarDevo.Click += new System.EventHandler(this.btnRechazarDevo_Click);
             // 
-            // panel2
+            // btnMostrarVenta
             // 
-            this.panel2.Controls.Add(this.inputBuscar);
-            this.panel2.Controls.Add(this.btnBuscar);
-            this.panel2.Location = new System.Drawing.Point(295, 149);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(416, 53);
-            this.panel2.TabIndex = 29;
-            // 
-            // inputBuscar
-            // 
-            this.inputBuscar.Location = new System.Drawing.Point(3, 8);
-            this.inputBuscar.Multiline = true;
-            this.inputBuscar.Name = "inputBuscar";
-            this.inputBuscar.Size = new System.Drawing.Size(370, 32);
-            this.inputBuscar.TabIndex = 6;
-            // 
-            // btnBuscar
-            // 
-            this.btnBuscar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(114)))), ((int)(((byte)(223)))));
-            this.btnBuscar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnBuscar.FlatAppearance.BorderSize = 0;
-            this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBuscar.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscar.Image")));
-            this.btnBuscar.Location = new System.Drawing.Point(370, 8);
-            this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Padding = new System.Windows.Forms.Padding(50);
-            this.btnBuscar.Size = new System.Drawing.Size(35, 32);
-            this.btnBuscar.TabIndex = 7;
-            this.btnBuscar.UseVisualStyleBackColor = false;
+            this.btnMostrarVenta.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(114)))), ((int)(((byte)(223)))));
+            this.btnMostrarVenta.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnMostrarVenta.FlatAppearance.BorderSize = 0;
+            this.btnMostrarVenta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMostrarVenta.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMostrarVenta.ForeColor = System.Drawing.Color.White;
+            this.btnMostrarVenta.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnMostrarVenta.Location = new System.Drawing.Point(284, 8);
+            this.btnMostrarVenta.Name = "btnMostrarVenta";
+            this.btnMostrarVenta.Size = new System.Drawing.Size(136, 40);
+            this.btnMostrarVenta.TabIndex = 14;
+            this.btnMostrarVenta.Text = "Mostrar\r\nEspecificaciones Venta";
+            this.btnMostrarVenta.UseVisualStyleBackColor = false;
+            this.btnMostrarVenta.Click += new System.EventHandler(this.btnMostrarVenta_Click);
             // 
             // Lbl_Title
             // 
@@ -517,26 +520,81 @@
             this.Lbl_Title.TabIndex = 28;
             this.Lbl_Title.Text = "Devoluciones";
             // 
-            // BtnVentas
+            // btnMostrarDevRechazadas
             // 
-            this.BtnVentas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(114)))), ((int)(((byte)(223)))));
-            this.BtnVentas.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnVentas.Dock = System.Windows.Forms.DockStyle.Top;
-            this.BtnVentas.FlatAppearance.BorderSize = 0;
-            this.BtnVentas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnVentas.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnVentas.ForeColor = System.Drawing.Color.White;
-            this.BtnVentas.Image = global::InventoryWalmart.Properties.Resources.IconoSales;
-            this.BtnVentas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnVentas.Location = new System.Drawing.Point(0, 448);
-            this.BtnVentas.Name = "BtnVentas";
-            this.BtnVentas.Padding = new System.Windows.Forms.Padding(0, 0, 100, 0);
-            this.BtnVentas.Size = new System.Drawing.Size(250, 40);
-            this.BtnVentas.TabIndex = 10;
-            this.BtnVentas.Text = "Ventas";
-            this.BtnVentas.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.BtnVentas.UseVisualStyleBackColor = false;
-            this.BtnVentas.Click += new System.EventHandler(this.BtnVentas_Click);
+            this.btnMostrarDevRechazadas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(13)))), ((int)(((byte)(13)))));
+            this.btnMostrarDevRechazadas.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnMostrarDevRechazadas.FlatAppearance.BorderSize = 0;
+            this.btnMostrarDevRechazadas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMostrarDevRechazadas.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMostrarDevRechazadas.ForeColor = System.Drawing.Color.White;
+            this.btnMostrarDevRechazadas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnMostrarDevRechazadas.Location = new System.Drawing.Point(656, 552);
+            this.btnMostrarDevRechazadas.Name = "btnMostrarDevRechazadas";
+            this.btnMostrarDevRechazadas.Size = new System.Drawing.Size(159, 40);
+            this.btnMostrarDevRechazadas.TabIndex = 33;
+            this.btnMostrarDevRechazadas.Text = "Mostrar\r\nDevoluciones Rechazadas";
+            this.btnMostrarDevRechazadas.UseVisualStyleBackColor = false;
+            this.btnMostrarDevRechazadas.Click += new System.EventHandler(this.btnMostrarDevRechazadas_Click);
+            // 
+            // btnMostrarDevAceptadas
+            // 
+            this.btnMostrarDevAceptadas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(114)))), ((int)(((byte)(223)))));
+            this.btnMostrarDevAceptadas.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnMostrarDevAceptadas.FlatAppearance.BorderSize = 0;
+            this.btnMostrarDevAceptadas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMostrarDevAceptadas.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMostrarDevAceptadas.ForeColor = System.Drawing.Color.White;
+            this.btnMostrarDevAceptadas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnMostrarDevAceptadas.Location = new System.Drawing.Point(475, 552);
+            this.btnMostrarDevAceptadas.Name = "btnMostrarDevAceptadas";
+            this.btnMostrarDevAceptadas.Size = new System.Drawing.Size(159, 40);
+            this.btnMostrarDevAceptadas.TabIndex = 35;
+            this.btnMostrarDevAceptadas.Text = "Mostrar\r\nDevoluciones Aceptadas";
+            this.btnMostrarDevAceptadas.UseVisualStyleBackColor = false;
+            this.btnMostrarDevAceptadas.Click += new System.EventHandler(this.btnMostrarDevAceptadas_Click);
+            // 
+            // btnMostrarDevEspera
+            // 
+            this.btnMostrarDevEspera.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(204)))), ((int)(((byte)(0)))));
+            this.btnMostrarDevEspera.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnMostrarDevEspera.FlatAppearance.BorderSize = 0;
+            this.btnMostrarDevEspera.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMostrarDevEspera.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMostrarDevEspera.ForeColor = System.Drawing.Color.White;
+            this.btnMostrarDevEspera.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnMostrarDevEspera.Location = new System.Drawing.Point(308, 552);
+            this.btnMostrarDevEspera.Name = "btnMostrarDevEspera";
+            this.btnMostrarDevEspera.Size = new System.Drawing.Size(145, 40);
+            this.btnMostrarDevEspera.TabIndex = 34;
+            this.btnMostrarDevEspera.Text = "Mostrar\r\nDevoluciones En Espera";
+            this.btnMostrarDevEspera.UseVisualStyleBackColor = false;
+            this.btnMostrarDevEspera.Click += new System.EventHandler(this.btnMostrarDevEspera_Click);
+            // 
+            // btnDevolucionesEspecifica
+            // 
+            this.btnDevolucionesEspecifica.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(114)))), ((int)(((byte)(223)))));
+            this.btnDevolucionesEspecifica.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnDevolucionesEspecifica.FlatAppearance.BorderSize = 0;
+            this.btnDevolucionesEspecifica.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDevolucionesEspecifica.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDevolucionesEspecifica.ForeColor = System.Drawing.Color.White;
+            this.btnDevolucionesEspecifica.Location = new System.Drawing.Point(656, 628);
+            this.btnDevolucionesEspecifica.Name = "btnDevolucionesEspecifica";
+            this.btnDevolucionesEspecifica.Size = new System.Drawing.Size(250, 30);
+            this.btnDevolucionesEspecifica.TabIndex = 36;
+            this.btnDevolucionesEspecifica.Text = "Mostrar Devoluciones de Venta Especifica\r\n\r\n";
+            this.btnDevolucionesEspecifica.UseVisualStyleBackColor = false;
+            this.btnDevolucionesEspecifica.Click += new System.EventHandler(this.btnDevolucionesEspecifica_Click);
+            // 
+            // inputIdVenta
+            // 
+            this.inputIdVenta.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.inputIdVenta.Location = new System.Drawing.Point(308, 629);
+            this.inputIdVenta.Name = "inputIdVenta";
+            this.inputIdVenta.Size = new System.Drawing.Size(342, 29);
+            this.inputIdVenta.TabIndex = 37;
+            this.inputIdVenta.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // ViewReturns
             // 
@@ -544,9 +602,13 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1280, 720);
-            this.Controls.Add(this.Table_Customers);
+            this.Controls.Add(this.inputIdVenta);
+            this.Controls.Add(this.btnDevolucionesEspecifica);
+            this.Controls.Add(this.btnMostrarDevAceptadas);
+            this.Controls.Add(this.btnMostrarDevEspera);
+            this.Controls.Add(this.btnMostrarDevRechazadas);
+            this.Controls.Add(this.tablaDevoluciones);
             this.Controls.Add(this.panel3);
-            this.Controls.Add(this.panel2);
             this.Controls.Add(this.Lbl_Title);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.barAcciones);
@@ -554,6 +616,7 @@
             this.Name = "ViewReturns";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormReturns";
+            this.Load += new System.EventHandler(this.ViewReturns_Load);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.logo)).EndInit();
             this.barAcciones.ResumeLayout(false);
@@ -561,10 +624,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnMaximizar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnRestaurar)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Table_Customers)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tablaDevoluciones)).EndInit();
             this.panel3.ResumeLayout(false);
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -587,21 +648,23 @@
         private System.Windows.Forms.PictureBox btnMaximizar;
         private System.Windows.Forms.PictureBox btnCerrar;
         private System.Windows.Forms.PictureBox btnRestaurar;
-        private System.Windows.Forms.DataGridView Table_Customers;
+        private System.Windows.Forms.DataGridView tablaDevoluciones;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Button btnModificar;
-        private System.Windows.Forms.Button btnAgregar;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.TextBox inputBuscar;
-        private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.Label Lbl_Title;
+        private System.Windows.Forms.Button BtnVentas;
+        private System.Windows.Forms.Button btnMostrarVenta;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnId;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnCliente;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnIdVenta;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnProducto;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnFechaDevolucion;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnDescripción;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnEstado;
-        private System.Windows.Forms.Button BtnVentas;
+        private System.Windows.Forms.Button btnMostrarDevRechazadas;
+        private System.Windows.Forms.Button btnMostrarDevAceptadas;
+        private System.Windows.Forms.Button btnMostrarDevEspera;
+        private System.Windows.Forms.Button btnRechazarDevo;
+        private System.Windows.Forms.Button btnAceptarDevo;
+        private System.Windows.Forms.Button btnDevolucionesEspecifica;
+        private System.Windows.Forms.TextBox inputIdVenta;
     }
 }

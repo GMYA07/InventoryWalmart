@@ -8,6 +8,7 @@ using InventoryWalmart.Model;
 using InventoryWalmart.Database;
 using System.ComponentModel;
 using System.Windows.Forms;
+using InventoryWalmart.views.Cajero;
 
 namespace InventoryWalmart.Controllers
 {
@@ -43,10 +44,15 @@ namespace InventoryWalmart.Controllers
                             dashboard dashboard = new dashboard();
                             dashboard.Show();
                             return true; //para cerrar la ventana anterior
-                            break;
+                            
+                        case 2://cajero
+                            indexCajero indexCajero = new indexCajero();
+                            indexCajero.Show();
+                            return true;
+                            
                         default:
                             return false; //para cerrar la ventana anterior
-                            break;
+                            
                     
                     }
 
@@ -59,7 +65,7 @@ namespace InventoryWalmart.Controllers
             }
             else
             {
-                Alertas.AlertError("No se pudo iniciar Sesion", "No se ha encontrado el cuenta en la bdd");
+                Alertas.AlertError("No se pudo iniciar Sesion", "Cuenta o Contraseña Incorrecta");
                 return false; //para cerrar la ventana anterior
             }
         }

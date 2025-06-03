@@ -19,7 +19,7 @@ namespace InventoryWalmart.Utils
         }
 
         public static void AlertCorrect(string tituloAlerta, string razoAlerta) { 
-            MessageBox.Show(razoAlerta,tituloAlerta, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            MessageBox.Show(razoAlerta,tituloAlerta, MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         public static void AlertInfo(string tituloAlerta, string razoAlerta)

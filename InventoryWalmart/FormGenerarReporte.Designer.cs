@@ -100,6 +100,11 @@
             this.tabPage_dias = new System.Windows.Forms.TabPage();
             this.panel7 = new System.Windows.Forms.Panel();
             this.dataGridView_ventaDiaria = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn20 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPage_semanual = new System.Windows.Forms.TabPage();
             this.panel8 = new System.Windows.Forms.Panel();
             this.dataGri_semanual2 = new System.Windows.Forms.DataGridView();
@@ -125,6 +130,11 @@
             this.tabPage_promociones = new System.Windows.Forms.TabPage();
             this.panel6 = new System.Windows.Forms.Panel();
             this.dataGrid_promo = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label8 = new System.Windows.Forms.Label();
             this.spreporteventasporcategoriaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.inventoryWalmartDataSet = new InventoryWalmart.InventoryWalmartDataSet();
@@ -144,16 +154,6 @@
             this.button_mensual = new System.Windows.Forms.Button();
             this.button_semanual = new System.Windows.Forms.Button();
             this.button_dia = new System.Windows.Forms.Button();
-            this.dataGridViewTextBoxColumn16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn20 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.barAcciones.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnOcultar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMaximizar)).BeginInit();
@@ -582,7 +582,7 @@
             this.tabControl1.Controls.Add(this.tabPage_historialVentas);
             this.tabControl1.Controls.Add(this.tabPage_promociones);
             this.tabControl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)), true);
-            this.tabControl1.ItemSize = new System.Drawing.Size(20, 30);
+            this.tabControl1.ItemSize = new System.Drawing.Size(0, 1);
             this.tabControl1.Location = new System.Drawing.Point(369, 156);
             this.tabControl1.Margin = new System.Windows.Forms.Padding(10);
             this.tabControl1.Multiline = true;
@@ -600,9 +600,9 @@
             this.tabPage_ventaPorCategoria.Controls.Add(this.panel2);
             this.tabPage_ventaPorCategoria.Controls.Add(this.label5);
             this.tabPage_ventaPorCategoria.Controls.Add(this.label4);
-            this.tabPage_ventaPorCategoria.Location = new System.Drawing.Point(4, 34);
+            this.tabPage_ventaPorCategoria.Location = new System.Drawing.Point(4, 5);
             this.tabPage_ventaPorCategoria.Name = "tabPage_ventaPorCategoria";
-            this.tabPage_ventaPorCategoria.Size = new System.Drawing.Size(903, 511);
+            this.tabPage_ventaPorCategoria.Size = new System.Drawing.Size(903, 540);
             this.tabPage_ventaPorCategoria.TabIndex = 0;
             this.tabPage_ventaPorCategoria.Text = "tabPage3";
             this.tabPage_ventaPorCategoria.Click += new System.EventHandler(this.tabPage_ventaPorCategoria_Click);
@@ -708,7 +708,7 @@
             this.tabPage_ventasPorCajero.Controls.Add(this.label6);
             this.tabPage_ventasPorCajero.Location = new System.Drawing.Point(4, 34);
             this.tabPage_ventasPorCajero.Name = "tabPage_ventasPorCajero";
-            this.tabPage_ventasPorCajero.Size = new System.Drawing.Size(903, 478);
+            this.tabPage_ventasPorCajero.Size = new System.Drawing.Size(903, 511);
             this.tabPage_ventasPorCajero.TabIndex = 1;
             this.tabPage_ventasPorCajero.Text = "tabPage3";
             // 
@@ -831,7 +831,7 @@
             this.tabPage_comprasCliente.Controls.Add(this.label7);
             this.tabPage_comprasCliente.Location = new System.Drawing.Point(4, 34);
             this.tabPage_comprasCliente.Name = "tabPage_comprasCliente";
-            this.tabPage_comprasCliente.Size = new System.Drawing.Size(903, 478);
+            this.tabPage_comprasCliente.Size = new System.Drawing.Size(903, 511);
             this.tabPage_comprasCliente.TabIndex = 2;
             this.tabPage_comprasCliente.Text = "tabPage3";
             // 
@@ -1044,13 +1044,51 @@
             this.dataGridView_ventaDiaria.TabIndex = 29;
             this.dataGridView_ventaDiaria.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_ventaDiaria_CellContentClick);
             // 
+            // dataGridViewTextBoxColumn16
+            // 
+            this.dataGridViewTextBoxColumn16.HeaderText = "Fecha";
+            this.dataGridViewTextBoxColumn16.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn16.Name = "dataGridViewTextBoxColumn16";
+            // 
+            // dataGridViewTextBoxColumn17
+            // 
+            this.dataGridViewTextBoxColumn17.HeaderText = "Productos Vendidos";
+            this.dataGridViewTextBoxColumn17.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn17.Name = "dataGridViewTextBoxColumn17";
+            this.dataGridViewTextBoxColumn17.ReadOnly = true;
+            this.dataGridViewTextBoxColumn17.Width = 234;
+            // 
+            // dataGridViewTextBoxColumn18
+            // 
+            this.dataGridViewTextBoxColumn18.HeaderText = "Subtotal";
+            this.dataGridViewTextBoxColumn18.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn18.Name = "dataGridViewTextBoxColumn18";
+            this.dataGridViewTextBoxColumn18.ReadOnly = true;
+            this.dataGridViewTextBoxColumn18.Width = 120;
+            // 
+            // dataGridViewTextBoxColumn19
+            // 
+            this.dataGridViewTextBoxColumn19.HeaderText = "Descuento";
+            this.dataGridViewTextBoxColumn19.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn19.Name = "dataGridViewTextBoxColumn19";
+            this.dataGridViewTextBoxColumn19.ReadOnly = true;
+            this.dataGridViewTextBoxColumn19.Width = 143;
+            // 
+            // dataGridViewTextBoxColumn20
+            // 
+            this.dataGridViewTextBoxColumn20.HeaderText = "Total Vendido";
+            this.dataGridViewTextBoxColumn20.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn20.Name = "dataGridViewTextBoxColumn20";
+            this.dataGridViewTextBoxColumn20.ReadOnly = true;
+            this.dataGridViewTextBoxColumn20.Width = 175;
+            // 
             // tabPage_semanual
             // 
             this.tabPage_semanual.Controls.Add(this.panel8);
-            this.tabPage_semanual.Location = new System.Drawing.Point(4, 34);
+            this.tabPage_semanual.Location = new System.Drawing.Point(4, 5);
             this.tabPage_semanual.Name = "tabPage_semanual";
             this.tabPage_semanual.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage_semanual.Size = new System.Drawing.Size(890, 389);
+            this.tabPage_semanual.Size = new System.Drawing.Size(890, 418);
             this.tabPage_semanual.TabIndex = 1;
             this.tabPage_semanual.Text = "tabPage4";
             this.tabPage_semanual.UseVisualStyleBackColor = true;
@@ -1152,10 +1190,10 @@
             // tabPage_mensual
             // 
             this.tabPage_mensual.Controls.Add(this.panel9);
-            this.tabPage_mensual.Location = new System.Drawing.Point(4, 34);
+            this.tabPage_mensual.Location = new System.Drawing.Point(4, 5);
             this.tabPage_mensual.Name = "tabPage_mensual";
             this.tabPage_mensual.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage_mensual.Size = new System.Drawing.Size(890, 389);
+            this.tabPage_mensual.Size = new System.Drawing.Size(890, 418);
             this.tabPage_mensual.TabIndex = 2;
             this.tabPage_mensual.Text = "tabPage5";
             this.tabPage_mensual.UseVisualStyleBackColor = true;
@@ -1361,6 +1399,44 @@
             this.dataGrid_promo.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGrid_promo.Size = new System.Drawing.Size(897, 403);
             this.dataGrid_promo.TabIndex = 29;
+            // 
+            // dataGridViewTextBoxColumn11
+            // 
+            this.dataGridViewTextBoxColumn11.HeaderText = "decripcion";
+            this.dataGridViewTextBoxColumn11.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
+            this.dataGridViewTextBoxColumn11.Width = 139;
+            // 
+            // Column7
+            // 
+            this.Column7.HeaderText = "descuento";
+            this.Column7.MinimumWidth = 6;
+            this.Column7.Name = "Column7";
+            this.Column7.Width = 140;
+            // 
+            // dataGridViewTextBoxColumn12
+            // 
+            this.dataGridViewTextBoxColumn12.HeaderText = "codigoDescuento";
+            this.dataGridViewTextBoxColumn12.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
+            this.dataGridViewTextBoxColumn12.ReadOnly = true;
+            this.dataGridViewTextBoxColumn12.Width = 207;
+            // 
+            // dataGridViewTextBoxColumn13
+            // 
+            this.dataGridViewTextBoxColumn13.HeaderText = "tipodescuento";
+            this.dataGridViewTextBoxColumn13.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
+            this.dataGridViewTextBoxColumn13.ReadOnly = true;
+            this.dataGridViewTextBoxColumn13.Width = 175;
+            // 
+            // dataGridViewTextBoxColumn14
+            // 
+            this.dataGridViewTextBoxColumn14.HeaderText = "status";
+            this.dataGridViewTextBoxColumn14.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
+            this.dataGridViewTextBoxColumn14.ReadOnly = true;
+            this.dataGridViewTextBoxColumn14.Width = 98;
             // 
             // label8
             // 
@@ -1573,82 +1649,6 @@
             this.button_dia.Text = "Diario";
             this.button_dia.UseVisualStyleBackColor = true;
             this.button_dia.Click += new System.EventHandler(this.button6_Click);
-            // 
-            // dataGridViewTextBoxColumn16
-            // 
-            this.dataGridViewTextBoxColumn16.HeaderText = "Fecha";
-            this.dataGridViewTextBoxColumn16.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn16.Name = "dataGridViewTextBoxColumn16";
-            // 
-            // dataGridViewTextBoxColumn17
-            // 
-            this.dataGridViewTextBoxColumn17.HeaderText = "Productos Vendidos";
-            this.dataGridViewTextBoxColumn17.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn17.Name = "dataGridViewTextBoxColumn17";
-            this.dataGridViewTextBoxColumn17.ReadOnly = true;
-            this.dataGridViewTextBoxColumn17.Width = 234;
-            // 
-            // dataGridViewTextBoxColumn18
-            // 
-            this.dataGridViewTextBoxColumn18.HeaderText = "Subtotal";
-            this.dataGridViewTextBoxColumn18.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn18.Name = "dataGridViewTextBoxColumn18";
-            this.dataGridViewTextBoxColumn18.ReadOnly = true;
-            this.dataGridViewTextBoxColumn18.Width = 120;
-            // 
-            // dataGridViewTextBoxColumn19
-            // 
-            this.dataGridViewTextBoxColumn19.HeaderText = "Descuento";
-            this.dataGridViewTextBoxColumn19.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn19.Name = "dataGridViewTextBoxColumn19";
-            this.dataGridViewTextBoxColumn19.ReadOnly = true;
-            this.dataGridViewTextBoxColumn19.Width = 143;
-            // 
-            // dataGridViewTextBoxColumn20
-            // 
-            this.dataGridViewTextBoxColumn20.HeaderText = "Total Vendido";
-            this.dataGridViewTextBoxColumn20.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn20.Name = "dataGridViewTextBoxColumn20";
-            this.dataGridViewTextBoxColumn20.ReadOnly = true;
-            this.dataGridViewTextBoxColumn20.Width = 175;
-            // 
-            // dataGridViewTextBoxColumn11
-            // 
-            this.dataGridViewTextBoxColumn11.HeaderText = "decripcion";
-            this.dataGridViewTextBoxColumn11.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
-            this.dataGridViewTextBoxColumn11.Width = 139;
-            // 
-            // Column7
-            // 
-            this.Column7.HeaderText = "descuento";
-            this.Column7.MinimumWidth = 6;
-            this.Column7.Name = "Column7";
-            this.Column7.Width = 140;
-            // 
-            // dataGridViewTextBoxColumn12
-            // 
-            this.dataGridViewTextBoxColumn12.HeaderText = "codigoDescuento";
-            this.dataGridViewTextBoxColumn12.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
-            this.dataGridViewTextBoxColumn12.ReadOnly = true;
-            this.dataGridViewTextBoxColumn12.Width = 207;
-            // 
-            // dataGridViewTextBoxColumn13
-            // 
-            this.dataGridViewTextBoxColumn13.HeaderText = "tipodescuento";
-            this.dataGridViewTextBoxColumn13.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
-            this.dataGridViewTextBoxColumn13.ReadOnly = true;
-            this.dataGridViewTextBoxColumn13.Width = 175;
-            // 
-            // dataGridViewTextBoxColumn14
-            // 
-            this.dataGridViewTextBoxColumn14.HeaderText = "status";
-            this.dataGridViewTextBoxColumn14.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
-            this.dataGridViewTextBoxColumn14.ReadOnly = true;
-            this.dataGridViewTextBoxColumn14.Width = 98;
             // 
             // FormGenerarReporte
             // 

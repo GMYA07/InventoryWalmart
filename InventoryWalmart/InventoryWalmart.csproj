@@ -55,6 +55,7 @@
   <ItemGroup>
     <Compile Include="Controllers\adminController.cs" />
     <Compile Include="Controllers\cajeroController.cs" />
+
     <Compile Include="Exporters\gastosClientesTarjetaPDF.cs" />
     <Compile Include="Exporters\HistorialVentasPDF.cs" />
     <Compile Include="Exporters\PromocionesPDF.cs" />
@@ -80,8 +81,10 @@
     <Compile Include="ModelRepors\ventasPorCajero.cs" />
     <Compile Include="ModelRepors\VentasSemanuales.cs" />
     <Compile Include="ReportesControllers\ControllersReportes.cs" />
+
     <Compile Include="Controllers\CategoriaController.cs" />
     <Compile Include="Controllers\loginController.cs" />
+    <Compile Include="Controllers\ProductoController.cs" />
     <Compile Include="Controllers\RolesControllers.cs" />
     <Compile Include="Controllers\SupplierController.cs" />
     <Compile Include="Controllers\UserController.cs" />

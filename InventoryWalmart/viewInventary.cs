@@ -37,8 +37,14 @@ namespace InventoryWalmart
         {
             var categorias = categoriaController.ObtenerCategorias();
             comboBox1.DataSource = categorias;
-            comboBox1.DisplayMember = "category_name"; // Ajusta esto según tu modelo
-            comboBox1.ValueMember = "id_category"; // Ajusta esto según tu modelo
+            comboBox1.DisplayMember = "category_name";
+            comboBox1.ValueMember = "id_category";
+
+            // Verifica el contenido
+            foreach (var categoria in categorias)
+            {
+                Console.WriteLine($"ID: {categoria.id_category}, Nombre: {categoria.category_name}");
+            }
         }
 
         // Método para cargar productos en el DataGridView
@@ -260,28 +266,7 @@ namespace InventoryWalmart
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            FiltrarProductosPorCategoria((int)comboBox1.SelectedValue);
-        }
-
-        private void FiltrarProductosPorCategoria(int categoriaId)
-        {
-            List<Product> productos = productoController.ObtenerProductos(); // Obtén todos los productos
-            var productosFiltrados = productos.Where(p => p.GetIdCategory() == categoriaId).ToList(); // Filtra por categoría
-
-            // Actualiza el DataGridView
-            Table_Customers.Rows.Clear(); // Limpia el DataGridView antes de llenarlo
-            foreach (var producto in productosFiltrados)
-            {
-                Table_Customers.Rows.Add(
-                    producto.GetIdProduct(),
-                    producto.GetNameProduct(),
-                    producto.GetPrice(),
-                    producto.GetPriceSup(),
-                    producto.GetStock(),
-                    producto.GetIdCategory(),
-                    producto.GetIdSupplier()
-                );
-            }
+           
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)

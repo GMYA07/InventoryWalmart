@@ -26,7 +26,7 @@ namespace InventoryWalmart.Exporters
                 Font fuenteEncabezado = FontFactory.GetFont(FontFactory.HELVETICA_BOLD, 12, BaseColor.WHITE);
                 Font fuenteCelda = FontFactory.GetFont(FontFactory.HELVETICA, 10);
 
-                string rutaLogo = Path.Combine(Application.StartupPath, @"C:\Users\carlo\Downloads\Walmart-Logo.png");
+                string rutaLogo = Path.Combine(Application.StartupPath, @"C:\Users\carlo\Desktop\InventoryWalmart\InventoryWalmart\Resources\Walmart-Logo.png");
                 if (File.Exists(rutaLogo))
                 {
                     iTextSharp.text.Image logo = iTextSharp.text.Image.GetInstance(rutaLogo);

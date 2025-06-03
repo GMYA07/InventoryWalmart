@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
+using System.Windows.Forms;
 using iTextSharp.text;
 using iTextSharp.text.pdf;
+using iTextSharp.text.pdf.draw;
 using InventoryWalmart.Interfaces;
 using InventoryWalmart.ModelRepors;
-using System.Windows.Forms;
 
 namespace InventoryWalmart.Exporters
 {
@@ -15,45 +17,56 @@ namespace InventoryWalmart.Exporters
         {
             try
             {
-                Document documento = new Document(PageSize.A4, 40, 40, 40, 40);
-                PdfWriter.GetInstance(documento, new FileStream(ruta, FileMode.Create));
-                documento.Open();
+                Document doc = new Document(PageSize.A4, 40, 40, 60, 50);
+                PdfWriter writer = PdfWriter.GetInstance(doc, new FileStream(ruta, FileMode.Create));
+                doc.Open();
 
-                // Fuente
-                Font tituloFont = FontFactory.GetFont(FontFactory.HELVETICA_BOLD, 18);
-                Font subTituloFont = FontFactory.GetFont(FontFactory.HELVETICA, 12);
-                Font tableHeaderFont = FontFactory.GetFont(FontFactory.HELVETICA_BOLD, 10);
-                Font tableCellFont = FontFactory.GetFont(FontFactory.HELVETICA, 10);
+                // Fuentes personalizadas
+                Font fuenteTitulo = FontFactory.GetFont(FontFactory.HELVETICA_BOLD, 18, BaseColor.DARK_GRAY);
+                Font fuenteSubtitulo = FontFactory.GetFont(FontFactory.HELVETICA, 12, Font.ITALIC, BaseColor.GRAY);
+                Font fuenteEncabezado = FontFactory.GetFont(FontFactory.HELVETICA_BOLD, 12, BaseColor.WHITE);
+                Font fuenteCelda = FontFactory.GetFont(FontFactory.HELVETICA, 10);
+
+                // Agregar logo
+                string rutaLogo = Path.Combine(Application.StartupPath, @"C:\Users\carlo\Desktop\InventoryWalmart\InventoryWalmart\Resources\Walmart-Logo.png");
+                if (File.Exists(rutaLogo))
+                {
+                    iTextSharp.text.Image logo = iTextSharp.text.Image.GetInstance(rutaLogo);
+                    logo.ScaleAbsolute(100, 50);
+                    logo.Alignment = Element.ALIGN_LEFT;
+                    doc.Add(logo);
+                }
 
                 // Título
-                Paragraph titulo = new Paragraph("Reporte de Gastos de Clientes con Tarjeta - Walmart", tituloFont);
+                Paragraph titulo = new Paragraph("REPORTE DE GASTOS DE CLIENTES CON TARJETA", fuenteTitulo);
                 titulo.Alignment = Element.ALIGN_CENTER;
-                titulo.SpacingAfter = 10f;
-                documento.Add(titulo);
+                titulo.SpacingAfter = 5f;
+                doc.Add(titulo);
 
-                // Fecha
-                Paragraph fecha = new Paragraph("Fecha de creación: " + DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss"), subTituloFont);
-                fecha.Alignment = Element.ALIGN_RIGHT;
-                fecha.SpacingAfter = 20f;
-                documento.Add(fecha);
+                // Subtítulo
+                Paragraph sub = new Paragraph("Walmart - Fecha de creación: " + DateTime.Now.ToString("dd/MM/yyyy HH:mm"), fuenteSubtitulo);
+                sub.Alignment = Element.ALIGN_CENTER;
+                sub.SpacingAfter = 15f;
+                doc.Add(sub);
+
+                // Línea separadora
+                LineSeparator separador = new LineSeparator(1f, 100f, BaseColor.LIGHT_GRAY, Element.ALIGN_CENTER, -1);
+                doc.Add(new Chunk(separador));
+                doc.Add(Chunk.NEWLINE);
 
                 // Tabla
-                PdfPTable tabla = new PdfPTable(5); // 6 columnas
-                tabla.WidthPercentage = 100;
-                tabla.SetWidths(new float[] { 2.5f, 2f, 1.2f, 1.5f, 1.5f});
+                PdfPTable tabla = new PdfPTable(5) { WidthPercentage = 100 };
+                tabla.SetWidths(new float[] { 2.5f, 2f, 1.2f, 1.5f, 1.5f });
 
                 // Encabezados
-                string[] encabezados = {
-                    "Nombre Cliente", "Número de Tarjeta", "Compras", "Productos", "Total Gastado"
-                };
-
+                string[] encabezados = { "Nombre Cliente", "Número de Tarjeta", "Compras", "Productos", "Total Gastado" };
                 foreach (var encabezado in encabezados)
                 {
-                    PdfPCell celda = new PdfPCell(new Phrase(encabezado, tableHeaderFont))
+                    PdfPCell celda = new PdfPCell(new Phrase(encabezado, fuenteEncabezado))
                     {
-                        BackgroundColor = BaseColor.LIGHT_GRAY,
-                        HorizontalAlignment = Element.ALIGN_CENTER,
-                        Padding = 5f
+                        BackgroundColor = new BaseColor(0, 102, 204),
+                        Padding = 6,
+                        HorizontalAlignment = Element.ALIGN_CENTER
                     };
                     tabla.AddCell(celda);
                 }
@@ -61,21 +74,34 @@ namespace InventoryWalmart.Exporters
                 // Datos
                 foreach (var item in datos)
                 {
-                    tabla.AddCell(new PdfPCell(new Phrase(item.nombreCompletoCliente(), tableCellFont)) { Padding = 4f });
-                    tabla.AddCell(new PdfPCell(new Phrase(item.CardNumber, tableCellFont)) { Padding = 4f });
-                    tabla.AddCell(new PdfPCell(new Phrase(item.NumeroCompras.ToString(), tableCellFont)) { HorizontalAlignment = Element.ALIGN_CENTER, Padding = 4f });
-                    tabla.AddCell(new PdfPCell(new Phrase(item.ProductosComprados.ToString(), tableCellFont)) { HorizontalAlignment = Element.ALIGN_CENTER, Padding = 4f });
-                    tabla.AddCell(new PdfPCell(new Phrase(item.TotalGastado.ToString("C2"), tableCellFont)) { HorizontalAlignment = Element.ALIGN_RIGHT, Padding = 4f });
+                    if (item == null) continue;
+
+                    tabla.AddCell(new Phrase(item.nombreCompletoCliente() ?? "N/A", fuenteCelda));
+                    tabla.AddCell(new Phrase(item.CardNumber, fuenteCelda));
+                    tabla.AddCell(new Phrase(item.NumeroCompras.ToString(), fuenteCelda));
+                    tabla.AddCell(new Phrase(item.ProductosComprados.ToString(), fuenteCelda));
+                    tabla.AddCell(new Phrase(item.TotalGastado.ToString("C2"), fuenteCelda));
                 }
 
-                documento.Add(tabla);
-                documento.Close();
+                doc.Add(tabla);
+                doc.Add(Chunk.NEWLINE);
+                doc.Add(new Chunk(separador));
 
-                MessageBox.Show("Exito al creaer el PDF");
+                // Pie de página
+                Paragraph pie = new Paragraph("Reporte generado automáticamente para uso administrativo interno del sistema InventoryWalmart.", fuenteSubtitulo);
+                pie.Alignment = Element.ALIGN_CENTER;
+                pie.SpacingBefore = 10f;
+                doc.Add(pie);
+
+                doc.Close();
+                writer.Close();
+
+                MessageBox.Show("PDF generado correctamente", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Process.Start("explorer", ruta);
             }
             catch (Exception ex)
             {
-                throw new Exception("Error al generar el PDF: " + ex.Message);
+                throw new Exception("Error al generar el PDF: " + ex.Message, ex);
             }
         }
     }

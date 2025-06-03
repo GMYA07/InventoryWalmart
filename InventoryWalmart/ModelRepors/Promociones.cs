@@ -9,8 +9,8 @@ namespace InventoryWalmart.ModelRepors
     internal class Promociones
     {
         public String decripcion {  get; set; }
-        public String noseCODE { get; set; }
-        public String noseTYPE { get; set; }
+        public String codigoDescuento { get; set; }
+        public String tipodescuento { get; set; }
         public String status { get; set; }
         public Promociones() { }
     }

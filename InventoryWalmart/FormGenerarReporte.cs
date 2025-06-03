@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
@@ -32,6 +33,7 @@ namespace InventoryWalmart
             llenarTableCategoria();
             ventasPosCajeros();
             gastosClientesTarjeta();
+            llenarTablaPromo();
         }
 
         //Drag Form
@@ -146,8 +148,6 @@ namespace InventoryWalmart
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            // new ControllersReportes().GeneraraReportegastosClientesTarjeta();
-            //  MostrarVentasPorCategoria();
 
             if (textBox1 == null || textBox1.Text == "")
             {
@@ -175,16 +175,11 @@ namespace InventoryWalmart
                 return;
             }
 
-            //if (tabControl1.SelectedTab == tabPage_historialVentas)
-            //{
-            //    GenerarReporteHistorialVentas(new ControllersReportes().GeneraraReporteHistorialVentas);
-            //}
-
-            //if (tabControl1.SelectedTab == tabPage_promociones)
-            //{
-            //    GenerarReporteGeneral(new ControllersReportes().GeneraraReportePromociones);
-            //    return;
-            //}
+            if (tabControl1.SelectedTab == tabPage_promociones)
+            {
+                GenerarReporteGeneral(new ControllersReportes().GeneraraReportePromociones);
+                return;
+            }
 
             if (tabControl3.SelectedTab == tabPage_dias)
             {
@@ -195,8 +190,6 @@ namespace InventoryWalmart
                     DateTime fechaSoloFecha = vtd.fecha_reporte.Date;
                     string ruta = textBox1.Text;
 
-                    MessageBox.Show("Que si se pueda: " + fechaSoloFecha);
-
                     new ControllersReportes().GeneraraReporteVentasDiarias(vtd.id_ventaDia, fechaSoloFecha, ruta);
                 }
                 return;
@@ -205,6 +198,7 @@ namespace InventoryWalmart
 
             if (tabControl3.SelectedTab == tabPage_semanual)
             {
+
                 VentasSemanuales vts = dataGri_semanual2.SelectedRows[0].Tag as VentasSemanuales;
 
                 if (vts != null)
@@ -212,12 +206,49 @@ namespace InventoryWalmart
                     DateTime inicio = vts.inicio_semana.Date;
                     DateTime fIn = vts.fin_semana.Date;
                     string ruta = textBox1.Text;
-                    MessageBox.Show("Que si se pueda: " + vts.id_reporte + "  : fecha incio  " + inicio + " :  fecha fin  " + fIn);
 
                     new ControllersReportes().GeneraraReporteVentasSemanuales(vts.id_reporte, inicio, fIn, ruta);
                 }
+                else
+                {
+                    MessageBox.Show("No se pude procesar");
+                }
                 return;
 
+            }
+
+
+
+            if (tabControl3.SelectedTab == tabPage_mensual)
+            {
+                // Verificar que haya una fila seleccionada
+                if (dataGrid_mensual.SelectedRows.Count == 0)
+                {
+                    MessageBox.Show("Selecciona una fila del reporte mensual.");
+                    return;
+                }
+
+                // Obtener el objeto VentaMensual desde la fila seleccionada
+                VentaMensual vtm = dataGrid_mensual.SelectedRows[0].Tag as VentaMensual;
+
+                if (vtm != null)
+                {
+                    // Convertir el mes_año ("2025-06") en un rango de fechas
+                    string mes_anio = vtm.mes_anio;
+                    DateTime inicio = DateTime.ParseExact(mes_anio + "-01", "yyyy-MM-dd", CultureInfo.InvariantCulture);
+                    DateTime fin = inicio.AddMonths(1);
+
+                    string ruta = textBox1.Text;
+
+
+                    new ControllersReportes().GeneraraReporteVentasMensual(vtm.id_reporte_mes, inicio, ruta);
+                }
+                else
+                {
+                    MessageBox.Show("No se pudo obtener la información del reporte mensual seleccionado.");
+                }
+
+                return;
             }
 
 
@@ -347,6 +378,10 @@ namespace InventoryWalmart
             tabControl1.SelectedTab = tabPage_promociones;
             tabControl2.SelectedTab = tabPage_fechas;
 
+            button_dia.BackColor = Color.FromArgb(0, 192, 192);
+
+            opcionVisivilidad();
+
         }
 
         private void tabPage1_Click(object sender, EventArgs e)
@@ -449,13 +484,12 @@ namespace InventoryWalmart
         {
             try
             {
-                List<VentaMensual> lista = dao.ObtenerVentasMensuales();
+                List<VentaMensual> lista = dao.ObtenerVentasMensuales(-1);
                 dataGrid_mensual.Rows.Clear();
 
                 foreach (var vm in lista)
                 {
                     int i =  dataGrid_mensual.Rows.Add(
-                        vm.id_reporte_mes,
                         vm.mes_anio,
                         vm.cantidad_ventas,
                         vm.subtotal.ToString("C"),
@@ -540,7 +574,34 @@ namespace InventoryWalmart
 
         }
 
+        public void llenarTablaPromo()
+        {
 
+            DateTime fechaInicio = DateTime.Parse("2020-01-01");
+            DateTime fecha = DateTime.Today;
+
+            List<Promociones> lista = dao.promociones();
+
+            foreach (var item in lista)
+            {
+                int i = dataGrid_promo.Rows.Add(
+
+                item.decripcion,
+                item.codigoDescuento,
+
+                item.tipodescuento,
+                item.status
+
+                );
+                dataGrid_promo.Rows[i].Tag = item;
+            }
+
+        }
+
+        private void dataGrid_mensual_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }
 

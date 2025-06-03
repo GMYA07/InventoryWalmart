@@ -95,12 +95,6 @@ namespace InventoryWalmart.Controllers
             var ventasSemanual = dao.ventaSamana(id);
             var categoriasSemanual = dao.ObtenerReporteSemanalCategoria(incio, fin);
 
-
-
-
-
-
-
             if (ValidarClasesNull(ventasSemanual, categoriasSemanual))
             {
                 MessageBox.Show("Los datos son nulos =(");
@@ -111,6 +105,21 @@ namespace InventoryWalmart.Controllers
 
         }
 
+
+        public void GeneraraReporteVentasMensual(int id, DateTime incio, string ruta)
+        {
+            var ventasMensual = dao.ObtenerVentasMensuales(id);
+            var categoriasMensual = dao.ObtenerReporteMensualCategoria(incio);
+
+            if (ValidarClasesNull(ventasMensual, categoriasMensual))
+            {
+                MessageBox.Show("Los datos son nulos =(");
+                return;
+            }
+
+            new VentaTotalMensualPDF().Exportar(ventasMensual, categoriasMensual, @"C:\Users\carlo\Documents\Reportes\" + ruta + ".PDF");
+
+        }
 
 
 

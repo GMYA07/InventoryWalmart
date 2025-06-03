@@ -194,8 +194,8 @@ namespace InventoryWalmart.Database
                     Promociones prom = new Promociones();
 
                     prom.decripcion = reader.GetString(0);
-                    prom.noseCODE = reader.GetString(1);
-                    prom.noseTYPE = reader.GetString(2);
+                    prom.codigoDescuento = reader.GetString(1);
+                    prom.tipodescuento = reader.GetString(2);
                     prom.status = reader.GetString(3);
                     lista.Add(prom);
                 }
@@ -410,7 +410,7 @@ namespace InventoryWalmart.Database
 
         // tarer lo del mes-------------------------------------------------------------------------------------------------------
 
-        public List<VentaMensual> ObtenerVentasMensuales()
+        public List<VentaMensual> ObtenerVentasMensuales(int id)
         {
             List<VentaMensual> lista = new List<VentaMensual>();
 
@@ -419,8 +419,10 @@ namespace InventoryWalmart.Database
                 string sql = "SELECT * FROM REPORTE_VENTAS_MENSUALES;";
                 using (SqlConnection connection = Connection.ObtenerConexion())
                 {
-                    SqlCommand cmd = new SqlCommand(sql, connection);
-                    cmd.CommandType = CommandType.Text;
+                    SqlCommand cmd = new SqlCommand("sp_ObtenerVentasMensuales", connection);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@id", id);
+
                     connection.Open();
 
                     SqlDataReader reader = cmd.ExecuteReader();
@@ -449,6 +451,56 @@ namespace InventoryWalmart.Database
             catch (Exception ex)
             {
                 MessageBox.Show("Error al obtener los datos de ventas mensuales: " + ex.Message);
+            }
+
+            return lista;
+        }
+
+
+        public List<CategoriasMes> ObtenerReporteMensualCategoria(DateTime inicio)
+        {
+            List<CategoriasMes> lista = new List<CategoriasMes>();
+            try
+            {
+                // Definimos el rango de fechas para el mes
+                DateTime fin = inicio.AddMonths(1);
+
+                string sql = @"
+            SELECT id_report, report_date, category_name, total_venta_categoria, total_ventas
+            FROM REPORT_MESUAL_CATEGORY_SALES
+            WHERE report_date >= @inicio AND report_date < @fin;
+        ";
+
+                using (SqlConnection connection = Connection.ObtenerConexion())
+                {
+                    SqlCommand cmd = new SqlCommand(sql, connection);
+                    cmd.CommandType = CommandType.Text;
+
+                    cmd.Parameters.AddWithValue("@inicio", inicio);
+                    cmd.Parameters.AddWithValue("@fin", fin);
+
+                    connection.Open();
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        CategoriasMes reporte = new CategoriasMes
+                        {
+                            IdReporte = reader.IsDBNull(0) ? 0 : reader.GetInt32(0),
+                            FechaReporte = reader.IsDBNull(1) ? DateTime.MinValue : reader.GetDateTime(1),
+                            NombreCategoria = reader.IsDBNull(2) ? "Sin categoría" : reader.GetString(2),
+                            TotalVentaCategoria = reader.IsDBNull(3) ? 0m : reader.GetDecimal(3),
+                            TotalVentas = reader.IsDBNull(4) ? 0 : reader.GetInt32(4)
+                        };
+
+                        lista.Add(reporte);
+                    }
+
+                    reader.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al obtener el reporte mensual por categoría: " + ex.Message);
             }
 
             return lista;

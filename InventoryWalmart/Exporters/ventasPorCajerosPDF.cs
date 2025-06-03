@@ -29,7 +29,7 @@ namespace InventoryWalmart.Exporters
                 Font fuenteCelda = FontFactory.GetFont(FontFactory.HELVETICA, 10);
 
                 // Agregar logo (asegúrate de cambiar la ruta a una imagen válida)
-                string rutaLogo = Path.Combine(Application.StartupPath, @"C:\Users\carlo\Pictures\Screenshots/logo_MenjivarPacheco.png");
+                string rutaLogo = Path.Combine(Application.StartupPath, @"C:\Users\carlo\Desktop\InventoryWalmart\InventoryWalmart\Resources\Walmart-Logo.png");
                 if (File.Exists(rutaLogo))
                 {
                     iTextSharp.text.Image logo = iTextSharp.text.Image.GetInstance(rutaLogo);
@@ -99,7 +99,7 @@ namespace InventoryWalmart.Exporters
                 doc.Add(new Chunk(separador));
 
                 // Pie de página
-                Paragraph pie = new Paragraph("Reporte generado automáticamente por el sistema InventoryWalmart.\nGracias por su preferencia.", fuenteSubtitulo);
+                Paragraph pie = new Paragraph("Reporte generado automáticamente para uso administrativo interno del sistema InventoryWalmart.", fuenteSubtitulo);
                 pie.Alignment = Element.ALIGN_CENTER;
                 pie.SpacingBefore = 10f;
                 doc.Add(pie);

@@ -14,9 +14,9 @@ using iTextSharp.text;
 
 namespace InventoryWalmart.Exporters
 {
-    internal class VentasTotalesSmanaCategoPDF : ReportesVentasAutomaticos<VentasSemanuales, CategoriasSemana>
+    internal class VentaTotalMensualPDF : ReportesVentasAutomaticos<VentaMensual, CategoriasMes>
     {
-        public void Exportar(List<VentasSemanuales> tablaP, List<CategoriasSemana> tablaS, string ruta)
+        public void Exportar(List<VentaMensual> tablaP, List<CategoriasMes> tablaS, string ruta)
         {
             try
             {
@@ -38,7 +38,7 @@ namespace InventoryWalmart.Exporters
                     doc.Add(logo);
                 }
 
-                Paragraph titulo = new Paragraph("REPORTE DE VENTAS SEMANALES", fuenteTitulo);
+                Paragraph titulo = new Paragraph("REPORTE DE VENTAS MENSUALES", fuenteTitulo);
                 titulo.Alignment = Element.ALIGN_CENTER;
                 titulo.SpacingAfter = 5f;
                 doc.Add(titulo);
@@ -53,10 +53,10 @@ namespace InventoryWalmart.Exporters
                 doc.Add(Chunk.NEWLINE);
 
                 // TABLA GENERAL
-                PdfPTable tabla1 = new PdfPTable(6) { WidthPercentage = 100 };
-                tabla1.SetWidths(new float[] { 15f, 15f, 15f, 15f, 20f, 20f });
+                PdfPTable tabla1 = new PdfPTable(8) { WidthPercentage = 100 };
+                tabla1.SetWidths(new float[] { 10f, 10f, 15f, 15f, 15f, 15f, 15f, 15f });
 
-                string[] encabezados1 = { "Inicio Semana", "Fin Semana", "Ventas", "Inversión", "Subtotal", "Total Vendido" };
+                string[] encabezados1 = { "Mes", "Ventas", "Subtotal", "Descuento", "Total Vendido", "Inversión", "Ganancia", "Reinversión 20%" };
                 foreach (var enc in encabezados1)
                 {
                     PdfPCell celda = new PdfPCell(new Phrase(enc, fuenteEncabezado))
@@ -70,12 +70,14 @@ namespace InventoryWalmart.Exporters
 
                 foreach (var venta in tablaP)
                 {
-                    tabla1.AddCell(new Phrase(venta.inicio_semana.ToString("dd/MM/yyyy"), fuenteCelda));
-                    tabla1.AddCell(new Phrase(venta.fin_semana.ToString("dd/MM/yyyy"), fuenteCelda));
+                    tabla1.AddCell(new Phrase(venta.mes_anio, fuenteCelda));
                     tabla1.AddCell(new Phrase(venta.cantidad_ventas.ToString(), fuenteCelda));
-                    tabla1.AddCell(new Phrase($"${venta.inversion:N2}", fuenteCelda));
                     tabla1.AddCell(new Phrase($"${venta.subtotal:N2}", fuenteCelda));
-                    tabla1.AddCell(new Phrase($"${venta.total:N2}", fuenteCelda));
+                    tabla1.AddCell(new Phrase($"${venta.total_descuento:N2}", fuenteCelda));
+                    tabla1.AddCell(new Phrase($"${venta.total_vendido:N2}", fuenteCelda));
+                    tabla1.AddCell(new Phrase($"${venta.inversion_mes:N2}", fuenteCelda));
+                    tabla1.AddCell(new Phrase($"${venta.ganancia_mes:N2}", fuenteCelda));
+                    tabla1.AddCell(new Phrase($"${venta.reinversion_20:N2}", fuenteCelda));
                 }
 
                 doc.Add(tabla1);
@@ -84,7 +86,7 @@ namespace InventoryWalmart.Exporters
                 doc.Add(Chunk.NEWLINE);
 
                 // TABLA DETALLADA POR CATEGORÍA
-                Paragraph detalle = new Paragraph("DETALLE POR CATEGORÍA", fuenteTitulo);
+                Paragraph detalle = new Paragraph("DETALLE POR CATEGORÍA DEL MES", fuenteTitulo);
                 detalle.Alignment = Element.ALIGN_CENTER;
                 detalle.SpacingAfter = 10f;
                 doc.Add(detalle);
@@ -129,12 +131,9 @@ namespace InventoryWalmart.Exporters
             }
             catch (Exception ex)
             {
-                throw new Exception("Error al generar el PDF: " + ex.Message, ex);
+                throw new Exception("Error al generar el PDF mensual: " + ex.Message, ex);
             }
         }
-
-
-
-
     }
+
 }

@@ -60,6 +60,7 @@
     <Compile Include="Exporters\VentasDiariasCPDF.cs" />
     <Compile Include="Exporters\ventasPorCajerosPDF.cs" />
     <Compile Include="Exporters\VentasTotalesSmanaCategoPDF.cs" />
+    <Compile Include="Exporters\VentaTotalMensualPDF.cs" />
     <Compile Include="Interfaces\ReportesVentasAutomaticos.cs" />
     <Compile Include="InventoryWalmartDataSet1.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -67,6 +68,7 @@
       <DependentUpon>InventoryWalmartDataSet1.xsd</DependentUpon>
     </Compile>
     <Compile Include="ModelRepors\CategoriasDIA.cs" />
+    <Compile Include="ModelRepors\CategoriasMes.cs" />
     <Compile Include="ModelRepors\CategoriasSemana.cs" />
     <Compile Include="ModelRepors\gastosClientesTarjeta.cs" />
     <Compile Include="ModelRepors\HistorialVentas.cs" />

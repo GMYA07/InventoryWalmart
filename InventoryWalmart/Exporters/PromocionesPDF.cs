@@ -1,14 +1,13 @@
-﻿using System;
+﻿using InventoryWalmart.Interfaces;
+using InventoryWalmart.ModelRepors;
+using iTextSharp.text;
+using iTextSharp.text.pdf;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using InventoryWalmart.Interfaces;
-using InventoryWalmart.ModelRepors;
-using iTextSharp.text.pdf;
-using iTextSharp.text;
+using System.Windows.Forms;
+using iTextSharp.text.pdf.draw;
 
 namespace InventoryWalmart.Exporters
 {
@@ -18,55 +17,95 @@ namespace InventoryWalmart.Exporters
         {
             try
             {
-                Document doc = new Document(PageSize.A4, 40f, 40f, 60f, 40f);
-                PdfWriter.GetInstance(doc, new FileStream(ruta, FileMode.Create));
+                Document doc = new Document(PageSize.A4, 40, 40, 60, 50);
+                PdfWriter writer = PdfWriter.GetInstance(doc, new FileStream(ruta, FileMode.Create));
                 doc.Open();
 
-                // Título principal
-                Paragraph titulo = new Paragraph("Promociones", new Font(Font.FontFamily.HELVETICA, 18, Font.BOLD));
+                // Fuentes
+                Font fuenteTitulo = FontFactory.GetFont(FontFactory.HELVETICA_BOLD, 18, BaseColor.DARK_GRAY);
+                Font fuenteSubtitulo = FontFactory.GetFont(FontFactory.HELVETICA, 12, Font.ITALIC, BaseColor.GRAY);
+                Font fuenteEncabezado = FontFactory.GetFont(FontFactory.HELVETICA_BOLD, 9, BaseColor.WHITE);
+                Font fuenteCelda = FontFactory.GetFont(FontFactory.HELVETICA, 11);
+
+                // Logo
+                string rutaLogo = Path.Combine(Application.StartupPath, @"C:\Users\carlo\Desktop\InventoryWalmart\InventoryWalmart\Resources\Walmart-Logo.png");
+                if (File.Exists(rutaLogo))
+                {
+                    iTextSharp.text.Image logo = iTextSharp.text.Image.GetInstance(rutaLogo);
+                    logo.ScaleAbsolute(100, 50);
+                    logo.Alignment = Element.ALIGN_LEFT;
+                    doc.Add(logo);
+                }
+
+                // Título
+                Paragraph titulo = new Paragraph("REPORTE DE PROMOCIONES", fuenteTitulo);
                 titulo.Alignment = Element.ALIGN_CENTER;
+                titulo.SpacingAfter = 5f;
                 doc.Add(titulo);
 
-                // Subtítulo con fecha y empresa
-                Paragraph sub = new Paragraph("Walmart - Fecha de creación: " + DateTime.Now.ToString("dd/MM/yyyy HH:mm"),
-                    new Font(Font.FontFamily.HELVETICA, 12, Font.ITALIC));
+                // Subtítulo
+                Paragraph sub = new Paragraph("Walmart - Fecha de creación: " + DateTime.Now.ToString("dd/MM/yyyy HH:mm"), fuenteSubtitulo);
                 sub.Alignment = Element.ALIGN_CENTER;
-                sub.SpacingAfter = 20f;
+                sub.SpacingAfter = 15f;
                 doc.Add(sub);
 
+                // Separador
+                LineSeparator separador = new LineSeparator(1f, 100f, BaseColor.LIGHT_GRAY, Element.ALIGN_CENTER, -1);
+                doc.Add(new Chunk(separador));
+                doc.Add(Chunk.NEWLINE);
+
                 // Tabla
-                PdfPTable tabla = new PdfPTable(4);
-                tabla.WidthPercentage = 100;
-                tabla.SetWidths(new float[] { 2.5f, 2, 2.5f, 2.5f});
+                PdfPTable tabla = new PdfPTable(4)
+                {
+                    WidthPercentage = 100
+                };
+                tabla.SetWidths(new float[] { 35f, 20f, 25f, 20f });
 
                 // Encabezados
-                string[] headers = { "decripcion", "noseCODE", "noseTYPE", "status"};
+                string[] headers = { "Descripción", "Código Descuento", "Tipo de Descuento", "Estado" };
                 foreach (string header in headers)
                 {
-                    PdfPCell celda = new PdfPCell(new Phrase(header, new Font(Font.FontFamily.HELVETICA, 11, Font.BOLD, BaseColor.WHITE)));
-                    celda.BackgroundColor = new BaseColor(52, 73, 94); // azul oscuro
-                    celda.HorizontalAlignment = Element.ALIGN_CENTER;
-                    celda.Padding = 5;
+                    PdfPCell celda = new PdfPCell(new Phrase(header, fuenteEncabezado))
+                    {
+                        BackgroundColor = new BaseColor(0, 102, 204),
+                        Padding = 6,
+                        HorizontalAlignment = Element.ALIGN_CENTER
+                    };
                     tabla.AddCell(celda);
                 }
 
-                // Cuerpo de tabla
+                // Datos
                 foreach (var item in datos)
                 {
-                    tabla.AddCell(new PdfPCell(new Phrase(item.decripcion)) { Padding = 5 });
-                    tabla.AddCell(new PdfPCell(new Phrase(item.noseCODE.ToString())) { Padding = 5 });
-                    tabla.AddCell(new PdfPCell(new Phrase(item.noseTYPE)) { Padding = 5 });
-                    tabla.AddCell(new PdfPCell(new Phrase(item.status)) { Padding = 5 });
+                    if (item == null) continue;
+
+                    tabla.AddCell(new Phrase(item.decripcion ?? "N/A", fuenteCelda));
+                    tabla.AddCell(new Phrase(item.codigoDescuento?.ToString() ?? "N/A", fuenteCelda));
+                    tabla.AddCell(new Phrase(item.tipodescuento ?? "N/A", fuenteCelda));
+                    tabla.AddCell(new Phrase(item.status ?? "N/A", fuenteCelda));
                 }
 
                 doc.Add(tabla);
-                doc.Close();
 
+                // Separador inferior
+                doc.Add(Chunk.NEWLINE);
+                doc.Add(new Chunk(separador));
+
+                // Pie de página
+                Paragraph pie = new Paragraph("Reporte generado automáticamente para uso administrativo interno del sistema InventoryWalmart.", fuenteSubtitulo);
+                pie.Alignment = Element.ALIGN_CENTER;
+                pie.SpacingBefore = 10f;
+                doc.Add(pie);
+
+                doc.Close();
+                writer.Close();
+
+                MessageBox.Show("PDF generado correctamente", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Process.Start("explorer", ruta);
             }
             catch (Exception ex)
             {
-                System.Windows.Forms.MessageBox.Show("Error al generar el PDF: " + ex.Message);
+                throw new Exception("Error al generar el PDF: " + ex.Message, ex);
             }
         }
     }

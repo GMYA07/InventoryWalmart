@@ -587,8 +587,8 @@ namespace InventoryWalmart
                 int i = dataGrid_promo.Rows.Add(
 
                 item.decripcion,
+                item.discount_amount,
                 item.codigoDescuento,
-
                 item.tipodescuento,
                 item.status
 
@@ -599,6 +599,11 @@ namespace InventoryWalmart
         }
 
         private void dataGrid_mensual_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void dataGridView_ventaDiaria_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }

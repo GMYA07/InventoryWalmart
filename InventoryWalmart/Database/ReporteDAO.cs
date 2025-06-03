@@ -194,9 +194,10 @@ namespace InventoryWalmart.Database
                     Promociones prom = new Promociones();
 
                     prom.decripcion = reader.GetString(0);
-                    prom.codigoDescuento = reader.GetString(1);
-                    prom.tipodescuento = reader.GetString(2);
-                    prom.status = reader.GetString(3);
+                    prom.discount_amount = reader.GetDecimal(1);
+                    prom.codigoDescuento = reader.GetString(2);
+                    prom.tipodescuento = reader.GetString(3);
+                    prom.status = reader.GetString(4);
                     lista.Add(prom);
                 }
                 conn.Close();
